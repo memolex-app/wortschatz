@@ -1,4 +1,4 @@
--- Memolex : table de synchronisation. À lancer une fois dans Supabase → SQL Editor (même projet qu'Album Ledger).
+-- Memolex : table de synchronisation. À lancer une fois dans Supabase → SQL Editor (projet memolex).
 create table if not exists public.memolex (
   user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
   id text not null,

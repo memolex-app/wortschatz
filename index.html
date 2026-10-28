@@ -1592,7 +1592,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const SB_URL="https://vijlxamhpmepnowutnkr.supabase.co", SB_KEY="sb_publishable_cobYQqpl-AvpeebLAaMYpQ_DL0-iqq3", SB_TABLE="memolex", SYNC_KEY="mx-sync";
+const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
 SY.dirty=SY.dirty||{}; SY.tomb=SY.tomb||{};
 let SYNCING=false, SYNC_T=null, SYNC_AGAIN=false;
@@ -1684,7 +1684,7 @@ async function syncNow(quiet){
   }
 }
 
-/* --- connexion par lien reçu par e-mail (comme Album Ledger, même compte) --- */
+/* --- connexion par lien reçu par e-mail (compte propre à Memolex) --- */
 const sbSendLink=email=>sbReq('/auth/v1/otp?redirect_to='+encodeURIComponent(location.origin+location.pathname),{method:'POST',body:{email,create_user:true}},false);
 async function authHash(){
   const h=location.hash; if(!/access_token=|error_code=/.test(h)) return;
@@ -1711,7 +1711,7 @@ function syUi(msg){
     ? `<p>Connecté : <b>${esc(SY.email||'')}</b></p><p class="hint">${SY.err?esc(SY.err):SY.last?'Dernière synchro '+syWhen(SY.last):'Pas encore synchronisé'}</p>
        <div class="row"><button type="button" class="btn" data-sygo ${SYNCING?'disabled':''}>${SYNCING?'Synchronisation…':'Synchroniser maintenant'}</button><button type="button" class="btn ghost" data-syout>Se déconnecter</button></div>
        <p class="hint">Tes mots, ta progression et tes réglages vont sur tous les appareils connectés avec cette adresse. La synchro se fait seule après chaque réponse et à l'ouverture de l'appli.</p>`
-    : `<p class="hint">Connecte-toi pour retrouver tes mots et ta progression sur ton téléphone et ton ordinateur. Pas de mot de passe : tu reçois un lien par e-mail, à ouvrir sur l'appareil à connecter. C'est le même compte qu'Album Ledger.</p>
+    : `<p class="hint">Connecte-toi pour retrouver tes mots et ta progression sur ton téléphone et ton ordinateur. Pas de mot de passe : tu reçois un lien par e-mail, à ouvrir sur l'appareil à connecter.</p>
        <label for="syEmail">Adresse e-mail<input type="email" id="syEmail" autocomplete="email" placeholder="toi@exemple.fr"></label>
        <button type="button" class="btn" data-sylink>M'envoyer le lien de connexion</button>`;
   if(box.dataset.msg) box.insertAdjacentHTML('beforeend',`<p class="hint" aria-live="polite"><b>${esc(box.dataset.msg)}</b></p>`);
