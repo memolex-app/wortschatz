@@ -1,0 +1,1737 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Memolex</title>
+<meta name="theme-color" content="#1c1a2b">
+<meta name="description" content="Vocabulaire allemand-français par répétition espacée, hors ligne.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout : une colonne étroite, pensée téléphone ; la carte est une « fenêtre » d'ordinateur 1980, onglets en bas comme une barre des tâches */
+:root{
+  --bg:#e6e0d0; --surface:#f8f4e8; --ink:#1c1a2b; --muted:#5d586b; --line:#b9b1a0;
+  --hi:#ffffff; --lo:#9a927f;
+  --accent:#1d5f6b; --accent-ink:#ffffff;
+  --der:#2353b8; --die:#c3302c; --das:#257a36;
+  --der-bg:#dfe6f6; --die-bg:#f7e1dd; --das-bg:#dcefdc;
+  --ok:#257a36; --bad:#c3302c; --learn:#b06a08;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15131f; --surface:#221f31; --ink:#f1e8d3; --muted:#a8a1b6; --line:#3d3952;
+  --hi:#3f3a58; --lo:#08070d;
+  --accent:#4ec2bd; --accent-ink:#15131f;
+  --der:#7fa6ff; --die:#ff8478; --das:#72d08a;
+  --der-bg:#1d2a4c; --die-bg:#43201f; --das-bg:#18372a;
+  --ok:#72d08a; --bad:#ff8478; --learn:#f0b44c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15131f; --surface:#221f31; --ink:#f1e8d3; --muted:#a8a1b6; --line:#3d3952;
+  --hi:#3f3a58; --lo:#08070d;
+  --accent:#4ec2bd; --accent-ink:#15131f;
+  --der:#7fa6ff; --die:#ff8478; --das:#72d08a;
+  --der-bg:#1d2a4c; --die-bg:#43201f; --das-bg:#18372a;
+  --ok:#72d08a; --bad:#ff8478; --learn:#f0b44c; color-scheme:dark}
+
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+.app{max-width:560px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:16px 96px;gap:18px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header h1{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+header h1 .pair{font-family:var(--f-body);font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.sync{font-size:.78rem;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.stat b{display:block;font-family:var(--f-display);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+/* review */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 22px;min-height:300px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;box-shadow:0 6px 24px -14px rgba(20,30,60,.35)}
+.prompt-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.postag{display:inline-block;margin-top:.5rem;padding:.1rem .55rem;border:1px solid var(--line, currentColor);border-radius:999px;font-size:.75rem;font-style:italic;color:var(--muted)}
+.word{font-family:var(--f-display);font-size:clamp(1.8rem,8vw,2.6rem);font-weight:700;line-height:1.15;overflow-wrap:anywhere}
+.art{font-weight:800}
+.g-der{color:var(--der)} .g-die{color:var(--die)} .g-das{color:var(--das)}
+.plural{color:var(--muted);font-size:1rem}
+.example{font-style:italic;color:var(--muted);max-width:40ch;overflow-wrap:anywhere}
+.tex{display:flex;flex-direction:column;gap:2px;max-width:40ch;margin-top:6px;padding:10px 14px;border-radius:12px;background:var(--bg);text-align:left;width:100%;box-sizing:border-box}
+.tex .tde{margin:0;font-size:1.02rem;overflow-wrap:anywhere}
+.tex .tde mark{background:none;color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+.tex .tsense{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.tex.chunk{border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.tex.chunk .tde{font-weight:600}
+.tex.own .tde{font-size:.95rem}
+.moreex{width:100%;max-width:40ch;margin-top:6px}
+.moreex>summary{list-style:none;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:8px;min-height:44px;box-sizing:border-box;color:var(--muted);font-size:.85rem;border-radius:12px;-webkit-tap-highlight-color:transparent}
+.moreex>summary::-webkit-details-marker{display:none}
+.moreex>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.moreex .chev{display:inline-block;font-size:1.2rem;line-height:1;transform:translateY(-3px);transition:transform .2s}
+.moreex[open] .chev{transform:rotate(180deg) translateY(-3px)}
+.tex .tfr{margin:0;color:var(--muted);font-size:.9rem;font-style:italic;overflow-wrap:anywhere}
+.credits{max-height:320px;overflow-y:auto;font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums;border:1px solid var(--line);border-radius:10px;padding:8px 10px;overflow-wrap:anywhere}
+.guide details summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.answer{display:flex;flex-direction:column;gap:6px;align-items:center;border-top:1px dashed var(--line);padding-top:14px;width:100%}
+.verdict{font-weight:700;font-size:.9rem}
+.verdict.ok{color:var(--ok)} .verdict.bad{color:var(--bad)}
+.artpick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.artpick button{font-family:var(--f-display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:999px;border:2px solid currentColor;background:transparent;cursor:pointer}
+.artpick .b-der{color:var(--der)} .artpick .b-die{color:var(--die)} .artpick .b-das{color:var(--das)}
+.artpick button:hover{background:var(--bg)}
+.casepick{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.casepick .prompt-label{text-align:center}
+.artpick .b-case{color:var(--accent);font-size:.95rem;padding:10px 14px}
+.artpick .b-case[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.casepick .btn[disabled]{opacity:.45;cursor:default}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grades button{padding:12px 4px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;font-weight:700;font-size:.9rem;display:flex;flex-direction:column;align-items:center;gap:2px}
+.grades button small{font-weight:400;color:var(--muted);font-size:.72rem;font-variant-numeric:tabular-nums}
+.grades .g1{border-color:var(--bad)} .grades .g4{border-color:var(--ok)}
+.btn{font:inherit;font-weight:700;padding:13px 18px;border-radius:12px;border:none;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.btn.small{padding:8px 12px;font-size:.88rem}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.dir{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{font:inherit;font-size:.82rem;padding:6px 12px;border:none;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.empty{text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:12px;align-items:center}
+.empty h2{color:var(--ink);font-size:1.3rem}
+
+/* list */
+.search{width:100%;font:inherit;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-sizing:border-box}
+.list{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px 14px;border-top:1px solid var(--line);align-items:center}
+.item:first-child{border-top:none}
+.item .de{font-weight:700;min-width:0;overflow-wrap:anywhere}
+.item .fr{color:var(--muted);font-size:.92rem;min-width:0;overflow-wrap:anywhere;grid-column:1}
+.item .meta{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.pill{font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--bg);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill.new{background:var(--der-bg);color:var(--der)} .pill.known{background:var(--das-bg);color:var(--das)}
+.link{background:none;border:none;color:var(--muted);font:inherit;font-size:.78rem;cursor:pointer;padding:0;text-decoration:underline}
+.link.danger{color:var(--bad)}
+
+/* levels */
+.panel{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.levels{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%}
+.level{font:inherit;text-align:left;display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:0}
+.level b{font-family:var(--f-display);font-size:1.4rem;font-weight:800;color:var(--accent);line-height:1.1}
+.level span{font-weight:700;font-size:.9rem}
+.level small{color:var(--muted);font-size:.76rem;font-variant-numeric:tabular-nums}
+.level .meter{display:block;width:100%;margin-top:6px;height:5px}
+.level:hover:not(:disabled){border-color:var(--accent)}
+.level:disabled{opacity:.55;cursor:default}
+.empty .levels{max-width:360px}
+.levels-wrap{display:flex;flex-direction:column;gap:12px;width:100%}
+.empty .levels-wrap{max-width:360px;align-items:stretch}
+.level[aria-expanded="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.packs{display:flex;flex-direction:column;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);text-align:left}
+.packs-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.packs-head b{font-family:var(--f-display);font-size:1.05rem}
+.packs-head small{color:var(--muted);font-size:.78rem}
+.packs .btn{align-self:flex-start}
+.confirm{display:flex;flex-direction:column;gap:10px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--accent)}
+.confirm p{margin:0}
+.dupbox{display:flex;flex-direction:column;gap:10px;padding:12px 14px;border-radius:12px;background:var(--bg);border:1px solid var(--accent);text-align:left}
+.dupbox p{margin:0}
+.dupitem{display:flex;flex-direction:column;gap:4px;padding-top:8px;border-top:1px solid var(--line)}
+.dupitem .de{font-weight:700}
+.dupitem small{color:var(--muted);font-size:.78rem}
+.meter{position:relative;height:6px;background:var(--line);border-radius:999px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok);border-radius:999px;transition:width .2s}
+/* barre de session : le remplissage suit la carte affichée, la boule reste sur la carte en cours */
+.smeter{position:relative;height:6px;background:var(--line);border-radius:999px;margin:4px 6px}
+.smeter i{position:absolute;left:0;top:0;bottom:0;background:var(--ok);border-radius:999px;transition:width .2s}
+.smeter b{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ok);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--ok)}
+.sizes{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%;max-width:380px}
+.sizes .size{flex:1 1 80px;max-width:110px}
+.size:disabled{opacity:.35;cursor:not-allowed}
+.size:disabled small{font-size:.66rem}
+.size{font:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:0}
+.size b{font-family:var(--f-display);font-size:1.25rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.size small{color:var(--muted);font-size:.72rem;white-space:nowrap}
+.size[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:var(--accent-ink)}
+.size[aria-pressed="true"] small{color:var(--accent-ink);opacity:.85}
+.size:disabled{opacity:.4;cursor:default}
+.dir small.hint{font-size:.76rem}
+/* lessons & chips */
+.lesson{display:flex;flex-direction:column;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.lesson-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.lesson-head b{font-family:var(--f-display);font-size:1.1rem}
+.lesson-head small{color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.chip{font:inherit;font-size:.82rem;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip:disabled,.btn:disabled{opacity:.5;cursor:default}
+.pill.lvl{background:transparent;border:1px solid var(--line);font-weight:700}
+.stsel{width:auto;font:inherit;font-size:.74rem;font-weight:700;padding:3px 24px 3px 10px;border-radius:999px;border:1px solid var(--line);background-color:var(--bg);color:var(--muted);cursor:pointer;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 8px) 55%;background-size:4px 4px;background-repeat:no-repeat}
+.stsel.st-new{background-color:var(--der-bg);color:var(--der);border-color:transparent}
+.stsel.st-known{background-color:var(--das-bg);color:var(--das);border-color:transparent}
+.stsel.st-learn{color:var(--learn)}
+.item .meta .when{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+/* filters & legend */
+.filters{display:flex;flex-direction:column;gap:8px}
+.frow{display:flex;gap:10px;align-items:baseline}
+.flabel{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;min-width:56px}
+.chip .cnt{font-weight:400;opacity:.7;margin-left:2px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.d-der{background:var(--der)} .d-die{background:var(--die)} .d-das{background:var(--das)} .d-none{background:var(--ink)}
+.item .src{font-size:.78rem;opacity:.75}
+/* guide */
+.guide{display:flex;flex-direction:column;gap:14px}
+.guide section{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.guide h2{font-size:1.15rem;font-weight:700}
+.guide p{margin:0;max-width:65ch}
+.guide ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.grades-doc{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0}
+.grades-doc dt{font-weight:700}
+.grades-doc dt.bad{color:var(--bad)} .grades-doc dt.good{color:var(--ok)}
+.grades-doc dd{margin:0;color:var(--muted)}
+.tbl{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl th{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.tbl tr.rec td{background:var(--das-bg);font-weight:700}
+.advice{border-left:4px solid var(--accent);padding:4px 0 4px 14px;display:flex;flex-direction:column;gap:4px}
+.advice b:first-child{font-family:var(--f-display);color:var(--accent)}
+/* sessions */
+.sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.sess{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border-radius:12px;border:1px solid var(--line);background:var(--surface);min-width:0}
+.sess b{font-family:var(--f-display);font-size:1.1rem;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);color:var(--muted)}
+.sess span{font-weight:700;font-size:.82rem}
+.sess small{font-size:.72rem;color:var(--muted)}
+.sess.done b{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.sess.now{border-color:var(--accent)}
+.sess.now b{border-color:var(--accent);color:var(--accent)}
+.sess.todo{opacity:.6}
+/* end-of-day & practice */
+.more{display:flex;flex-direction:column;gap:8px;width:100%;max-width:340px}
+.more .btn{display:flex;flex-direction:column;align-items:center;gap:2px}
+.more .btn small{font-weight:400;font-size:.78rem;opacity:.8}
+.grades.two-col{grid-template-columns:1fr 1fr}
+.cardnav{position:relative}
+.navbtn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:2rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 4px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+/* téléphone : les flèches vont dans les coins hauts de la carte, zone vide, pour ne jamais couvrir le texte */
+.navbtn.prev{left:8px} .navbtn.next{right:8px}
+@media (max-width:719px){ .navbtn{top:8px;transform:none;width:40px;height:40px;font-size:1.6rem;box-shadow:none} }
+.navbtn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media (min-width:720px){ .navbtn.prev{left:-62px} .navbtn.next{right:-62px} }
+.card.past{border-style:dashed}
+.grades button.chosen{outline:3px solid var(--ink);outline-offset:1px}
+.practice-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:.86rem;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:8px 12px}
+.practice-bar b{color:var(--accent)}
+/* batches */
+.batches summary{display:flex;justify-content:space-between;align-items:baseline;gap:8px;cursor:pointer;list-style:none;flex-wrap:wrap}
+.batches summary::-webkit-details-marker{display:none}
+.batches summary b{font-family:var(--f-display)}
+.batches[open] summary{margin-bottom:4px}
+.batch{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px;border-top:1px solid var(--line)}
+.batch div{display:flex;flex-direction:column;min-width:0}
+.batch small{color:var(--muted);font-size:.78rem}
+/* forms */
+form{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--muted);font-weight:700}
+input,textarea,select{font:inherit;font-weight:400;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;box-sizing:border-box}
+textarea{min-height:140px;resize:vertical;font-size:.92rem}
+.two{display:grid;grid-template-columns:110px 1fr;gap:10px}
+.hint{font-size:.82rem;color:var(--muted);margin:0}
+code{background:var(--bg);padding:1px 5px;border-radius:5px;font-size:.85em}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom, 0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:.88rem;z-index:30;max-width:calc(100% - 32px)}
+
+/* dictionnaire */
+.dict-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.dict-head small{color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+#dq{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;box-sizing:border-box;font-size:1.05rem}
+#dq:focus{outline:2px solid var(--accent);outline-offset:1px}
+.dict .umlauts{justify-content:flex-start}
+.dres,.dsense{display:flex;flex-direction:column;gap:6px}
+.dres:empty{display:none}
+.dgroup{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;margin-top:4px}
+.dhit{font:inherit;text-align:left;display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:0}
+.dhit:hover,.dhit:focus-visible{border-color:var(--accent)}
+.dhit .dw{min-width:0;overflow-wrap:anywhere;font-size:1.02rem}
+.dhit .dfr{grid-column:1;color:var(--muted);font-size:.9rem;min-width:0;overflow-wrap:anywhere}
+.dhit .dmeta{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-end;gap:4px;justify-content:center}
+.dhit .dmeta small{color:var(--muted);font-size:.74rem}
+.dsn{font:inherit;text-align:left;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:0}
+.dsn span{font-weight:700;overflow-wrap:anywhere}
+.dsn small{color:var(--muted);font-size:.8rem;font-style:italic;overflow-wrap:anywhere}
+.dhit .ddef{grid-column:1;color:var(--muted);font-size:.8rem;font-style:italic;min-width:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.dnote{margin:-2px 0 2px}
+.dsn small b{font-style:normal;font-weight:700}
+.fnote{color:var(--muted);font-size:.95rem;margin-top:-6px;max-width:34ch;overflow-wrap:anywhere}
+.fnote.cue{font-size:.85rem;margin-top:0}
+.fnote.cue b{color:var(--accent);font-weight:700}
+.fnote.gram{margin-top:0;font-size:.88rem}
+.plprev{margin:-6px 0 0}
+.plprev:empty{display:none}
+.dhit .dest{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill.est{border-style:dashed}
+#fEst:empty{display:none}
+.dsn[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+
+/* cas des prépositions */
+.word .inote{font-size:.5em;font-weight:500;color:var(--muted);white-space:nowrap}
+.pcase{font-size:.6em;font-weight:700;color:var(--muted);white-space:nowrap;vertical-align:.15em}
+.prepnote{max-width:34rem;margin:.6rem auto 0;text-align:left;font-size:.95rem;line-height:1.45;color:var(--muted)}
+.prepnote p{margin:.25rem 0}
+.prepnote b{color:var(--ink)}
+.prepnote span{color:var(--ink);font-style:italic}
+/* progression */
+.progress{display:flex;flex-direction:column;gap:8px;margin-top:-6px}
+.progress:empty{display:none}
+.pbar{display:flex;height:8px;border-radius:999px;overflow:hidden;background:var(--line)}
+.pbar i{display:block;height:100%}
+.p-new{background:var(--muted)} .p-learn{background:var(--learn)} .p-rev{background:var(--der)} .p-known{background:var(--ok)}
+.plegend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.pk{font:inherit;font-size:.8rem;color:var(--muted);background:none;border:none;padding:2px 0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pk i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.pk b{color:var(--ink);font-variant-numeric:tabular-nums}
+.pk:hover{color:var(--ink)}
+/* lettres allemandes */
+.umlauts{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+form .umlauts{justify-content:flex-start}
+.uml{font:inherit;font-weight:700;font-size:1.05rem;min-width:44px;min-height:40px;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.uml:active{background:var(--accent);color:var(--accent-ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:20;
+  padding-bottom:env(safe-area-inset-bottom, 0px);padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+nav.tabs button{font:inherit;font-weight:700;font-size:.8rem;padding:14px 2px;background:none;border:none;color:var(--muted);cursor:pointer;border-top:3px solid transparent}
+nav.tabs button[aria-current="page"]{color:var(--accent);border-top-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* ===== Habillage rétro-futuriste : fenêtres à biseaux, bandes années 70, police machine pour les étiquettes ===== */
+/* bandes 70s réutilisées sur le logo, la barre de titre de la carte et la barre d'onglets */
+:root{ --stripes:linear-gradient(180deg,var(--der) 0 25%,var(--die) 25% 50%,var(--das) 50% 75%,var(--learn) 75% 100%);
+  --hstripes:linear-gradient(90deg,var(--der) 0 25%,var(--die) 25% 50%,var(--das) 50% 75%,var(--learn) 75%);
+  --bevel:inset -2px -2px 0 var(--lo), inset 2px 2px 0 var(--hi);
+  --sunken:inset 2px 2px 0 var(--lo), inset -2px -2px 0 var(--hi); }
+body{-webkit-tap-highlight-color:transparent}
+
+/* en-tête : logo avec quatre bandes */
+header h1{font-style:italic;letter-spacing:-.03em;align-items:center}
+header h1::before{content:"";width:22px;height:26px;background:var(--stripes);transform:skewX(-14deg);flex:none;align-self:center}
+header h1 .pair{font-family:var(--f-mono);font-style:normal;font-weight:600;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--ink);border-radius:2px;color:var(--ink);background:var(--surface);padding:2px 8px}
+.sync{font-family:var(--f-mono);font-size:.7rem}
+
+/* étiquettes en police machine */
+.prompt-label,.stat span,.flabel,.dgroup,.tex .tsense,.packs-head small,.dict-head small,.tbl th,.practice-bar,.dir,.postag,.pill,.stsel,.legend,.pk,.verdict,.cnt,.sess small{font-family:var(--f-mono)}
+.prompt-label{letter-spacing:.14em}
+
+/* compteurs façon afficheur */
+.stat{border:2px solid var(--ink);border-radius:3px;box-shadow:var(--sunken);background:var(--surface)}
+.stat b{font-family:var(--f-mono);font-weight:600;font-size:1.45rem;color:var(--accent)}
+
+/* barre de progression en blocs */
+.pbar,.meter,.smeter{border-radius:2px;border:2px solid var(--ink);background:var(--surface);height:12px;box-sizing:border-box}
+.pbar{height:14px}
+.smeter{margin:4px 0;height:16px;overflow:hidden}
+.smeter i,.meter i{border-radius:0;background:repeating-linear-gradient(90deg,var(--accent) 0 9px,transparent 9px 11px)}
+.smeter i{top:2px;bottom:2px;left:2px}
+.smeter b{display:none}
+.pk i{border-radius:1px}
+
+/* la carte = une fenêtre */
+.card{position:relative;border:2px solid var(--ink);border-radius:4px;box-shadow:var(--bevel),6px 6px 0 var(--ink);padding:46px 20px 24px;background:var(--surface)}
+.card::before{content:"MEMOLEX";position:absolute;left:0;right:0;top:0;height:24px;padding:0 10px;display:flex;align-items:center;
+  font:600 .68rem/1 var(--f-mono);letter-spacing:.2em;color:var(--surface);
+  background:linear-gradient(90deg,var(--ink) 0 calc(100% - 64px),transparent calc(100% - 64px)),var(--cardbar,var(--hstripes)) right/64px 100% no-repeat,var(--ink);transition:background .2s}
+/* la barre de la carte prend la couleur de ce qui se passe : genre du nom, bonne ou mauvaise réponse */
+.card.k-der{--cardbar:linear-gradient(var(--der),var(--der))} .card.k-die{--cardbar:linear-gradient(var(--die),var(--die))} .card.k-das{--cardbar:linear-gradient(var(--das),var(--das))}
+.card.v-ok{--cardbar:linear-gradient(var(--ok),var(--ok))} .card.v-bad{--cardbar:linear-gradient(var(--bad),var(--bad))}
+.card.k-der,.card.k-die,.card.k-das,.card.v-ok,.card.v-bad{box-shadow:var(--bevel),6px 6px 0 var(--tone)}
+.card.k-der{--tone:var(--der)} .card.k-die{--tone:var(--die)} .card.k-das{--tone:var(--das)} .card.v-ok{--tone:var(--ok)} .card.v-bad{--tone:var(--bad)}
+.card.past::before{content:"MEMOLEX · DÉJÀ VUE"}
+.card.past{border-style:solid;opacity:.97}
+.card.empty::before{content:"MEMOLEX · SESSION"}
+.answer{border-top:2px dotted var(--line)}
+
+/* encadrés d'exemple : creusés dans la fenêtre */
+.tex{border-radius:2px;background:var(--bg);box-shadow:var(--sunken)}
+.tex.chunk{border:none;background:color-mix(in srgb,var(--accent) 12%,var(--bg))}
+.tex .tde mark{text-decoration-color:var(--accent)}
+.postag{border-radius:2px;font-style:normal;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+
+/* boutons à biseau : ils s'enfoncent quand on appuie */
+.btn,.grades button,.artpick button,.size,.level,.chip,.uml,.seg,.dhit,.dsn,.navbtn,.sess{border-radius:3px}
+.btn,.grades button,.artpick button,.size,.level,.chip,.uml,.navbtn{border:2px solid var(--ink);box-shadow:var(--bevel),3px 3px 0 var(--ink);transition:transform .06s,box-shadow .06s,background-color .12s}
+.btn{text-transform:none}
+.btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--ink)}
+.grades button{background:var(--surface)}
+.grades .g1{border-top:6px solid var(--bad)} .grades .g4{border-top:6px solid var(--ok)}
+.grades .g2{border-top:6px solid var(--learn)} .grades .g3{border-top:6px solid var(--accent)}
+.grades button.chosen{outline:none;background:var(--bg);box-shadow:var(--sunken)}
+.artpick button{border-color:currentColor;background:var(--surface);box-shadow:var(--bevel),3px 3px 0 currentColor;min-width:72px}
+.artpick button:hover{background:var(--surface)}
+.artpick .b-case[aria-pressed="true"]{box-shadow:var(--sunken);transform:translate(3px,3px)}
+.level,.size,.uml{background:var(--surface)}
+.level b{font-family:var(--f-mono);font-weight:600}
+.size b{font-family:var(--f-mono);font-weight:600}
+.size[aria-pressed="true"],.chip[aria-pressed="true"],.level[aria-expanded="true"]{box-shadow:var(--sunken);transform:translate(3px,3px)}
+.chip{font-family:var(--f-mono);font-weight:600;font-size:.76rem}
+.navbtn{background:var(--surface);font-family:var(--f-mono)}
+@media (max-width:719px){ .navbtn{top:32px;box-shadow:var(--bevel),2px 2px 0 var(--ink)} }
+.btn:active:not(:disabled),.grades button:active,.artpick button:active,.size:active:not(:disabled),.level:active:not(:disabled),.chip:active:not(:disabled),.uml:active,.navbtn:active{transform:translate(3px,3px);box-shadow:var(--sunken)}
+.btn:disabled,.chip:disabled,.size:disabled{box-shadow:none;transform:none}
+.seg{border:2px solid var(--ink);border-radius:3px;box-shadow:var(--sunken);background:var(--surface)}
+.seg button{font-family:var(--f-mono);font-weight:600}
+.seg button[aria-pressed="true"]{border-radius:0}
+.link{font-family:var(--f-mono);font-size:.74rem}
+
+/* panneaux, listes, formulaires : cadres nets */
+.panel,form,.list,.guide section,.packs,.confirm,.dupbox,.lesson,.practice-bar{border-radius:3px;border:2px solid var(--ink)}
+.panel,form,.guide section{box-shadow:4px 4px 0 var(--ink)}
+.practice-bar{border-style:solid;background:var(--surface)}
+.list .item{border-top:1px dashed var(--line)}
+.panel h3,form h3,.guide h2{display:flex;align-items:center;gap:8px}
+.panel h3::before,form h3::before,.guide h2::before{content:"";width:10px;height:14px;background:var(--stripes);flex:none;transform:skewX(-14deg)}
+input,textarea,select,.search,#dq{border-radius:2px;border:2px solid var(--ink);background:var(--surface);box-shadow:var(--sunken)}
+.stsel{border-radius:2px}
+.pill{border-radius:2px}
+.dhit,.dsn{border:2px solid var(--line);background:var(--surface)}
+.dhit:hover,.dhit:focus-visible{border-color:var(--ink)}
+.advice{border-left:6px solid var(--accent)}
+.tbl tr.rec td{background:var(--das-bg)}
+code{border-radius:2px;font-family:var(--f-mono)}
+
+/* barre d'onglets façon barre des tâches */
+nav.tabs{border-top:2px solid var(--ink);box-shadow:inset 0 2px 0 var(--hi)}
+nav.tabs::before{content:"";position:absolute;left:0;right:0;top:-8px;height:6px;background:var(--hstripes)}
+nav.tabs .in{gap:6px;padding:6px 0}
+nav.tabs button{font-family:var(--f-mono);font-weight:600;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 2px;border:2px solid transparent;border-radius:3px;transition:background-color .12s,color .12s}
+nav.tabs button[aria-current="page"]{color:var(--accent-ink);background:var(--accent);border-color:var(--ink);box-shadow:var(--sunken)}
+nav.tabs button:active{transform:translateY(1px)}
+
+/* bulle d'information : une petite boîte de dialogue */
+.toast{border-radius:3px;background:var(--surface);color:var(--ink);border:2px solid var(--ink);box-shadow:var(--bevel),4px 4px 0 var(--ink);font-family:var(--f-mono);font-size:.78rem;padding:10px 14px 10px 30px}
+.toast::before{content:"";position:absolute;left:10px;top:50%;width:10px;height:14px;margin-top:-7px;background:var(--stripes);transform:skewX(-14deg)}
+
+/* ===== mouvements : réservés à qui ne les a pas désactivés ===== */
+@media (prefers-reduced-motion:no-preference){
+  .card.a-in{animation:cardIn .28s cubic-bezier(.2,.8,.3,1.1)}
+  .card.a-from-l{animation:fromL .26s cubic-bezier(.2,.8,.3,1)}
+  .card.a-from-r{animation:fromR .26s cubic-bezier(.2,.8,.3,1)}
+  .card.a-flip{animation:flip .3s ease-out}
+  @keyframes cardIn{from{transform:translateY(18px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+  @keyframes fromL{from{transform:translateX(-40px);opacity:0}to{transform:none;opacity:1}}
+  @keyframes fromR{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+  /* retournement : la carte s'écrase puis se redéploie, comme un écran qui commute */
+  @keyframes flip{0%{transform:scaleY(.04);filter:brightness(1.6)}60%{transform:scaleY(1.02)}100%{transform:none;filter:none}}
+  .verdict.ok{animation:blink .5s steps(2,end) 2}
+  .verdict.bad{animation:shake .38s ease-in-out}
+  @keyframes blink{50%{opacity:.2}}
+  @keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+  .toast:not([hidden]){animation:toastIn .22s cubic-bezier(.2,.8,.3,1.2)}
+  @keyframes toastIn{from{transform:translate(-50%,16px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+  #view.a-view>*{animation:viewIn .2s ease-out}
+  @keyframes viewIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .pulse{animation:pulse .28s ease-out}
+  @keyframes pulse{0%{filter:brightness(1.35)}100%{filter:none}}
+  .moreex[open]>.tex{animation:viewIn .2s ease-out}
+}
+/* carte qui s'en va : copie posée par-dessus, glissée à gauche (Encore, Difficile) ou à droite (Bien, Facile) */
+.card-ghost{position:fixed;margin:0;z-index:15;pointer-events:none}
+
+#sync{font:inherit;font-family:var(--f-mono);font-size:.7rem;background:none;border:none;padding:4px 0;color:var(--muted);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;display:inline-flex;align-items:center;gap:6px}
+#sync::before{content:"";width:8px;height:8px;border-radius:1px;background:var(--muted);flex:none}
+#sync[data-state="ok"]::before{background:var(--ok)} #sync[data-state="pend"]::before,#sync[data-state="busy"]::before{background:var(--learn)} #sync[data-state="err"]::before{background:var(--bad)}
+#acct{display:flex;flex-direction:column;gap:10px}
+#acct p{margin:0}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Memolex <span class="pair">Allemand · Français</span></h1>
+    <button type="button" class="sync" id="sync" data-acct>Chargement…</button>
+  </header>
+  <div class="stats">
+    <div class="stat"><b id="sDue">–</b><span>À revoir</span></div>
+    <div class="stat"><b id="sTotal">–</b><span>Mots</span></div>
+    <div class="stat"><b id="sKnown">–</b><span>Acquis</span></div>
+  </div>
+  <div class="progress" id="progress" aria-label="Où en sont tes mots"></div>
+  <main id="view"></main>
+</div>
+<nav class="tabs"><div class="in">
+  <button data-tab="review" aria-current="page">Réviser</button>
+  <button data-tab="list">Mes mots</button>
+  <button data-tab="add">Ajouter</button>
+  <button data-tab="guide">Guide</button>
+</div></nav>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DAY = 86400000;
+/* listes par niveau : les mots les plus fréquents, chargés depuis lists-de-fr.json */
+const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Autonome', C2:'Maîtrise'};
+const PACK = 100, BATCH = 50;
+let confirmLvl='';
+// les 50 prochains mots du niveau qui ne sont pas encore dans tes mots, dans l'ordre de fréquence
+function nextBatch(L){ const have=new Set([...cards.values()].map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,BATCH); }
+let LISTPOS=new Map(); let dictDeck=null;
+let LISTDATA=null, listState='idle', openLvl='', listSynced=false;
+function loadLists(){
+  if(listState==='loading' || listState==='ready') return;
+  listState='loading';
+  fetch('lists-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    LISTDATA={}; LISTPOS=new Map(); d.forEach(([L,w,p,g,pl,fr])=>{ const f={de:w, art:g, pl, fr, ex:'', pos:p}; (LISTDATA[L]=LISTDATA[L]||[]).push(f); LISTPOS.set(keyOf(f),p); });
+    listState='ready'; rerenderLevels(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
+  }).catch(()=>{ listState='error'; rerenderLevels(); });
+}
+// les traductions des listes sont corrigées au fil des versions : on met à jour les mots venus des listes
+async function syncListCards(){
+  if(!LISTDATA || mode==='loading') return;
+  const by=new Map(); Object.values(LISTDATA).forEach(a=>a.forEach(f=>by.set(keyOf(f),f)));
+  const fixes=[...cards.values()].filter(c=>c.src==='lists' && !c.frOwn).map(c=>[c,by.get(keyOf(c))]).filter(([c,f])=>f && f.fr!==c.fr).map(([c,f])=>({...c, fr:f.fr}));
+  // mot retiré des listes lors d'une relecture (traduction fausse, mot rare, forme erronée) : la carte est supprimée
+  const gone=[...cards.values()].filter(c=>c.src==='lists' && !c.frOwn && !by.has(keyOf(c)));
+  if(fixes.length){ await putMany(fixes); }
+  if(gone.length){ await removeMany(gone.map(c=>c.id)); toast(`${gone.length===1?`« ${gone[0].art?gone[0].art+' ':''}${gone[0].de} » retiré`:`${gone.length} mots retirés`} : ${gone.length===1?'il a été écarté':'ils ont été écartés'} des listes lors de la relecture`); }
+  if(fixes.length || gone.length) refresh();
+}
+/* phrases d'exemple Tatoeba (CC BY 2.0 FR), chargées depuis examples-de-fr.json */
+let EXDATA=null, exState='idle';
+function loadExamples(){
+  if(exState==='loading' || exState==='ready') return;
+  exState='loading';
+  fetch('examples-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    EXDATA=d; exState='ready'; if(tab==='review' && revealed) renderReview();
+  }).catch(()=>{ exState='error'; });
+  // chunks : expressions courtes rédigées pour Memolex, une par carte, affichées avant la phrase Tatoeba
+  fetch('chunks-de-fr.json').then(r=>r.ok?r.json():{}).then(d=>{ CHDATA=d; if(tab==='review' && revealed) renderReview(); }).catch(()=>{});
+}
+let CHDATA=null;
+function chunkHTML(c){
+  const ch=CHDATA && CHDATA[keyOf(c)]; if(!ch) return '';
+  const de=esc(ch[0]).replace(/\*([^*]+)\*/g,'<mark>$1</mark>');
+  return `<div class="tex chunk"><span class="tsense">À retenir</span><p class="tde" lang="de">${de}</p><p class="tfr">${esc(ch[1])}</p></div>`;
+}
+function ownExHTML(c){
+  if(c.def) return `<div class="tex own"><span class="tsense">Définition</span><p class="tde" lang="de">${esc(c.def)}</p></div>`;
+  return c.ex ? `<div class="tex own"><span class="tsense">Ton exemple</span><p class="tde" lang="de">${esc(c.ex)}</p></div>` : '';
+}
+function exampleHTML(c){ const ch=chunkHTML(c)+ownExHTML(c), tx=tatoebaHTML(c);
+  if(!ch || !tx) return ch+tx;   // sans chunk ni exemple à soi, les phrases restent visibles
+  const n=(tx.match(/class="tex"/g)||[]).length;
+  return ch+`<details class="moreex"><summary aria-label="Afficher les phrases d'exemple"><span class="chev" aria-hidden="true">⌄</span>${n>1?n+' exemples':'1 exemple'}</summary>${tx}</details>`; }
+function tatoebaHTML(c){
+  const list=(EXDATA && EXDATA[keyOf(c)]) || []; if(!list.length) return '';
+  // une phrase par sens du mot ; l'étiquette dit de quel sens il s'agit
+  return list.map(([de,fr,spans,label])=>{
+    let html='', pos=0;
+    (spans||[]).forEach(([a,n])=>{ if(a<pos) return; html+=esc(de.slice(pos,a))+`<mark>${esc(de.slice(a,a+n))}</mark>`; pos=a+n; });
+    html+=esc(de.slice(pos));
+    return `<div class="tex">${label?`<span class="tsense">${esc(label)}</span>`:''}<p class="tde" lang="de">${html}</p><p class="tfr">${esc(fr)}</p></div>`;
+  }).join('');
+}
+/* crédits des phrases d'exemple, chargés seulement quand on les ouvre dans le guide */
+function loadCredits(box){
+  box.innerHTML='<p class="hint">Chargement…</p>';
+  fetch('credits-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(({u,c})=>{
+    const who=i=>u[i]?esc(u[i]):'anonyme';
+    box.innerHTML=`<p class="hint">${c.length.toLocaleString('fr-FR')} phrases, ${u.length.toLocaleString('fr-FR')} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase allemande et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
+      <div class="credits">${c.map(([d,du,f,fu])=>`<div>n° ${d} · ${who(du)} — n° ${f} · ${who(fu)}</div>`).join('')}</div>`;
+  }).catch(()=>{ box.innerHTML='<p class="hint">La liste n\'a pas pu se charger.</p>'; });
+}
+function rerenderLevels(){ document.querySelectorAll('[data-levels]').forEach(el=>{ el.outerHTML=levelsHTML(); }); }
+const LESSONS = {};
+
+let cards = new Map();
+let mode = 'loading';  // 'db' | 'local' | 'loading'
+let col = null;
+let tab = 'review';
+let dir = 'fr-de';
+let revealed = false, artGuess = null;
+let listQuery = '', listFilter = '', lvlFilter = '', srcFilter = '';
+const srcOf = c => c.src || (c.lvl && c.batchLabel!=='Liste collée' ? 'lists' : 'manual');
+const STATUS = c => isNew(c) ? 'new' : isLearning(c) ? 'learn' : (c.ivl||0)>=21 ? 'known' : 'rev';
+const STATUS_LABEL = {new:'À découvrir', learn:'En apprentissage', rev:'En révision', known:'Acquis'};
+let statFilter='';
+const srcLabel = k => k==='lists' ? 'Listes par niveau' : k==='manual' ? 'Mes ajouts' : k==='dict' ? 'Dictionnaire' : k==='starter' ? 'Pack de départ' : (LESSONS[k]?LESSONS[k].title:k);
+const lvlOf = c => c.lvl || (c.est ? '~'+c.est : 'none');
+const EST_LABEL = {A:'≈ A1-A2', B:'≈ B1-B2', C:'≈ C1+'};
+const estOf = z => z>=4.7 ? 'A' : z>=3.8 ? 'B' : 'C';
+const filterMatch = c => (!lvlFilter || lvlOf(c)===lvlFilter) && (!srcFilter || srcOf(c)===srcFilter) && (!statFilter || STATUS(c)===statFilter);
+let settings = { sessSize: 20 };
+const SIZES = [20,40,60];
+let stopped = null;  // résumé affiché après « Arrêter »
+let session = null;   // { ids:[], total, done, ok }
+let triage = null;    // { ids:[], i, known }
+try{ const st=JSON.parse(localStorage.getItem('mx-settings')||'null'); if(st) settings={...settings,...st}; }catch(e){}
+
+try { dir = localStorage.getItem('mx-dir') || 'fr-de'; } catch(e){}
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,2200); }
+/* ---------- mouvements ---------- */
+const calm = () => { try{ return matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){ return false; } };
+let cardAnim = null; // 'in' | 'flip' | 'from-l' | 'from-r' : appliqué à la prochaine carte dessinée
+function flyOut(side, tone){
+  const old=document.getElementById('card'); if(!old || calm() || !old.animate) return;
+  const r=old.getBoundingClientRect(); const g=old.cloneNode(true);
+  g.removeAttribute('id'); g.classList.remove('a-in','a-flip','a-from-l','a-from-r'); g.classList.add('card-ghost');
+  if(tone){ g.classList.remove('k-der','k-die','k-das','v-ok','v-bad'); g.classList.add(tone); }
+  Object.assign(g.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',boxSizing:'border-box'});
+  document.body.appendChild(g);
+  const dx=(side==='l'?-1:1)*(window.innerWidth*0.9);
+  g.animate([{transform:'none',opacity:1},{transform:`translateX(${dx}px) rotate(${side==='l'?-9:9}deg)`,opacity:0}],{duration:340,easing:'cubic-bezier(.4,0,.7,.2)'}).onfinish=()=>g.remove();
+  setTimeout(()=>g.isConnected&&g.remove(),600);
+}
+let lastAnim=null;
+function applyCardAnim(){
+  const el=document.getElementById('card'); let a=cardAnim, delay=0; cardAnim=null;
+  if(!el || calm()) return;
+  // la carte est souvent redessinée juste après (enregistrement, synchro) : on reprend le mouvement là où il en était
+  if(a) lastAnim={a, t:performance.now()};
+  else if(lastAnim && performance.now()-lastAnim.t<360){ a=lastAnim.a; delay=performance.now()-lastAnim.t; }
+  if(!a) return;
+  if(delay) el.style.animationDelay=(-delay)+'ms';
+  el.classList.add('a-'+a);
+  el.addEventListener('animationend',()=>{ el.classList.remove('a-'+a); el.style.animationDelay=''; },{once:true});
+}
+// retour visuel sur les boutons qui restent à l'écran après un appui
+document.addEventListener('touchstart',()=>{},{passive:true}); // active :active sur iPhone
+document.addEventListener('click',e=>{ const b=e.target.closest('button,summary'); if(!b || calm()) return; b.classList.remove('pulse'); void b.offsetWidth; b.classList.add('pulse'); setTimeout(()=>b.classList.remove('pulse'),300); });
+const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+
+/* ---------- parsing ---------- */
+function parseLine(line){
+  const [left, frRaw, ...exRest] = line.split(/[;\t]/);
+  const fr = (frRaw||'').trim(), ex = exRest.join(';').trim();
+  if(!left || !left.trim() || !fr) return null;
+  let de = left.trim(), art = '', pl = '';
+  const m = de.match(/^(der|die|das)\s+(.+)$/i);
+  if(m){ art = m[1].toLowerCase(); de = m[2]; }
+  const c = de.indexOf(',');
+  if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
+  return { de, art, pl, fr, ex };
+}
+function newCard(f, batch){ const now=Date.now(); return { id:uid(), batch:batch||'', de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ex:f.ex||'', ...(f.pos?{pos:f.pos}:{}), ease:2.5, ivl:0, reps:0, lapses:0, due:now, created:now }; }
+
+/* ---------- storage ---------- */
+function saveLocal(){ if(mode!=='local') return; try{ localStorage.setItem('mx-cards', JSON.stringify([...cards.values()])); }catch(e){} }
+async function put(card){
+  card=stamp(card); cards.set(card.id, card); syMark(card.id);
+  if(mode==='db'){ try{ await col.doc(card.id).set(card); }catch(e){ handleErr(e); } }
+  else saveLocal();
+}
+async function remove(id){
+  cards.delete(id); if(SY.tok){ SY.tomb[id]=Date.now(); syMark(id); }
+  if(mode==='db'){ try{ await col.doc(id).delete(); }catch(e){ handleErr(e); } }
+  else saveLocal();
+}
+async function putMany(list){
+  list=list.map(stamp); list.forEach(c=>{ cards.set(c.id,c); if(SY.tok) SY.dirty[c.id]=1; }); syMark(null);
+  if(mode==='db'){
+    for(let i=0;i<list.length;i+=6){ await Promise.all(list.slice(i,i+6).map(c=>col.doc(c.id).set(c).catch(handleErr))); }
+  } else saveLocal();
+}
+async function removeMany(ids){
+  ids.forEach(id=>{ cards.delete(id); if(SY.tok){ SY.tomb[id]=Date.now(); SY.dirty[id]=1; } }); syMark(null);
+  if(mode==='db'){ for(let i=0;i<ids.length;i+=6){ await Promise.all(ids.slice(i,i+6).map(id=>col.doc(id).delete().catch(handleErr))); } }
+  else saveLocal();
+}
+async function saveSettings(){
+  settings.mt=Date.now(); syMark('_settings');
+  try{ localStorage.setItem('mx-settings', JSON.stringify(settings)); }catch(e){}
+  if(mode==='db'){ try{ await col.doc('_settings').set(settings); }catch(e){ handleErr(e); } }
+}
+function handleErr(e){
+  if(e && e.code==='quota_exceeded') toast('Stockage plein : supprime quelques mots.');
+  else toast("Enregistrement impossible pour l'instant. Réessaie.");
+}
+function useLocal(){
+  mode='local';
+  try{ const raw=localStorage.getItem('mx-cards'); if(raw) JSON.parse(raw).forEach(c=>cards.set(c.id,c)); }catch(e){}
+  syUi();
+  refresh(); syncFromSources(); if(listState==='ready'){ listSynced=true; syncListCards(); } else loadLists();
+  loadExamples();
+}
+async function init(){
+  const api = window.claude && window.claude.use ? window.claude : null;
+  if(!api){ useLocal(); return; }
+  const [db, user] = await Promise.all([api.use('db'), api.use('user')]);
+  const id = user ? await user.id() : null;
+  if(!db || !id){ useLocal(); return; }
+  col = db.collection('data/users/'+id);
+  mode='db'; loadExamples();
+  col.onSnapshot(snap=>{
+    const next=new Map(); snap.docs.forEach(d=>{ const v=d.data(); if(!v) return; if(d.id==='_settings'){ settings={...settings,...v}; return; } next.set(d.id,{...v,id:d.id}); });
+    cards=next;
+    $('#sync').textContent='Synchronisé sur tous tes appareils';
+    refresh(); syncFromSources(); if(!listSynced && listState==='ready'){ listSynced=true; syncListCards(); } else if(listState==='idle') loadLists();
+  }, ()=>{ $('#sync').textContent='Synchronisation interrompue'; });
+}
+
+/* ---------- scheduling (SM-2 simplifié) ---------- */
+// un mot nouveau passe 3 fois : tout de suite, ~15 min plus tard, ~3 h plus tard ; ensuite il est programmé en jours
+const STEPS = 3;
+const STEP_DELAY = [0, 15*60000, 3*3600000];
+const isLearning = c => c.ls!=null;
+function daysLabel(ivl){ return ivl===1?'1 j':ivl<30?ivl+' j':ivl<365?Math.round(ivl/30)+' mois':Math.round(ivl/365)+' an'; }
+function graduate(c, g){
+  const n={...c}; const now=Date.now();
+  const ivl = n.rivl || (g===4 ? 3 : 1);
+  delete n.ls; delete n.dueSid; delete n.rivl;
+  n.ivl=ivl; n.reps=(n.reps||0)+1; n.due=startOfDay(now)+ivl*DAY+3*3600000; return n;
+}
+// une note → la carte suivante ; requeue = la carte revient 3 cartes plus loin dans la session
+function gradeCard(c, g){
+  const now=Date.now(); let n={...c, lr:now}; delete n.dueSid;
+  if(!n.first) n.first=now;
+  if(isNew(c)){ n.intro=now; n.ls=0; }
+  if(isLearning(n)){
+    if(g===1){ n.ls=0; n.due=now; return {n, requeue:true}; }
+    if(g===2){ n.ease=Math.max(1.3,(n.ease||2.5)-0.05); n.due=now+STEP_DELAY[Math.max(1,n.ls)]; return {n}; }
+    n.ls+= g===4 ? 2 : 1; if(g===4) n.ease=(n.ease||2.5)+0.05;
+    if(n.ls>=STEPS) return {n:graduate(n,g)};
+    n.due=now+STEP_DELAY[n.ls]; return {n};
+  }
+  // mot déjà programmé en jours
+  if(g===1){ n.lapses=(n.lapses||0)+1; n.ease=Math.max(1.3,(n.ease||2.5)-0.2); n.ls=1; n.rivl=1; n.due=now; return {n, requeue:true}; }
+  if(g===2){ n.ease=Math.max(1.3,(n.ease||2.5)-0.15); n.ls=STEPS-1; n.rivl=Math.max(1,Math.round((n.ivl||1)*1.2)); n.due=now+STEP_DELAY[1]; return {n}; }
+  return {n:schedule(n,g)};
+}
+// statut choisi à la main dans Mes mots
+function withStatus(c, k){
+  const now=Date.now(), sod=startOfDay(now); const n={...c}; delete n.dueSid; delete n.rivl;
+  if(k==='new'){ ['ls','intro','first','lr','known','sorted'].forEach(f=>delete n[f]); return {...n, reps:0, lapses:0, ivl:0, ease:2.5, due:now}; }
+  if(k==='learn'){ return {...n, ls:0, due:now, intro:n.intro||now, first:n.first||now}; }
+  delete n.ls;
+  const ivl = k==='known' ? Math.max(30, n.ivl||0) : ((n.ivl>=1 && n.ivl<21) ? n.ivl : 3);
+  return {...n, reps:Math.max(1,n.reps||0), ivl, ease:n.ease||2.5, first:n.first||now, due:sod+ivl*DAY+3*3600000};
+}
+// « Je connais déjà » : le mot saute l'apprentissage et revient dans un mois pour vérifier
+function markKnown(c){ const n={...c, ls:undefined, reps:1, ivl:30, ease:2.7, known:1, due:startOfDay(Date.now())+30*DAY+3*3600000, first:c.first||Date.now()}; delete n.ls; delete n.dueSid; return n; }
+function schedule(c, g){
+  const n={...c}; const now=Date.now();
+  if(!n.first) n.first=now;
+  if(g===1){ n.lapses++; n.reps=0; n.ivl=0; n.ease=Math.max(1.3,n.ease-0.2); n.due=now; return n; }
+  if(g===2){ n.ease=Math.max(1.3,n.ease-0.15); n.ivl = n.reps===0 ? 1 : Math.max(1, Math.round(n.ivl*1.2)); }
+  if(g===3){ n.ivl = n.reps===0 ? 1 : n.reps===1 ? 3 : Math.round(n.ivl*n.ease); }
+  if(g===4){ n.ease+=0.15; n.ivl = n.reps===0 ? 3 : Math.round(Math.max(n.ivl,1)*n.ease*1.3); }
+  n.reps++; n.due = startOfDay(now) + n.ivl*DAY + 3*3600000; return n;
+}
+function startOfDay(t){ const d=new Date(t); d.setHours(0,0,0,0); return d.getTime(); }
+function preview(c,g){
+  if(g===1) return session && session.ids.length>1?'dans 3 cartes':'tout de suite';
+  const {n}=gradeCard(c,g);
+  if(!isLearning(n)) return daysLabel(n.ivl);
+  const m=Math.round((n.due-Date.now())/60000); return m<60 ? `${m} min` : `${Math.round(m/60)} h`;
+}
+const isDue = c => (c.due||0) <= Date.now();
+function whenText(t){
+  const now=Date.now(), diff=t-now;
+  if(diff<=60000) return 'dans un instant';
+  if(diff<3600000) return `dans ${Math.ceil(diff/60000)} min`;
+  const days=Math.round((startOfDay(t)-startOfDay(now))/DAY);
+  if(days===0) return `aujourd'hui à ${new Date(t).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}`;
+  if(days===1) return 'demain';
+  if(days<7) return new Date(t).toLocaleDateString('fr-FR',{weekday:'long'});
+  return new Date(t).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+}
+let wakeTimer=null;
+let synced=false;
+let importing=false;
+async function syncFromSources(){
+  if(synced || mode==='loading' || !cards.size) return; synced=true;
+  const src=new Map();
+  Object.keys(LESSONS).forEach(id=>lessonItems(id).forEach(f=>src.set(keyOf(f),f)));
+  // 1) doublons (imports lancés plusieurs fois) : on garde la carte la plus avancée
+  const groups=new Map();
+  for(const c of cards.values()){ const k=keyOf(c); if(!groups.has(k)) groups.set(k,[]); groups.get(k).push(c); }
+  const prog=c=>(c.reps||0)*100+(c.ivl||0)+(isLearning(c)?50+(c.ls||0):0)+((c.lapses||0)>0?1:0);
+  const drop=[], keepFix=[];
+  for(const g of groups.values()){ if(g.length<2) continue;
+    g.sort((a,b)=>prog(b)-prog(a) || a.created-b.created);
+    const keep={...g[0]}; let changed=false;
+    for(const o of g.slice(1)){ if(!keep.lvl&&o.lvl){keep.lvl=o.lvl;changed=true;} if(!keep.src&&o.src){keep.src=o.src;changed=true;} if(!keep.ex&&o.ex){keep.ex=o.ex;changed=true;} drop.push(o.id); }
+    if(changed) keepFix.push(keep);
+  }
+  if(drop.length){ await removeMany(drop); }
+  if(keepFix.length){ await putMany(keepFix); }
+}
+function scheduleWake(t){
+  clearTimeout(wakeTimer);
+  const d=t-Date.now();
+  if(d>0 && d<6*3600000) wakeTimer=setTimeout(()=>{ if(!session) refresh(); }, d+1000);
+}
+
+const isNew = c => (c.reps||0)===0 && (c.lapses||0)===0 && !isLearning(c);
+function introToday(){ const sod=startOfDay(Date.now()); return [...cards.values()].filter(c=>c.intro && c.intro>=sod).length; }
+// ce qui est prêt maintenant : mots en apprentissage dont le délai est passé, révisions du jour, puis nouveaux mots
+function todayPlan(){
+  const all=[...cards.values()];
+  const due=all.filter(c=>!isNew(c)&&isDue(c));
+  const learn=due.filter(isLearning).sort((a,b)=>a.due-b.due);
+  const rev=due.filter(c=>!isLearning(c)).sort((a,b)=>a.due-b.due);
+  const pending=all.filter(isNew).sort((a,b)=>a.created-b.created);
+  return { learn, rev, fresh: pending, pending };
+}
+const minutesFor = n => Math.max(1, Math.round(n*10/60)); // ~10 s par carte, ratés compris
+// avant chaque réponse : copie de la carte et de la session, pour pouvoir revenir en arrière (pas d'avance possible)
+// historique de la session : chaque réponse donnée (carte avant/après). session.view = index de la carte revue, null = carte en cours
+const GRADE_LABEL={1:'Encore',2:'Difficile',3:'Bien',4:'Facile',known:'Je connais déjà'};
+function answerOf(before, g, art){
+  if(g==='known') return {after:markKnown(before), requeue:false, adj:'known'};
+  let adj=g; if(art && art!==before.art && g>2) adj=2; // mauvais article : jamais mieux que « Difficile »
+  const {n, requeue}=gradeCard(before, adj); return {after:n, requeue:!!requeue, adj};
+}
+function recordAnswer(c, g){
+  const a=answerOf(c, g, artGuess); const first=!session.seen.has(c.id);
+  const counted = a.adj!=='known' && first, okc = counted && a.adj>=3;
+  session.hist.push({id:c.id, before:{...c}, after:a.after, grade:g, art:artGuess, requeue:a.requeue, first, counted, okc, pos:session.done+1});
+  session.ids.shift();
+  if(a.adj==='known') session.total--;
+  if(counted){ session.seen.add(c.id); session.done++; if(okc) session.ok++; }
+  if(a.requeue) session.ids.splice(Math.min(3,session.ids.length),0,c.id);
+  return a.after;
+}
+// nouvelle réponse sur une carte déjà passée : on recalcule cette carte (et ses passages suivants), sans toucher aux autres
+function changeAnswer(i, g){
+  const h=session.hist; const e=h[i]; if(e.grade===g) return null;
+  const a=answerOf(e.before, g, e.art);
+  const counted = a.adj!=='known' && e.first, okc = counted && a.adj>=3;
+  session.done += (counted?1:0)-(e.counted?1:0); session.ok += (okc?1:0)-(e.okc?1:0);
+  if(e.grade==='known' && g!=='known') session.total++;
+  if(g==='known' && e.grade!=='known') session.total--;
+  const later=h.slice(i+1).filter(x=>x.id===e.id);
+  if(!later.length){
+    if(e.requeue && !a.requeue){ const k=session.ids.indexOf(e.id); if(k>=0) session.ids.splice(k,1); }
+    if(a.requeue && !e.requeue){ const pos=session.view!=null ? 0 : 0; session.ids.splice(Math.min(3,session.ids.length),0,e.id); }
+  }
+  Object.assign(e,{after:a.after, grade:g, requeue:a.requeue, counted, okc});
+  let prev=a.after;
+  for(const x of later){ x.before={...prev}; x.after=answerOf(x.before, x.grade, x.art).after; prev=x.after; }
+  return prev;
+}
+// entraînement libre : les mots les plus proches de leur prochaine révision d'abord ; aucune réponse n'est enregistrée
+function startPractice(size){
+  const all=[...cards.values()].filter(c=>!isNew(c)&&!isDue(c)).sort((a,b)=>(a.due||0)-(b.due||0));
+  const ids=all.slice(0,size).map(c=>c.id); if(!ids.length) return false;
+  session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null, practice:true}; revealed=false; artGuess=null; return true;
+}
+function startSession(size){
+  const {learn,rev,fresh}=todayPlan();
+  const ids=[...learn,...rev,...fresh].slice(0,size).map(c=>c.id);
+  if(!ids.length) return false;
+  session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null}; revealed=false; artGuess=null; return true;
+}
+/* ---------- render ---------- */
+function refresh(){
+  const all=[...cards.values()];
+  const plan=todayPlan();
+  $('#sDue').textContent = mode==='loading'?'–':plan.learn.length+plan.rev.length;
+  $('#sTotal').textContent = mode==='loading'?'–':all.length;
+  $('#sKnown').textContent = mode==='loading'?'–':all.filter(c=>STATUS(c)==='known').length;
+  if(mode!=='loading'){ const cnt={new:0,learn:0,rev:0,known:0}; all.forEach(c=>cnt[STATUS(c)]++); const tot=all.length||1;
+    $('#progress').innerHTML=`<div class="pbar">${['new','learn','rev','known'].map(k=>`<i class="p-${k}" style="width:${100*cnt[k]/tot}%"></i>`).join('')}</div>
+      <div class="plegend">${['new','learn','rev','known'].map(k=>`<button type="button" class="pk" data-statgo="${k}"><i class="p-${k}"></i>${STATUS_LABEL[k]} <b>${cnt[k]}</b></button>`).join('')}</div>`; }
+  if(tab==='review') renderReview();
+  else if(tab==='list') renderList();
+  else if(tab==='add' && !$('#addForm')) renderAdd();
+  else if(tab==='guide' && !$('#guide')){ renderGuide(); syUi(); }
+}
+// cas régi par la préposition des verbes à préposition
+const PREP_FIXED = {mit:'Dat.',von:'Dat.',zu:'Dat.',aus:'Dat.',bei:'Dat.',nach:'Dat.',seit:'Dat.',gegenüber:'Dat.','für':'Akk.',um:'Akk.',durch:'Akk.',gegen:'Akk.',ohne:'Akk.'};
+const VERB_CASE = {'warten auf':'Akk.','sich freuen auf':'Akk.','sich freuen über':'Akk.','sich erinnern an':'Akk.','sich beschweren über':'Akk.','verzichten auf':'Akk.','sich auswirken auf':'Akk.','nachdenken über':'Akk.','sich konzentrieren auf':'Akk.','warnen vor':'Dat.','denken an':'Akk.','glauben an':'Akk.','achten auf':'Akk.','aufpassen auf':'Akk.','sich kümmern um':'Akk.','sich interessieren für':'Akk.','sich ärgern über':'Akk.','sprechen über':'Akk.','teilnehmen an':'Dat.','Angst haben vor':'Dat.','sich fürchten vor':'Dat.','sich gewöhnen an':'Akk.','sich verlassen auf':'Akk.','reagieren auf':'Akk.','hoffen auf':'Akk.','sich vorbereiten auf':'Akk.'};
+// cas régi par chaque préposition seule (grammaire de référence : Duden) ; WECHSEL = datif pour le lieu, accusatif pour la direction
+const WECHSEL='Dat. ou Akk.';
+// prépositions mixtes : la règle, un exemple avec la préposition elle-même, puis les emplois figurés qui ont un cas fixe
+const WECHSEL_NOTE = {
+  in:['im Park sein','in den Park gehen','temps (im Mai) : toujours datif'],
+  an:['an der Wand hängen','das Bild an die Wand hängen','date (am Montag) : toujours datif'],
+  auf:['auf dem Tisch liegen','auf den Tisch legen','« auf Deutsch », « warten auf » : toujours accusatif'],
+  'über':['die Lampe hängt über dem Tisch','über die Straße gehen','« au sujet de » (über Autos) et « au-delà de » (über seine Verhältnisse) : toujours accusatif'],
+  unter:['unter dem Tisch liegen','unter den Tisch fallen','« parmi » (unter Freunden) : toujours datif'],
+  vor:['vor dem Haus stehen','vor das Haus fahren','temps « il y a », « avant » (vor einem Jahr) : toujours datif'],
+  hinter:['hinter dem Haus spielen','hinter das Haus gehen',''],
+  neben:['neben dem Bett stehen','den Stuhl neben das Bett stellen',''],
+  zwischen:['zwischen den Stühlen sitzen','sich zwischen die Stühle setzen','']
+};
+function prepLine(c){
+  const n=!c.art && posOf(c)==='prep' && WECHSEL_NOTE[c.de]; if(!n) return '';
+  return `<div class="prepnote"><p><b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang="de">${esc(n[0])}</span>.</p><p><b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang="de">${esc(n[1])}</span>.</p>${n[2]?`<p>Sens figuré, ${esc(n[2])}.</p>`:''}</div>`;
+}
+const PREP_CASE = {
+  mit:'Dat.',von:'Dat.',zu:'Dat.',aus:'Dat.',bei:'Dat.',nach:'Dat.',seit:'Dat.',ab:'Dat.',außer:'Dat.','gegenüber':'Dat.',entgegen:'Dat.','gemäß':'Dat.',zufolge:'Dat., placé après le nom',samt:'Dat.',nebst:'Dat.',mitsamt:'Dat.',binnen:'Dat. ou Gén.',dank:'Dat. ou Gén.',laut:'Gén. ou Dat.',
+  'für':'Akk.',um:'Akk.',durch:'Akk.',gegen:'Akk.',ohne:'Akk.',wider:'Akk.',gen:'Akk.',bis:'Akk.',pro:'Akk., souvent sans article',per:'Akk., souvent sans article',via:'Akk., souvent sans article',entlang:'Akk. placé après le nom ; Gén. ou Dat. placé avant',
+  in:WECHSEL,an:WECHSEL,auf:WECHSEL,'über':WECHSEL,unter:WECHSEL,vor:WECHSEL,hinter:WECHSEL,neben:WECHSEL,zwischen:WECHSEL,
+  wegen:'Gén. ; familier : Dat.','während':'Gén. ; familier : Dat.',trotz:'Gén. ; familier : Dat.',statt:'Gén.',anstatt:'Gén.',anstelle:'Gén.',aufgrund:'Gén.',innerhalb:'Gén.',außerhalb:'Gén.',kraft:'Gén.',ausschließlich:'Gén.',namens:'Gén.',willen:'Gén. ; um … willen',mittels:'Gén.',anhand:'Gén.','bezüglich':'Gén.',angesichts:'Gén.',inklusive:'Gén.',einschließlich:'Gén.',seitens:'Gén.',jenseits:'Gén.','anlässlich':'Gén.',hinsichtlich:'Gén.',abseits:'Gén.',infolge:'Gén.',mithilfe:'Gén.',unterhalb:'Gén.',oberhalb:'Gén.',zugunsten:'Gén.',mangels:'Gén.',inmitten:'Gén.',unweit:'Gén.',eingangs:'Gén.','längs':'Gén. ou Dat.',seitlich:'Gén.',halber:'Gén., placé après le nom',zwecks:'Gén.',voller:'nom sans article : voller Wasser'
+};
+function prepCase(de, c){
+  if(VERB_CASE[de]) return VERB_CASE[de];
+  if(c && /^(prep|postp)$/.test(posOf(c)) && PREP_CASE[de]) return PREP_CASE[de];
+  const m=de.match(/\s(\S+)$/); if(!m || !/^(sich\s|[a-zäöüß])/.test(de)) return '';
+  return PREP_FIXED[m[1]] || '';
+}
+const GENRE = {der:'masculin', die:'féminin', das:'neutre'};
+/* deviner le cas d'une préposition, comme l'article d'un nom : on coche un ou plusieurs cas */
+const CASES=[['Akk','Accusatif'],['Dat','Datif'],['Gen','Génitif']];
+function casesIn(t){ const r=[]; if(/Akk/.test(t)) r.push('Akk'); if(/Dat/.test(t)) r.push('Dat'); if(/Gén/.test(t)) r.push('Gen'); return r; }
+// cas attendus : ceux de la langue standard ; un datif « familier » est accepté en plus, sans être exigé
+function caseTarget(c){
+  if(c.art || !/^(prep|postp)$/.test(posOf(c))) return null;
+  const t=PREP_CASE[c.de]; if(!t) return null;
+  const [std, fam]=t.split(/;\s*familier\s*:/); const need=casesIn(std); if(!need.length) return null;
+  return {need, extra: fam?casesIn(fam):[]};
+}
+let caseSel=new Set();
+function caseVerdict(c, guess){
+  const t=caseTarget(c); if(!t) return '';
+  const g=guess.slice(2).split('+').filter(Boolean), L=k=>CASES.find(x=>x[0]===k)[1].toLowerCase();
+  const ok=t.need.every(k=>g.includes(k)) && g.every(k=>t.need.includes(k)||t.extra.includes(k));
+  const famUsed=g.some(k=>t.extra.includes(k)&&!t.need.includes(k));
+  if(ok) return `<div class="verdict ok">${t.need.length>1?'Bons cas':'Bon cas'}${famUsed?` (le ${t.extra.map(L).join(', ')} est familier)`:''}</div>`;
+  return `<div class="verdict bad">Pas ${g.map(L).join(' + ')} : ${t.need.length>1?'il fallait '+t.need.map(L).join(' et '):'il fallait '+(t.need[0]==='Akk'?'l’':'le ')+L(t.need[0])}</div>`;
+}
+function gramLine(c){
+  if(!c.art) return prepLine(c);
+  const g=GENRE[c.art]+' singulier';
+  const pl=(c.pl||'').trim();
+  let p;
+  if(!pl) p = c.lvl ? 'pas de pluriel' : '';
+  else { const f=pluralOf(c.de,pl); p = f ? (f===c.de ? `pluriel identique : die ${f}` : `pluriel : die ${f}`) : `pluriel : ${pl}`; }
+  return `<div class="plural">${esc(g)}${p?` · ${esc(p)}`:''}</div>`;
+}
+function deWord(c){
+  const pc = c.art ? '' : prepCase(c.de, c);
+  return (c.art?`<span class="art g-${c.art}">${c.art}</span> `:'')+`<span class="${c.art?'g-'+c.art:''}">${esc(c.de)}</span>`+(pc?` <span class="pcase">(+ ${pc})</span>`:'');
+}
+// notes entre parenthèses : celles qui donnent un indice grammatical vont au verso, celles qui précisent le sens restent au recto (en petit)
+const GRAM_NOTE = /allemand|singulier|pluriel|collectif|datif|accusatif|génitif|nominatif|\bakk|\bdat|\+|=/i;
+// une note qui contient le mot allemand (« gar nicht », « zur Verfügung ») donnerait la réponse : elle va au verso
+function splitFr(fr, de){
+  const sense=[], gram=[]; const w=String(de||'').toLowerCase();
+  // « Ich bin dran. = c'est mon tour » : au recto seulement le français, l'expression allemande au verso
+  const front=String(fr||'').split(/\s*;\s*/).map(seg=>{ const i=seg.indexOf('='); if(i<0) return seg; gram.push(seg.trim()); return seg.slice(i+1).trim(); }).filter(Boolean).join(' ; ');
+  // une note placée juste après une traduction ne vaut que pour elle (« autour de (lieu), à (heure) ») : elle reste collée à son mot ;
+  // une note en fin de ligne vaut pour toute la carte : elle passe en dessous
+  let html=''; const perItem=/\([^()]*\)\s*[,;]?\s*[^\s(][^()]*\([^()]*\)\s*$/.test(front) && /\)\s*,/.test(front);
+  const main=front.replace(/\s*\(([^()]*)\)/g, (m,n,off)=>{
+    const isGram = GRAM_NOTE.test(n) || (w && n.toLowerCase().includes(w));
+    // dès qu'une traduction a sa propre note, la note finale appartient aussi à la dernière traduction
+    const inline = !isGram && (/\S/.test(front.slice(off+m.length)) || perItem);
+    if(isGram) gram.push(n.trim()); else if(!inline) sense.push(n.trim());
+    return inline ? `\u0001${n.trim()}\u0002` : ''; }).replace(/\s{2,}/g,' ').trim();
+  html = esc(main).replace(/\u0001([^\u0002]*)\u0002/g, ' <span class="inote">($1)</span>');
+  const plain = main.replace(/\u0001[^\u0002]*\u0002/g,'').replace(/\s+,/g,',').replace(/\s{2,}/g,' ').trim();
+  return { main: plain||String(fr||''), html: html||esc(String(fr||'')), sense, gram };
+}
+/* mots qui partagent une traduction (là → da, dort) : un indice au recto, la liste au verso */
+const frItems = c => splitFr(c.fr, c.de).main.toLowerCase().split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l['’]\s*)/,'').trim()).filter(Boolean);
+let sibIndex=null, sibStamp='';
+function siblingsOf(c){
+  const stamp=cards.size+':'+[...cards.keys()].slice(-3).join();
+  if(!sibIndex || sibStamp!==stamp){ sibIndex=new Map(); sibStamp=stamp;
+    for(const x of cards.values()) for(const t of frItems(x)){ if(!sibIndex.has(t)) sibIndex.set(t,new Set()); sibIndex.get(t).add(x.id); } }
+  // ambigu seulement si toutes les traductions de la carte conviennent aussi à l'autre mot (« là » : da et dort ; pas « dans, en, à »)
+  const its=frItems(c); if(!its.length) return [];
+  let ids=[...(sibIndex.get(its[0])||[])];
+  for(const t of its.slice(1)){ const set=sibIndex.get(t)||new Set(); ids=ids.filter(id=>set.has(id)); }
+  const nk=noteKey(c);
+  return ids.map(id=>cards.get(id)).filter(x=>x && x.id!==c.id && x.de.toLowerCase()!==c.de.toLowerCase() && (!nk || noteKey(x)===nk));
+}
+// la nuance entre parenthèses affichée au recto (« alliance (politique) »)
+const noteKey = c => splitFr(c.fr, c.de).sense.join(' · ').toLowerCase();
+/* contrôle à l'ajout : même traduction française qu'un autre mot.
+   La clé d'un mot reste l'article + le mot allemand (keyOf) ; la traduction ne sert qu'à prévenir. */
+const frDupKey = fr => String(fr||'').toLowerCase().replace(/[’]/g,"'").split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l'\s*)/,'').replace(/\s+/g,' ').trim()).filter(Boolean).join(', ');
+function sameFr(items){
+  const byFr=new Map(); const add=(k,x)=>{ if(!k) return; if(!byFr.has(k)) byFr.set(k,[]); byFr.get(k).push(x); };
+  for(const c of cards.values()) add(frDupKey(c.fr), c);
+  items.forEach(f=>add(frDupKey(f.fr), f));
+  return items.map((f,i)=>{ const seen=new Set([keyOf(f)]); const others=(byFr.get(frDupKey(f.fr))||[]).filter(x=>{ const k=keyOf(x); if(seen.has(k)) return false; seen.add(k); return true; }); return {i,f,others}; }).filter(r=>r.others.length);
+}
+function dupItemsHTML(list, attr){
+  return list.map(r=>`<div class="dupitem"><span class="de">${deWord(r.f)}</span>
+    <label>Français<input ${attr}="${r.i}" value="${esc(r.f.fr)}" autocomplete="off"></label>
+    <small>Même traduction que : ${r.others.slice(0,4).map(x=>deWord(x)).join(', ')}</small></div>`).join('');
+}
+const DUP_TIP = `Précise la nuance entre parenthèses, par exemple <b>alliance (politique)</b> : elle s'affiche au recto, en petit, et dit quel mot est attendu.`;
+function cueFor(c, sibs){
+  const w=c.de; let k=1;
+  while(k<w.length && sibs.some(x=>x.de.length===w.length && x.de.slice(0,k).toLowerCase()===w.slice(0,k).toLowerCase())) k++;
+  return `<div class="fnote cue">${sibs.length+1} mots possibles · indice : <b>${esc(w.slice(0,k))}…</b> (${w.length} lettres)</div>`;
+}
+function frFront(c){ const f=splitFr(c.fr, c.de); return `<div class="word">${f.html}</div>${f.sense.length?`<div class="fnote">(${esc(f.sense.join(' · '))})</div>`:''}`; }
+function frNotesBack(c){ const f=splitFr(c.fr, c.de); return f.gram.length?`<div class="fnote gram">${esc(f.gram.join(' · '))}</div>`:''; }
+// nature du mot (nom, verbe, adjectif…) : enregistrée sur la carte, sinon reprise de la liste, sinon déduite de l'article
+function posOf(c){ return c.pos || LISTPOS.get(keyOf(c)) || (c.art?'n':''); }
+function posTag(c){ const l=POS_LABEL[posOf(c)]; return l?`<div class="postag">${esc(l)}</div>`:''; }
+function cardTone(c){
+  if(!revealed) return '';
+  if(artGuess && artGuess.startsWith('K:')) return caseVerdict(c, artGuess).includes('verdict ok') ? ' v-ok' : ' v-bad';
+  if(artGuess) return artGuess===c.art ? ' v-ok' : ' v-bad';
+  return c.art ? ' k-'+c.art : '';
+}
+function cardFaces(c){
+  const frToDe = dir==='fr-de';
+  const showArtPick = frToDe && c.art && !revealed;
+  const showCasePick = !revealed && !!caseTarget(c);
+  const sibs = siblingsOf(c);
+  const front = frToDe
+    ? `<div class="prompt-label">En allemand ?</div>${posTag(c)}${frFront(c)}${sibs.length?cueFor(c,sibs):''}`
+    : `<div class="prompt-label">En français ?</div>${posTag(c)}<div class="word">${showCasePick?esc(c.de):deWord(c)}</div>${c.art?gramLine(c):''}`;
+  let back='';
+  if(revealed){
+    const verdict = artGuess && artGuess.startsWith('K:') ? caseVerdict(c, artGuess) : artGuess ? (artGuess===c.art?`<div class="verdict ok">Bon article</div>`:`<div class="verdict bad">Pas « ${artGuess} » mais « ${c.art} »</div>`) : '';
+    back = `<div class="answer">${verdict}${frToDe
+      ? `<div class="word">${deWord(c)}</div>${gramLine(c)}${frNotesBack(c)}`
+      : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">Même traduction : ${sibs.slice(0,4).map(x=>deWord(x)).join(', ')}</div>`:''}${exampleHTML(c)}</div>`;
+  }
+  const reveal = showCasePick
+    ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES.map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
+       <button class="btn" data-casego ${caseSel.size?'':'disabled'}>Valider</button><button class="btn ghost" data-reveal>Afficher sans choisir</button></div>`
+    : showArtPick
+    ? `<div class="artpick"><button class="b-der" data-art="der">der</button><button class="b-die" data-art="die">die</button><button class="b-das" data-art="das">das</button></div>
+       <button class="btn ghost" data-reveal>Afficher sans choisir</button>`
+    : `<button class="btn" data-reveal>Afficher la réponse</button>`;
+  return {front, back, reveal, showArtPick:showArtPick||showCasePick};
+}
+// tailles proposées selon le nombre de cartes prêtes : 20/40/60 tant qu'il y a assez de cartes,
+// le premier bouton qui dépasse prend le nombre exact de cartes, les suivants sont grisés
+function sizeChoices(ready){
+  let capped=false;
+  return SIZES.map(n=>{ if(capped) return {tier:n, val:n, off:true}; if(n>=ready){ capped=true; return {tier:n, val:ready, off:false}; } return {tier:n, val:n, off:false}; });
+}
+function effSize(ready){ const t=SIZES.includes(settings.sessSize)?settings.sessSize:20; return Math.max(1, Math.min(t, ready)); }
+function sessionChooser(){
+  const plan=todayPlan(); const due=plan.learn.length+plan.rev.length; const ready=due+plan.fresh.length;
+  const size=effSize(ready);
+  const next=[...cards.values()].filter(c=>!isNew(c)).sort((a,b)=>a.due-b.due)[0];
+  if(next && !isDue(next)) scheduleWake(next.due);
+  const tri = plan.pending.some(c=>!c.sorted) ? `<button class="btn ghost" data-triage>Trier mes nouveaux mots<small>${plan.pending.filter(c=>!c.sorted).length} à passer en revue : écarte ceux que tu connais déjà</small></button>` : '';
+  if(!ready){
+    const when=next?whenText(next.due):'';
+    return `<div class="card empty"><h2>Rien à réviser pour l'instant</h2>
+      <p>Tous tes mots sont à jour.${when?` Prochaine révision : ${esc(when)}.`:''}</p>
+      <p class="hint">Pourquoi attendre : un mot revu juste avant d'être oublié se fixe bien mieux qu'un mot répété tout de suite. C'est pour ça qu'un mot nouveau revient 15 min, puis 3 h après.</p>
+      <div class="more"><button class="btn" data-go="add">Ajouter des mots</button>${[...cards.values()].some(c=>!isNew(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small></button>`:''}</div></div>`;
+  }
+  // ce que contiendra la session choisie : d'abord ce qui est dû, puis des nouveaux mots pour compléter
+  const mix=n=>{ const d=Math.min(n,due); return {d, f:Math.min(n-d, plan.fresh.length)}; };
+  const m=mix(size); const total=m.d+m.f;
+  const parts=[m.d?`${m.d} à revoir`:'', m.f?`${m.f} nouveau${m.f>1?'x':''}`:''].filter(Boolean).join(' + ');
+  return `<div class="card empty session-pick"><h2>Nouvelle session</h2>
+      <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} en attente</p>
+      <div class="sizes" role="group" aria-label="Taille de la session">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?'pas assez de mots':`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
+      <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${[...cards.values()].some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
+      <p class="hint">Les mots à revoir passent toujours en premier, les nouveaux complètent la session. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
+}
+function renderTriage(v){
+  triage.ids=triage.ids.filter(id=>cards.has(id) && isNew(cards.get(id)));
+  const c=cards.get(triage.ids[0]);
+  if(!c){ v.innerHTML=`<div class="card empty"><h2>Tri terminé</h2><p>${triage.known} mot${triage.known>1?'s':''} écarté${triage.known>1?'s':''} : ${triage.known>1?'ils reviendront':'il reviendra'} dans un mois pour vérifier. Les autres t'attendent dans tes sessions.</p>
+    <button class="btn" data-endtriage>Retour aux sessions</button></div>`; return; }
+  v.innerHTML=`<div style="display:flex;flex-direction:column;gap:14px">
+    <div class="practice-bar"><span><b>Tri des nouveaux mots</b> · ${triage.ids.length} restant${triage.ids.length>1?'s':''}</span><button class="link" data-endtriage>Terminer</button></div>
+    <div class="card" id="card"><div class="word">${deWord(c)}</div>${gramLine(c)}<div class="answer"><div class="word" style="font-size:1.3rem">${esc(c.fr)}</div></div></div>
+    <div class="grades two-col"><button class="g4" data-tknow>Je connais déjà<small>revient dans un mois</small></button>
+      <button data-tlearn>À apprendre<small>garde le mot</small></button></div></div>`;
+  applyCardAnim();
+}
+function renderReview(){
+  if(!revealed && renderReview._cid!==(session&&session.ids&&session.ids[0])){ caseSel=new Set(); renderReview._cid=session&&session.ids&&session.ids[0]; }
+  const v=$('#view');
+  if(mode==='loading'){ v.innerHTML='<div class="card"><p class="prompt-label">Chargement de tes mots…</p></div>'; return; }
+  const dirBar=`<div class="dir"><span>Sens de révision</span><div class="seg" role="group" aria-label="Sens">
+    <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">FR → DE</button>
+    <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">DE → FR</button></div></div>`;
+  if(!cards.size){
+    v.innerHTML=`<div class="card empty"><h2>Ton vocabulaire commence ici</h2>
+      <p>Choisis une liste selon ton niveau, ou ajoute tes propres mots avec le dictionnaire.</p>
+      ${levelsHTML()}
+      <button class="btn ghost" data-go="add">Ajouter mes propres mots</button></div></div>`;
+    return;
+  }
+  if(triage){ renderTriage(v); return; }
+  if(session){ session.ids=session.ids.filter(id=>cards.has(id)); if(!session.hist) session.hist=[]; if(session.view!=null && !session.hist[session.view]) session.view=null; }
+  const past = session && session.view!=null ? session.hist[session.view] : null;
+  if(past){ revealed=true; artGuess=past.art; }
+  const c = past ? past.before : session && cards.get(session.ids[0]);
+  if(!c){
+    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?'Perfekt!':'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
+    const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
+    stopped=null; session=null;
+    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${sessionChooser()}</div>`;
+    return;
+  }
+  const {front, back, reveal, showArtPick}=cardFaces(c);
+  const canBack = past ? session.view>0 : session.hist.length>0;
+  const controls = revealed
+    ? `<div class="grades">
+        ${[1,2,3,4].map(g=>`<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}">${GRADE_LABEL[g]}<small>${past&&past.grade===g?'ta réponse':session.practice?'&nbsp;':preview(c,g)}</small></button>`).join('')}</div>`
+    : reveal;
+  v.innerHTML = dirBar + `<div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
+    <div class="practice-bar"><span><b>${past?'Carte déjà vue':session.practice?'Entraînement libre':'Session'}</b>${session.practice&&!past?' (non enregistré)':''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}</span><button class="link" data-endsession title="Tes réponses sont déjà enregistrées">Arrêter</button></div>
+    <div class="smeter" aria-hidden="true"><i style="width:${Math.min(100,100*(past?(past.pos||1)-1:session.done)/session.total)}%"></i><b style="left:${Math.min(100,100*session.done/session.total)}%"></b></div>
+    <div class="cardnav">${canBack?`<button class="navbtn prev" data-back aria-label="Carte précédente" title="Carte précédente">‹</button>`:''}<div class="card${past?' past':''}${cardTone(c)}" id="card">${front}${back}</div>${past?`<button class="navbtn next" data-fwd aria-label="Carte suivante" title="Carte suivante">›</button>`:''}</div>${controls}
+    <p class="hint" style="text-align:center">${past?(past.grade==='known'?'Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.':'Choisis une autre note pour changer ta réponse, ou avance avec ›.'):(isNew(c)?'Nouveau mot':isLearning(c)?`En apprentissage · passage ${Math.min(STEPS,(c.ls||0)+1)}/${STEPS}`:'Révision')+(showArtPick?(c.art?' · choisis l’article':' · choisis le cas'):'')}${!session.practice&&isNew(c)&&revealed&&!(past&&past.grade==='known')?' · <button class="link" data-known>Je connais déjà</button>':''}</p></div>`;
+  applyCardAnim();
+}
+function batchGroups(){
+  const all=[...cards.values()].sort((a,b)=>a.created-b.created);
+  const groups=[]; let g=null;
+  for(const c of all){
+    const key=c.batch||'';
+    if(key){ let k=groups.find(x=>x.key===key); if(!k){ k={key,label:c.batchLabel||'Import',ids:[],created:c.created}; groups.push(k);} k.ids.push(c.id); g=null; continue; }
+    if(!g || c.created-g.last>5000){ g={key:'t'+c.created,src:c.src,lvls:new Set(),ids:[],created:c.created,last:c.created}; groups.push(g); }
+    g.ids.push(c.id); g.last=c.created; if(c.lvl) g.lvls.add(c.lvl);
+    const one=g.lvls.size===1?[...g.lvls][0]:''; g.label=g.src&&LESSONS[g.src]?LESSONS[g.src].title+(one?' · '+one:''):one?'Liste '+one:'Ajout';
+  }
+  return groups.filter(x=>x.ids.length>=3).sort((a,b)=>b.created-a.created).slice(0,8);
+}
+function batchesHTML(){
+  const gs=batchGroups(); if(!gs.length) return '';
+  return `<details class="panel batches"><summary><b>Retirer un ajout groupé</b><span class="hint">${gs.length} ajout${gs.length>1?'s':''} récent${gs.length>1?'s':''}</span></summary>
+    <p class="hint">Seuls les mots jamais révisés sont retirés. Ceux que tu as déjà commencés gardent leur progression.</p>
+    ${gs.map(x=>{ const un=x.ids.filter(id=>isNew(cards.get(id))).length;
+      return `<div class="batch"><div><b>${esc(x.label)}</b><small>${new Date(x.created).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · ${x.ids.length} mots</small></div>
+      <button class="btn ghost small" data-rmbatch="${x.key}" ${un?'':'disabled'}>${un?`Retirer ${un}`:'Tout commencé'}</button></div>`; }).join('')}</details>`;
+}
+function renderList(){
+  const v=$('#view');
+  const q=listQuery.trim().toLowerCase();
+  const every=[...cards.values()];
+  const all=every.filter(c=>filterMatch(c)&&(!q||(c.art+' '+c.de+' '+c.fr).toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
+  const inSrc=every.filter(c=>!srcFilter||srcOf(c)===srcFilter), inLvl=every.filter(c=>!lvlFilter||lvlOf(c)===lvlFilter);
+  const lvlOpts=['A1','A2','B1','B2','C1','C2','~A','~B','~C','none'].filter(L=>every.some(c=>lvlOf(c)===L));
+  const lvlName = L => L==='none' ? 'Sans niveau' : L[0]==='~' ? EST_LABEL[L[1]]+' (estimé)' : L;
+  const srcOpts=[...Object.keys(LESSONS),'lists','starter','manual','dict'].filter(k=>every.some(c=>srcOf(c)===k));
+  const chip=(axis,k,label,n,on)=>`<button class="chip" data-axis="${axis}" data-val="${k}" aria-pressed="${on}">${esc(label)} <span class="cnt">${n}</span></button>`;
+  const chips=`<div class="filters">
+    ${lvlOpts.length?`<div class="frow"><span class="flabel">Niveau</span><div class="row">${chip('lvl','','Tous',inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
+    <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
+    ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
+  </div>
+  <div class="legend" aria-label="Code couleur"><span><i class="dot d-der"></i>der · masculin</span><span><i class="dot d-die"></i>die · féminin</span><span><i class="dot d-das"></i>das · neutre</span><span><i class="dot d-none"></i>sans article</span></div>`;
+  const rows=all.map(c=>{
+    const st=STATUS(c); const when = st==='rev' ? (isDue(c)?'À revoir':'dans '+Math.max(1,Math.ceil((c.due-Date.now())/DAY))+' j') : '';
+    const status = `<select class="stsel st-${st}" data-setstat="${c.id}" aria-label="Statut de ${esc(c.de)}">${['new','learn','rev','known'].map(k=>`<option value="${k}" ${k===st?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}</select>${when?`<small class="when">${when}</small>`:''}`;
+    return `<div class="item"><div class="de">${deWord(c)}${c.pl?` <span class="plural">· ${esc(c.pl)}</span>`:''}</div><div class="fr">${esc(c.fr)} <span class="src">· ${esc(srcLabel(srcOf(c)))}</span></div>
+      <div class="meta"><span class="row" style="gap:4px;justify-content:flex-end">${c.lvl?`<span class="pill lvl">${c.lvl}</span>`:c.est?`<span class="pill lvl est" title="Niveau estimé d'après la fréquence d'usage">${EST_LABEL[c.est]}</span>`:''}${status}</span><button class="link danger" data-del="${c.id}">Supprimer</button></div></div>`;
+  }).join('');
+  v.innerHTML=`<div style="display:flex;flex-direction:column;gap:12px">
+    ${batchesHTML()}
+    <input class="search" id="search" type="search" placeholder="Chercher un mot…" value="${esc(listQuery)}" aria-label="Chercher">
+    ${chips}
+    ${(lvlFilter||srcFilter)&&all.some(isNew)?`<button class="link danger" style="align-self:flex-start" data-rmfilter>Retirer les ${all.filter(isNew).length} mots non révisés de ce filtre</button>`:''}
+    ${all.length?`<div class="list">${rows}</div>`:`<p class="hint">${cards.size?'Aucun mot ne correspond.':'Aucun mot pour l’instant.'}</p>`}</div>`;
+}
+function lessonItems(id){ return LESSONS[id].text.split('\n').map(l=>{ const i=l.indexOf('|'); const f=parseLine(l.slice(i+1)); return f?{...f,lvl:l.slice(0,i)}:null; }).filter(Boolean); }
+const keyOf = f => (f.art+f.de).toLowerCase();
+const newBatch = label => ({ id:'b'+uid(), label });
+function lessonsHTML(){
+  const have=new Set([...cards.values()].map(keyOf));
+  return Object.entries(LESSONS).map(([id,o])=>{
+    const items=lessonItems(id); const by={};
+    items.forEach(f=>{ by[f.lvl]=by[f.lvl]||{n:0,got:0}; by[f.lvl].n++; if(have.has(keyOf(f))) by[f.lvl].got++; });
+    const got=items.filter(f=>have.has(keyOf(f))).length;
+    return `<div class="lesson"><div class="lesson-head"><b>${esc(o.title)}</b><small>${got}/${items.length} mots ajoutés</small></div>
+      <div class="row">${Object.keys(by).sort().map(L=>`<button class="chip" data-lesson="${id}" data-lvl="${L}" ${by[L].got===by[L].n?'disabled':''}>${L} · ${by[L].n}</button>`).join('')}
+      <button class="btn small" data-lesson="${id}" data-lvl="" ${got===items.length?'disabled':''}>Tout ajouter</button></div></div>`;
+  }).join('');
+}
+function levelsHTML(){
+  if(listState!=='ready'){ loadLists();
+    return `<div class="levels-wrap" data-levels><p class="hint">${listState==='error'?`Les listes n'ont pas pu se charger. <button type="button" class="link" data-lretry>Réessayer</button>`:'Chargement des listes…'}</p></div>`; }
+  const have=new Set([...cards.values()].map(keyOf));
+  const stat=L=>{ const items=LISTDATA[L]||[]; return {items, got:items.filter(f=>have.has(keyOf(f))).length}; };
+  const grid=`<div class="levels">${Object.entries(LEVELS).map(([L,label])=>{ const {items,got}=stat(L); const done=got===items.length;
+    return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?'Tout ajouté':got?`${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots`:`${items.length.toLocaleString('fr-FR')} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
+  let packs='';
+  if(openLvl && LISTDATA[openLvl]){
+    const items=LISTDATA[openLvl]; const {got}=stat(openLvl); const nxt=nextBatch(openLvl); const busy=importing;
+    const first=nxt.length?items.indexOf(nxt[0])+1:0, last=nxt.length?items.indexOf(nxt[nxt.length-1])+1:0;
+    let action;
+    if(!nxt.length) action=`<p class="hint"><b>Tout le niveau ${openLvl} est dans tes mots.</b></p>`;
+    else if(confirmLvl===openLvl){ const dups=sameFr(nxt); action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
+        ${dups.length?`<div class="dupbox"><p><b>${dups.length} mot${dups.length>1?'s ont':' a'} la même traduction qu'un autre mot.</b> ${DUP_TIP} Tu peux aussi laisser tel quel.</p>${dupItemsHTML(dups,'data-packfr')}</div>`:''}
+        <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':'Oui, ajouter'}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>Annuler</button></div></div>`; }
+    else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':`Ajouter ${nxt.length} mots`}</button>`;
+    packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots ajoutés</small></div>
+      <div class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></div>
+      ${action}
+      <p class="hint">Les mots s'ajoutent par 50, du plus fréquent au moins fréquent.</p></div>`;
+  }
+  return `<div class="levels-wrap" data-levels>${grid}${packs}</div>`;
+}
+function renderGuide(){
+  $('#view').innerHTML=`<article class="guide" id="guide">
+  <section id="acctSec"><h2>Compte et synchronisation</h2><div id="acct"></div></section>
+  <section><h2>Installer l'appli</h2>
+    <p><b>Android (Chrome)</b> : menu ⋮ → <b>Installer l'application</b> (ou « Ajouter à l'écran d'accueil »).</p>
+    <p><b>iPhone (Safari)</b> : bouton Partager → <b>Sur l'écran d'accueil</b>.</p>
+    <p class="hint">Une fois installée, Memolex s'ouvre comme une appli et fonctionne hors ligne. Le dictionnaire se télécharge la première fois que tu l'ouvres.</p></section>
+  <section><h2>Le principe</h2>
+    <p>L'appli utilise la <b>répétition espacée</b> : chaque mot revient juste avant que tu l'oublies. Un mot bien su s'espace de plus en plus (1 jour, 3 jours, une semaine, un mois…). Un mot raté revient vite. Tu passes donc ton temps sur ce qui résiste, pas sur ce que tu sais déjà.</p>
+    <p>La clé : <b>chercher activement</b> le mot avant de retourner la carte. C'est l'effort de rappel qui fixe la mémoire, pas la relecture.</p></section>
+
+  <section><h2>Les sessions</h2>
+    <p>Avant chaque session, choisis 20, 40 ou 60 cartes. Compte environ 10 secondes par carte. Tu peux enchaîner autant de sessions que tu veux.</p>
+    <ul>
+      <li><b>Contenu d'une session</b> : d'abord les mots à revoir (en apprentissage, puis révisions du jour), puis des nouveaux mots pour compléter. S'il y a 15 mots à revoir et que tu choisis 40 cartes, tu auras 15 révisions et 25 nouveaux mots.</li>
+      <li><b>Un nouveau mot</b> passe 3 fois : à sa découverte, environ 15 minutes plus tard, puis environ 3 heures plus tard. Ensuite il est programmé en jours (demain, puis 3 jours, une semaine…).</li>
+      <li><b>Pas de limite de nouveaux mots</b> : c'est toi qui règles le rythme. Chaque nouveau mot revient environ 5 fois le premier mois, donc beaucoup de nouveaux mots aujourd'hui, ce sont beaucoup de révisions dans les jours qui viennent.</li>
+      <li>Une session longue d'un coup retient moins bien que plusieurs sessions courtes : 20 cartes le matin, 20 à midi, 20 le soir valent mieux que 60 d'affilée.</li>
+      <li><b>Réviser quand même</b> : quand il n'y a rien à réviser, un entraînement libre te fait repasser tes mots sans attendre. Tes réponses n'y sont pas enregistrées et ne changent pas ton calendrier.</li>
+      <li><b>Arrêter</b> : chaque réponse est enregistrée dès que tu donnes ta note. Tu peux arrêter une session (ou fermer l'appli) à tout moment sans rien perdre. La session suivante repart sur 20, 40 ou 60 cartes, au choix.</li>
+      <li><b>Revenir en arrière</b> : la flèche ‹ à gauche de la carte ramène aux cartes déjà vues, réponse affichée et ta note encadrée. Choisis une autre note pour la corriger, ou avance avec la flèche › jusqu'à la carte en cours. Il n'y a pas de flèche › sur une carte à laquelle tu n'as pas encore répondu : on ne saute pas de carte.</li>
+    </ul></section>
+
+  <section><h2>Écarter les mots que tu connais</h2>
+    <p>Les listes commencent par les mots les plus fréquents, que tu connais peut-être déjà. Deux façons de les écarter :</p>
+    <ul>
+      <li><b>Je connais déjà</b>, sous un nouveau mot pendant la session, une fois la réponse affichée : tu vérifies d'abord que tu le connaissais vraiment.</li>
+      <li><b>Trier mes nouveaux mots</b>, avant la session : chaque mot s'affiche avec sa traduction, tu réponds « Je connais déjà » ou « À apprendre ». 100 mots se trient en 2 ou 3 minutes.</li>
+    </ul>
+    <p class="hint">Un mot écarté n'est pas supprimé : il revient une fois dans un mois pour vérifier. Si tu le sais, il s'espace encore. Pour l'enlever pour de bon, supprime-le dans Mes mots.</p></section>
+
+  <section><h2>Les quatre notes</h2>
+    <dl class="grades-doc">
+      <dt class="bad">Encore</dt><dd>Tu ne savais pas. La carte revient 3 cartes plus loin, et son intervalle repart de zéro.</dd>
+      <dt>Difficile</dt><dd>Trouvé avec peine. L'intervalle grandit peu.</dd>
+      <dt>Bien</dt><dd>Trouvé normalement. La note par défaut, la plus utilisée.</dd>
+      <dt class="good">Facile</dt><dd>Immédiat. L'intervalle s'allonge beaucoup.</dd>
+    </dl>
+    <p class="hint">Sois honnête : noter « Bien » un mot sur lequel tu as hésité, c'est le faire revenir trop tard.</p></section>
+
+  <section><h2>Le code couleur</h2>
+    <p>La couleur d'un nom indique son genre, comme dans les manuels d'allemand :</p>
+    <ul><li><span class="g-der art">der</span> en bleu : masculin</li><li><span class="g-die art">die</span> en rouge : féminin</li><li><span class="g-das art">das</span> en vert : neutre</li><li>Sans couleur : verbes, adjectifs, adverbes et expressions, qui n'ont pas d'article</li></ul>
+    <p>Pour les verbes à préposition, le cas à employer est indiqué après la préposition : <i>warten auf <span class="pcase">(+ Akk.)</span></i>, <i>abhängen von <span class="pcase">(+ Dat.)</span></i>.</p>
+    <p class="hint">Associer une couleur au genre aide la mémoire visuelle : avec le temps, tu « verras » die Spinne en rouge.</p></section>
+
+  <section><h2>Le quiz des articles</h2>
+    <p>En sens FR → DE, pour chaque nom, choisis <span class="g-der art">der</span>, <span class="g-die art">die</span> ou <span class="g-das art">das</span> avant de voir la réponse. Un mauvais article plafonne ta note à « Difficile » : le mot n'est su que si l'article l'est aussi.</p></section>
+
+  <section><h2>Ajouter et retirer des mots</h2>
+    <ul>
+      <li><b>Listes par niveau</b> : les 8 000 mots les plus fréquents, de A1 à C2, ajoutés 50 par 50. Les premiers mots de l'A1 sont les plus utilisés de la langue.</li>
+      <li><b>Coller une liste</b> : une ligne par mot, <code>der Hund, -e ; le chien ; exemple</code>.</li>
+      <li>Les boutons <b>ä ö ü ß</b> sous les champs insèrent ces lettres. Dans les exercices, tu peux aussi écrire <code>ae</code>, <code>oe</code>, <code>ue</code> et <code>ss</code> : c'est accepté.</li>
+      <li>Ajouter beaucoup de mots d'un coup ne pose pas de problème : ils attendent leur tour et arrivent au rythme de ton quota.</li>
+      <li>Pour annuler un import : <b>Mes mots → Retirer un ajout groupé</b>. Les mots déjà commencés sont conservés.</li>
+    </ul></section>
+
+  <section><h2>Le dictionnaire</h2>
+    <p>Dans <b>Ajouter</b>, tape un mot allemand (ou sa traduction française) : l'appli propose l'article, le pluriel et les différents sens. Touche un résultat pour remplir la fiche, puis choisis le sens qui correspond à ton cours. Tout fonctionne hors ligne, sans IA.</p>
+    <p><b>Niveau estimé</b> (≈ A1-A2, ≈ B1-B2, ≈ C1+) : calculé d'après la fréquence d'usage du mot à l'écrit et à l'oral. Les mots très fréquents sont en général appris tôt, les mots rares plus tard. C'est une <b>approximation</b>, pas le classement officiel du CECR : <i>Kühlschrank</i> est un mot de débutant, mais il est peu fréquent dans les textes. Dans Mes mots, ces niveaux ont leur propre filtre, séparé des niveaux exacts.</p>
+    <p class="hint">Les traductions sont automatiques : vérifie-les toujours, et ajoute toi-même un exemple, c'est ce qui fixe le mot. Si tu écris le français, la recherche inverse marche à partir de 3 lettres.</p>
+    <p class="hint">Sources : dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> (édition 2022) et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tous deux tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> ; classement des résultats par fréquence d'usage grâce à <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></section>
+
+  <section><h2>Les phrases d'exemple</h2>
+    <p>Quand tu retournes une carte, un mot des listes est accompagné d'une <b>phrase réelle</b> en allemand, avec sa traduction. Le mot y est souligné, sous la forme qu'il prend dans la phrase : <i>Ich <u>stehe</u> um sechs Uhr <u>auf</u></i> pour <i>aufstehen</i>, <i>die <u>Häuser</u></i> pour <i>das Haus</i>.</p>
+    <ul>
+      <li><b>Une phrase par sens</b> : si un mot a plusieurs traductions, chacune a sa phrase, avec le sens indiqué au-dessus (<i>um</i> : « autour de » et « à (heure) »).</li>
+      <li>Les phrases sont choisies courtes, avec des mots plutôt plus fréquents que le mot appris, et de préférence écrites par des locuteurs natifs.</li>
+      <li><b>Lis la phrase à voix haute</b> avant de noter la carte : quelques secondes de plus, mais le mot se fixe avec sa grammaire.</li>
+      <li>Si tu as écrit ton propre exemple pour un mot, c'est lui qui s'affiche.</li>
+    </ul></section>
+
+  <section><h2>Les mots qui ont la même traduction</h2>
+    <p>Quand plusieurs de tes mots se traduisent pareil (<i>là</i> : <i>da</i> et <i>dort</i> ; <i>pourquoi</i> : <i>warum</i>, <i>wieso</i>…), la carte te donne un indice : la première lettre et le nombre de lettres du mot attendu. Au verso, les autres mots de même traduction sont rappelés, pour apprendre à les distinguer.</p>
+    <ul>
+      <li>Si tu as trouvé un autre mot de la liste, ce n'est pas faux : note « Difficile » et regarde la différence d'usage dans la phrase d'exemple.</li>
+    </ul></section>
+
+  <section><h2>Crédits</h2>
+    <p class="hint">Les phrases d'exemple et leurs traductions viennent de <a href="https://tatoeba.org/fr" target="_blank" rel="noopener">Tatoeba</a>, une base de phrases écrite par des bénévoles, et sont diffusées sous licence <a href="https://creativecommons.org/licenses/by/2.0/fr/deed.fr" target="_blank" rel="noopener">CC BY 2.0 FR</a>.</p>
+    <p class="hint">Quelques phrases, qui précisent la nuance entre deux mots de même traduction, ont été rédigées pour Memolex ; elles n'ont pas de numéro Tatoeba.</p>
+    <p class="hint">Les expressions « À retenir » (une par carte, au verso) sont rédigées pour Memolex : elles montrent l'emploi le plus courant du mot, avec ses compléments habituels.</p>
+    <details id="credDetails"><summary>Voir les auteurs des phrases</summary><div id="credList"></div></details>
+    <p class="hint">Dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> (licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ; fréquences d'usage : <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Articles et nature des mots français : <a href="http://www.lexique.org/" target="_blank" rel="noopener">Lexique 3.83</a> (B. New, C. Pallier, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>).</p></section>
+
+  <section><h2>Les listes par niveau</h2>
+    <p>Les listes suivent la <b>fréquence d'usage</b> : un mot très courant à l'écrit et à l'oral est proposé tôt, un mot rare plus tard. C'est la façon la plus efficace de commencer, car les quelques centaines de mots les plus fréquents couvrent l'essentiel de ce qu'on lit et entend au quotidien.</p>
+    <div class="tbl"><table><thead><tr><th>Niveau</th><th>Rang de fréquence</th><th>Mots</th></tr></thead><tbody>
+      <tr><td>A1 · Découverte</td><td>1 – 600</td><td>600</td></tr><tr><td>A2 · Survie</td><td>601 – 1 300</td><td>700</td></tr>
+      <tr><td>B1 · Seuil</td><td>1 301 – 2 500</td><td>1 200</td></tr><tr><td>B2 · Avancé</td><td>2 501 – 4 000</td><td>1 500</td></tr>
+      <tr><td>C1 · Autonome</td><td>4 001 – 6 000</td><td>2 000</td></tr><tr><td>C2 · Maîtrise</td><td>6 001 – 8 000</td><td>2 000</td></tr></tbody></table></div>
+    <p class="hint">Ces tranches sont une <b>approximation</b> du Cadre européen, pas son classement officiel. Des mots utiles mais peu fréquents à l'écrit (<i>Kühlschrank</i>, <i>Zahnbürste</i>) arrivent plus tard que dans un manuel : ajoute-les toi-même avec le dictionnaire quand tu en as besoin. Les traductions viennent du dictionnaire : la liste A1 a été relue, les autres sont à vérifier.</p></section>
+
+  <section><h2>Combien de nouveaux mots par jour ?</h2>
+    <p>Une fois le rythme installé (après 3 ou 4 semaines), ta charge quotidienne de révision est proportionnelle au nombre de mots que tu découvres chaque jour :</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Nouveaux mots / jour</th><th>Temps quotidien estimé</th><th>Mots appris en 3 mois</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td>15–20 min</td><td>~850</td></tr>
+        <tr class="rec"><td>20</td><td>30–40 min</td><td>~1 700</td></tr>
+        <tr><td>30</td><td>50–60 min</td><td>~2 600</td></tr>
+        <tr><td>50</td><td>1 h 20 – 1 h 40</td><td>~4 300</td></tr>
+      </tbody></table></div>
+    <p class="hint">Estimations pour environ 10 secondes par carte. Le temps réel dépend de ta vitesse et de ton taux de réussite.</p>
+    <div class="advice"><b>Le conseil</b><p>Sur un niveau facile pour toi, trie tes paquets puis avance vite : les mots connus disparaissent et tu ne perds pas de temps. Sur un niveau nouveau, environ <b>20 nouveaux mots par jour</b> est un bon rythme. Si tes sessions se remplissent de révisions au point de ne plus laisser de place aux nouveaux mots, c'est le signal de ralentir : mieux vaut un rythme tenu six mois qu'un sprint de deux semaines.</p></div></section>
+
+  <section><h2>Les compteurs</h2>
+    <ul>
+      <li><b>À revoir</b> : les mots à revoir maintenant (en apprentissage et révisions du jour).</li>
+      <li><b>Mots</b> : tout ton vocabulaire ajouté, vu ou pas encore.</li>
+      <li><b>La barre sous les compteurs</b> détaille où en sont tes mots : <b>À découvrir</b> (ajoutés, jamais vus), <b>En apprentissage</b> (passages de session en session), <b>En révision</b> (programmés en jours), <b>Acquis</b> (intervalle de plus de 3 semaines). Touche une catégorie pour voir ses mots.</li>
+      <li><b>Acquis</b> : les mots dont l'intervalle dépasse 3 semaines. C'est le vrai indicateur de progrès.</li>
+    </ul></section>
+  </article>`;
+}
+function renderAdd(){
+  $('#view').innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">
+  <section class="panel"><h3>Listes par niveau</h3>
+    <p class="hint">Les 8 000 mots les plus fréquents de l'allemand, répartis de A1 à C2. Choisis un niveau, puis ajoute ses mots 50 par 50. Les mots déjà présents ne sont pas dupliqués.</p>
+    ${levelsHTML()}</section>
+  <section class="panel dict" id="dictPanel"><div class="dict-head"><h3>Dictionnaire</h3><small id="dStatus"></small></div>
+    <input id="dq" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Hund, gehen… ou en français : papillon" aria-label="Chercher un mot en allemand ou en français">
+    ${umlautBar(['ä','ö','ü','ß'],'dq')}
+    <div id="dRes" class="dres" aria-live="polite"></div>
+    <div id="dSense" class="dsense" hidden></div></section>
+  <form id="addForm"><h3>Un mot</h3>
+    <p class="hint">Choisis un mot dans le dictionnaire ci-dessus pour remplir les champs, puis ajuste si besoin.</p>
+    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option><option>der</option><option>die</option><option>das</option></select></label>
+    <label for="fDe">Allemand<input id="fDe" required autocomplete="off" autocapitalize="off" placeholder="Schmetterling"></label></div>
+    ${umlautBar(['ä','ö','ü','ß','Ä','Ö','Ü'],'fDe')}
+    <label for="fLvl">Niveau (facultatif)<select id="fLvl"><option value="">Sans niveau</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
+    <p class="hint" id="fEst" aria-live="polite"></p>
+    <label for="fPl">Pluriel (facultatif)<input id="fPl" autocomplete="off" placeholder="-e, ¨-er, -n…"></label>
+    <p class="hint plprev" id="fPlPrev" aria-live="polite"></p>
+    <label for="fFr">Français<input id="fFr" required autocomplete="off" placeholder="le papillon"></label>
+    <div id="fDup" class="dupbox" hidden aria-live="polite"></div>
+    <label for="fEx">Exemple (facultatif)<input id="fEx" autocomplete="off" placeholder="Ein Schmetterling sitzt auf der Blume."></label>
+    <button class="btn" type="submit">Ajouter le mot</button></form>
+  <form id="bulkForm"><h3>Coller une liste</h3>
+    <p class="hint">Une ligne par mot : <code>der Hund, -e ; le chien</code>. L'article et le pluriel sont reconnus automatiquement. Tu peux ajouter un exemple après un second <code>;</code>.</p>
+    ${umlautBar(['ä','ö','ü','ß','Ä','Ö','Ü'],'fBulk')}
+    <label for="fBulk">Liste<textarea id="fBulk" placeholder="die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen"></textarea></label>
+    <div id="bulkDup" class="dupbox" hidden aria-live="polite"></div>
+    <button class="btn" type="submit">Importer</button></form></div>`;
+  loadDict(); dictStatus();
+}
+
+/* ---------- dictionnaire allemand-français (Wiktionary, hors ligne) ---------- */
+let DICT=null, DICT_BY=new Map(), dictState='idle', dictHits=[], dictTimer=null;
+const fold = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss');
+const ART_OF = {m:'der', f:'die', n:'das'};
+const POS_LABEL = {n:'nom', v:'verbe', adj:'adjectif', adv:'adverbe', 'adj,adv':'adjectif / adverbe', prep:'préposition', postp:'postposition', pron:'pronom', conj:'conjonction', num:'nombre', int:'interjection', parti:'particule', abr:'abréviation', loc:'expression'};
+function loadDict(){
+  if(dictState==='loading' || dictState==='ready') return;
+  dictState='loading'; dictStatus();
+  fetch('dict-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    DICT_BY=new Map(); DICT=d.map(e=>({w:e[0], p:e[1], g:e[2], pl:e[3], s:e[4], z:(e[5]||0)/10, k:fold(e[0]), f:e[4].map(x=>x[0].split(',').map(t=>fold(t.trim().replace(/^(?:(?:le|la|les)\s+|l['’]\s*)/i,''))))}));
+    DICT.forEach(e=>{ if(e.p==='n' && e.g && !DICT_BY.has(e.w)) DICT_BY.set(e.w,e); });
+    dictState='ready'; dictStatus(); dictSearch();
+  }).catch(()=>{ dictState='error'; dictStatus(); });
+}
+function dictStatus(){
+  const el=$('#dStatus'); if(!el) return;
+  el.textContent = dictState==='ready' ? `${DICT.length.toLocaleString('fr-FR')} mots · hors ligne` : dictState==='error' ? 'Indisponible' : 'Chargement…';
+  if(dictState==='error') $('#dRes') && ($('#dRes').innerHTML=`<p class="hint">Le dictionnaire n'a pas pu se charger. <button type="button" class="link" data-dretry>Réessayer</button></p>`);
+}
+const posRank = p => p==='n'||p==='v'||p==='adj' ? 0 : 1;
+function dictSearch(){
+  const box=$('#dRes'); if(!box || dictState!=='ready') return;
+  const raw=($('#dq')?.value||'').trim().replace(/^(der|die|das)\s+/i,'');
+  if(!raw){ box.innerHTML=''; dictHits=[]; return; }
+  const q1=fold(raw), q2=fold(raw.replace(/ae/gi,'ä').replace(/oe/gi,'ö').replace(/ue/gi,'ü'));
+  const de=[], fr=[];
+  const lowQ = raw[0]===raw[0].toLowerCase();
+  for(const e of DICT){
+    const caseBonus = (lowQ === (e.w[0]===e.w[0].toLowerCase())) ? 0 : .05;
+    if(e.k===q1 || e.k===q2) de.push([caseBonus,e]);
+    else if(e.k.startsWith(q1) || e.k.startsWith(q2)) de.push([2+posRank(e.p)*.3-e.z/8+e.k.length/400+caseBonus,e]);
+    if(q1.length>=3){
+      let best=Infinity, bs=0;
+      e.f.forEach((items,si)=>items.forEach((t,ii)=>{
+        if(t===q1 && si+ii*.3<best){ best=si+ii*.3; bs=si; }
+        else if(q1.length>=4 && 4+si+ii*.3<best && t.split(/[\s'’-]+/).includes(q1)){ best=4+si+ii*.3; bs=si; }
+      }));
+      if(best<Infinity) fr.push([best+posRank(e.p)*.5-e.z/4+e.k.length/400,e,bs]);
+    }
+  }
+  de.sort((a,b)=>a[0]-b[0]); fr.sort((a,b)=>a[0]-b[0]);
+  const exactDe = de.length && de[0][0]<1;
+  const seen=new Set(); dictHits=[];
+  const take=(list,n,from)=>{ for(const [,e,si] of list){ if(dictHits.length>=n) break; if(seen.has(e)) continue; seen.add(e); dictHits.push({e,from,si:si||0}); } };
+  take(de, exactDe?6:4, 'de'); take(fr, 8, 'fr'); take(de, 8, 'de');
+  if(!dictHits.length){ box.innerHTML=`<p class="hint">Aucun résultat pour « ${esc(raw)} ».</p>`; return; }
+  const have=new Set([...cards.values()].map(c=>(c.art+c.de).toLowerCase()));
+  let lastFrom='';
+  box.innerHTML=dictHits.map(({e,from,si},i)=>{
+    const art=ART_OF[e.g]||''; const known=have.has((art+e.w).toLowerCase());
+    const head = from!==lastFrom ? (from==='de' ? `<div class="dgroup">Mots allemands</div>` : `<div class="dgroup">Mots allemands qui se traduisent par « ${esc(raw)} »</div><p class="hint dnote">Ce sont des synonymes ou des sens voisins. La définition en allemand, en italique, t'aide à choisir le bon.</p>`) : ''; lastFrom=from;
+    return `${head}<button type="button" class="dhit" data-dpick="${i}">
+      <span class="dw">${art?`<span class="art g-${art}">${art}</span> `:''}<b>${esc(e.w)}</b>${e.pl?`<span class="plural">, ${esc(e.pl)}</span>`:''}</span>
+      <span class="dfr">${esc(e.s[si][0])}</span>${e.s[si][1]?`<span class="ddef" lang="de">${esc(e.s[si][1])}</span>`:''}
+      <span class="dmeta">${POS_LABEL[e.p]?`<small>${POS_LABEL[e.p]}</small>`:''}<small class="dest">${EST_LABEL[estOf(e.z)]}</small>${known?'<span class="pill known">déjà dans tes mots</span>':''}</span></button>`;
+  }).join('');
+}
+let autoDef='', dictPicked='', dictEst='', dictPos='';
+function fillDef(d){ const ex=$('#fEx'); if(!ex) return; const v=ex.value.trim(); if(!v || v===autoDef){ ex.value=d||''; autoDef=ex.value; } }
+function plPreview(){
+  const el=$('#fPlPrev'); if(!el) return;
+  let de=($('#fDe')?.value||'').trim(); const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m) de=m[2];
+  const pl=($('#fPl')?.value||'').trim();
+  if(!de || !pl){ el.textContent=''; return; }
+  if(/^pl\.?$/i.test(pl)){ el.textContent="Mot qui n'existe qu'au pluriel"; return; }
+  const f=pluralOf(de,pl);
+  el.innerHTML = f ? `Pluriel : <b>die ${esc(f)}</b>${f===de?' (identique au singulier)':''}` : '';
+}
+// mot tapé à la main : complète article et pluriel s'ils sont vides
+function dictAutofill(){
+  if(dictState!=='ready' || !$('#fDe')) return;
+  let de=$('#fDe').value.trim(); const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m) de=m[2];
+  const e=DICT_BY.get(de); if(!e) return;
+  const done=[];
+  if(!$('#fArt').value && !m){ $('#fArt').value=ART_OF[e.g]; done.push('article'); }
+  if(!$('#fPl').value.trim() && e.pl){ $('#fPl').value=e.pl; done.push('pluriel'); }
+  if(done.length){ plPreview(); toast(done.join(' et ')+' complétés par le dictionnaire'); }
+}
+function deckEntry(w, art){ if(!LISTDATA) return null; const k=((art||'')+w).toLowerCase();
+  for(const L of Object.keys(LISTDATA)){ const f=LISTDATA[L].find(x=>keyOf(x)===k); if(f) return {f, L}; } return null; }
+function dictPick(i){
+  const h=dictHits[i]; if(!h) return; const e=h.e, si=h.si||0;
+  $('#fArt').value=ART_OF[e.g]||''; $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`Niveau estimé : <b>${EST_LABEL[dictEst]}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.`; $('#fPl').value=e.pl||'';
+  $('#fFr').value=e.s[si][0].split(',')[0].trim();
+  const dk=deckEntry(e.w, ART_OF[e.g]||''); dictDeck=dk;
+  if(dk){ $('#fFr').value=dk.f.fr; if(dk.f.pl) $('#fPl').value=dk.f.pl; $('#fLvl').value=dk.L;
+    if(fe) fe.innerHTML=`Ce mot est dans la liste <b>${dk.L}</b> de Memolex : traduction relue, expression « À retenir » et phrases d'exemple incluses.`; }
+  plPreview();
+  $('#dRes').innerHTML=''; dictHits=[];
+  const sb=$('#dSense'); sb.hidden=false;
+  sb.innerHTML=`<div class="dgroup">« ${esc(e.w)} » ${e.s.length>1?'a plusieurs sens : touche celui de ton cours':': son sens'}</div>
+    <p class="hint dnote">En italique, la <b>définition</b> du mot en allemand (ce n'est pas une phrase d'exemple). Elle est copiée dans le champ « Exemple » : garde-la, ou remplace-la par ta propre phrase.</p>`+e.s.map((s,j)=>`<button type="button" class="dsn" data-dsense="${j}" aria-pressed="${j===si}">
+      <span>${esc(s[0])}</span>${s[1]?`<small lang="de"><b>Définition :</b> ${esc(s[1])}</small>`:''}</button>`).join('');
+  fillDef(e.s[si][1]);
+  sb.dataset.word=e.w; sb._entry=e;
+  sb.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+document.addEventListener('input', e=>{ if(e.target.id==='dq'){ const sb=$('#dSense'); if(sb){ sb.hidden=true; sb.innerHTML=''; } clearTimeout(dictTimer); dictTimer=setTimeout(dictSearch,120); } });
+document.addEventListener('keydown', e=>{ if(e.target.id==='dq' && e.key==='Enter' && !e.isComposing){ e.preventDefault(); if(dictHits.length) dictPick(0); } });
+document.addEventListener('focusin', e=>{ if(e.target.id==='dq') loadDict(); });
+document.addEventListener('input', e=>{ if(e.target.id==='fPl'||e.target.id==='fDe') plPreview(); });
+document.addEventListener('focusout', e=>{ if(e.target.id==='fDe') dictAutofill(); });
+document.addEventListener('input', e=>{ if(e.target.id==='fDe' && e.target.value.trim()!==dictPicked){ dictPicked=''; const fe=$('#fEst'); if(fe) fe.textContent=''; } });
+document.addEventListener('click', e=>{
+  const p=e.target.closest('[data-dpick]'); if(p){ dictPick(+p.dataset.dpick); return; }
+  const s=e.target.closest('[data-dsense]'); if(s){ const sb=$('#dSense'), en=sb._entry; if(!en) return;
+    sb.querySelectorAll('.dsn').forEach(b=>b.setAttribute('aria-pressed', b===s?'true':'false'));
+    $('#fFr').value=en.s[+s.dataset.dsense][0].split(',')[0].trim(); fillDef(en.s[+s.dataset.dsense][1]); return; }
+  if(e.target.closest('[data-dretry]')){ dictState='idle'; loadDict(); }
+});
+
+/* ---------- pluriels allemands ---------- */
+function umlautOf(w){ let last=null; const re=/au|Au|a|o|u|A|O|U/g; let m; while((m=re.exec(w))) last=m; if(!last) return w;
+  const map={a:'ä',o:'ö',u:'ü',au:'äu',A:'Ä',O:'Ö',U:'Ü',Au:'Äu'}; return w.slice(0,last.index)+map[last[0]]+w.slice(last.index+last[0].length); }
+function pluralOf(de,pl){
+  pl=(pl||'').trim(); if(!pl) return null;
+  if(/^[A-ZÄÖÜ][a-zäöüß]+$/.test(pl)) return pl;
+  const um=pl.startsWith('¨'); const suf=pl.replace(/^¨/,'').replace(/^-/,'').trim();
+  if(!/^[a-zäöüß]*$/.test(suf)) return null;
+  const base=um?umlautOf(de):de; if(um && base===de) return null; return base+suf;
+}
+
+
+/* l'appli mobile n'envoie pas les formulaires : bouton et touche Entrée déclenchent « submit » à la main */
+function fireSubmit(f){ f.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); }
+document.addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b || !b.form || b.type!=='submit') return; e.preventDefault(); e.stopImmediatePropagation(); fireSubmit(b.form); }, true);
+document.addEventListener('keydown', e=>{ if(e.key!=='Enter' || e.isComposing) return; const el=e.target; if(el.tagName!=='INPUT' || !el.form) return; e.preventDefault(); fireSubmit(el.form); }, true);
+/* ---------- lettres allemandes ---------- */
+function umlautBar(chars, target){
+  return `<div class="umlauts" role="group" aria-label="Lettres allemandes">${chars.map(ch=>`<button type="button" class="uml" data-ins="${ch}" data-target="${target}" aria-label="Insérer ${ch}">${ch}</button>`).join('')}</div>`;
+}
+let lastField=null;
+document.addEventListener('focusin', e=>{ const el=e.target; if(el.matches && el.matches('input:not([type=search]),textarea')) lastField=el; });
+document.addEventListener('pointerdown', e=>{ if(e.target.closest('.uml')) e.preventDefault(); }); // garde le clavier ouvert
+document.addEventListener('click', e=>{
+  const b=e.target.closest('.uml'); if(!b) return;
+  const def=document.getElementById(b.dataset.target);
+  const el = (lastField && lastField.isConnected && b.closest('form,.card,.panel')?.contains(lastField)) ? lastField : def;
+  if(!el) return;
+  const a=el.selectionStart ?? el.value.length, z=el.selectionEnd ?? el.value.length;
+  el.value = el.value.slice(0,a) + b.dataset.ins + el.value.slice(z);
+  el.focus(); try{ el.setSelectionRange(a+1,a+1); }catch(_){}
+  el.dispatchEvent(new Event('input',{bubbles:true}));
+});
+/* ---------- events ---------- */
+document.addEventListener('click', async e=>{
+  const t=e.target.closest('button'); if(!t) return;
+  if('acct' in t.dataset){ document.querySelector('nav.tabs [data-tab="guide"]').click(); setTimeout(()=>$('#acctSec')?.scrollIntoView({behavior:'smooth'}),50); return; }
+  if(t.dataset.tab){ tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
+  if(t.dataset.go){ document.querySelector(`nav.tabs [data-tab="${t.dataset.go}"]`).click(); return; }
+  if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; renderReview(); return; }
+  if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; renderReview(); return; }
+  if(t.dataset.case){ const k=t.dataset.case; caseSel.has(k)?caseSel.delete(k):caseSel.add(k); t.setAttribute('aria-pressed', caseSel.has(k)); const go=document.querySelector('[data-casego]'); if(go) go.disabled=!caseSel.size; return; }
+  if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; renderReview(); return; }
+  if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; renderReview(); return; }
+  if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
+  if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; renderReview(); } return; }
+  if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; renderReview(); } return; }
+  if('back' in t.dataset && session && session.hist.length){
+    session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; renderReview(); return; }
+  if('fwd' in t.dataset && session && session.view!=null){
+    session.view++; if(session.view>=session.hist.length){ session.view=null; revealed=false; artGuess=null; } cardAnim='from-r'; renderReview(); return; }
+  if('endsession' in t.dataset){
+    // chaque réponse est enregistrée au moment où on la donne : arrêter ne perd rien
+    const left=session ? session.ids.filter(id=>cards.has(id)).length : 0;
+    stopped = session ? {done:session.done, answers:session.hist?session.hist.length:session.done, left, practice:!!session.practice} : null;
+    session=null; revealed=false; artGuess=null; renderReview(); return; }
+  if('known' in t.dataset && session){
+    if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ revealed=false; artGuess=null; } if(fin && !session.practice) await put(fin); refresh(); return; }
+    // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
+    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${c.art?c.art+' ':''}${c.de} » écarté : revient dans un mois`); return; }
+  if('triage' in t.dataset){ triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
+  if('endtriage' in t.dataset){ triage=null; refresh(); return; }
+  if('tknow' in t.dataset && triage){ flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
+  if('tlearn' in t.dataset && triage){ flyOut('l'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c) await put({...c, sorted:1}); refresh(); return; }
+  if(t.dataset.grade){
+    const g=+t.dataset.grade; if(!session) return;
+    if(session.view!=null){ flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,g); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ revealed=false; artGuess=null; } if(fin && !session.practice) await put(fin); refresh(); return; }
+    const c=cards.get(session.ids[0]); if(!c) return;
+    flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='in';
+    const n=recordAnswer(c,g);
+    const prac=session.practice; revealed=false; artGuess=null; renderReview(); if(!prac){ await put(n); refresh(); } return;
+  }
+  if(t.dataset.del){
+    if(t.dataset.confirm){ await remove(t.dataset.del); renderList(); refresh(); toast('Mot supprimé'); }
+    else { t.dataset.confirm='1'; t.textContent='Confirmer ?'; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent='Supprimer'; } },3000); }
+    return;
+  }
+  if(t.dataset.lesson && importing) return;
+  if(t.dataset.lesson){ importing=true; t.disabled=true; try{ const id=t.dataset.lesson, L=t.dataset.lvl; const ex=new Set([...cards.values()].map(keyOf));
+    const b=newBatch(LESSONS[id].title+(L?' · '+L:'')); const list=lessonItems(id).filter(f=>(!L||f.lvl===L)&&!ex.has(keyOf(f))).map(f=>({...newCard(f,b.id),batchLabel:b.label,lvl:f.lvl,src:id}));
+    if(!list.length){ toast('Déjà dans tes mots'); return; }
+    await putMany(list); refresh(); renderAdd(); toast(`${list.length} mots de la ${LESSONS[id].title.toLowerCase()} ajoutés`); } finally { importing=false; } return; }
+  if(t.dataset.rmbatch || 'rmfilter' in t.dataset){
+    let ids;
+    if(t.dataset.rmbatch){ const g=batchGroups().find(x=>x.key===t.dataset.rmbatch); ids=g?g.ids:[]; }
+    else ids=[...cards.values()].filter(filterMatch).map(c=>c.id);
+    ids=ids.filter(id=>cards.get(id)&&isNew(cards.get(id)));
+    if(!ids.length) return;
+    if(!t.dataset.confirm){ t.dataset.confirm='1'; t.dataset.orig=t.textContent; t.textContent=`Confirmer (${ids.length})`; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=t.dataset.orig; } },3500); return; }
+    await removeMany(ids); refresh(); toast(`${ids.length} mots retirés`); return;
+  }
+  if(t.dataset.axis){ if(t.dataset.axis==='lvl') lvlFilter=t.dataset.val; else if(t.dataset.axis==='stat') statFilter=t.dataset.val; else srcFilter=t.dataset.val; renderList(); return; }
+  if(t.dataset.statgo){ statFilter=t.dataset.statgo; lvlFilter=''; srcFilter=''; document.querySelector('nav.tabs [data-tab="list"]').click(); return; }
+  if('lretry' in t.dataset){ listState='idle'; rerenderLevels(); return; }
+  if(t.dataset.level){ if(importing) return; openLvl = openLvl===t.dataset.level ? '' : t.dataset.level; confirmLvl=''; rerenderLevels(); return; }
+  if(t.dataset.addnext){ confirmLvl=t.dataset.addnext; rerenderLevels(); return; }
+  if('addcancel' in t.dataset){ confirmLvl=''; rerenderLevels(); return; }
+  if(t.dataset.addconfirm){ if(importing||!LISTDATA) return; const L=t.dataset.addconfirm;
+    // les nuances saisies sont lues avant que la confirmation ne soit redessinée
+    const edits=new Map([...document.querySelectorAll('[data-packfr]')].map(i=>[+i.dataset.packfr, i.value.trim()]));
+    importing=true; rerenderLevels();
+    try{ const nxt=nextBatch(L); if(!nxt.length){ toast('Tout le niveau est déjà dans tes mots'); return; }
+      const items=LISTDATA[L]; const b=newBatch(`${L} · mots ${items.indexOf(nxt[0])+1}–${items.indexOf(nxt[nxt.length-1])+1}`);
+      const list=nxt.map((f,i)=>{ const fr=edits.get(i); const own=fr && fr!==f.fr; return {...newCard(own?{...f,fr}:f,b.id),batchLabel:b.label,lvl:L,src:'lists',...(own?{frOwn:true}:{})}; });
+      await putMany(list); toast(`${list.length} mots ${L} ajoutés`);
+    } finally { importing=false; confirmLvl=''; refresh(); rerenderLevels(); } return; }
+});
+document.addEventListener('submit', async e=>{
+  e.preventDefault();
+  if(e.target.id==='addForm'){
+    dictAutofill();
+    const de=$('#fDe').value.trim(), fr=$('#fFr').value.trim(); if(!de||!fr) return;
+    let art=$('#fArt').value, word=de; const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m){ art=m[1].toLowerCase(); word=m[2]; }
+    const fd=$('#fDup'), fi=$('#fFr');
+    if(fi.dataset.ok!==fr){ const d=sameFr([{de:word, art, fr}]); if(d.length){ fi.dataset.ok=fr;
+      fd.innerHTML=`<p><b>« ${esc(fr)} » est déjà la traduction de ${d[0].others.slice(0,4).map(x=>deWord(x)).join(', ')}.</b> ${DUP_TIP}</p><p class="hint">Pour ajouter quand même, appuie à nouveau sur « Ajouter le mot ».</p>`;
+      fd.hidden=false; fi.focus(); return; } }
+    delete fi.dataset.ok; fd.hidden=true; fd.innerHTML='';
+    const lv=$('#fLvl').value; const fromDict = dictPicked && dictPicked===word; await put({...newCard({de:word, art, pl:$('#fPl').value.trim(), fr, ex:($('#fEx').value.trim()===autoDef?'':$('#fEx').value.trim())}), ...(autoDef && $('#fEx').value.trim()===autoDef?{def:autoDef}:{}), ...(lv?{lvl:lv}:{}), src: fromDict?'dict':'manual', ...(fromDict && !lv ? {est:dictEst} : {}), ...(fromDict && dictPos ? {pos:dictPos} : {})}); const fe=$('#fEst'); if(fe) fe.textContent=''; const pp=$('#fPlPrev'); if(pp) pp.textContent=''; dictPicked=''; dictDeck=null;
+    ['fDe','fPl','fFr','fEx'].forEach(id=>$('#'+id).value=''); $('#fLvl').value=''; $('#fArt').value=''; $('#fDe').focus();
+    autoDef=''; const dq=$('#dq'), sb=$('#dSense'); if(dq) dq.value=''; if(sb){ sb.hidden=true; sb.innerHTML=''; }
+    refresh(); toast(`« ${art?art+' ':''}${word} » ajouté`);
+  }
+  if(e.target.id==='bulkForm'){ if(importing) return; importing=true; try{
+    const box=$('#bulkDup');
+    if(bulkPending){ const {fresh,ok,bad}=bulkPending; bulkPending=null;
+      box.querySelectorAll('[data-bulkfr]').forEach(i=>{ const c=fresh[+i.dataset.bulkfr], v=i.value.trim(); if(c && v) c.fr=v; });
+      box.hidden=true; box.innerHTML=''; await finishBulk(fresh, ok, bad); return; }
+    const lines=$('#fBulk').value.split('\n').map(l=>l.trim()).filter(Boolean);
+    const parsed=lines.map(parseLine); const ok=parsed.filter(Boolean);
+    if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=ART_OF[e.g]; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
+    if(!ok.length){ toast('Aucune ligne reconnue. Format : der Hund ; le chien'); return; }
+    const existing=new Set([...cards.values()].map(c=>(c.art+c.de).toLowerCase()));
+    const bb=newBatch('Liste collée'); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
+    const dups=sameFr(fresh);
+    if(dups.length){ bulkPending={fresh, ok:ok.length, bad};
+      box.innerHTML=`<p><b>${dups.length} mot${dups.length>1?'s ont':' a'} la même traduction qu'un autre mot.</b> ${DUP_TIP}</p>${dupItemsHTML(dups,'data-bulkfr')}<p class="hint">Appuie à nouveau sur « Importer » pour ajouter la liste, avec ou sans nuances.</p>`;
+      box.hidden=false; box.querySelector('input')?.focus(); return; }
+    await finishBulk(fresh, ok.length, bad);
+  } finally { importing=false; } }
+});
+let bulkPending=null;
+async function finishBulk(fresh, nOk, bad){
+    await putMany(fresh); $('#fBulk').value=''; refresh();
+    const ok={length:nOk};
+    toast(`${fresh.length} mot${fresh.length>1?'s':''} importé${fresh.length>1?'s':''}${ok.length-fresh.length?` · ${ok.length-fresh.length} déjà présent${ok.length-fresh.length>1?'s':''}`:''}${bad?` · ${bad} ligne${bad>1?'s':''} ignorée${bad>1?'s':''}`:''}`);
+}
+document.addEventListener('toggle', e=>{ if(e.target.id==='credDetails' && e.target.open){ const b=$('#credList'); if(b && !b.childElementCount) loadCredits(b); } }, true);
+document.addEventListener('change', async e=>{
+  const sel=e.target.closest('[data-setstat]'); if(!sel) return;
+  const c=cards.get(sel.dataset.setstat); if(!c || STATUS(c)===sel.value) return;
+  await put(withStatus(c, sel.value)); refresh(); toast(`« ${c.art?c.art+' ':''}${c.de} » : ${STATUS_LABEL[sel.value].toLowerCase()}`);
+});
+document.addEventListener('input', e=>{
+  if(e.target.id==='fFr'){ const fd=$('#fDup'); if(fd && !fd.hidden && e.target.value.trim()!==e.target.dataset.ok){ fd.hidden=true; delete e.target.dataset.ok; } }
+  if(e.target.id==='fBulk' && bulkPending){ bulkPending=null; const b=$('#bulkDup'); if(b){ b.hidden=true; b.innerHTML=''; } }
+});
+document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.target.value; const pos=e.target.selectionStart; renderList(); const s=$('#search'); s.focus(); s.setSelectionRange(pos,pos); } });
+
+/* ---------- Synchronisation entre appareils (Supabase, sans bibliothèque) ----------
+   Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
+   à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
+   la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
+const SB_URL="https://vijlxamhpmepnowutnkr.supabase.co", SB_KEY="sb_publishable_cobYQqpl-AvpeebLAaMYpQ_DL0-iqq3", SB_TABLE="memolex", SYNC_KEY="mx-sync";
+let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
+SY.dirty=SY.dirty||{}; SY.tomb=SY.tomb||{};
+let SYNCING=false, SYNC_T=null, SYNC_AGAIN=false;
+const syPut=()=>{ try{ localStorage.setItem(SYNC_KEY, JSON.stringify(SY)); }catch(e){} };
+class SyErr extends Error{ constructor(m,code){ super(m); this.code=code; } }
+async function sbReq(path,o={},auth){
+  const h=Object.assign({apikey:SB_KEY,'Content-Type':'application/json'},o.headers||{});
+  if(auth){ if(!SY.tok) throw new SyErr('Non connecté','auth'); if(Date.now()>(SY.exp||0)-60e3) await sbRefresh(); h.Authorization='Bearer '+SY.tok; }
+  let r; try{ r=await fetch(SB_URL+path,{method:o.method||'GET',headers:h,body:o.body?JSON.stringify(o.body):undefined}); }catch(e){ throw new SyErr('Hors ligne','net'); }
+  if(r.status===401 && auth && !o.retried){ await sbRefresh(); return sbReq(path,Object.assign({retried:true},o),auth); }
+  if(!r.ok){ let m=''; try{ const j=await r.json(); m=j.msg||j.message||j.error_description||j.error||''; }catch(e){} throw new SyErr(m||('Erreur '+r.status), r.status); }
+  const t=await r.text(); return t?JSON.parse(t):null;
+}
+function sbSession(j){ SY.tok=j.access_token; SY.ref=j.refresh_token; SY.exp=Date.now()+(j.expires_in||3600)*1000; if(j.user){ SY.uid=j.user.id; SY.email=j.user.email||SY.email; } syPut(); }
+async function sbRefresh(){ if(!SY.ref) throw new SyErr('Session expirée','auth'); let j;
+  try{ j=await sbReq('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:SY.ref}},false); }
+  catch(e){ if(e.code==='net') throw e; syOutLocal(); throw new SyErr('Session expirée : reconnecte-toi','auth'); }
+  sbSession(j); }
+function syOutLocal(){ SY={dirty:{},tomb:{}}; syPut(); syUi(); }
+
+/* --- ce qui change ici est noté pour le prochain envoi --- */
+function syMark(id){ if(!SY.tok) return; if(id) SY.dirty[id]=1; syPut(); clearTimeout(SYNC_T); SYNC_T=setTimeout(()=>syncNow(true),2500); syUi(); }
+const stamp = c => ({...c, mt:Date.now()});
+
+/* --- réception : la version la plus récente gagne --- */
+function syApply(rows){
+  let n=0;
+  for(const r of rows){
+    const rmt=(r.data && r.data.mt)||0;
+    if(r.id==='_settings'){ if(!r.deleted && r.data && rmt>(settings.mt||0) && !SY.dirty._settings){ settings={...settings,...r.data}; try{ localStorage.setItem('mx-settings', JSON.stringify(settings)); }catch(e){} n++; } continue; }
+    const loc=cards.get(r.id);
+    if(r.deleted){
+      if(loc && (loc.mt||0)<=rmt){ cards.delete(r.id); delete SY.dirty[r.id]; n++; }
+      continue;
+    }
+    if(SY.tomb[r.id] && SY.tomb[r.id]>=rmt) continue;          // supprimé ici après : la suppression partira
+    if(!loc || (loc.mt||0)<rmt){ const {id,...d}=r.data; cards.set(r.id,{...d,id:r.id}); delete SY.dirty[r.id]; delete SY.tomb[r.id]; n++; }
+  }
+  return n;
+}
+async function syPull(){
+  let n=0, off=0, max=SY.cur||null;
+  for(;;){
+    const q=`/rest/v1/${SB_TABLE}?select=id,data,deleted,srv_at&order=srv_at.asc,id.asc&limit=1000&offset=${off}`+(SY.cur?'&srv_at=gt.'+encodeURIComponent(new Date(Date.parse(SY.cur)-5000).toISOString()):''); // 5 s de recouvrement : un envoi encore en cours ailleurs n'est pas manqué
+    const rows=await sbReq(q,{},true)||[]; if(!rows.length) break;
+    n+=syApply(rows); rows.forEach(r=>{ if(!max || r.srv_at>max) max=r.srv_at; });
+    if(rows.length<1000) break; off+=1000;
+  }
+  if(max) SY.cur=max; return n;
+}
+/* --- envoi : les mots modifiés ici, par paquets --- */
+async function syPush(){
+  const ids=Object.keys(SY.dirty); if(!ids.length) return 0;
+  const snap=new Map();
+  const rows=ids.map(id=>{
+    if(id==='_settings'){ snap.set(id,settings.mt||0); return {user_id:SY.uid,id,data:settings,deleted:false}; }
+    const c=cards.get(id);
+    if(c){ snap.set(id,c.mt||0); return {user_id:SY.uid,id,data:c,deleted:false}; }
+    const t=SY.tomb[id]||Date.now(); snap.set(id,t); return {user_id:SY.uid,id,data:{mt:t},deleted:true};
+  });
+  for(let i=0;i<rows.length;i+=200){
+    await sbReq(`/rest/v1/${SB_TABLE}?on_conflict=user_id,id`,{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:rows.slice(i,i+200)},true);
+  }
+  // une carte modifiée pendant l'envoi reste à envoyer
+  for(const [id,m] of snap){ const now = id==='_settings' ? (settings.mt||0) : cards.has(id) ? (cards.get(id).mt||0) : (SY.tomb[id]||0);
+    if(now===m){ delete SY.dirty[id]; if(!cards.has(id)) delete SY.tomb[id]; } }
+  return rows.length;
+}
+async function syncNow(quiet){
+  if(!SY.tok) return false;
+  if(SYNCING){ SYNC_AGAIN=true; return false; }
+  SYNCING=true; syUi(quiet?null:'Synchronisation…');
+  try{
+    if(!SY.init){ // premier passage sur cet appareil : tout ce qu'il contient part aussi
+      [...cards.keys()].forEach(id=>SY.dirty[id]=1); SY.dirty._settings=1; SY.init=1; SY.cur=null;
+    }
+    const got=await syPull();
+    if(got){ saveLocal(); synced=false; await syncFromSources(); refresh(); }
+    const sent=await syPush();
+    SY.last=Date.now(); SY.err=''; syPut();
+    syUi(quiet?null:`Synchronisé${got||sent?` · ${sent} envoyé${sent>1?'s':''}, ${got} reçu${got>1?'s':''}`:''}`);
+    return true;
+  }catch(e){
+    SY.err = e.code==='net' ? 'Hors ligne : la synchro reprendra au retour du réseau' : e.code==='auth' ? 'Session expirée : reconnecte-toi' : (e.message||'La synchro a échoué'); syPut();
+    syUi(quiet?null:SY.err); return false;
+  }finally{
+    SYNCING=false; syUi();
+    if(SYNC_AGAIN){ SYNC_AGAIN=false; setTimeout(()=>syncNow(true),300); }
+  }
+}
+
+/* --- connexion par lien reçu par e-mail (comme Album Ledger, même compte) --- */
+const sbSendLink=email=>sbReq('/auth/v1/otp?redirect_to='+encodeURIComponent(location.origin+location.pathname),{method:'POST',body:{email,create_user:true}},false);
+async function authHash(){
+  const h=location.hash; if(!/access_token=|error_code=/.test(h)) return;
+  const q=new URLSearchParams(h.slice(1)); try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  if(q.get('error_code')||q.get('error')){ toast(q.get('error_code')==='otp_expired'?'Ce lien a expiré ou a déjà servi : demande un nouveau lien.':'La connexion a échoué : demande un nouveau lien.'); return; }
+  const old=SY; SY={dirty:{},tomb:{},tok:q.get('access_token'),ref:q.get('refresh_token'),exp:Date.now()+(+q.get('expires_in')||3600)*1000};
+  try{ const u=await sbReq('/auth/v1/user',{},true);
+    if(old.uid===u.id) SY=Object.assign(old,{tok:SY.tok,ref:SY.ref,exp:SY.exp}); else SY.uid=u.id;
+    SY.email=u.email; syPut(); toast('Connecté : '+u.email); syncNow(false);
+  }catch(e){ SY=old; syPut(); toast(e.code==='net'?'Hors ligne : rouvre le lien une fois connecté':'La connexion a échoué : demande un nouveau lien'); }
+  syUi();
+}
+
+/* --- interface : l'état en haut, le panneau du compte dans le Guide --- */
+function syWhen(t){ const m=Math.round((Date.now()-t)/60000); return m<1?'à l’instant':m<60?`il y a ${m} min`:new Date(t).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
+function syUi(msg){
+  const top=$('#sync');
+  if(top){ const pend=Object.keys(SY.dirty).length;
+    top.textContent = !SY.tok ? 'Sur cet appareil · synchroniser…' : SYNCING ? 'Synchronisation…' : SY.err ? SY.err : pend ? `${pend} changement${pend>1?'s':''} à envoyer` : SY.last ? 'Synchronisé '+syWhen(SY.last) : 'Synchronisation prête';
+    top.dataset.state = !SY.tok ? 'off' : SYNCING ? 'busy' : SY.err ? 'err' : pend ? 'pend' : 'ok'; }
+  const box=$('#acct'); if(!box) return;
+  if(msg!=null) box.dataset.msg=msg;
+  box.innerHTML = SY.tok
+    ? `<p>Connecté : <b>${esc(SY.email||'')}</b></p><p class="hint">${SY.err?esc(SY.err):SY.last?'Dernière synchro '+syWhen(SY.last):'Pas encore synchronisé'}</p>
+       <div class="row"><button type="button" class="btn" data-sygo ${SYNCING?'disabled':''}>${SYNCING?'Synchronisation…':'Synchroniser maintenant'}</button><button type="button" class="btn ghost" data-syout>Se déconnecter</button></div>
+       <p class="hint">Tes mots, ta progression et tes réglages vont sur tous les appareils connectés avec cette adresse. La synchro se fait seule après chaque réponse et à l'ouverture de l'appli.</p>`
+    : `<p class="hint">Connecte-toi pour retrouver tes mots et ta progression sur ton téléphone et ton ordinateur. Pas de mot de passe : tu reçois un lien par e-mail, à ouvrir sur l'appareil à connecter. C'est le même compte qu'Album Ledger.</p>
+       <label for="syEmail">Adresse e-mail<input type="email" id="syEmail" autocomplete="email" placeholder="toi@exemple.fr"></label>
+       <button type="button" class="btn" data-sylink>M'envoyer le lien de connexion</button>`;
+  if(box.dataset.msg) box.insertAdjacentHTML('beforeend',`<p class="hint" aria-live="polite"><b>${esc(box.dataset.msg)}</b></p>`);
+}
+document.addEventListener('click', async e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  if('sylink' in b.dataset){ const em=($('#syEmail')?.value||'').trim(); if(!/^\S+@\S+\.\S+$/.test(em)){ toast('Saisis une adresse e-mail valide'); return; }
+    b.disabled=true; try{ await sbSendLink(em); syUi(`Lien envoyé à ${em}. Ouvre l'e-mail sur cet appareil et touche le lien.`); }catch(err){ syUi(err.code==='net'?'Hors ligne : réessaie une fois connecté':(err.message||"Le lien n'a pas pu être envoyé")); } b.disabled=false; return; }
+  if('sygo' in b.dataset){ syncNow(false); return; }
+  if('syout' in b.dataset){ try{ await sbReq('/auth/v1/logout',{method:'POST'},true); }catch(err){} syOutLocal(); syUi('Déconnecté. Tes mots restent sur cet appareil.'); return; }
+});
+addEventListener('online',()=>{ if(SY.tok) syncNow(true); });
+document.addEventListener('visibilitychange',()=>{ if(!SY.tok) return; if(document.visibilityState==='hidden'){ if(Object.keys(SY.dirty).length) syncNow(true); } else if(Date.now()-(SY.last||0)>20e3) syncNow(true); });
+setInterval(()=>{ if(!SYNCING) syUi(); }, 60e3);
+
+refresh();
+useLocal();
+authHash(); addEventListener('hashchange', authHash);
+if(SY.tok) syncNow(true);
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
