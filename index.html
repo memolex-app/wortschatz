@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Memolex</title>
 <meta name="theme-color" content="#1c1a2b">
-<meta name="description" content="Vocabulaire allemand-français par répétition espacée, hors ligne.">
+<meta name="description" content="Vocabulaire allemand et italien depuis le français, par répétition espacée, hors ligne.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -324,6 +324,12 @@ header h1{font-style:italic;letter-spacing:-.03em;align-items:center}
 header h1::before{content:"";width:22px;height:26px;background:var(--stripes);transform:skewX(-14deg);flex:none;align-self:center}
 header h1 .pair{font-family:var(--f-mono);font-style:normal;font-weight:600;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--ink);border-radius:2px;color:var(--ink);background:var(--surface);padding:2px 8px}
 .sync{font-family:var(--f-mono);font-size:.7rem}
+header h1 button.pair{cursor:pointer;line-height:1.4;box-shadow:var(--bevel),2px 2px 0 var(--ink)}
+header h1 button.pair::after{content:" ▾"}
+header h1 button.pair:active{transform:translate(2px,2px);box-shadow:var(--sunken)}
+.artpick .b-neutral{color:var(--ink)}
+.langs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%;max-width:360px}
+.level[aria-pressed="true"]{box-shadow:var(--sunken);transform:translate(3px,3px)}
 
 /* étiquettes en police machine */
 .prompt-label,.stat span,.flabel,.dgroup,.tex .tsense,.packs-head small,.dict-head small,.tbl th,.practice-bar,.dir,.postag,.pill,.stsel,.legend,.pk,.verdict,.cnt,.sess small{font-family:var(--f-mono)}
@@ -453,7 +459,7 @@ nav.tabs button:active{transform:translateY(1px)}
 <body>
 <div class="app">
   <header>
-    <h1>Memolex <span class="pair">Allemand · Français</span></h1>
+    <h1>Memolex <button type="button" class="pair" id="pair" data-langpick aria-label="Changer de langue">Langue</button></h1>
     <button type="button" class="sync" id="sync" data-acct>Chargement…</button>
   </header>
   <div class="stats">
@@ -474,74 +480,107 @@ nav.tabs button:active{transform:translateY(1px)}
 
 <script>
 const DAY = 86400000;
+/* ---------- langues : une seule appli, une langue apprise à la fois, toujours depuis le français ----------
+   Chaque carte porte sa langue (lang) ; les anciennes cartes, sans lang, sont allemandes.
+   Les fichiers de données suivent le motif lists-<langue>-fr.json, examples-…, chunks-…, credits-…, dict-…. */
+const LANGS = {
+  de:{code:'DE', name:'Allemand', adj:'allemand', adjf:'allemande', adjs:'allemands', the:"l'allemand", of:"de l'allemand", bravo:'Perfekt!',
+      chars:['ä','ö','ü','ß'], charsUp:['ä','ö','ü','ß','Ä','Ö','Ü'], charsLabel:'Lettres allemandes',
+      sample:'Schmetterling', sampleEx:'Ein Schmetterling sitzt auf der Blume.', samplePl:'-e, ¨-er, -n…', sampleQ:'Hund, gehen… ou en français : papillon',
+      bulkEx:'die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen', bulkFmt:'der Hund, -e ; le chien'},
+  it:{code:'IT', name:'Italien', adj:'italien', adjf:'italienne', adjs:'italiens', the:"l'italien", of:"de l'italien", bravo:'Perfetto!',
+      chars:['à','è','é','ì','ò','ù'], charsUp:['à','è','é','ì','ò','ù','È'], charsLabel:'Lettres accentuées',
+      sample:'farfalla', sampleEx:'Una farfalla si posa sul fiore.', samplePl:'le farfalle, gli amici…', sampleQ:'cane, andare… ou en français : papillon',
+      bulkEx:"la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami", bulkFmt:'il cane, i cani ; le chien'}
+};
+let LANG = (()=>{ try{ return LANGS[localStorage.getItem('mx-lang')] ? localStorage.getItem('mx-lang') : ''; }catch(e){ return ''; } })();
+let langPicking = false;
+const L_ = () => LANGS[LANG] || LANGS.de;
+const langOf = c => c.lang || 'de';
+// les mots de la langue choisie ; les autres langues restent dans le stockage, intactes
+const deck = () => [...cards.values()].filter(c=>langOf(c)===LANG);
+const dataFile = k => `${k}-${LANG}-fr.json`;
+// italien : genre d'après l'article (l' : genre enregistré sur la carte)
+const itGender = c => c.g || (/^(il|lo|i|gli)$/.test(c.art||'') ? 'm' : /^(la|le)$/.test(c.art||'') ? 'f' : '');
+// couleur du genre : bleu masculin, rouge féminin, vert neutre (allemand)
+const gcls = c => langOf(c)==='de' ? (c.art ? 'g-'+c.art : '') : (c.art ? ({m:'g-der', f:'g-die'}[itGender(c)]||'') : '');
+// « l'amico » sans espace, « il libro », « der Hund »
+const artWord = c => (c.art ? c.art+(/['’]$/.test(c.art)?'':' ') : '')+c.de;
+const ART_RE = () => LANG==='it' ? /^(?:(il|lo|la|i|gli|le)\s+|(l)['’]\s*)(.+)$/i : /^(der|die|das)\s+()(.+)$/i;
+function splitArt(s){ const m=String(s||'').trim().match(ART_RE()); if(!m) return null; return {art: m[1] ? m[1].toLowerCase() : "l'", de: m[3]}; }
+function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · Français` : 'Choisir une langue'; }
 /* listes par niveau : les mots les plus fréquents, chargés depuis lists-de-fr.json */
 const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Autonome', C2:'Maîtrise'};
 const PACK = 100, BATCH = 50;
 let confirmLvl='';
 // les 50 prochains mots du niveau qui ne sont pas encore dans tes mots, dans l'ordre de fréquence
-function nextBatch(L){ const have=new Set([...cards.values()].map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,BATCH); }
+function nextBatch(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,BATCH); }
 let LISTPOS=new Map(); let dictDeck=null;
 let LISTDATA=null, listState='idle', openLvl='', listSynced=false;
 function loadLists(){
   if(listState==='loading' || listState==='ready') return;
-  listState='loading';
-  fetch('lists-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
-    LISTDATA={}; LISTPOS=new Map(); d.forEach(([L,w,p,g,pl,fr])=>{ const f={de:w, art:g, pl, fr, ex:'', pos:p}; (LISTDATA[L]=LISTDATA[L]||[]).push(f); LISTPOS.set(keyOf(f),p); });
+  if(!LANG) return;
+  listState='loading'; const lang=LANG;
+  fetch(dataFile('lists')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    if(lang!==LANG) return;
+    // italien : 7e colonne = genre (m, f), utile quand l'article est élidé (l'amico, l'amica)
+    LISTDATA={}; LISTPOS=new Map(); d.forEach(([L,w,p,g,pl,fr,gen])=>{ const f={de:w, art:g, pl, fr, ex:'', pos:p, ...(gen?{g:gen}:{})}; (LISTDATA[L]=LISTDATA[L]||[]).push(f); LISTPOS.set(dkey(f),p); });
     listState='ready'; rerenderLevels(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
-  }).catch(()=>{ listState='error'; rerenderLevels(); });
+  }).catch(()=>{ if(lang!==LANG) return; listState='error'; rerenderLevels(); });
 }
 // les traductions des listes sont corrigées au fil des versions : on met à jour les mots venus des listes
 async function syncListCards(){
   if(!LISTDATA || mode==='loading') return;
   const by=new Map(); Object.values(LISTDATA).forEach(a=>a.forEach(f=>by.set(keyOf(f),f)));
-  const fixes=[...cards.values()].filter(c=>c.src==='lists' && !c.frOwn).map(c=>[c,by.get(keyOf(c))]).filter(([c,f])=>f && f.fr!==c.fr).map(([c,f])=>({...c, fr:f.fr}));
+  const fixes=deck().filter(c=>c.src==='lists' && !c.frOwn).map(c=>[c,by.get(keyOf(c))]).filter(([c,f])=>f && f.fr!==c.fr).map(([c,f])=>({...c, fr:f.fr}));
   // mot retiré des listes lors d'une relecture (traduction fausse, mot rare, forme erronée) : la carte est supprimée
-  const gone=[...cards.values()].filter(c=>c.src==='lists' && !c.frOwn && !by.has(keyOf(c)));
+  const gone=deck().filter(c=>c.src==='lists' && !c.frOwn && !by.has(keyOf(c)));
   if(fixes.length){ await putMany(fixes); }
-  if(gone.length){ await removeMany(gone.map(c=>c.id)); toast(`${gone.length===1?`« ${gone[0].art?gone[0].art+' ':''}${gone[0].de} » retiré`:`${gone.length} mots retirés`} : ${gone.length===1?'il a été écarté':'ils ont été écartés'} des listes lors de la relecture`); }
+  if(gone.length){ await removeMany(gone.map(c=>c.id)); toast(`${gone.length===1?`« ${artWord(gone[0])} » retiré`:`${gone.length} mots retirés`} : ${gone.length===1?'il a été écarté':'ils ont été écartés'} des listes lors de la relecture`); }
   if(fixes.length || gone.length) refresh();
 }
 /* phrases d'exemple Tatoeba (CC BY 2.0 FR), chargées depuis examples-de-fr.json */
 let EXDATA=null, exState='idle';
 function loadExamples(){
   if(exState==='loading' || exState==='ready') return;
-  exState='loading';
-  fetch('examples-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
-    EXDATA=d; exState='ready'; if(tab==='review' && revealed) renderReview();
-  }).catch(()=>{ exState='error'; });
+  if(!LANG) return;
+  exState='loading'; const lang=LANG;
+  fetch(dataFile('examples')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    if(lang!==LANG) return; EXDATA=d; exState='ready'; if(tab==='review' && revealed) renderReview();
+  }).catch(()=>{ if(lang===LANG) exState='error'; });
   // chunks : expressions courtes rédigées pour Memolex, une par carte, affichées avant la phrase Tatoeba
-  fetch('chunks-de-fr.json').then(r=>r.ok?r.json():{}).then(d=>{ CHDATA=d; if(tab==='review' && revealed) renderReview(); }).catch(()=>{});
+  fetch(dataFile('chunks')).then(r=>r.ok?r.json():{}).then(d=>{ if(lang!==LANG) return; CHDATA=d; if(tab==='review' && revealed) renderReview(); }).catch(()=>{});
 }
 let CHDATA=null;
 function chunkHTML(c){
-  const ch=CHDATA && CHDATA[keyOf(c)]; if(!ch) return '';
+  const ch=CHDATA && CHDATA[dkey(c)]; if(!ch) return '';
   const de=esc(ch[0]).replace(/\*([^*]+)\*/g,'<mark>$1</mark>');
-  return `<div class="tex chunk"><span class="tsense">À retenir</span><p class="tde" lang="de">${de}</p><p class="tfr">${esc(ch[1])}</p></div>`;
+  return `<div class="tex chunk"><span class="tsense">À retenir</span><p class="tde" lang="${langOf(c)}">${de}</p><p class="tfr">${esc(ch[1])}</p></div>`;
 }
 function ownExHTML(c){
-  if(c.def) return `<div class="tex own"><span class="tsense">Définition</span><p class="tde" lang="de">${esc(c.def)}</p></div>`;
-  return c.ex ? `<div class="tex own"><span class="tsense">Ton exemple</span><p class="tde" lang="de">${esc(c.ex)}</p></div>` : '';
+  if(c.def) return `<div class="tex own"><span class="tsense">Définition</span><p class="tde" lang="${langOf(c)}">${esc(c.def)}</p></div>`;
+  return c.ex ? `<div class="tex own"><span class="tsense">Ton exemple</span><p class="tde" lang="${langOf(c)}">${esc(c.ex)}</p></div>` : '';
 }
 function exampleHTML(c){ const ch=chunkHTML(c)+ownExHTML(c), tx=tatoebaHTML(c);
   if(!ch || !tx) return ch+tx;   // sans chunk ni exemple à soi, les phrases restent visibles
   const n=(tx.match(/class="tex"/g)||[]).length;
   return ch+`<details class="moreex"><summary aria-label="Afficher les phrases d'exemple"><span class="chev" aria-hidden="true">⌄</span>${n>1?n+' exemples':'1 exemple'}</summary>${tx}</details>`; }
 function tatoebaHTML(c){
-  const list=(EXDATA && EXDATA[keyOf(c)]) || []; if(!list.length) return '';
+  const list=(EXDATA && EXDATA[dkey(c)]) || []; if(!list.length) return '';
   // une phrase par sens du mot ; l'étiquette dit de quel sens il s'agit
   return list.map(([de,fr,spans,label])=>{
     let html='', pos=0;
     (spans||[]).forEach(([a,n])=>{ if(a<pos) return; html+=esc(de.slice(pos,a))+`<mark>${esc(de.slice(a,a+n))}</mark>`; pos=a+n; });
     html+=esc(de.slice(pos));
-    return `<div class="tex">${label?`<span class="tsense">${esc(label)}</span>`:''}<p class="tde" lang="de">${html}</p><p class="tfr">${esc(fr)}</p></div>`;
+    return `<div class="tex">${label?`<span class="tsense">${esc(label)}</span>`:''}<p class="tde" lang="${langOf(c)}">${html}</p><p class="tfr">${esc(fr)}</p></div>`;
   }).join('');
 }
 /* crédits des phrases d'exemple, chargés seulement quand on les ouvre dans le guide */
 function loadCredits(box){
   box.innerHTML='<p class="hint">Chargement…</p>';
-  fetch('credits-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(({u,c})=>{
+  fetch(dataFile('credits')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(({u,c})=>{
     const who=i=>u[i]?esc(u[i]):'anonyme';
-    box.innerHTML=`<p class="hint">${c.length.toLocaleString('fr-FR')} phrases, ${u.length.toLocaleString('fr-FR')} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase allemande et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
+    box.innerHTML=`<p class="hint">${c.length.toLocaleString('fr-FR')} phrases, ${u.length.toLocaleString('fr-FR')} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase ${L_().adjf} et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
       <div class="credits">${c.map(([d,du,f,fu])=>`<div>n° ${d} · ${who(du)} — n° ${f} · ${who(fu)}</div>`).join('')}</div>`;
   }).catch(()=>{ box.innerHTML='<p class="hint">La liste n\'a pas pu se charger.</p>'; });
 }
@@ -613,13 +652,20 @@ function parseLine(line){
   const fr = (frRaw||'').trim(), ex = exRest.join(';').trim();
   if(!left || !left.trim() || !fr) return null;
   let de = left.trim(), art = '', pl = '';
+  if(LANG==='it'){ // « il cane, i cani ; le chien » : pluriel écrit en entier, avec son article
+    const c = de.indexOf(','); if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
+    const a = splitArt(de); let g='';
+    if(a){ art=a.art; de=a.de; g = /^(il|lo|i|gli)$/.test(art) ? 'm' : /^(la|le)$/.test(art) ? 'f' : ''; }
+    if(!g && /^(i|gli)\s/i.test(pl)) g='m'; else if(!g && /^le\s/i.test(pl)) g='f';
+    return { de, art, pl, fr, ex, ...(g?{g}:{}) };
+  }
   const m = de.match(/^(der|die|das)\s+(.+)$/i);
   if(m){ art = m[1].toLowerCase(); de = m[2]; }
   const c = de.indexOf(',');
   if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
   return { de, art, pl, fr, ex };
 }
-function newCard(f, batch){ const now=Date.now(); return { id:uid(), batch:batch||'', de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ex:f.ex||'', ...(f.pos?{pos:f.pos}:{}), ease:2.5, ivl:0, reps:0, lapses:0, due:now, created:now }; }
+function newCard(f, batch){ const now=Date.now(); return { id:uid(), lang:LANG||'de', batch:batch||'', de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ex:f.ex||'', ...(f.pos?{pos:f.pos}:{}), ...(f.g?{g:f.g}:{}), ease:2.5, ivl:0, reps:0, lapses:0, due:now, created:now }; }
 
 /* ---------- storage ---------- */
 function saveLocal(){ if(mode!=='local') return; try{ localStorage.setItem('mx-cards', JSON.stringify([...cards.values()])); }catch(e){} }
@@ -656,7 +702,9 @@ function handleErr(e){
 function useLocal(){
   mode='local';
   try{ const raw=localStorage.getItem('mx-cards'); if(raw) JSON.parse(raw).forEach(c=>cards.set(c.id,c)); }catch(e){}
-  syUi();
+  // déjà des mots mais pas encore de langue choisie (version précédente) : on reprend la langue de ces mots
+  if(!LANG && cards.size){ const n={}; cards.forEach(c=>{ n[langOf(c)]=(n[langOf(c)]||0)+1; }); LANG=Object.keys(n).sort((a,b)=>n[b]-n[a])[0]; try{ localStorage.setItem('mx-lang',LANG); }catch(e){} }
+  updatePair(); syUi();
   refresh(); syncFromSources(); if(listState==='ready'){ listSynced=true; syncListCards(); } else loadLists();
   loadExamples();
 }
@@ -771,10 +819,10 @@ function scheduleWake(t){
 }
 
 const isNew = c => (c.reps||0)===0 && (c.lapses||0)===0 && !isLearning(c);
-function introToday(){ const sod=startOfDay(Date.now()); return [...cards.values()].filter(c=>c.intro && c.intro>=sod).length; }
+function introToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.intro && c.intro>=sod).length; }
 // ce qui est prêt maintenant : mots en apprentissage dont le délai est passé, révisions du jour, puis nouveaux mots
 function todayPlan(){
-  const all=[...cards.values()];
+  const all=deck();
   const due=all.filter(c=>!isNew(c)&&isDue(c));
   const learn=due.filter(isLearning).sort((a,b)=>a.due-b.due);
   const rev=due.filter(c=>!isLearning(c)).sort((a,b)=>a.due-b.due);
@@ -820,7 +868,7 @@ function changeAnswer(i, g){
 }
 // entraînement libre : les mots les plus proches de leur prochaine révision d'abord ; aucune réponse n'est enregistrée
 function startPractice(size){
-  const all=[...cards.values()].filter(c=>!isNew(c)&&!isDue(c)).sort((a,b)=>(a.due||0)-(b.due||0));
+  const all=deck().filter(c=>!isNew(c)&&!isDue(c)).sort((a,b)=>(a.due||0)-(b.due||0));
   const ids=all.slice(0,size).map(c=>c.id); if(!ids.length) return false;
   session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null, practice:true}; revealed=false; artGuess=null; return true;
 }
@@ -832,7 +880,9 @@ function startSession(size){
 }
 /* ---------- render ---------- */
 function refresh(){
-  const all=[...cards.values()];
+  updatePair();
+  if(mode!=='loading' && (!LANG || langPicking)){ ['#sDue','#sTotal','#sKnown'].forEach(id=>$(id).textContent='–'); $('#progress').innerHTML=''; renderLangPick(); return; }
+  const all=deck();
   const plan=todayPlan();
   $('#sDue').textContent = mode==='loading'?'–':plan.learn.length+plan.rev.length;
   $('#sTotal').textContent = mode==='loading'?'–':all.length;
@@ -863,7 +913,7 @@ const WECHSEL_NOTE = {
   zwischen:['zwischen den Stühlen sitzen','sich zwischen die Stühle setzen','']
 };
 function prepLine(c){
-  const n=!c.art && posOf(c)==='prep' && WECHSEL_NOTE[c.de]; if(!n) return '';
+  const n=!c.art && langOf(c)==='de' && posOf(c)==='prep' && WECHSEL_NOTE[c.de]; if(!n) return '';
   return `<div class="prepnote"><p><b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang="de">${esc(n[0])}</span>.</p><p><b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang="de">${esc(n[1])}</span>.</p>${n[2]?`<p>Sens figuré, ${esc(n[2])}.</p>`:''}</div>`;
 }
 const PREP_CASE = {
@@ -873,6 +923,7 @@ const PREP_CASE = {
   wegen:'Gén. ; familier : Dat.','während':'Gén. ; familier : Dat.',trotz:'Gén. ; familier : Dat.',statt:'Gén.',anstatt:'Gén.',anstelle:'Gén.',aufgrund:'Gén.',innerhalb:'Gén.',außerhalb:'Gén.',kraft:'Gén.',ausschließlich:'Gén.',namens:'Gén.',willen:'Gén. ; um … willen',mittels:'Gén.',anhand:'Gén.','bezüglich':'Gén.',angesichts:'Gén.',inklusive:'Gén.',einschließlich:'Gén.',seitens:'Gén.',jenseits:'Gén.','anlässlich':'Gén.',hinsichtlich:'Gén.',abseits:'Gén.',infolge:'Gén.',mithilfe:'Gén.',unterhalb:'Gén.',oberhalb:'Gén.',zugunsten:'Gén.',mangels:'Gén.',inmitten:'Gén.',unweit:'Gén.',eingangs:'Gén.','längs':'Gén. ou Dat.',seitlich:'Gén.',halber:'Gén., placé après le nom',zwecks:'Gén.',voller:'nom sans article : voller Wasser'
 };
 function prepCase(de, c){
+  if(c && langOf(c)!=='de') return '';
   if(VERB_CASE[de]) return VERB_CASE[de];
   if(c && /^(prep|postp)$/.test(posOf(c)) && PREP_CASE[de]) return PREP_CASE[de];
   const m=de.match(/\s(\S+)$/); if(!m || !/^(sich\s|[a-zäöüß])/.test(de)) return '';
@@ -884,7 +935,7 @@ const CASES=[['Akk','Accusatif'],['Dat','Datif'],['Gen','Génitif']];
 function casesIn(t){ const r=[]; if(/Akk/.test(t)) r.push('Akk'); if(/Dat/.test(t)) r.push('Dat'); if(/Gén/.test(t)) r.push('Gen'); return r; }
 // cas attendus : ceux de la langue standard ; un datif « familier » est accepté en plus, sans être exigé
 function caseTarget(c){
-  if(c.art || !/^(prep|postp)$/.test(posOf(c))) return null;
+  if(c.art || langOf(c)!=='de' || !/^(prep|postp)$/.test(posOf(c))) return null;
   const t=PREP_CASE[c.de]; if(!t) return null;
   const [std, fam]=t.split(/;\s*familier\s*:/); const need=casesIn(std); if(!need.length) return null;
   return {need, extra: fam?casesIn(fam):[]};
@@ -898,7 +949,18 @@ function caseVerdict(c, guess){
   if(ok) return `<div class="verdict ok">${t.need.length>1?'Bons cas':'Bon cas'}${famUsed?` (le ${t.extra.map(L).join(', ')} est familier)`:''}</div>`;
   return `<div class="verdict bad">Pas ${g.map(L).join(' + ')} : ${t.need.length>1?'il fallait '+t.need.map(L).join(' et '):'il fallait '+(t.need[0]==='Akk'?'l’':'le ')+L(t.need[0])}</div>`;
 }
+const GENRE_IT = {m:'masculin', f:'féminin'};
+// italien : genre et pluriel écrit en entier avec son article (« gli amici », « le città » : invariable)
+function gramLineIt(c){
+  if(!c.art) return '';
+  const g=GENRE_IT[itGender(c)]||'';
+  if(/^(i|gli|le)$/.test(c.art)) return `<div class="plural">${esc(g?g+' pluriel':'pluriel')}</div>`;
+  const pl=(c.pl||'').trim();
+  const p = !pl ? (c.lvl?'pas de pluriel':'') : pl.replace(/^\S+\s+/,'')===c.de ? `pluriel invariable : ${pl}` : `pluriel : ${pl}`;
+  return `<div class="plural">${esc(g?g+' singulier':'')}${g&&p?' · ':''}${esc(p)}</div>`;
+}
 function gramLine(c){
+  if(langOf(c)==='it') return gramLineIt(c);
   if(!c.art) return prepLine(c);
   const g=GENRE[c.art]+' singulier';
   const pl=(c.pl||'').trim();
@@ -908,11 +970,11 @@ function gramLine(c){
   return `<div class="plural">${esc(g)}${p?` · ${esc(p)}`:''}</div>`;
 }
 function deWord(c){
-  const pc = c.art ? '' : prepCase(c.de, c);
-  return (c.art?`<span class="art g-${c.art}">${c.art}</span> `:'')+`<span class="${c.art?'g-'+c.art:''}">${esc(c.de)}</span>`+(pc?` <span class="pcase">(+ ${pc})</span>`:'');
+  const pc = c.art ? '' : prepCase(c.de, c); const gc=gcls(c), sp=c.art && !/['’]$/.test(c.art) ? ' ' : '';
+  return (c.art?`<span class="art ${gc}">${esc(c.art)}</span>${sp}`:'')+`<span class="${gc}">${esc(c.de)}</span>`+(pc?` <span class="pcase">(+ ${pc})</span>`:'');
 }
 // notes entre parenthèses : celles qui donnent un indice grammatical vont au verso, celles qui précisent le sens restent au recto (en petit)
-const GRAM_NOTE = /allemand|singulier|pluriel|collectif|datif|accusatif|génitif|nominatif|\bakk|\bdat|\+|=/i;
+const GRAM_NOTE = /allemand|italien|singulier|pluriel|collectif|datif|accusatif|génitif|nominatif|\bakk|\bdat|\+|=/i;
 // une note qui contient le mot allemand (« gar nicht », « zur Verfügung ») donnerait la réponse : elle va au verso
 function splitFr(fr, de){
   const sense=[], gram=[]; const w=String(de||'').toLowerCase();
@@ -935,15 +997,15 @@ function splitFr(fr, de){
 const frItems = c => splitFr(c.fr, c.de).main.toLowerCase().split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l['’]\s*)/,'').trim()).filter(Boolean);
 let sibIndex=null, sibStamp='';
 function siblingsOf(c){
-  const stamp=cards.size+':'+[...cards.keys()].slice(-3).join();
+  const stamp=LANG+':'+cards.size+':'+[...cards.keys()].slice(-3).join();
   if(!sibIndex || sibStamp!==stamp){ sibIndex=new Map(); sibStamp=stamp;
-    for(const x of cards.values()) for(const t of frItems(x)){ if(!sibIndex.has(t)) sibIndex.set(t,new Set()); sibIndex.get(t).add(x.id); } }
+    for(const x of deck()) for(const t of frItems(x)){ if(!sibIndex.has(t)) sibIndex.set(t,new Set()); sibIndex.get(t).add(x.id); } }
   // ambigu seulement si toutes les traductions de la carte conviennent aussi à l'autre mot (« là » : da et dort ; pas « dans, en, à »)
   const its=frItems(c); if(!its.length) return [];
   let ids=[...(sibIndex.get(its[0])||[])];
   for(const t of its.slice(1)){ const set=sibIndex.get(t)||new Set(); ids=ids.filter(id=>set.has(id)); }
-  const nk=noteKey(c);
-  return ids.map(id=>cards.get(id)).filter(x=>x && x.id!==c.id && x.de.toLowerCase()!==c.de.toLowerCase() && (!nk || noteKey(x)===nk));
+  const nk=noteKey(c), pc=posOf(c);   // deux mots de natures différentes ne se confondent pas
+  return ids.map(id=>cards.get(id)).filter(x=>x && x.id!==c.id && x.de.toLowerCase()!==c.de.toLowerCase() && (!nk || noteKey(x)===nk) && (!pc || !posOf(x) || posOf(x)===pc));
 }
 // la nuance entre parenthèses affichée au recto (« alliance (politique) »)
 const noteKey = c => splitFr(c.fr, c.de).sense.join(' · ').toLowerCase();
@@ -952,7 +1014,7 @@ const noteKey = c => splitFr(c.fr, c.de).sense.join(' · ').toLowerCase();
 const frDupKey = fr => String(fr||'').toLowerCase().replace(/[’]/g,"'").split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l'\s*)/,'').replace(/\s+/g,' ').trim()).filter(Boolean).join(', ');
 function sameFr(items){
   const byFr=new Map(); const add=(k,x)=>{ if(!k) return; if(!byFr.has(k)) byFr.set(k,[]); byFr.get(k).push(x); };
-  for(const c of cards.values()) add(frDupKey(c.fr), c);
+  for(const c of deck()) add(frDupKey(c.fr), c);
   items.forEach(f=>add(frDupKey(f.fr), f));
   return items.map((f,i)=>{ const seen=new Set([keyOf(f)]); const others=(byFr.get(frDupKey(f.fr))||[]).filter(x=>{ const k=keyOf(x); if(seen.has(k)) return false; seen.add(k); return true; }); return {i,f,others}; }).filter(r=>r.others.length);
 }
@@ -970,13 +1032,19 @@ function cueFor(c, sibs){
 function frFront(c){ const f=splitFr(c.fr, c.de); return `<div class="word">${f.html}</div>${f.sense.length?`<div class="fnote">(${esc(f.sense.join(' · '))})</div>`:''}`; }
 function frNotesBack(c){ const f=splitFr(c.fr, c.de); return f.gram.length?`<div class="fnote gram">${esc(f.gram.join(' · '))}</div>`:''; }
 // nature du mot (nom, verbe, adjectif…) : enregistrée sur la carte, sinon reprise de la liste, sinon déduite de l'article
-function posOf(c){ return c.pos || LISTPOS.get(keyOf(c)) || (c.art?'n':''); }
+function posOf(c){ return c.pos || (langOf(c)===LANG ? LISTPOS.get(dkey(c)) : '') || (c.art?'n':''); }
 function posTag(c){ const l=POS_LABEL[posOf(c)]; return l?`<div class="postag">${esc(l)}</div>`:''; }
 function cardTone(c){
   if(!revealed) return '';
   if(artGuess && artGuess.startsWith('K:')) return caseVerdict(c, artGuess).includes('verdict ok') ? ' v-ok' : ' v-bad';
   if(artGuess) return artGuess===c.art ? ' v-ok' : ' v-bad';
-  return c.art ? ' k-'+c.art : '';
+  const k=gcls(c); return k ? ' k-'+k.slice(2) : '';
+}
+// boutons du quiz de l'article : der / die / das ; en italien il, lo, l', la (i, gli, le pour un nom qui n'existe qu'au pluriel)
+function artButtons(c){
+  if(langOf(c)==='de') return ['der','die','das'].map(a=>`<button class="b-${a}" data-art="${a}">${a}</button>`).join('');
+  const opts = /^(i|gli|le)$/.test(c.art) ? ['i','gli','le'] : ['il','lo',"l'",'la'];
+  return opts.map(a=>`<button class="b-${/^(il|lo|i|gli)$/.test(a)?'der':/^(la|le)$/.test(a)?'die':'neutral'}" data-art="${a}">${a}</button>`).join('');
 }
 function cardFaces(c){
   const frToDe = dir==='fr-de';
@@ -984,7 +1052,7 @@ function cardFaces(c){
   const showCasePick = !revealed && !!caseTarget(c);
   const sibs = siblingsOf(c);
   const front = frToDe
-    ? `<div class="prompt-label">En allemand ?</div>${posTag(c)}${frFront(c)}${sibs.length?cueFor(c,sibs):''}`
+    ? `<div class="prompt-label">En ${L_().adj} ?</div>${posTag(c)}${frFront(c)}${sibs.length?cueFor(c,sibs):''}`
     : `<div class="prompt-label">En français ?</div>${posTag(c)}<div class="word">${showCasePick?esc(c.de):deWord(c)}</div>${c.art?gramLine(c):''}`;
   let back='';
   if(revealed){
@@ -997,7 +1065,7 @@ function cardFaces(c){
     ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES.map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
        <button class="btn" data-casego ${caseSel.size?'':'disabled'}>Valider</button><button class="btn ghost" data-reveal>Afficher sans choisir</button></div>`
     : showArtPick
-    ? `<div class="artpick"><button class="b-der" data-art="der">der</button><button class="b-die" data-art="die">die</button><button class="b-das" data-art="das">das</button></div>
+    ? `<div class="artpick">${artButtons(c)}</div>
        <button class="btn ghost" data-reveal>Afficher sans choisir</button>`
     : `<button class="btn" data-reveal>Afficher la réponse</button>`;
   return {front, back, reveal, showArtPick:showArtPick||showCasePick};
@@ -1012,7 +1080,7 @@ function effSize(ready){ const t=SIZES.includes(settings.sessSize)?settings.sess
 function sessionChooser(){
   const plan=todayPlan(); const due=plan.learn.length+plan.rev.length; const ready=due+plan.fresh.length;
   const size=effSize(ready);
-  const next=[...cards.values()].filter(c=>!isNew(c)).sort((a,b)=>a.due-b.due)[0];
+  const next=deck().filter(c=>!isNew(c)).sort((a,b)=>a.due-b.due)[0];
   if(next && !isDue(next)) scheduleWake(next.due);
   const tri = plan.pending.some(c=>!c.sorted) ? `<button class="btn ghost" data-triage>Trier mes nouveaux mots<small>${plan.pending.filter(c=>!c.sorted).length} à passer en revue : écarte ceux que tu connais déjà</small></button>` : '';
   if(!ready){
@@ -1020,7 +1088,7 @@ function sessionChooser(){
     return `<div class="card empty"><h2>Rien à réviser pour l'instant</h2>
       <p>Tous tes mots sont à jour.${when?` Prochaine révision : ${esc(when)}.`:''}</p>
       <p class="hint">Pourquoi attendre : un mot revu juste avant d'être oublié se fixe bien mieux qu'un mot répété tout de suite. C'est pour ça qu'un mot nouveau revient 15 min, puis 3 h après.</p>
-      <div class="more"><button class="btn" data-go="add">Ajouter des mots</button>${[...cards.values()].some(c=>!isNew(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small></button>`:''}</div></div>`;
+      <div class="more"><button class="btn" data-go="add">Ajouter des mots</button>${deck().some(c=>!isNew(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small></button>`:''}</div></div>`;
   }
   // ce que contiendra la session choisie : d'abord ce qui est dû, puis des nouveaux mots pour compléter
   const mix=n=>{ const d=Math.min(n,due); return {d, f:Math.min(n-d, plan.fresh.length)}; };
@@ -1029,7 +1097,7 @@ function sessionChooser(){
   return `<div class="card empty session-pick"><h2>Nouvelle session</h2>
       <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} en attente</p>
       <div class="sizes" role="group" aria-label="Taille de la session">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?'pas assez de mots':`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
-      <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${[...cards.values()].some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
+      <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${deck().some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
       <p class="hint">Les mots à revoir passent toujours en premier, les nouveaux complètent la session. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
 }
 function renderTriage(v){
@@ -1049,10 +1117,10 @@ function renderReview(){
   const v=$('#view');
   if(mode==='loading'){ v.innerHTML='<div class="card"><p class="prompt-label">Chargement de tes mots…</p></div>'; return; }
   const dirBar=`<div class="dir"><span>Sens de révision</span><div class="seg" role="group" aria-label="Sens">
-    <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">FR → DE</button>
-    <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">DE → FR</button></div></div>`;
-  if(!cards.size){
-    v.innerHTML=`<div class="card empty"><h2>Ton vocabulaire commence ici</h2>
+    <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">FR → ${L_().code}</button>
+    <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">${L_().code} → FR</button></div></div>`;
+  if(!deck().length){
+    v.innerHTML=`<div class="card empty"><h2>Ton vocabulaire ${L_().of.replace(/^de l'/,"d'")} commence ici</h2>
       <p>Choisis une liste selon ton niveau, ou ajoute tes propres mots avec le dictionnaire.</p>
       ${levelsHTML()}
       <button class="btn ghost" data-go="add">Ajouter mes propres mots</button></div></div>`;
@@ -1064,7 +1132,7 @@ function renderReview(){
   if(past){ revealed=true; artGuess=past.art; }
   const c = past ? past.before : session && cards.get(session.ids[0]);
   if(!c){
-    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?'Perfekt!':'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
+    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
     const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
     stopped=null; session=null;
     v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${sessionChooser()}</div>`;
@@ -1084,7 +1152,7 @@ function renderReview(){
   applyCardAnim();
 }
 function batchGroups(){
-  const all=[...cards.values()].sort((a,b)=>a.created-b.created);
+  const all=deck().sort((a,b)=>a.created-b.created);
   const groups=[]; let g=null;
   for(const c of all){
     const key=c.batch||'';
@@ -1106,8 +1174,8 @@ function batchesHTML(){
 function renderList(){
   const v=$('#view');
   const q=listQuery.trim().toLowerCase();
-  const every=[...cards.values()];
-  const all=every.filter(c=>filterMatch(c)&&(!q||(c.art+' '+c.de+' '+c.fr).toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
+  const every=deck();
+  const all=every.filter(c=>filterMatch(c)&&(!q||(artWord(c)+' '+c.fr).toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
   const inSrc=every.filter(c=>!srcFilter||srcOf(c)===srcFilter), inLvl=every.filter(c=>!lvlFilter||lvlOf(c)===lvlFilter);
   const lvlOpts=['A1','A2','B1','B2','C1','C2','~A','~B','~C','none'].filter(L=>every.some(c=>lvlOf(c)===L));
   const lvlName = L => L==='none' ? 'Sans niveau' : L[0]==='~' ? EST_LABEL[L[1]]+' (estimé)' : L;
@@ -1118,7 +1186,9 @@ function renderList(){
     <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
     ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
   </div>
-  <div class="legend" aria-label="Code couleur"><span><i class="dot d-der"></i>der · masculin</span><span><i class="dot d-die"></i>die · féminin</span><span><i class="dot d-das"></i>das · neutre</span><span><i class="dot d-none"></i>sans article</span></div>`;
+  <div class="legend" aria-label="Code couleur">${LANG==='it'
+    ? `<span><i class="dot d-der"></i>masculin · il, lo, l'</span><span><i class="dot d-die"></i>féminin · la, l'</span><span><i class="dot d-none"></i>sans article</span>`
+    : `<span><i class="dot d-der"></i>der · masculin</span><span><i class="dot d-die"></i>die · féminin</span><span><i class="dot d-das"></i>das · neutre</span><span><i class="dot d-none"></i>sans article</span>`}</div>`;
   const rows=all.map(c=>{
     const st=STATUS(c); const when = st==='rev' ? (isDue(c)?'À revoir':'dans '+Math.max(1,Math.ceil((c.due-Date.now())/DAY))+' j') : '';
     const status = `<select class="stsel st-${st}" data-setstat="${c.id}" aria-label="Statut de ${esc(c.de)}">${['new','learn','rev','known'].map(k=>`<option value="${k}" ${k===st?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}</select>${when?`<small class="when">${when}</small>`:''}`;
@@ -1130,13 +1200,15 @@ function renderList(){
     <input class="search" id="search" type="search" placeholder="Chercher un mot…" value="${esc(listQuery)}" aria-label="Chercher">
     ${chips}
     ${(lvlFilter||srcFilter)&&all.some(isNew)?`<button class="link danger" style="align-self:flex-start" data-rmfilter>Retirer les ${all.filter(isNew).length} mots non révisés de ce filtre</button>`:''}
-    ${all.length?`<div class="list">${rows}</div>`:`<p class="hint">${cards.size?'Aucun mot ne correspond.':'Aucun mot pour l’instant.'}</p>`}</div>`;
+    ${all.length?`<div class="list">${rows}</div>`:`<p class="hint">${every.length?'Aucun mot ne correspond.':'Aucun mot pour l’instant.'}</p>`}</div>`;
 }
 function lessonItems(id){ return LESSONS[id].text.split('\n').map(l=>{ const i=l.indexOf('|'); const f=parseLine(l.slice(i+1)); return f?{...f,lvl:l.slice(0,i)}:null; }).filter(Boolean); }
-const keyOf = f => (f.art+f.de).toLowerCase();
+// clé d'un mot dans les fichiers de sa langue (« derhund », « l'amico ») ; clé d'identité : la même, préfixée par la langue sauf pour l'allemand
+const dkey = f => ((f.art||'')+f.de).toLowerCase();
+const keyOf = f => { const l = f.id ? langOf(f) : (f.lang||LANG); return (l==='de'?'':l+':')+dkey(f); };
 const newBatch = label => ({ id:'b'+uid(), label });
 function lessonsHTML(){
-  const have=new Set([...cards.values()].map(keyOf));
+  const have=new Set(deck().map(keyOf));
   return Object.entries(LESSONS).map(([id,o])=>{
     const items=lessonItems(id); const by={};
     items.forEach(f=>{ by[f.lvl]=by[f.lvl]||{n:0,got:0}; by[f.lvl].n++; if(have.has(keyOf(f))) by[f.lvl].got++; });
@@ -1149,7 +1221,7 @@ function lessonsHTML(){
 function levelsHTML(){
   if(listState!=='ready'){ loadLists();
     return `<div class="levels-wrap" data-levels><p class="hint">${listState==='error'?`Les listes n'ont pas pu se charger. <button type="button" class="link" data-lretry>Réessayer</button>`:'Chargement des listes…'}</p></div>`; }
-  const have=new Set([...cards.values()].map(keyOf));
+  const have=new Set(deck().map(keyOf));
   const stat=L=>{ const items=LISTDATA[L]||[]; return {items, got:items.filter(f=>have.has(keyOf(f))).length}; };
   const grid=`<div class="levels">${Object.entries(LEVELS).map(([L,label])=>{ const {items,got}=stat(L); const done=got===items.length;
     return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?'Tout ajouté':got?`${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots`:`${items.length.toLocaleString('fr-FR')} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
@@ -1169,6 +1241,27 @@ function levelsHTML(){
       <p class="hint">Les mots s'ajoutent par 50, du plus fréquent au moins fréquent.</p></div>`;
   }
   return `<div class="levels-wrap" data-levels>${grid}${packs}</div>`;
+}
+/* ---------- choix de la langue apprise ---------- */
+function renderLangPick(){
+  const n=k=>[...cards.values()].filter(c=>langOf(c)===k).length;
+  $('#view').innerHTML=`<div class="card empty"><h2>Quelle langue veux-tu apprendre ?</h2>
+    <p>Depuis le français. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.</p>
+    <div class="langs" role="group" aria-label="Langue apprise">${Object.entries(LANGS).map(([k,o])=>`<button type="button" class="level" data-lang="${k}" aria-pressed="${LANG===k}"><b>${o.code}</b><span>${o.name}</span><small>${n(k)?n(k).toLocaleString('fr-FR')+' mot'+(n(k)>1?'s':''):'8 000 mots, A1 à C2'}</small></button>`).join('')}</div>
+    ${LANG?`<button class="btn ghost" data-langcancel>Garder ${esc(L_().the)}</button>`:''}</div>`;
+}
+function setLang(k){
+  const changed = k!==LANG; LANG=k; langPicking=false;
+  try{ localStorage.setItem('mx-lang',k); }catch(e){}
+  if(changed){ // les données de l'autre langue sont déchargées ; les cartes restent dans le stockage
+    LISTDATA=null; listState='idle'; LISTPOS=new Map(); listSynced=false; EXDATA=null; exState='idle'; CHDATA=null;
+    DICT=null; DICT_BY=new Map(); dictState='idle'; dictHits=[]; sibIndex=null;
+    session=null; triage=null; stopped=null; revealed=false; artGuess=null; openLvl=''; confirmLvl='';
+    lvlFilter=''; srcFilter=''; statFilter=''; listQuery='';
+  }
+  tab='review'; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b.dataset.tab==='review'?'page':'false'));
+  $('#view').innerHTML=''; refresh(); loadLists(); loadExamples();
+  if(changed) toast(`${L_().name} : ${deck().length ? deck().length.toLocaleString('fr-FR')+' mots' : 'choisis un niveau pour commencer'}`);
 }
 function renderGuide(){
   $('#view').innerHTML=`<article class="guide" id="guide">
@@ -1210,41 +1303,48 @@ function renderGuide(){
     </dl>
     <p class="hint">Sois honnête : noter « Bien » un mot sur lequel tu as hésité, c'est le faire revenir trop tard.</p></section>
 
-  <section><h2>Le code couleur</h2>
+  <section><h2>Le code couleur</h2>${LANG==='it' ? `
+    <p>La couleur d'un nom indique son genre :</p>
+    <ul><li><span class="g-der art">il, lo, l'</span> en bleu : masculin (<i>il libro</i>, <i>lo zaino</i>, <i>l'amico</i>)</li><li><span class="g-die art">la, l'</span> en rouge : féminin (<i>la casa</i>, <i>l'amica</i>)</li><li>Sans couleur : verbes, adjectifs, adverbes et expressions, qui n'ont pas d'article</li></ul>
+    <p>Devant une voyelle, <i>lo</i> et <i>la</i> deviennent <i>l'</i> : seule la couleur dit alors le genre. Le pluriel est écrit en entier, avec son article : <i>gli amici</i>, <i>le amiche</i>, <i>le città</i> (invariable).</p>
+    <p class="hint">Associer une couleur au genre aide la mémoire visuelle, surtout pour les noms en <i>-e</i> (<i>il fiore</i>, <i>la chiave</i>) et les pièges (<i>la mano</i>, <i>il problema</i>).</p>` : `
     <p>La couleur d'un nom indique son genre, comme dans les manuels d'allemand :</p>
     <ul><li><span class="g-der art">der</span> en bleu : masculin</li><li><span class="g-die art">die</span> en rouge : féminin</li><li><span class="g-das art">das</span> en vert : neutre</li><li>Sans couleur : verbes, adjectifs, adverbes et expressions, qui n'ont pas d'article</li></ul>
     <p>Pour les verbes à préposition, le cas à employer est indiqué après la préposition : <i>warten auf <span class="pcase">(+ Akk.)</span></i>, <i>abhängen von <span class="pcase">(+ Dat.)</span></i>.</p>
-    <p class="hint">Associer une couleur au genre aide la mémoire visuelle : avec le temps, tu « verras » die Spinne en rouge.</p></section>
+    <p class="hint">Associer une couleur au genre aide la mémoire visuelle : avec le temps, tu « verras » die Spinne en rouge.</p>`}</section>
 
   <section><h2>Le quiz des articles</h2>
-    <p>En sens FR → DE, pour chaque nom, choisis <span class="g-der art">der</span>, <span class="g-die art">die</span> ou <span class="g-das art">das</span> avant de voir la réponse. Un mauvais article plafonne ta note à « Difficile » : le mot n'est su que si l'article l'est aussi.</p></section>
+    ${LANG==='it' ? `<p>En sens FR → IT, pour chaque nom, choisis <span class="g-der art">il</span>, <span class="g-der art">lo</span>, <span class="art">l'</span> ou <span class="g-die art">la</span> avant de voir la réponse (<i>i</i>, <i>gli</i> ou <i>le</i> pour un nom qui ne s'emploie qu'au pluriel). Un mauvais article plafonne ta note à « Difficile » : le mot n'est su que si l'article l'est aussi.</p>
+    <p class="hint">Rappel : <i>lo</i> devant s + consonne, z, gn, ps, x, y (<i>lo studente</i>, <i>lo zio</i>) ; <i>l'</i> devant une voyelle ; <i>il</i> ailleurs.</p>` : `<p>En sens FR → DE, pour chaque nom, choisis <span class="g-der art">der</span>, <span class="g-die art">die</span> ou <span class="g-das art">das</span> avant de voir la réponse. Un mauvais article plafonne ta note à « Difficile » : le mot n'est su que si l'article l'est aussi.</p>`}</section>
 
   <section><h2>Ajouter et retirer des mots</h2>
     <ul>
       <li><b>Listes par niveau</b> : les 8 000 mots les plus fréquents, de A1 à C2, ajoutés 50 par 50. Les premiers mots de l'A1 sont les plus utilisés de la langue.</li>
-      <li><b>Coller une liste</b> : une ligne par mot, <code>der Hund, -e ; le chien ; exemple</code>.</li>
-      <li>Les boutons <b>ä ö ü ß</b> sous les champs insèrent ces lettres. Dans les exercices, tu peux aussi écrire <code>ae</code>, <code>oe</code>, <code>ue</code> et <code>ss</code> : c'est accepté.</li>
+      <li><b>Coller une liste</b> : une ligne par mot, <code>${LANG==='it'?"il cane, i cani ; le chien ; exemple":"der Hund, -e ; le chien ; exemple"}</code>.</li>
+      ${LANG==='it' ? `<li>Les boutons <b>à è é ì ò ù</b> sous les champs insèrent ces lettres.</li>` : `<li>Les boutons <b>ä ö ü ß</b> sous les champs insèrent ces lettres. Dans les exercices, tu peux aussi écrire <code>ae</code>, <code>oe</code>, <code>ue</code> et <code>ss</code> : c'est accepté.</li>`}
       <li>Ajouter beaucoup de mots d'un coup ne pose pas de problème : ils attendent leur tour et arrivent au rythme de ton quota.</li>
       <li>Pour annuler un import : <b>Mes mots → Retirer un ajout groupé</b>. Les mots déjà commencés sont conservés.</li>
     </ul></section>
 
-  <section><h2>Le dictionnaire</h2>
+  <section><h2>Le dictionnaire</h2>${LANG==='it' ? `
+    <p>Dans <b>Ajouter</b>, tape un mot italien (ou sa traduction française) : l'appli retrouve le mot dans les listes de Memolex, avec son article, son pluriel et sa traduction relue. Touche un résultat pour remplir la fiche. Tout fonctionne hors ligne, sans IA.</p>
+    <p class="hint">Le dictionnaire italien contient les 8 000 mots des listes. Pour un mot absent, remplis la fiche toi-même : article, pluriel avec son article (<i>gli zaini</i>), traduction.</p>` : `
     <p>Dans <b>Ajouter</b>, tape un mot allemand (ou sa traduction française) : l'appli propose l'article, le pluriel et les différents sens. Touche un résultat pour remplir la fiche, puis choisis le sens qui correspond à ton cours. Tout fonctionne hors ligne, sans IA.</p>
     <p><b>Niveau estimé</b> (≈ A1-A2, ≈ B1-B2, ≈ C1+) : calculé d'après la fréquence d'usage du mot à l'écrit et à l'oral. Les mots très fréquents sont en général appris tôt, les mots rares plus tard. C'est une <b>approximation</b>, pas le classement officiel du CECR : <i>Kühlschrank</i> est un mot de débutant, mais il est peu fréquent dans les textes. Dans Mes mots, ces niveaux ont leur propre filtre, séparé des niveaux exacts.</p>
     <p class="hint">Les traductions sont automatiques : vérifie-les toujours, et ajoute toi-même un exemple, c'est ce qui fixe le mot. Si tu écris le français, la recherche inverse marche à partir de 3 lettres.</p>
-    <p class="hint">Sources : dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> (édition 2022) et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tous deux tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> ; classement des résultats par fréquence d'usage grâce à <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></section>
+    <p class="hint">Sources : dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> (édition 2022) et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tous deux tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> ; classement des résultats par fréquence d'usage grâce à <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>`}</section>
 
   <section><h2>Les phrases d'exemple</h2>
-    <p>Quand tu retournes une carte, un mot des listes est accompagné d'une <b>phrase réelle</b> en allemand, avec sa traduction. Le mot y est souligné, sous la forme qu'il prend dans la phrase : <i>Ich <u>stehe</u> um sechs Uhr <u>auf</u></i> pour <i>aufstehen</i>, <i>die <u>Häuser</u></i> pour <i>das Haus</i>.</p>
+    <p>Quand tu retournes une carte, un mot des listes est accompagné d'une <b>phrase réelle</b> en ${L_().adj}, avec sa traduction. Le mot y est souligné, sous la forme qu'il prend dans la phrase : ${LANG==='it' ? `<i>Siamo <u>andati</u> al mare</i> pour <i>andare</i>, <i>le <u>case</u></i> pour <i>la casa</i>.` : `<i>Ich <u>stehe</u> um sechs Uhr <u>auf</u></i> pour <i>aufstehen</i>, <i>die <u>Häuser</u></i> pour <i>das Haus</i>.`}</p>
     <ul>
-      <li><b>Une phrase par sens</b> : si un mot a plusieurs traductions, chacune a sa phrase, avec le sens indiqué au-dessus (<i>um</i> : « autour de » et « à (heure) »).</li>
+      <li><b>Une phrase par sens</b> : si un mot a plusieurs traductions, chacune a sa phrase, avec le sens indiqué au-dessus (${LANG==='it' ? `<i>stanza</i> : « la chambre » et « la pièce »` : `<i>um</i> : « autour de » et « à (heure) »`}).</li>
       <li>Les phrases sont choisies courtes, avec des mots plutôt plus fréquents que le mot appris, et de préférence écrites par des locuteurs natifs.</li>
       <li><b>Lis la phrase à voix haute</b> avant de noter la carte : quelques secondes de plus, mais le mot se fixe avec sa grammaire.</li>
       <li>Si tu as écrit ton propre exemple pour un mot, c'est lui qui s'affiche.</li>
     </ul></section>
 
   <section><h2>Les mots qui ont la même traduction</h2>
-    <p>Quand plusieurs de tes mots se traduisent pareil (<i>là</i> : <i>da</i> et <i>dort</i> ; <i>pourquoi</i> : <i>warum</i>, <i>wieso</i>…), la carte te donne un indice : la première lettre et le nombre de lettres du mot attendu. Au verso, les autres mots de même traduction sont rappelés, pour apprendre à les distinguer.</p>
+    <p>Quand plusieurs de tes mots se traduisent pareil (${LANG==='it' ? `<i>là</i> : <i>lì</i> et <i>là</i> ; <i>vite</i> : <i>presto</i> et <i>velocemente</i>…` : `<i>là</i> : <i>da</i> et <i>dort</i> ; <i>pourquoi</i> : <i>warum</i>, <i>wieso</i>…`}), la carte te donne un indice : la première lettre et le nombre de lettres du mot attendu. Au verso, les autres mots de même traduction sont rappelés, pour apprendre à les distinguer.</p>
     <ul>
       <li>Si tu as trouvé un autre mot de la liste, ce n'est pas faux : note « Difficile » et regarde la différence d'usage dans la phrase d'exemple.</li>
     </ul></section>
@@ -1254,7 +1354,7 @@ function renderGuide(){
     <p class="hint">Quelques phrases, qui précisent la nuance entre deux mots de même traduction, ont été rédigées pour Memolex ; elles n'ont pas de numéro Tatoeba.</p>
     <p class="hint">Les expressions « À retenir » (une par carte, au verso) sont rédigées pour Memolex : elles montrent l'emploi le plus courant du mot, avec ses compléments habituels.</p>
     <details id="credDetails"><summary>Voir les auteurs des phrases</summary><div id="credList"></div></details>
-    <p class="hint">Dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> (licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ; fréquences d'usage : <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Articles et nature des mots français : <a href="http://www.lexique.org/" target="_blank" rel="noopener">Lexique 3.83</a> (B. New, C. Pallier, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>).</p></section>
+    ${LANG==='it' ? `<p class="hint">Listes italien-français établies pour Memolex : fréquences d'usage <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a> (R. Speer, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>), analyse grammaticale des phrases avec <a href="https://spacy.io/models/it" target="_blank" rel="noopener">spaCy</a> (modèle it_core_news_lg) ; traductions, articles et pluriels relus pour Memolex.</p>` : `<p class="hint">Dictionnaire allemand-français <a href="https://freedict.org/" target="_blank" rel="noopener">FreeDict</a> / <a href="https://www.wikdict.com/" target="_blank" rel="noopener">WikDict</a> et pluriels du projet <a href="https://github.com/gambolputty/german-nouns" target="_blank" rel="noopener">german-nouns</a>, tirés du <a href="https://de.wiktionary.org/" target="_blank" rel="noopener">Wiktionary</a> (licences <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 3.0</a> et <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>) ; fréquences d'usage : <a href="https://github.com/rspeer/wordfreq" target="_blank" rel="noopener">wordfreq</a>. Articles et nature des mots français : <a href="http://www.lexique.org/" target="_blank" rel="noopener">Lexique 3.83</a> (B. New, C. Pallier, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>).</p>`}</section>
 
   <section><h2>Les listes par niveau</h2>
     <p>Les listes suivent la <b>fréquence d'usage</b> : un mot très courant à l'écrit et à l'oral est proposé tôt, un mot rare plus tard. C'est la façon la plus efficace de commencer, car les quelques centaines de mots les plus fréquents couvrent l'essentiel de ce qu'on lit et entend au quotidien.</p>
@@ -1262,7 +1362,7 @@ function renderGuide(){
       <tr><td>A1 · Découverte</td><td>1 – 600</td><td>600</td></tr><tr><td>A2 · Survie</td><td>601 – 1 300</td><td>700</td></tr>
       <tr><td>B1 · Seuil</td><td>1 301 – 2 500</td><td>1 200</td></tr><tr><td>B2 · Avancé</td><td>2 501 – 4 000</td><td>1 500</td></tr>
       <tr><td>C1 · Autonome</td><td>4 001 – 6 000</td><td>2 000</td></tr><tr><td>C2 · Maîtrise</td><td>6 001 – 8 000</td><td>2 000</td></tr></tbody></table></div>
-    <p class="hint">Ces tranches sont une <b>approximation</b> du Cadre européen, pas son classement officiel. Des mots utiles mais peu fréquents à l'écrit (<i>Kühlschrank</i>, <i>Zahnbürste</i>) arrivent plus tard que dans un manuel : ajoute-les toi-même avec le dictionnaire quand tu en as besoin. Les traductions viennent du dictionnaire : la liste A1 a été relue, les autres sont à vérifier.</p></section>
+    <p class="hint">Ces tranches sont une <b>approximation</b> du Cadre européen, pas son classement officiel. Des mots utiles mais peu fréquents à l'écrit (${LANG==='it' ? `<i>frigorifero</i>, <i>spazzolino</i>` : `<i>Kühlschrank</i>, <i>Zahnbürste</i>`}) arrivent plus tard que dans un manuel : ajoute-les toi-même avec le dictionnaire quand tu en as besoin.</p></section>
 
   <section><h2>Combien de nouveaux mots par jour ?</h2>
     <p>Une fois le rythme installé (après 3 ou 4 semaines), ta charge quotidienne de révision est proportionnelle au nombre de mots que tu découvres chaque jour :</p>
@@ -1289,30 +1389,32 @@ function renderGuide(){
 function renderAdd(){
   $('#view').innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">
   <section class="panel"><h3>Listes par niveau</h3>
-    <p class="hint">Les 8 000 mots les plus fréquents de l'allemand, répartis de A1 à C2. Choisis un niveau, puis ajoute ses mots 50 par 50. Les mots déjà présents ne sont pas dupliqués.</p>
+    <p class="hint">Les 8 000 mots les plus fréquents ${L_().of}, répartis de A1 à C2. Choisis un niveau, puis ajoute ses mots 50 par 50. Les mots déjà présents ne sont pas dupliqués.</p>
     ${levelsHTML()}</section>
   <section class="panel dict" id="dictPanel"><div class="dict-head"><h3>Dictionnaire</h3><small id="dStatus"></small></div>
-    <input id="dq" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Hund, gehen… ou en français : papillon" aria-label="Chercher un mot en allemand ou en français">
-    ${umlautBar(['ä','ö','ü','ß'],'dq')}
+    <input id="dq" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${L_().sampleQ}" aria-label="Chercher un mot en ${L_().adj} ou en français">
+    ${umlautBar(L_().chars,'dq')}
     <div id="dRes" class="dres" aria-live="polite"></div>
     <div id="dSense" class="dsense" hidden></div></section>
   <form id="addForm"><h3>Un mot</h3>
     <p class="hint">Choisis un mot dans le dictionnaire ci-dessus pour remplir les champs, puis ajuste si besoin.</p>
-    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option><option>der</option><option>die</option><option>das</option></select></label>
-    <label for="fDe">Allemand<input id="fDe" required autocomplete="off" autocapitalize="off" placeholder="Schmetterling"></label></div>
-    ${umlautBar(['ä','ö','ü','ß','Ä','Ö','Ü'],'fDe')}
+    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option>${LANG==='it'
+      ? `<option value="il|m">il</option><option value="lo|m">lo</option><option value="l'|m">l' (masc.)</option><option value="la|f">la</option><option value="l'|f">l' (fém.)</option><option value="i|m">i (pluriel)</option><option value="gli|m">gli (pluriel)</option><option value="le|f">le (pluriel)</option>`
+      : `<option>der</option><option>die</option><option>das</option>`}</select></label>
+    <label for="fDe">${L_().name}<input id="fDe" required autocomplete="off" autocapitalize="off" placeholder="${L_().sample}"></label></div>
+    ${umlautBar(L_().charsUp,'fDe')}
     <label for="fLvl">Niveau (facultatif)<select id="fLvl"><option value="">Sans niveau</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
     <p class="hint" id="fEst" aria-live="polite"></p>
-    <label for="fPl">Pluriel (facultatif)<input id="fPl" autocomplete="off" placeholder="-e, ¨-er, -n…"></label>
+    <label for="fPl">Pluriel (facultatif)<input id="fPl" autocomplete="off" placeholder="${L_().samplePl}"></label>
     <p class="hint plprev" id="fPlPrev" aria-live="polite"></p>
     <label for="fFr">Français<input id="fFr" required autocomplete="off" placeholder="le papillon"></label>
     <div id="fDup" class="dupbox" hidden aria-live="polite"></div>
-    <label for="fEx">Exemple (facultatif)<input id="fEx" autocomplete="off" placeholder="Ein Schmetterling sitzt auf der Blume."></label>
+    <label for="fEx">Exemple (facultatif)<input id="fEx" autocomplete="off" placeholder="${L_().sampleEx}"></label>
     <button class="btn" type="submit">Ajouter le mot</button></form>
   <form id="bulkForm"><h3>Coller une liste</h3>
-    <p class="hint">Une ligne par mot : <code>der Hund, -e ; le chien</code>. L'article et le pluriel sont reconnus automatiquement. Tu peux ajouter un exemple après un second <code>;</code>.</p>
-    ${umlautBar(['ä','ö','ü','ß','Ä','Ö','Ü'],'fBulk')}
-    <label for="fBulk">Liste<textarea id="fBulk" placeholder="die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen"></textarea></label>
+    <p class="hint">Une ligne par mot : <code>${L_().bulkFmt}</code>. L'article et le pluriel sont reconnus automatiquement. Tu peux ajouter un exemple après un second <code>;</code>.</p>
+    ${umlautBar(L_().charsUp,'fBulk')}
+    <label for="fBulk">Liste<textarea id="fBulk" placeholder="${L_().bulkEx}"></textarea></label>
     <div id="bulkDup" class="dupbox" hidden aria-live="polite"></div>
     <button class="btn" type="submit">Importer</button></form></div>`;
   loadDict(); dictStatus();
@@ -1322,15 +1424,19 @@ function renderAdd(){
 let DICT=null, DICT_BY=new Map(), dictState='idle', dictHits=[], dictTimer=null;
 const fold = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss');
 const ART_OF = {m:'der', f:'die', n:'das'};
-const POS_LABEL = {n:'nom', v:'verbe', adj:'adjectif', adv:'adverbe', 'adj,adv':'adjectif / adverbe', prep:'préposition', postp:'postposition', pron:'pronom', conj:'conjonction', num:'nombre', int:'interjection', parti:'particule', abr:'abréviation', loc:'expression'};
+const entArt = e => LANG==='it' ? (e.a||'') : (ART_OF[e.g]||'');
+const entCls = e => LANG==='it' ? ({m:'g-der', f:'g-die'}[e.g]||'') : (ART_OF[e.g]?'g-'+ART_OF[e.g]:'');
+const POS_LABEL = {n:'nom', v:'verbe', adj:'adjectif', adv:'adverbe', 'adj,adv':'adjectif / adverbe', 'adj,prep':'adjectif / préposition', prep:'préposition', postp:'postposition', pron:'pronom', conj:'conjonction', num:'nombre', int:'interjection', parti:'particule', abr:'abréviation', loc:'expression'};
 function loadDict(){
-  if(dictState==='loading' || dictState==='ready') return;
-  dictState='loading'; dictStatus();
-  fetch('dict-de-fr.json').then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
-    DICT_BY=new Map(); DICT=d.map(e=>({w:e[0], p:e[1], g:e[2], pl:e[3], s:e[4], z:(e[5]||0)/10, k:fold(e[0]), f:e[4].map(x=>x[0].split(',').map(t=>fold(t.trim().replace(/^(?:(?:le|la|les)\s+|l['’]\s*)/i,''))))}));
+  if(dictState==='loading' || dictState==='ready' || !LANG) return;
+  dictState='loading'; dictStatus(); const lang=LANG;
+  fetch(dataFile('dict')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
+    if(lang!==LANG) return;
+    // italien : 7e colonne = article (il, lo, la, l')
+    DICT_BY=new Map(); DICT=d.map(e=>({w:e[0], p:e[1], g:e[2], pl:e[3], s:e[4], z:(e[5]||0)/10, a:e[6]||'', k:fold(e[0]), f:e[4].map(x=>x[0].split(',').map(t=>fold(t.trim().replace(/^(?:(?:le|la|les)\s+|l['’]\s*)/i,''))))}));
     DICT.forEach(e=>{ if(e.p==='n' && e.g && !DICT_BY.has(e.w)) DICT_BY.set(e.w,e); });
     dictState='ready'; dictStatus(); dictSearch();
-  }).catch(()=>{ dictState='error'; dictStatus(); });
+  }).catch(()=>{ if(lang!==LANG) return; dictState='error'; dictStatus(); });
 }
 function dictStatus(){
   const el=$('#dStatus'); if(!el) return;
@@ -1340,9 +1446,9 @@ function dictStatus(){
 const posRank = p => p==='n'||p==='v'||p==='adj' ? 0 : 1;
 function dictSearch(){
   const box=$('#dRes'); if(!box || dictState!=='ready') return;
-  const raw=($('#dq')?.value||'').trim().replace(/^(der|die|das)\s+/i,'');
+  const raw0=($('#dq')?.value||'').trim(), sa=splitArt(raw0), raw=sa?sa.de:raw0;
   if(!raw){ box.innerHTML=''; dictHits=[]; return; }
-  const q1=fold(raw), q2=fold(raw.replace(/ae/gi,'ä').replace(/oe/gi,'ö').replace(/ue/gi,'ü'));
+  const q1=fold(raw), q2=LANG==='de' ? fold(raw.replace(/ae/gi,'ä').replace(/oe/gi,'ö').replace(/ue/gi,'ü')) : q1;
   const de=[], fr=[];
   const lowQ = raw[0]===raw[0].toLowerCase();
   for(const e of DICT){
@@ -1364,14 +1470,14 @@ function dictSearch(){
   const take=(list,n,from)=>{ for(const [,e,si] of list){ if(dictHits.length>=n) break; if(seen.has(e)) continue; seen.add(e); dictHits.push({e,from,si:si||0}); } };
   take(de, exactDe?6:4, 'de'); take(fr, 8, 'fr'); take(de, 8, 'de');
   if(!dictHits.length){ box.innerHTML=`<p class="hint">Aucun résultat pour « ${esc(raw)} ».</p>`; return; }
-  const have=new Set([...cards.values()].map(c=>(c.art+c.de).toLowerCase()));
+  const have=new Set(deck().map(dkey));
   let lastFrom='';
   box.innerHTML=dictHits.map(({e,from,si},i)=>{
-    const art=ART_OF[e.g]||''; const known=have.has((art+e.w).toLowerCase());
-    const head = from!==lastFrom ? (from==='de' ? `<div class="dgroup">Mots allemands</div>` : `<div class="dgroup">Mots allemands qui se traduisent par « ${esc(raw)} »</div><p class="hint dnote">Ce sont des synonymes ou des sens voisins. La définition en allemand, en italique, t'aide à choisir le bon.</p>`) : ''; lastFrom=from;
+    const art=entArt(e); const known=have.has((art+e.w).toLowerCase());
+    const head = from!==lastFrom ? (from==='de' ? `<div class="dgroup">Mots ${L_().adjs}</div>` : `<div class="dgroup">Mots ${L_().adjs} qui se traduisent par « ${esc(raw)} »</div><p class="hint dnote">Ce sont des synonymes ou des sens voisins.${LANG==='de'?` La définition en allemand, en italique, t'aide à choisir le bon.`:''}</p>`) : ''; lastFrom=from;
     return `${head}<button type="button" class="dhit" data-dpick="${i}">
-      <span class="dw">${art?`<span class="art g-${art}">${art}</span> `:''}<b>${esc(e.w)}</b>${e.pl?`<span class="plural">, ${esc(e.pl)}</span>`:''}</span>
-      <span class="dfr">${esc(e.s[si][0])}</span>${e.s[si][1]?`<span class="ddef" lang="de">${esc(e.s[si][1])}</span>`:''}
+      <span class="dw">${art?`<span class="art ${entCls(e)}">${esc(art)}</span>${/['’]$/.test(art)?'':' '}`:''}<b>${esc(e.w)}</b>${e.pl?`<span class="plural">, ${esc(e.pl)}</span>`:''}</span>
+      <span class="dfr">${esc(e.s[si][0])}</span>${e.s[si][1]?`<span class="ddef" lang="${LANG}">${esc(e.s[si][1])}</span>`:''}
       <span class="dmeta">${POS_LABEL[e.p]?`<small>${POS_LABEL[e.p]}</small>`:''}<small class="dest">${EST_LABEL[estOf(e.z)]}</small>${known?'<span class="pill known">déjà dans tes mots</span>':''}</span></button>`;
   }).join('');
 }
@@ -1379,9 +1485,10 @@ let autoDef='', dictPicked='', dictEst='', dictPos='';
 function fillDef(d){ const ex=$('#fEx'); if(!ex) return; const v=ex.value.trim(); if(!v || v===autoDef){ ex.value=d||''; autoDef=ex.value; } }
 function plPreview(){
   const el=$('#fPlPrev'); if(!el) return;
-  let de=($('#fDe')?.value||'').trim(); const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m) de=m[2];
+  let de=($('#fDe')?.value||'').trim(); const m=splitArt(de); if(m) de=m.de;
   const pl=($('#fPl')?.value||'').trim();
   if(!de || !pl){ el.textContent=''; return; }
+  if(LANG!=='de'){ el.innerHTML=`Pluriel : <b>${esc(pl)}</b>`; return; }
   if(/^pl\.?$/i.test(pl)){ el.textContent="Mot qui n'existe qu'au pluriel"; return; }
   const f=pluralOf(de,pl);
   el.innerHTML = f ? `Pluriel : <b>die ${esc(f)}</b>${f===de?' (identique au singulier)':''}` : '';
@@ -1389,28 +1496,30 @@ function plPreview(){
 // mot tapé à la main : complète article et pluriel s'ils sont vides
 function dictAutofill(){
   if(dictState!=='ready' || !$('#fDe')) return;
-  let de=$('#fDe').value.trim(); const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m) de=m[2];
+  let de=$('#fDe').value.trim(); const m=splitArt(de); if(m) de=m.de;
   const e=DICT_BY.get(de); if(!e) return;
   const done=[];
-  if(!$('#fArt').value && !m){ $('#fArt').value=ART_OF[e.g]; done.push('article'); }
+  if(!$('#fArt').value && !m){ $('#fArt').value=artVal(entArt(e), e.g); done.push('article'); }
   if(!$('#fPl').value.trim() && e.pl){ $('#fPl').value=e.pl; done.push('pluriel'); }
   if(done.length){ plPreview(); toast(done.join(' et ')+' complétés par le dictionnaire'); }
 }
 function deckEntry(w, art){ if(!LISTDATA) return null; const k=((art||'')+w).toLowerCase();
-  for(const L of Object.keys(LISTDATA)){ const f=LISTDATA[L].find(x=>keyOf(x)===k); if(f) return {f, L}; } return null; }
+  for(const L of Object.keys(LISTDATA)){ const f=LISTDATA[L].find(x=>dkey(x)===k); if(f) return {f, L}; } return null; }
+// valeur du menu « Article » : der / die / das ; en italien article|genre (l'|m, l'|f)
+const artVal = (art, g) => LANG==='it' ? (art ? art+'|'+(g || (/^(il|lo|i|gli)$/.test(art)?'m':'f')) : '') : (art||'');
 function dictPick(i){
   const h=dictHits[i]; if(!h) return; const e=h.e, si=h.si||0;
-  $('#fArt').value=ART_OF[e.g]||''; $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`Niveau estimé : <b>${EST_LABEL[dictEst]}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.`; $('#fPl').value=e.pl||'';
+  $('#fArt').value=artVal(entArt(e), e.g); $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`Niveau estimé : <b>${EST_LABEL[dictEst]}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.`; $('#fPl').value=e.pl||'';
   $('#fFr').value=e.s[si][0].split(',')[0].trim();
-  const dk=deckEntry(e.w, ART_OF[e.g]||''); dictDeck=dk;
+  const dk=deckEntry(e.w, entArt(e)); dictDeck=dk;
   if(dk){ $('#fFr').value=dk.f.fr; if(dk.f.pl) $('#fPl').value=dk.f.pl; $('#fLvl').value=dk.L;
     if(fe) fe.innerHTML=`Ce mot est dans la liste <b>${dk.L}</b> de Memolex : traduction relue, expression « À retenir » et phrases d'exemple incluses.`; }
   plPreview();
   $('#dRes').innerHTML=''; dictHits=[];
   const sb=$('#dSense'); sb.hidden=false;
   sb.innerHTML=`<div class="dgroup">« ${esc(e.w)} » ${e.s.length>1?'a plusieurs sens : touche celui de ton cours':': son sens'}</div>
-    <p class="hint dnote">En italique, la <b>définition</b> du mot en allemand (ce n'est pas une phrase d'exemple). Elle est copiée dans le champ « Exemple » : garde-la, ou remplace-la par ta propre phrase.</p>`+e.s.map((s,j)=>`<button type="button" class="dsn" data-dsense="${j}" aria-pressed="${j===si}">
-      <span>${esc(s[0])}</span>${s[1]?`<small lang="de"><b>Définition :</b> ${esc(s[1])}</small>`:''}</button>`).join('');
+    ${e.s.some(x=>x[1])?`<p class="hint dnote">En italique, la <b>définition</b> du mot en ${L_().adj} (ce n'est pas une phrase d'exemple). Elle est copiée dans le champ « Exemple » : garde-la, ou remplace-la par ta propre phrase.</p>`:''}`+e.s.map((s,j)=>`<button type="button" class="dsn" data-dsense="${j}" aria-pressed="${j===si}">
+      <span>${esc(s[0])}</span>${s[1]?`<small lang="${LANG}"><b>Définition :</b> ${esc(s[1])}</small>`:''}</button>`).join('');
   fillDef(e.s[si][1]);
   sb.dataset.word=e.w; sb._entry=e;
   sb.scrollIntoView({behavior:'smooth', block:'nearest'});
@@ -1447,7 +1556,7 @@ document.addEventListener('click', e=>{ const b=e.target.closest('button'); if(!
 document.addEventListener('keydown', e=>{ if(e.key!=='Enter' || e.isComposing) return; const el=e.target; if(el.tagName!=='INPUT' || !el.form) return; e.preventDefault(); fireSubmit(el.form); }, true);
 /* ---------- lettres allemandes ---------- */
 function umlautBar(chars, target){
-  return `<div class="umlauts" role="group" aria-label="Lettres allemandes">${chars.map(ch=>`<button type="button" class="uml" data-ins="${ch}" data-target="${target}" aria-label="Insérer ${ch}">${ch}</button>`).join('')}</div>`;
+  return `<div class="umlauts" role="group" aria-label="${L_().charsLabel}">${chars.map(ch=>`<button type="button" class="uml" data-ins="${ch}" data-target="${target}" aria-label="Insérer ${ch}">${ch}</button>`).join('')}</div>`;
 }
 let lastField=null;
 document.addEventListener('focusin', e=>{ const el=e.target; if(el.matches && el.matches('input:not([type=search]),textarea')) lastField=el; });
@@ -1465,6 +1574,9 @@ document.addEventListener('click', e=>{
 /* ---------- events ---------- */
 document.addEventListener('click', async e=>{
   const t=e.target.closest('button'); if(!t) return;
+  if('langpick' in t.dataset){ langPicking = !LANG || !langPicking; refresh(); return; }
+  if(t.dataset.lang && LANGS[t.dataset.lang]){ setLang(t.dataset.lang); return; }
+  if('langcancel' in t.dataset){ langPicking=false; refresh(); return; }
   if('acct' in t.dataset){ document.querySelector('nav.tabs [data-tab="guide"]').click(); setTimeout(()=>$('#acctSec')?.scrollIntoView({behavior:'smooth'}),50); return; }
   if(t.dataset.tab){ tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
   if(t.dataset.go){ document.querySelector(`nav.tabs [data-tab="${t.dataset.go}"]`).click(); return; }
@@ -1488,7 +1600,7 @@ document.addEventListener('click', async e=>{
   if('known' in t.dataset && session){
     if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ revealed=false; artGuess=null; } if(fin && !session.practice) await put(fin); refresh(); return; }
     // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
-    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${c.art?c.art+' ':''}${c.de} » écarté : revient dans un mois`); return; }
+    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
   if('triage' in t.dataset){ triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
   if('endtriage' in t.dataset){ triage=null; refresh(); return; }
   if('tknow' in t.dataset && triage){ flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
@@ -1507,14 +1619,14 @@ document.addEventListener('click', async e=>{
     return;
   }
   if(t.dataset.lesson && importing) return;
-  if(t.dataset.lesson){ importing=true; t.disabled=true; try{ const id=t.dataset.lesson, L=t.dataset.lvl; const ex=new Set([...cards.values()].map(keyOf));
+  if(t.dataset.lesson){ importing=true; t.disabled=true; try{ const id=t.dataset.lesson, L=t.dataset.lvl; const ex=new Set(deck().map(keyOf));
     const b=newBatch(LESSONS[id].title+(L?' · '+L:'')); const list=lessonItems(id).filter(f=>(!L||f.lvl===L)&&!ex.has(keyOf(f))).map(f=>({...newCard(f,b.id),batchLabel:b.label,lvl:f.lvl,src:id}));
     if(!list.length){ toast('Déjà dans tes mots'); return; }
     await putMany(list); refresh(); renderAdd(); toast(`${list.length} mots de la ${LESSONS[id].title.toLowerCase()} ajoutés`); } finally { importing=false; } return; }
   if(t.dataset.rmbatch || 'rmfilter' in t.dataset){
     let ids;
     if(t.dataset.rmbatch){ const g=batchGroups().find(x=>x.key===t.dataset.rmbatch); ids=g?g.ids:[]; }
-    else ids=[...cards.values()].filter(filterMatch).map(c=>c.id);
+    else ids=deck().filter(filterMatch).map(c=>c.id);
     ids=ids.filter(id=>cards.get(id)&&isNew(cards.get(id)));
     if(!ids.length) return;
     if(!t.dataset.confirm){ t.dataset.confirm='1'; t.dataset.orig=t.textContent; t.textContent=`Confirmer (${ids.length})`; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=t.dataset.orig; } },3500); return; }
@@ -1541,16 +1653,17 @@ document.addEventListener('submit', async e=>{
   if(e.target.id==='addForm'){
     dictAutofill();
     const de=$('#fDe').value.trim(), fr=$('#fFr').value.trim(); if(!de||!fr) return;
-    let art=$('#fArt').value, word=de; const m=de.match(/^(der|die|das)\s+(.+)$/i); if(m){ art=m[1].toLowerCase(); word=m[2]; }
+    let [art, g='']=$('#fArt').value.split('|'), word=de; const m=splitArt(de); if(m){ art=m.art; word=m.de; if(LANG==='it'){ g = /^(il|lo|i|gli)$/.test(art)?'m':/^(la|le)$/.test(art)?'f':g; } }
+    if(LANG==='it' && art && !g){ const de0=DICT_BY.get(word); if(de0 && de0.g) g=de0.g; }
     const fd=$('#fDup'), fi=$('#fFr');
     if(fi.dataset.ok!==fr){ const d=sameFr([{de:word, art, fr}]); if(d.length){ fi.dataset.ok=fr;
       fd.innerHTML=`<p><b>« ${esc(fr)} » est déjà la traduction de ${d[0].others.slice(0,4).map(x=>deWord(x)).join(', ')}.</b> ${DUP_TIP}</p><p class="hint">Pour ajouter quand même, appuie à nouveau sur « Ajouter le mot ».</p>`;
       fd.hidden=false; fi.focus(); return; } }
     delete fi.dataset.ok; fd.hidden=true; fd.innerHTML='';
-    const lv=$('#fLvl').value; const fromDict = dictPicked && dictPicked===word; await put({...newCard({de:word, art, pl:$('#fPl').value.trim(), fr, ex:($('#fEx').value.trim()===autoDef?'':$('#fEx').value.trim())}), ...(autoDef && $('#fEx').value.trim()===autoDef?{def:autoDef}:{}), ...(lv?{lvl:lv}:{}), src: fromDict?'dict':'manual', ...(fromDict && !lv ? {est:dictEst} : {}), ...(fromDict && dictPos ? {pos:dictPos} : {})}); const fe=$('#fEst'); if(fe) fe.textContent=''; const pp=$('#fPlPrev'); if(pp) pp.textContent=''; dictPicked=''; dictDeck=null;
+    const lv=$('#fLvl').value; const fromDict = dictPicked && dictPicked===word; await put({...newCard({de:word, art, ...(g?{g}:{}), pl:$('#fPl').value.trim(), fr, ex:($('#fEx').value.trim()===autoDef?'':$('#fEx').value.trim())}), ...(autoDef && $('#fEx').value.trim()===autoDef?{def:autoDef}:{}), ...(lv?{lvl:lv}:{}), src: fromDict?'dict':'manual', ...(fromDict && !lv ? {est:dictEst} : {}), ...(fromDict && dictPos ? {pos:dictPos} : {})}); const fe=$('#fEst'); if(fe) fe.textContent=''; const pp=$('#fPlPrev'); if(pp) pp.textContent=''; dictPicked=''; dictDeck=null;
     ['fDe','fPl','fFr','fEx'].forEach(id=>$('#'+id).value=''); $('#fLvl').value=''; $('#fArt').value=''; $('#fDe').focus();
     autoDef=''; const dq=$('#dq'), sb=$('#dSense'); if(dq) dq.value=''; if(sb){ sb.hidden=true; sb.innerHTML=''; }
-    refresh(); toast(`« ${art?art+' ':''}${word} » ajouté`);
+    refresh(); toast(`« ${artWord({art, de:word})} » ajouté`);
   }
   if(e.target.id==='bulkForm'){ if(importing) return; importing=true; try{
     const box=$('#bulkDup');
@@ -1559,9 +1672,9 @@ document.addEventListener('submit', async e=>{
       box.hidden=true; box.innerHTML=''; await finishBulk(fresh, ok, bad); return; }
     const lines=$('#fBulk').value.split('\n').map(l=>l.trim()).filter(Boolean);
     const parsed=lines.map(parseLine); const ok=parsed.filter(Boolean);
-    if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=ART_OF[e.g]; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
+    if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=entArt(e); if(LANG==='it' && !f.g && e.g) f.g=e.g; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
     if(!ok.length){ toast('Aucune ligne reconnue. Format : der Hund ; le chien'); return; }
-    const existing=new Set([...cards.values()].map(c=>(c.art+c.de).toLowerCase()));
+    const existing=new Set(deck().map(dkey));
     const bb=newBatch('Liste collée'); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
     const dups=sameFr(fresh);
     if(dups.length){ bulkPending={fresh, ok:ok.length, bad};
@@ -1580,7 +1693,7 @@ document.addEventListener('toggle', e=>{ if(e.target.id==='credDetails' && e.tar
 document.addEventListener('change', async e=>{
   const sel=e.target.closest('[data-setstat]'); if(!sel) return;
   const c=cards.get(sel.dataset.setstat); if(!c || STATUS(c)===sel.value) return;
-  await put(withStatus(c, sel.value)); refresh(); toast(`« ${c.art?c.art+' ':''}${c.de} » : ${STATUS_LABEL[sel.value].toLowerCase()}`);
+  await put(withStatus(c, sel.value)); refresh(); toast(`« ${artWord(c)} » : ${STATUS_LABEL[sel.value].toLowerCase()}`);
 });
 document.addEventListener('input', e=>{
   if(e.target.id==='fFr'){ const fd=$('#fDup'); if(fd && !fd.hidden && e.target.value.trim()!==e.target.dataset.ok){ fd.hidden=true; delete e.target.dataset.ok; } }
