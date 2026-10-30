@@ -835,9 +835,12 @@ const minutesFor = n => Math.max(1, Math.round(n*10/60)); // ~10 s par carte, ra
 const GRADE_LABEL={1:'Encore',2:'Difficile',3:'Bien',4:'Facile',known:'Je connais déjà'};
 function answerOf(before, g, art){
   if(g==='known') return {after:markKnown(before), requeue:false, adj:'known'};
-  let adj=g; if(art && art!==before.art && g>2) adj=2; // mauvais article : jamais mieux que « Difficile »
+  let adj=g; if(guessWrong(before, art) && g>2) adj=2; // mauvais article ou mauvais cas : jamais mieux que « Difficile »
   const {n, requeue}=gradeCard(before, adj); return {after:n, requeue:!!requeue, adj};
 }
+// carte en cours : on garde sa réponse (verso révélé, article ou cas choisi) quand on remonte voir une carte déjà vue, et on la retrouve au retour
+function liveSave(){ if(session && session.view==null) session.live={revealed, artGuess}; }
+function liveRestore(){ const l=session&&session.live; revealed=l?l.revealed:false; artGuess=l?l.artGuess:null; if(session) session.live=null; }
 function recordAnswer(c, g){
   const a=answerOf(c, g, artGuess); const first=!session.seen.has(c.id);
   const counted = a.adj!=='known' && first, okc = counted && a.adj>=3;
@@ -948,6 +951,12 @@ function caseVerdict(c, guess){
   const famUsed=g.some(k=>t.extra.includes(k)&&!t.need.includes(k));
   if(ok) return `<div class="verdict ok">${t.need.length>1?'Bons cas':'Bon cas'}${famUsed?` (le ${t.extra.map(L).join(', ')} est familier)`:''}</div>`;
   return `<div class="verdict bad">Pas ${g.map(L).join(' + ')} : ${t.need.length>1?'il fallait '+t.need.map(L).join(' et '):'il fallait '+(t.need[0]==='Akk'?'l’':'le ')+L(t.need[0])}</div>`;
+}
+// réponse donnée au quiz article / cas : fausse ? (sans réponse donnée : jamais fausse)
+function guessWrong(c, guess){
+  if(!guess) return false;
+  if(guess.startsWith('K:')) return !!caseTarget(c) && !caseVerdict(c, guess).includes('verdict ok');
+  return guess!==c.art;
 }
 const GENRE_IT = {m:'masculin', f:'féminin'};
 // italien : genre et pluriel écrit en entier avec son article (« gli amici », « le città » : invariable)
@@ -1140,15 +1149,16 @@ function renderReview(){
   }
   const {front, back, reveal, showArtPick}=cardFaces(c);
   const canBack = past ? session.view>0 : session.hist.length>0;
+  const wrongGuess = revealed && guessWrong(c, artGuess);
   const controls = revealed
     ? `<div class="grades">
-        ${[1,2,3,4].map(g=>`<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}">${GRADE_LABEL[g]}<small>${past&&past.grade===g?'ta réponse':session.practice?'&nbsp;':preview(c,g)}</small></button>`).join('')}</div>`
+        ${[1,2,3,4].map(g=>{ const off = wrongGuess && g>=3; return `<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}"${off?' disabled':''}>${GRADE_LABEL[g]}<small>${off?(artGuess.startsWith('K:')?'cas faux':'article faux'):past&&past.grade===g?'ta réponse':session.practice?'&nbsp;':preview(c,g)}</small></button>`; }).join('')}</div>`
     : reveal;
   v.innerHTML = dirBar + `<div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
     <div class="practice-bar"><span><b>${past?'Carte déjà vue':session.practice?'Entraînement libre':'Session'}</b>${session.practice&&!past?' (non enregistré)':''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}</span><button class="link" data-endsession title="Tes réponses sont déjà enregistrées">Arrêter</button></div>
     <div class="smeter" aria-hidden="true"><i style="width:${Math.min(100,100*(past?(past.pos||1)-1:session.done)/session.total)}%"></i><b style="left:${Math.min(100,100*session.done/session.total)}%"></b></div>
     <div class="cardnav">${canBack?`<button class="navbtn prev" data-back aria-label="Carte précédente" title="Carte précédente">‹</button>`:''}<div class="card${past?' past':''}${cardTone(c)}" id="card">${front}${back}</div>${past?`<button class="navbtn next" data-fwd aria-label="Carte suivante" title="Carte suivante">›</button>`:''}</div>${controls}
-    <p class="hint" style="text-align:center">${past?(past.grade==='known'?'Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.':'Choisis une autre note pour changer ta réponse, ou avance avec ›.'):(isNew(c)?'Nouveau mot':isLearning(c)?`En apprentissage · passage ${Math.min(STEPS,(c.ls||0)+1)}/${STEPS}`:'Révision')+(showArtPick?(c.art?' · choisis l’article':' · choisis le cas'):'')}${!session.practice&&isNew(c)&&revealed&&!(past&&past.grade==='known')?' · <button class="link" data-known>Je connais déjà</button>':''}</p></div>`;
+    <p class="hint" style="text-align:center">${past?(past.grade==='known'?'Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.':'Choisis une autre note pour changer ta réponse, ou avance avec ›.'):(isNew(c)?'Nouveau mot':isLearning(c)?`En apprentissage · passage ${Math.min(STEPS,(c.ls||0)+1)}/${STEPS}`:'Révision')+(showArtPick?(c.art?' · choisis l’article':' · choisis le cas'):'')}${!session.practice&&isNew(c)&&revealed&&!wrongGuess&&!(past&&past.grade==='known')?' · <button class="link" data-known>Je connais déjà</button>':''}</p></div>`;
   applyCardAnim();
 }
 function batchGroups(){
@@ -1580,7 +1590,7 @@ document.addEventListener('click', async e=>{
   if('acct' in t.dataset){ document.querySelector('nav.tabs [data-tab="guide"]').click(); setTimeout(()=>$('#acctSec')?.scrollIntoView({behavior:'smooth'}),50); return; }
   if(t.dataset.tab){ tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
   if(t.dataset.go){ document.querySelector(`nav.tabs [data-tab="${t.dataset.go}"]`).click(); return; }
-  if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; renderReview(); return; }
+  if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; if(session) session.live=null; renderReview(); return; }
   if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; renderReview(); return; }
   if(t.dataset.case){ const k=t.dataset.case; caseSel.has(k)?caseSel.delete(k):caseSel.add(k); t.setAttribute('aria-pressed', caseSel.has(k)); const go=document.querySelector('[data-casego]'); if(go) go.disabled=!caseSel.size; return; }
   if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; renderReview(); return; }
@@ -1589,28 +1599,33 @@ document.addEventListener('click', async e=>{
   if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; renderReview(); } return; }
   if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; renderReview(); } return; }
   if('back' in t.dataset && session && session.hist.length){
+    liveSave();
     session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; renderReview(); return; }
   if('fwd' in t.dataset && session && session.view!=null){
-    session.view++; if(session.view>=session.hist.length){ session.view=null; revealed=false; artGuess=null; } cardAnim='from-r'; renderReview(); return; }
+    session.view++; if(session.view>=session.hist.length){ session.view=null; liveRestore(); } cardAnim='from-r'; renderReview(); return; }
   if('endsession' in t.dataset){
     // chaque réponse est enregistrée au moment où on la donne : arrêter ne perd rien
     const left=session ? session.ids.filter(id=>cards.has(id)).length : 0;
     stopped = session ? {done:session.done, answers:session.hist?session.hist.length:session.done, left, practice:!!session.practice} : null;
     session=null; revealed=false; artGuess=null; renderReview(); return; }
   if('known' in t.dataset && session){
-    if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ revealed=false; artGuess=null; } if(fin && !session.practice) await put(fin); refresh(); return; }
+    const curK = session.view!=null ? session.hist[session.view]?.before : cards.get(session.ids[0]);
+    if(curK && guessWrong(curK, artGuess)) return; // article ou cas faux : « Je connais déjà » refusé
+    if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
-    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
+    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
   if('triage' in t.dataset){ triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
   if('endtriage' in t.dataset){ triage=null; refresh(); return; }
   if('tknow' in t.dataset && triage){ flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
   if('tlearn' in t.dataset && triage){ flyOut('l'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c) await put({...c, sorted:1}); refresh(); return; }
   if(t.dataset.grade){
     const g=+t.dataset.grade; if(!session) return;
-    if(session.view!=null){ flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,g); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ revealed=false; artGuess=null; } if(fin && !session.practice) await put(fin); refresh(); return; }
+    const curG = session.view!=null ? session.hist[session.view]?.before : cards.get(session.ids[0]);
+    if(g>=3 && curG && guessWrong(curG, artGuess)) return; // article ou cas faux : seuls « Encore » et « Difficile » sont permis
+    if(session.view!=null){ flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,g); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     const c=cards.get(session.ids[0]); if(!c) return;
     flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='in';
-    const n=recordAnswer(c,g);
+    const n=recordAnswer(c,g); session.live=null;
     const prac=session.practice; revealed=false; artGuess=null; renderReview(); if(!prac){ await put(n); refresh(); } return;
   }
   if(t.dataset.del){
