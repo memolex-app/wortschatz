@@ -1,0 +1,11 @@
+{"_note":"Corrections issues du 2e échantillon (300 cartes, relecture Andrea).",
+ "fr":[
+  {"w":"sodo","nat":"adv","new":"dur (lavorare sodo : travailler dur)","why":"« avec ardeur » n'est pas la traduction courante"},
+  {"w":"piacimento","nat":"n","new":"le gré (a piacimento : à volonté)","why":"« bon plaisir » est vieilli"},
+  {"w":"golpe","nat":"n","new":"le putsch (coup d'État militaire)","why":"mot d'emprunt, plus étroit que colpo di stato"},
+  {"w":"disputare","nat":"v","new":"débattre, disputer (un match)","why":"le sens de discussion est le premier"},
+  {"w":"abbinamento","nat":"n","new":"l'appariement (association, accord)","why":"« assortiment » = assortimento"},
+  {"w":"stare","nat":"v","new":"rester, se trouver (stare bene : aller bien)","why":"« aller » vient de stare per, locution à part"}
+ ],
+ "remove_cards":[{"w":"all'alba","nat":"adv"},{"w":"all'infinito","nat":"adv"}],
+ "remove_examples":[{"key":"stare","match":"Stanno per prendere"}]}

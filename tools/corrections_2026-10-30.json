@@ -1,0 +1,156 @@
+{
+ "_note": "Corrections issues du contrôle IT-FR du 30/10/2026 (échantillon de 300 cartes, relecture Andrea + relecture Claude). Une entrée = une règle ou une décision.",
+ "fr": [
+  {
+   "w": "visualizzazione",
+   "nat": "n",
+   "new": "la visualisation (affichage)",
+   "why": "« visionnage » n'est pas le sens courant"
+  },
+  {
+   "w": "vivace",
+   "nat": "adj",
+   "new": "vif (plein de vie)",
+   "why": "« pétillant » est un sens figuré étroit"
+  },
+  {
+   "w": "puntualmente",
+   "nat": "adv",
+   "new": "immanquablement (comme prévu)",
+   "why": "« ponctuellement » = occasionnellement en français courant"
+  },
+  {
+   "w": "sottosegretario",
+   "nat": "n",
+   "new": "le sous-secrétaire d'État",
+   "why": "ce n'est pas le secrétaire d'État"
+  },
+  {
+   "w": "indice",
+   "nat": "n",
+   "new": "l'indice (taux, index)",
+   "why": "indice = indice ; la nuance le distingue de indizio « l'indice (piste) »"
+  },
+  {
+   "w": "misurazione",
+   "nat": "n",
+   "new": "le mesurage (action de mesurer)",
+   "why": "doublon de sens avec misura « la mesure » (remarque d'Andrea)"
+  },
+  {
+   "w": "male",
+   "nat": "n",
+   "new": "le mal",
+   "why": "« (douleur) » restreint à tort ; la phrase illustre le mal en général"
+  },
+  {
+   "w": "spasso",
+   "nat": "n",
+   "new": "le divertissement, la balade (andare a spasso)",
+   "why": "deux sens courants ; « balade » seul ne vient que de andare a spasso (remarque d'Andrea)"
+  },
+  {
+   "w": "picchiare",
+   "nat": "v",
+   "new": "rouer de coups",
+   "why": "« tabasser » est familier ; picchiare est neutre",
+   "chunk_fr": "rouer quelqu'un de coups"
+  },
+  {
+   "w": "piazzare",
+   "nat": "v",
+   "new": "caser (placer, familier)",
+   "why": "le registre familier de « caser » n'était pas indiqué"
+  },
+  {
+   "w": "affollare",
+   "nat": "v",
+   "new": "remplir de monde",
+   "why": "affollare est transitif ; « se presser en foule » est affollarsi ; le chunk « envahir les plages » est ajusté",
+   "chunk_fr": "remplir les plages de monde"
+  },
+  {
+   "w": "pretendere",
+   "nat": "v",
+   "new": "exiger (revendiquer)",
+   "why": "faux ami : « prétendre » (affirmer) ≠ pretendere (exiger)"
+  },
+  {
+   "w": "trucco",
+   "nat": "n",
+   "new": "le maquillage, le truc (familier)",
+   "why": "« truc » est familier : étiquette de registre manquante"
+  },
+  {
+   "w": "lavoretto",
+   "nat": "n",
+   "new": "le petit boulot (familier)",
+   "why": "« boulot » est familier : étiquette manquante"
+  },
+  {
+   "w": "tizia",
+   "nat": "n",
+   "new": "la nana (familier : une fille quelconque)",
+   "why": "« nana » est familier : étiquette manquante"
+  }
+ ],
+ "remove_cards": [
+  {
+   "w": "traverso",
+   "nat": "n",
+   "why": "fréquence trompeuse (di traverso, flauto traverso) ; « le travers » est un faux sens"
+  },
+  {
+   "w": "apposto",
+   "nat": "adj",
+   "why": "forme erronée : participe d'apporre ; le sens est celui de « a posto »"
+  }
+ ],
+ "remove_examples": [
+  {
+   "key": "sei",
+   "why": "illustre le verbe essere (tu es), pas le nombre six"
+  },
+  {
+   "key": "riguardo",
+   "why": "illustre le verbe riguardare"
+  },
+  {
+   "key": "lapianta",
+   "match": "Lei pianta delle rose",
+   "why": "illustre le verbe piantare"
+  },
+  {
+   "key": "iltaglio",
+   "why": "illustre le verbe tagliare"
+  },
+  {
+   "key": "lascheda",
+   "why": "illustre le verbe schedare"
+  },
+  {
+   "key": "iltocco",
+   "why": "illustre le verbe toccare"
+  },
+  {
+   "key": "iltrapianto",
+   "why": "illustre le verbe trapiantare"
+  },
+  {
+   "key": "l'insegna",
+   "why": "illustre le verbe insegnare"
+  },
+  {
+   "key": "ilserial",
+   "why": "serial killer = tueur en série, pas le feuilleton"
+  },
+  {
+   "key": "ilbottone",
+   "why": "bouton d'appareil, alors que la carte dit « bouton (vêtement) »"
+  },
+  {
+   "key": "ilpigiama",
+   "why": "traduction de la phrase fausse (« vos pyjamas » pour il pigiama)"
+  }
+ ]
+}
