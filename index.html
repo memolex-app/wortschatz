@@ -307,7 +307,7 @@ form .umlauts{justify-content:flex-start}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:20;
   padding-bottom:env(safe-area-inset-bottom, 0px);padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+nav.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
 nav.tabs button{font:inherit;font-weight:700;font-size:.8rem;padding:14px 2px;background:none;border:none;color:var(--muted);cursor:pointer;border-top:3px solid transparent}
 nav.tabs button[aria-current="page"]{color:var(--accent);border-top-color:var(--accent)}
 button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
@@ -453,6 +453,54 @@ nav.tabs button:active{transform:translateY(1px)}
 #sync::before{content:"";width:8px;height:8px;border-radius:1px;background:var(--muted);flex:none}
 #sync[data-state="ok"]::before{background:var(--ok)} #sync[data-state="pend"]::before,#sync[data-state="busy"]::before{background:var(--learn)} #sync[data-state="err"]::before{background:var(--bad)}
 #acct{display:flex;flex-direction:column;gap:10px}
+
+/* ---------- stats et série ---------- */
+.statsview{display:flex;flex-direction:column;gap:14px}
+.panel{position:relative;background:var(--surface);border:2px solid var(--ink);border-radius:4px;box-shadow:var(--bevel),5px 5px 0 var(--ink);padding:36px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.panel::before{content:"MEMOLEX · STATS";position:absolute;left:0;right:0;top:0;height:22px;padding:0 10px;display:flex;align-items:center;font:600 .64rem/1 var(--f-mono);letter-spacing:.2em;color:var(--surface);background:var(--ink)}
+.panel h2{font-size:1.1rem}
+.streak{display:flex;flex-direction:column;gap:8px;width:100%}
+.streak.compact{background:var(--surface);border:2px solid var(--ink);border-radius:3px;box-shadow:var(--sunken);padding:10px 12px;box-sizing:border-box}
+.sk-top{display:flex;align-items:baseline;gap:8px}
+.sk-top b{font:600 1.8rem/1 var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.streak.compact .sk-top b{font-size:1.35rem}
+.sk-top span{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.sk-week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.sd{font:600 .7rem/1 var(--f-mono);font-style:normal;text-align:center;padding:6px 0;border:2px solid var(--ink);border-radius:2px;color:var(--muted);background:var(--bg)}
+.sd-on{background:var(--accent);color:var(--accent-ink)}
+.sd-off{background:repeating-linear-gradient(45deg,var(--bg) 0 3px,var(--line) 3px 5px);color:var(--muted)}
+.sd-now{border-style:dashed;color:var(--ink)}
+.sd-next{opacity:.55}
+.lv-row{display:flex;align-items:center;gap:10px}
+.lv-bar{flex:1;position:relative;height:14px;border:2px solid var(--ink);border-radius:2px;background:var(--bg);overflow:hidden}
+.lv-bar i{position:absolute;left:0;top:0;bottom:0}
+.lv-mine{background:color-mix(in srgb,var(--accent) 22%,var(--bg))}
+.lv-known{background:repeating-linear-gradient(90deg,var(--accent) 0 7px,transparent 7px 9px)}
+.lv-n{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);min-width:76px;text-align:right;font-variant-numeric:tabular-nums}
+.lv-n b{color:var(--ink)}
+.load{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end;height:118px}
+.ld{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%}
+.ld i{width:70%;background:var(--accent);border:2px solid var(--ink);border-radius:1px}
+.ld b{font:600 .78rem/1 var(--f-mono);font-variant-numeric:tabular-nums}
+.ld span{font:500 .66rem/1 var(--f-mono);text-transform:uppercase;color:var(--muted)}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big b{font:600 2rem/1 var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.big span{color:var(--muted);font-size:.86rem}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cd{font:500 .7rem/1 var(--f-mono);font-style:normal;text-align:center;padding:7px 0;border:1px solid var(--line);border-radius:2px;color:var(--muted)}
+.cd-h{border:none;padding:2px 0;font-weight:600}
+.cd-pad{border:none}
+.cd-act{background:color-mix(in srgb,var(--accent) 25%,var(--surface));color:var(--ink)}
+.cd-hit{background:var(--accent);color:var(--accent-ink);border-color:var(--ink)}
+.cd-next{opacity:.45}
+.er{display:flex;align-items:baseline;gap:10px;border-bottom:2px dotted var(--line);padding:6px 0}
+.er span{flex:1}
+.er b{font:600 1.3rem/1 var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.er small{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);min-width:96px;text-align:right}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.srow.col{flex-direction:column;align-items:flex-start}
+.srow > span{font-weight:700;font-size:.9rem}
+.srow .seg{flex-wrap:wrap}
 #acct p{margin:0}
 </style>
 </head>
@@ -474,6 +522,7 @@ nav.tabs button:active{transform:translateY(1px)}
   <button data-tab="review" aria-current="page">Réviser</button>
   <button data-tab="list">Mes mots</button>
   <button data-tab="add">Ajouter</button>
+  <button data-tab="stats">Stats</button>
   <button data-tab="guide">Guide</button>
 </div></nav>
 <div class="toast" id="toast" hidden></div>
@@ -525,7 +574,7 @@ function loadLists(){
     if(lang!==LANG) return;
     // italien : 7e colonne = genre (m, f), utile quand l'article est élidé (l'amico, l'amica)
     LISTDATA={}; LISTPOS=new Map(); d.forEach(([L,w,p,g,pl,fr,gen])=>{ const f={de:w, art:g, pl, fr, ex:'', pos:p, ...(gen?{g:gen}:{})}; (LISTDATA[L]=LISTDATA[L]||[]).push(f); LISTPOS.set(dkey(f),p); });
-    listState='ready'; rerenderLevels(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
+    listState='ready'; rerenderLevels(); if(tab==='stats') renderStats(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
   }).catch(()=>{ if(lang!==LANG) return; listState='error'; rerenderLevels(); });
 }
 // les traductions des listes sont corrigées au fil des versions : on met à jour les mots venus des listes
@@ -845,6 +894,7 @@ function recordAnswer(c, g){
   const a=answerOf(c, g, artGuess); const first=!session.seen.has(c.id);
   const counted = a.adj!=='known' && first, okc = counted && a.adj>=3;
   session.hist.push({id:c.id, before:{...c}, after:a.after, grade:g, art:artGuess, requeue:a.requeue, first, counted, okc, pos:session.done+1});
+  if(!session.practice) logAct(actDelta(c, counted, okc, artGuess, 1));
   session.ids.shift();
   if(a.adj==='known') session.total--;
   if(counted){ session.seen.add(c.id); session.done++; if(okc) session.ok++; }
@@ -857,6 +907,7 @@ function changeAnswer(i, g){
   const a=answerOf(e.before, g, e.art);
   const counted = a.adj!=='known' && e.first, okc = counted && a.adj>=3;
   session.done += (counted?1:0)-(e.counted?1:0); session.ok += (okc?1:0)-(e.okc?1:0);
+  if(!session.practice){ const m=actDelta(e.before, e.counted, e.okc, e.art, -1), p=actDelta(e.before, counted, okc, e.art, 1); for(const f in p) m[f]=(m[f]||0)+p[f]; logAct(m); }
   if(e.grade==='known' && g!=='known') session.total++;
   if(g==='known' && e.grade!=='known') session.total--;
   const later=h.slice(i+1).filter(x=>x.id===e.id);
@@ -881,6 +932,141 @@ function startSession(size){
   if(!ids.length) return false;
   session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null}; revealed=false; artGuess=null; return true;
 }
+/* ---------- activité du jour, statistiques et série ----------
+   settings.act[langue]["AAAA-MM-JJ"] = { n: réponses comptées, ok: justes du premier coup,
+   mn/mok: cartes mûres (intervalle ≥ 21 j) vues/justes, aq/ae: articles demandés/faux, cq/ce: cas demandés/faux }.
+   Seule la première réponse d'une carte dans une session compte ; l'entraînement libre ne compte pas.
+   Le journal voyage avec les réglages (ligne _settings) ; deux appareils fusionnent jour par jour (valeur max). */
+const dayKey = t => { const d=new Date(t); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+const addDays = (t,k) => { const d=new Date(t); d.setDate(d.getDate()+k); d.setHours(0,0,0,0); return d.getTime(); };
+const weekStart = t => { const d=new Date(t); d.setDate(d.getDate()-((d.getDay()+6)%7)); d.setHours(0,0,0,0); return d.getTime(); };
+const STAT_KEYS = {lvl:'Mots acquis par niveau', load:'Révisions des 7 prochains jours', mature:'Réussite sur les mots mûrs', month:'Jours actifs du mois', err:"Erreurs d'article et de cas"};
+const ST = () => ({ streakOn: settings.streakOn!==false, weekGoal: settings.weekGoal||5, dayMin: settings.dayMin||10, show: settings.statShow||Object.keys(STAT_KEYS) });
+function actOf(lang){ if(!settings.act) settings.act={}; const k=lang||LANG||'de'; if(!settings.act[k]) settings.act[k]={}; return settings.act[k]; }
+let ACT_T=null;
+function actDirty(){ try{ localStorage.setItem('mx-settings', JSON.stringify(settings)); }catch(e){} clearTimeout(ACT_T); ACT_T=setTimeout(saveSettings, 3000); }
+function logAct(d){
+  const a=actOf(), k=dayKey(Date.now()), e=a[k]||(a[k]={}); let ch=false;
+  for(const f in d){ if(!d[f]) continue; e[f]=Math.max(0,(e[f]||0)+d[f]); ch=true; }
+  if(ch) actDirty();
+}
+// ce qu'une réponse ajoute au journal (signe -1 pour la retirer quand on change d'avis)
+function actDelta(before, counted, okc, art, sign){
+  if(!counted) return {};
+  const mature = !isLearning(before) && (before.ivl||0)>=21, isCase = art && art.startsWith('K:'), wrong = art && guessWrong(before, art);
+  return { n:sign, ok:okc?sign:0, mn:mature?sign:0, mok:mature&&okc?sign:0,
+    aq:art&&!isCase?sign:0, ae:art&&!isCase&&wrong?sign:0, cq:isCase?sign:0, ce:isCase&&wrong?sign:0 };
+}
+// fusion du journal reçu d'un autre appareil ; renvoie vrai si l'autre appareil n'a pas tout ce qu'on a ici
+function mergeAct(remote){
+  if(!remote || typeof remote!=='object') return !!(settings.act && Object.keys(settings.act).length);
+  let localMore=false; if(!settings.act) settings.act={};
+  for(const L of new Set([...Object.keys(remote), ...Object.keys(settings.act)])){
+    const r=remote[L]||{}, l=settings.act[L]||(settings.act[L]={});
+    for(const k of new Set([...Object.keys(r), ...Object.keys(l)])){
+      const rv=r[k]||{}, lv=l[k]||(l[k]={});
+      for(const f of new Set([...Object.keys(rv), ...Object.keys(lv)])){ const a=lv[f]||0, b=rv[f]||0; if(a>b) localMore=true; lv[f]=Math.max(a,b); }
+    }
+  }
+  return localMore;
+}
+function sumAct(fromT, toT){
+  const a=actOf(), s={n:0,ok:0,mn:0,mok:0,aq:0,ae:0,cq:0,ce:0}; const f=dayKey(fromT), t=dayKey(toT);
+  for(const k in a){ if(k>=f && k<=t){ for(const x in s) s[x]+=a[k][x]||0; } }
+  return s;
+}
+// série : un jour compte s'il atteint le minimum de cartes ; chaque semaine (lundi-dimanche) tolère 7 − objectif jours manqués (jokers).
+// La série ne casse que quand une semaine dépasse ses jokers. Aujourd'hui n'est jamais compté comme manqué.
+function streakInfo(){
+  const {weekGoal, dayMin}=ST(), allow=7-weekGoal, a=actOf();
+  const done = t => ((a[dayKey(t)]||{}).n||0) >= dayMin;
+  const today=startOfDay(Date.now()), ws=weekStart(today);
+  const todayN=((a[dayKey(today)]||{}).n||0), todayDone=todayN>=dayMin;
+  let weekDone=0, weekMiss=0; for(let t=ws; t<=today; t=addDays(t,1)){ if(done(t)) weekDone++; else if(t<today) weekMiss++; }
+  const days=Object.keys(a).filter(k=>(a[k].n||0)>=dayMin).sort();
+  const base={days:0, todayN, todayDone, weekDone, weekMiss, allow, weekGoal, dayMin, left:Math.max(0,allow-weekMiss), broken:weekMiss>allow, best:settings.bestStreak||0};
+  if(!days.length) return base;
+  const [y,m,d]=days[0].split('-').map(Number), first=new Date(y,m-1,d).getTime();
+  let start=first; const miss={};
+  for(let t=addDays(today,-1); t>=first; t=addDays(t,-1)){
+    if(done(t)) continue; const w=weekStart(t); miss[w]=(miss[w]||0)+1;
+    if(miss[w]>allow){ start=addDays(t,1); break; }
+  }
+  const end = todayDone ? today : addDays(today,-1);
+  while(start<=end && !done(start)) start=addDays(start,1);
+  let n=0; for(let t=start; t<=end; t=addDays(t,1)) n++;
+  if(n>(settings.bestStreak||0)){ settings.bestStreak=n; actDirty(); }
+  return {...base, days:n, best:Math.max(n, settings.bestStreak||0)};
+}
+function streakHTML(compact){
+  if(!ST().streakOn) return '';
+  const s=streakInfo();
+  const dots=['L','M','M','J','V','S','D'].map((l,i)=>{ const t=addDays(weekStart(Date.now()),i), today=startOfDay(Date.now());
+    const n=((actOf()[dayKey(t)]||{}).n||0), st = n>=s.dayMin ? 'on' : t<today ? 'off' : t===today ? 'now' : 'next';
+    return `<i class="sd sd-${st}" title="${new Date(t).toLocaleDateString('fr-FR',{weekday:'long'})} : ${n} carte${n>1?'s':''}">${l}</i>`; }).join('');
+  const msg = s.todayDone ? 'Objectif du jour atteint.'
+    : s.todayN ? `Encore ${s.dayMin-s.todayN} carte${s.dayMin-s.todayN>1?'s':''} pour compter aujourd'hui.`
+    : `${s.dayMin} cartes aujourd'hui pour compter la journée.`;
+  const week = s.weekDone>=s.weekGoal ? `semaine validée (${s.weekDone}/${s.weekGoal})` : `semaine ${s.weekDone}/${s.weekGoal} · ${s.left} joker${s.left>1?'s':''} restant${s.left>1?'s':''}`;
+  return `<div class="streak${compact?' compact':''}"><div class="sk-top"><b>${s.days}</b><span>jour${s.days>1?'s':''} de série${s.best>s.days?` · record ${s.best}`:''}</span></div>
+    <div class="sk-week" aria-label="Cette semaine">${dots}</div><p class="hint">${msg} · ${week}</p></div>`;
+}
+function loadDays(){
+  const today=startOfDay(Date.now()), out=[];
+  const rev=deck().filter(c=>!isNew(c));
+  for(let i=0;i<7;i++){ const s=addDays(today,i), e=addDays(today,i+1);
+    out.push({t:s, n: rev.filter(c=> i===0 ? (c.due||0)<e : (c.due||0)>=s && (c.due||0)<e).length}); }
+  return out;
+}
+const pct = (a,b) => b ? Math.round(100*a/b)+' %' : '–';
+function statsHTML(){
+  const {show, streakOn, weekGoal, dayMin}=ST(); const all=deck(); const out=[];
+  if(streakOn) out.push(`<section class="panel"><h2>Série</h2>${streakHTML(false)}</section>`);
+  if(show.includes('lvl')){
+    const rows=Object.keys(LEVELS).map(L=>{ const mine=all.filter(c=>c.lvl===L); const known=mine.filter(c=>STATUS(c)==='known').length;
+      const size=LISTDATA&&LISTDATA[L]?LISTDATA[L].length:0; if(!mine.length && !size) return '';
+      const w=size?100*known/size:0, wm=size?100*mine.length/size:0;
+      return `<div class="lv-row"><span class="pill lvl">${L}</span><div class="lv-bar" title="${mine.length} dans tes mots"><i class="lv-mine" style="width:${wm}%"></i><i class="lv-known" style="width:${w}%"></i></div><span class="lv-n"><b>${known}</b>${size?` / ${size}`:''}</span></div>`; }).join('');
+    const own=all.filter(c=>!c.lvl), ownK=own.filter(c=>STATUS(c)==='known').length;
+    out.push(`<section class="panel"><h2>Mots acquis par niveau</h2>${rows}${own.length?`<div class="lv-row"><span class="pill lvl">+</span><span class="hint" style="flex:1">Mots ajoutés hors listes</span><span class="lv-n"><b>${ownK}</b> / ${own.length}</span></div>`:''}
+      <p class="hint">Acquis = revu avec succès jusqu'à un intervalle de 21 jours ou plus. Barre claire : mots du niveau déjà dans tes cartes.</p></section>`);
+  }
+  if(show.includes('load')){
+    const L=loadDays(), max=Math.max(1,...L.map(x=>x.n));
+    out.push(`<section class="panel"><h2>Révisions des 7 prochains jours</h2><div class="load">${L.map((x,i)=>`<div class="ld"><b>${x.n}</b><i style="height:${Math.max(2,70*x.n/max)}px"></i><span>${i===0?'auj.':new Date(x.t).toLocaleDateString('fr-FR',{weekday:'short'}).replace('.','')}</span></div>`).join('')}</div>
+      <p class="hint">Mots déjà vus qui reviennent chaque jour, sans compter les nouveaux. Aujourd'hui inclut le retard.</p></section>`);
+  }
+  const s30=sumAct(addDays(Date.now(),-29), Date.now());
+  if(show.includes('mature')){
+    out.push(`<section class="panel"><h2>Réussite sur les mots mûrs</h2><div class="big"><b>${s30.mn>=10?pct(s30.mok,s30.mn):'–'}</b><span>${s30.mn} révision${s30.mn>1?'s':''} sur 30 jours</span></div>
+      <p class="hint">${s30.mn<10?'Pas encore assez de mots mûrs (intervalle de 21 jours ou plus) pour un chiffre fiable : il en faut au moins 10. ':''}Repère : autour de 85-90 %, ton rythme est bon. Nettement en dessous, ralentis les nouveaux mots ; au-dessus de 95 %, tu peux en ajouter plus.</p></section>`);
+  }
+  if(show.includes('month')){
+    const now=new Date(), y=now.getFullYear(), m=now.getMonth(), first=new Date(y,m,1).getTime(), nd=new Date(y,m+1,0).getDate(), a=actOf();
+    let act=0, hit=0; const pad=(new Date(y,m,1).getDay()+6)%7; const cells=[];
+    for(let i=0;i<pad;i++) cells.push('<i class="cd cd-pad"></i>');
+    for(let d=1; d<=nd; d++){ const t=addDays(first,d-1), n=((a[dayKey(t)]||{}).n||0); if(n) act++; if(n>=dayMin) hit++;
+      cells.push(`<i class="cd ${n>=dayMin?'cd-hit':n?'cd-act':t>startOfDay(Date.now())?'cd-next':''}" title="${d} : ${n} carte${n>1?'s':''}">${d}</i>`); }
+    out.push(`<section class="panel"><h2>Jours actifs · ${now.toLocaleDateString('fr-FR',{month:'long'})}</h2><div class="big"><b>${act}</b><span>jour${act>1?'s':''} actif${act>1?'s':''}, dont ${hit} avec au moins ${dayMin} cartes</span></div>
+      <div class="cal">${['L','M','M','J','V','S','D'].map(x=>`<i class="cd cd-h">${x}</i>`).join('')}${cells.join('')}</div></section>`);
+  }
+  if(show.includes('err')){
+    const rows=[`<div class="er"><span>Article</span><b>${s30.aq>=10?pct(s30.ae,s30.aq):'–'}</b><small>${s30.ae} faux sur ${s30.aq}</small></div>`];
+    if(LANG==='de') rows.push(`<div class="er"><span>Cas des prépositions</span><b>${s30.cq>=5?pct(s30.ce,s30.cq):'–'}</b><small>${s30.ce} faux sur ${s30.cq}</small></div>`);
+    out.push(`<section class="panel"><h2>Taux d'erreur · 30 jours</h2>${rows.join('')}<p class="hint">Première réponse de chaque carte en session. Un chiffre s'affiche à partir de 10 articles${LANG==='de'?' et 5 cas':''}.</p></section>`);
+  }
+  if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.</p></section>`);
+  const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-stset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
+  out.push(`<section class="panel" id="statSet"><h2>Réglages</h2>
+    <div class="srow"><span>Série</span>${seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?'Activée':'Désactivée')}</div>
+    <div class="srow"><span>Minimum par jour</span>${seg('dayMin',[5,10,20,30],dayMin,v=>v+' cartes')}</div>
+    <div class="srow"><span>Objectif par semaine</span>${seg('weekGoal',[3,4,5,6,7],weekGoal,v=>v+' j')}</div>
+    <p class="hint">${weekGoal<7?`Objectif ${weekGoal} jours sur 7 : ${7-weekGoal} joker${7-weekGoal>1?'s':''} par semaine, la série ne casse pas un jour sans révision.`:'7 jours sur 7 : aucun joker, chaque jour manqué casse la série.'}</p>
+    <div class="srow col"><span>Statistiques affichées</span><div class="row">${Object.entries(STAT_KEYS).map(([k,l])=>`<button type="button" class="chip" data-stshow="${k}" aria-pressed="${show.includes(k)}">${esc(l)}</button>`).join('')}</div></div>
+  </section>`);
+  return `<div class="statsview" id="statsView">${out.join('')}</div>`;
+}
+function renderStats(){ if(listState==='idle') loadLists(); $('#view').innerHTML=statsHTML(); }
 /* ---------- render ---------- */
 function refresh(){
   updatePair();
@@ -896,6 +1082,7 @@ function refresh(){
   if(tab==='review') renderReview();
   else if(tab==='list') renderList();
   else if(tab==='add' && !$('#addForm')) renderAdd();
+  else if(tab==='stats') renderStats();
   else if(tab==='guide' && !$('#guide')){ renderGuide(); syUi(); }
 }
 // cas régi par la préposition des verbes à préposition
@@ -1144,7 +1331,7 @@ function renderReview(){
     const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
     const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
     stopped=null; session=null;
-    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${sessionChooser()}</div>`;
+    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${streakHTML(true)}${sessionChooser()}</div>`;
     return;
   }
   const {front, back, reveal, showArtPick}=cardFaces(c);
@@ -1304,6 +1491,10 @@ function renderGuide(){
     </ul>
     <p class="hint">Un mot écarté n'est pas supprimé : il revient une fois dans un mois pour vérifier. Si tu le sais, il s'espace encore. Pour l'enlever pour de bon, supprime-le dans Mes mots.</p></section>
 
+  <section><h2>La série et les statistiques</h2>
+    <p>Une journée compte dans ta série quand tu réponds à au moins 10 cartes en session (réglable : 5, 10, 20 ou 30). L'entraînement libre ne compte pas.</p>
+    <p>L'objectif est de 5 jours sur 7 par défaut : chaque semaine (du lundi au dimanche) te laisse donc 2 jokers. La série ne casse que si tu manques plus de jours que tes jokers dans la même semaine. Tu peux changer l'objectif ou couper la série dans l'onglet Stats.</p>
+    <p>L'onglet Stats montre les mots acquis par niveau, les révisions des 7 prochains jours, ta réussite sur les mots mûrs (intervalle de 21 jours ou plus), tes jours actifs du mois et ton taux d'erreur sur l'article et le cas. Seule ta première réponse à chaque carte dans une session est comptée. Tu choisis les statistiques affichées.</p></section>
   <section><h2>Les quatre notes</h2>
     <dl class="grades-doc">
       <dt class="bad">Encore</dt><dd>Tu ne savais pas. La carte revient 3 cartes plus loin, et son intervalle repart de zéro.</dd>
@@ -1596,6 +1787,8 @@ document.addEventListener('click', async e=>{
   if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; renderReview(); return; }
   if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; renderReview(); return; }
   if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
+  if(t.dataset.stset){ const k=t.dataset.stset, v=t.dataset.v; settings[k] = k==='streakOn' ? v==='on' : +v; saveSettings(); renderStats(); return; }
+  if(t.dataset.stshow){ const k=t.dataset.stshow, sh=new Set(ST().show); sh.has(k)?sh.delete(k):sh.add(k); settings.statShow=Object.keys(STAT_KEYS).filter(x=>sh.has(x)); saveSettings(); renderStats(); return; }
   if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; renderReview(); } return; }
   if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; renderReview(); } return; }
   if('back' in t.dataset && session && session.hist.length){
@@ -1750,7 +1943,9 @@ function syApply(rows){
   let n=0;
   for(const r of rows){
     const rmt=(r.data && r.data.mt)||0;
-    if(r.id==='_settings'){ if(!r.deleted && r.data && rmt>(settings.mt||0) && !SY.dirty._settings){ settings={...settings,...r.data}; try{ localStorage.setItem('mx-settings', JSON.stringify(settings)); }catch(e){} n++; } continue; }
+    if(r.id==='_settings'){ if(!r.deleted && r.data){ const more=mergeAct(r.data.act); const act=settings.act, best=Math.max(settings.bestStreak||0, r.data.bestStreak||0);
+        if(rmt>(settings.mt||0) && !SY.dirty._settings){ settings={...settings,...r.data, act, bestStreak:best}; try{ localStorage.setItem('mx-settings', JSON.stringify(settings)); }catch(e){} n++; if(more) actDirty(); }
+        else { settings.bestStreak=best; if(more || JSON.stringify(act)!==JSON.stringify(r.data.act||{})) actDirty(); } } continue; }
     const loc=cards.get(r.id);
     if(r.deleted){
       if(loc && (loc.mt||0)<=rmt){ cards.delete(r.id); delete SY.dirty[r.id]; n++; }
