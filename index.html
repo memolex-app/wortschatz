@@ -664,6 +664,54 @@ try { dir = localStorage.getItem('mx-dir') || 'fr-de'; } catch(e){}
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,2200); }
+/* ---------- sons ----------
+   Synthétisés avec Web Audio : aucun fichier à télécharger, rien à mettre en cache.
+   Courts (< 0,4 s) et doux. Coupés par le réglage settings.sound === false. */
+const SND = (()=>{
+  let ctx=null, out=null;
+  const on = () => settings.sound!==false;
+  function ac(){
+    if(!ctx){ const C=window.AudioContext||window.webkitAudioContext; if(!C) return null;
+      ctx=new C(); out=ctx.createGain(); out.gain.value=0.55; out.connect(ctx.destination); }
+    if(ctx.state==='suspended') ctx.resume();
+    return ctx;
+  }
+  // une note : fréquence de départ → fin, enveloppe attaque rapide / déclin exponentiel
+  function tone(f, t0, dur, {type='sine', vol=0.25, f2=null, att=0.006}={}){
+    const o=ctx.createOscillator(), g=ctx.createGain();
+    o.type=type; o.frequency.setValueAtTime(f, t0); if(f2) o.frequency.exponentialRampToValueAtTime(f2, t0+dur);
+    g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol, t0+att); g.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
+    o.connect(g); g.connect(out); o.start(t0); o.stop(t0+dur+0.02);
+  }
+  // souffle filtré : le « frottement » d'une carte qu'on retourne
+  function swish(t0, dur, vol, from, to){
+    const n=Math.floor(ctx.sampleRate*dur), b=ctx.createBuffer(1,n,ctx.sampleRate), d=b.getChannelData(0);
+    for(let i=0;i<n;i++) d[i]=Math.random()*2-1;
+    const src=ctx.createBufferSource(), f=ctx.createBiquadFilter(), g=ctx.createGain();
+    src.buffer=b; f.type='bandpass'; f.Q.value=0.9; f.frequency.setValueAtTime(from,t0); f.frequency.exponentialRampToValueAtTime(to,t0+dur);
+    g.gain.setValueAtTime(0.0001,t0); g.gain.exponentialRampToValueAtTime(vol,t0+dur*0.3); g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+    src.connect(f); f.connect(g); g.connect(out); src.start(t0); src.stop(t0+dur+0.02);
+  }
+  const P = {
+    flip(t){ swish(t, 0.16, 0.22, 900, 3200); tone(520, t+0.02, 0.09, {vol:0.06, type:'triangle'}); },
+    next(t){ swish(t, 0.12, 0.12, 2400, 1200); },
+    tick(t){ tone(1400, t, 0.04, {vol:0.07, type:'triangle'}); },
+    good(t){ tone(784, t, 0.16, {vol:0.16}); tone(1175, t+0.07, 0.24, {vol:0.14}); },        // sol → ré : montée claire
+    easy(t){ tone(784, t, 0.14, {vol:0.14}); tone(988, t+0.06, 0.16, {vol:0.13}); tone(1319, t+0.12, 0.28, {vol:0.13}); },
+    hard(t){ tone(392, t, 0.16, {vol:0.14, type:'triangle'}); },                              // note neutre, pas une sanction
+    again(t){ tone(330, t, 0.12, {vol:0.15, type:'triangle'}); tone(262, t+0.09, 0.2, {vol:0.13, type:'triangle'}); },
+    right(t){ tone(1047, t+0.05, 0.18, {vol:0.12}); },                                        // bon article / bon cas
+    wrong(t){ tone(220, t+0.05, 0.22, {vol:0.16, type:'square', f2:180}); },                  // article / cas faux
+    done(t){ [523,659,784,1047].forEach((f,i)=>tone(f, t+i*0.09, 0.32, {vol:0.12})); },       // fin de session
+    tap(t){ tone(880, t, 0.03, {vol:0.05, type:'triangle'}); },
+  };
+  function play(name){
+    if(!on() || document.hidden || !P[name]) return;
+    try{ const c=ac(); if(!c) return; P[name](c.currentTime+0.005); }catch(e){}
+  }
+  return { play };
+})();
+const sfx = n => SND.play(n);
 /* ---------- mouvements ---------- */
 const calm = () => { try{ return matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){ return false; } };
 let cardAnim = null; // 'in' | 'flip' | 'from-l' | 'from-r' : appliqué à la prochaine carte dessinée
@@ -1058,6 +1106,7 @@ function statsHTML(){
   if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.</p></section>`);
   const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-stset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
   out.push(`<section class="panel" id="statSet"><h2>Réglages</h2>
+    <div class="srow"><span>Sons</span>${seg('sound',['on','off'],settings.sound!==false?'on':'off',v=>v==='on'?'Activés':'Coupés')}</div>
     <div class="srow"><span>Série</span>${seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?'Activée':'Désactivée')}</div>
     <div class="srow"><span>Minimum par jour</span>${seg('dayMin',[5,10,20,30],dayMin,v=>v+' cartes')}</div>
     <div class="srow"><span>Objectif par semaine</span>${seg('weekGoal',[3,4,5,6,7],weekGoal,v=>v+' j')}</div>
@@ -1495,6 +1544,8 @@ function renderGuide(){
     <p>Une journée compte dans ta série quand tu réponds à au moins 10 cartes en session (réglable : 5, 10, 20 ou 30). L'entraînement libre ne compte pas.</p>
     <p>L'objectif est de 5 jours sur 7 par défaut : chaque semaine (du lundi au dimanche) te laisse donc 2 jokers. La série ne casse que si tu manques plus de jours que tes jokers dans la même semaine. Tu peux changer l'objectif ou couper la série dans l'onglet Stats.</p>
     <p>L'onglet Stats montre les mots acquis par niveau, les révisions des 7 prochains jours, ta réussite sur les mots mûrs (intervalle de 21 jours ou plus), tes jours actifs du mois et ton taux d'erreur sur l'article et le cas. Seule ta première réponse à chaque carte dans une session est comptée. Tu choisis les statistiques affichées.</p></section>
+  <section><h2>Les sons</h2>
+    <p>Chaque geste a son petit son : la carte qui se retourne, une note qui monte pour « Bien » et « Facile », une note plus grave pour « Encore » et « Difficile », un signal quand l'article ou le cas est faux, un accord à la fin de la session. Ils restent discrets et suivent le volume du téléphone (rien en mode silencieux sur iPhone). Pour les couper : onglet Stats, Réglages, « Sons ».</p></section>
   <section><h2>Les quatre notes</h2>
     <dl class="grades-doc">
       <dt class="bad">Encore</dt><dd>Tu ne savais pas. La carte revient 3 cartes plus loin, et son intervalle repart de zéro.</dd>
@@ -1782,20 +1833,20 @@ document.addEventListener('click', async e=>{
   if(t.dataset.tab){ tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
   if(t.dataset.go){ document.querySelector(`nav.tabs [data-tab="${t.dataset.go}"]`).click(); return; }
   if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; if(session) session.live=null; renderReview(); return; }
-  if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; renderReview(); return; }
-  if(t.dataset.case){ const k=t.dataset.case; caseSel.has(k)?caseSel.delete(k):caseSel.add(k); t.setAttribute('aria-pressed', caseSel.has(k)); const go=document.querySelector('[data-casego]'); if(go) go.disabled=!caseSel.size; return; }
-  if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; renderReview(); return; }
-  if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; renderReview(); return; }
+  if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
+  if(t.dataset.case){ const k=t.dataset.case; sfx('tap'); caseSel.has(k)?caseSel.delete(k):caseSel.add(k); t.setAttribute('aria-pressed', caseSel.has(k)); const go=document.querySelector('[data-casego]'); if(go) go.disabled=!caseSel.size; return; }
+  if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
+  if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; sfx('flip'); renderReview(); return; }
   if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
-  if(t.dataset.stset){ const k=t.dataset.stset, v=t.dataset.v; settings[k] = k==='streakOn' ? v==='on' : +v; saveSettings(); renderStats(); return; }
+  if(t.dataset.stset){ const k=t.dataset.stset, v=t.dataset.v; settings[k] = (k==='streakOn'||k==='sound') ? v==='on' : +v; saveSettings(); if(k==='sound' && v==='on') sfx('good'); renderStats(); return; }
   if(t.dataset.stshow){ const k=t.dataset.stshow, sh=new Set(ST().show); sh.has(k)?sh.delete(k):sh.add(k); settings.statShow=Object.keys(STAT_KEYS).filter(x=>sh.has(x)); saveSettings(); renderStats(); return; }
-  if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; renderReview(); } return; }
-  if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; renderReview(); } return; }
+  if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; sfx('next'); renderReview(); } return; }
+  if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; sfx('next'); renderReview(); } return; }
   if('back' in t.dataset && session && session.hist.length){
     liveSave();
-    session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; renderReview(); return; }
+    session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; sfx('tick'); renderReview(); return; }
   if('fwd' in t.dataset && session && session.view!=null){
-    session.view++; if(session.view>=session.hist.length){ session.view=null; liveRestore(); } cardAnim='from-r'; renderReview(); return; }
+    session.view++; if(session.view>=session.hist.length){ session.view=null; liveRestore(); } cardAnim='from-r'; sfx('tick'); renderReview(); return; }
   if('endsession' in t.dataset){
     // chaque réponse est enregistrée au moment où on la donne : arrêter ne perd rien
     const left=session ? session.ids.filter(id=>cards.has(id)).length : 0;
@@ -1804,22 +1855,24 @@ document.addEventListener('click', async e=>{
   if('known' in t.dataset && session){
     const curK = session.view!=null ? session.hist[session.view]?.before : cards.get(session.ids[0]);
     if(curK && guessWrong(curK, artGuess)) return; // article ou cas faux : « Je connais déjà » refusé
+    sfx('good');
     if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
-    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
+    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
   if('triage' in t.dataset){ triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
   if('endtriage' in t.dataset){ triage=null; refresh(); return; }
-  if('tknow' in t.dataset && triage){ flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
-  if('tlearn' in t.dataset && triage){ flyOut('l'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c) await put({...c, sorted:1}); refresh(); return; }
+  if('tknow' in t.dataset && triage){ sfx('good'); flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
+  if('tlearn' in t.dataset && triage){ sfx('next'); flyOut('l'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c) await put({...c, sorted:1}); refresh(); return; }
   if(t.dataset.grade){
     const g=+t.dataset.grade; if(!session) return;
     const curG = session.view!=null ? session.hist[session.view]?.before : cards.get(session.ids[0]);
     if(g>=3 && curG && guessWrong(curG, artGuess)) return; // article ou cas faux : seuls « Encore » et « Difficile » sont permis
+    sfx(g>=4?'easy':g===3?'good':g===2?'hard':'again');
     if(session.view!=null){ flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,g); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     const c=cards.get(session.ids[0]); if(!c) return;
     flyOut(g>=3?'r':'l', g>=3?'v-ok':'v-bad'); cardAnim='in';
     const n=recordAnswer(c,g); session.live=null;
-    const prac=session.practice; revealed=false; artGuess=null; renderReview(); if(!prac){ await put(n); refresh(); } return;
+    const prac=session.practice; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); if(!prac){ await put(n); refresh(); } return;
   }
   if(t.dataset.del){
     if(t.dataset.confirm){ await remove(t.dataset.del); renderList(); refresh(); toast('Mot supprimé'); }
