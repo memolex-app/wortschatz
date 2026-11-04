@@ -9,7 +9,15 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}.reinf{position:fixed;inset:0;z-index:40;display:grid;place-items:center;background:color-mix(in srgb, var(--bg) 70%, transparent);animation:reinfIn .22s ease-out}
+.reinf.out{opacity:0;transition:opacity .25s}
+.reinf-box{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--surface);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:6px;padding:22px 26px;max-width:calc(100% - 48px)}
+.reinf-box b{font-size:1.5rem;letter-spacing:.02em}
+.reinf-box span{font-size:1rem}
+.reinf-box small{font-size:.85rem;opacity:.75}
+@keyframes reinfIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.reinf{animation:none}}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
@@ -702,6 +710,7 @@ const SND = (()=>{
     again(t){ tone(330, t, 0.12, {vol:0.15, type:'triangle'}); tone(262, t+0.09, 0.2, {vol:0.13, type:'triangle'}); },
     right(t){ tone(1047, t+0.05, 0.18, {vol:0.12}); },                                        // bon article / bon cas
     wrong(t){ tone(220, t+0.05, 0.22, {vol:0.16, type:'square', f2:180}); },                  // article / cas faux
+    reinf(t){ swish(t, 0.35, 0.10, 400, 1600); tone(440, t+0.05, 0.5, {vol:0.12, type:'triangle'}); tone(659, t+0.2, 0.55, {vol:0.12, type:'triangle'}); tone(880, t+0.35, 0.6, {vol:0.08}); },  // montée calme : on se concentre
     done(t){ [523,659,784,1047].forEach((f,i)=>tone(f, t+i*0.09, 0.32, {vol:0.12})); },       // fin de session
     tap(t){ tone(880, t, 0.03, {vol:0.05, type:'triangle'}); },
   };
@@ -946,7 +955,9 @@ function recordAnswer(c, g){
   session.ids.shift();
   if(a.adj==='known') session.total--;
   if(counted){ session.seen.add(c.id); session.done++; if(okc) session.ok++; }
-  if(a.requeue) session.ids.splice(Math.min(3,session.ids.length),0,c.id);
+  // « Encore » : la carte passe en fin de session ; ces cartes reviennent en boucle (phase de renforcement) tant qu'on répond « Encore »
+  if(!session.again) session.again=new Set();
+  if(a.requeue){ session.ids.push(c.id); session.again.add(c.id); } else session.again.delete(c.id);
   return a.after;
 }
 // nouvelle réponse sur une carte déjà passée : on recalcule cette carte (et ses passages suivants), sans toucher aux autres
@@ -960,8 +971,9 @@ function changeAnswer(i, g){
   if(g==='known' && e.grade!=='known') session.total--;
   const later=h.slice(i+1).filter(x=>x.id===e.id);
   if(!later.length){
-    if(e.requeue && !a.requeue){ const k=session.ids.indexOf(e.id); if(k>=0) session.ids.splice(k,1); }
-    if(a.requeue && !e.requeue){ const pos=session.view!=null ? 0 : 0; session.ids.splice(Math.min(3,session.ids.length),0,e.id); }
+    if(!session.again) session.again=new Set();
+    if(e.requeue && !a.requeue){ const k=session.ids.lastIndexOf(e.id); if(k>=0) session.ids.splice(k,1); session.again.delete(e.id); }
+    if(a.requeue && !e.requeue){ session.ids.push(e.id); session.again.add(e.id); }
   }
   Object.assign(e,{after:a.after, grade:g, requeue:a.requeue, counted, okc});
   let prev=a.after;
@@ -1261,7 +1273,7 @@ function sameFr(items){
   const byFr=new Map(); const add=(k,x)=>{ if(!k) return; if(!byFr.has(k)) byFr.set(k,[]); byFr.get(k).push(x); };
   for(const c of deck()) add(frDupKey(c.fr), c);
   items.forEach(f=>add(frDupKey(f.fr), f));
-  return items.map((f,i)=>{ const seen=new Set([keyOf(f)]); const others=(byFr.get(frDupKey(f.fr))||[]).filter(x=>{ const k=keyOf(x); if(seen.has(k)) return false; seen.add(k); return true; }); return {i,f,others}; }).filter(r=>r.others.length);
+  return items.map((f,i)=>{ const seen=new Set([keyOf(f)]); const pf=posOf(f); const others=(byFr.get(frDupKey(f.fr))||[]).filter(x=>{ const k=keyOf(x); if(seen.has(k)) return false; seen.add(k); const px=posOf(x); return !pf || !px || px===pf; /* deux natures différentes ne se confondent pas */ }); return {i,f,others}; }).filter(r=>r.others.length);
 }
 function dupItemsHTML(list, attr){
   return list.map(r=>`<div class="dupitem"><span class="de">${deWord(r.f)}</span>
@@ -1357,6 +1369,17 @@ function renderTriage(v){
       <button data-tlearn>À apprendre<small>garde le mot</small></button></div></div>`;
   applyCardAnim();
 }
+// toutes les cartes restantes sont des « Encore » : on annonce le renforcement, une seule fois par session
+function inReinf(){ return !!(session && session.ids.length && session.again && session.again.size && session.ids.every(id=>session.again.has(id))); }
+function maybeReinf(){
+  if(!session || session.reinf || session.view!=null || revealed || !inReinf()) return;
+  session.reinf=true; const n=new Set(session.ids).size;
+  const o=document.createElement('div'); o.className='reinf'; o.setAttribute('role','status');
+  o.innerHTML=`<div class="reinf-box"><b>Renforcement</b><span>${n} mot${n>1?'s':''} à consolider</span><small>Ils reviennent tant que tu réponds « Encore ».</small></div>`;
+  document.body.appendChild(o); sfx('reinf');
+  const close=()=>{ if(!o.isConnected) return; o.classList.add('out'); setTimeout(()=>o.remove(), calm()?0:250); };
+  o.addEventListener('click', close); setTimeout(close, 2600);
+}
 function renderReview(){
   if(!revealed && renderReview._cid!==(session&&session.ids&&session.ids[0])){ caseSel=new Set(); renderReview._cid=session&&session.ids&&session.ids[0]; }
   const v=$('#view');
@@ -1391,11 +1414,11 @@ function renderReview(){
         ${[1,2,3,4].map(g=>{ const off = wrongGuess && g>=3; return `<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}"${off?' disabled':''}>${GRADE_LABEL[g]}<small>${off?(artGuess.startsWith('K:')?'cas faux':'article faux'):past&&past.grade===g?'ta réponse':session.practice?'&nbsp;':preview(c,g)}</small></button>`; }).join('')}</div>`
     : reveal;
   v.innerHTML = dirBar + `<div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
-    <div class="practice-bar"><span><b>${past?'Carte déjà vue':session.practice?'Entraînement libre':'Session'}</b>${session.practice&&!past?' (non enregistré)':''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}</span><button class="link" data-endsession title="Tes réponses sont déjà enregistrées">Arrêter</button></div>
+    <div class="practice-bar"><span>${!past && session.reinf && inReinf() ? `<b>Renforcement</b> · ${new Set(session.ids).size} à consolider` : `<b>${past?'Carte déjà vue':session.practice?'Entraînement libre':'Session'}</b>${session.practice&&!past?' (non enregistré)':''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}`}</span><button class="link" data-endsession title="Tes réponses sont déjà enregistrées">Arrêter</button></div>
     <div class="smeter" aria-hidden="true"><i style="width:${Math.min(100,100*(past?(past.pos||1)-1:session.done)/session.total)}%"></i><b style="left:${Math.min(100,100*session.done/session.total)}%"></b></div>
     <div class="cardnav">${canBack?`<button class="navbtn prev" data-back aria-label="Carte précédente" title="Carte précédente">‹</button>`:''}<div class="card${past?' past':''}${cardTone(c)}" id="card">${front}${back}</div>${past?`<button class="navbtn next" data-fwd aria-label="Carte suivante" title="Carte suivante">›</button>`:''}</div>${controls}
     <p class="hint" style="text-align:center">${past?(past.grade==='known'?'Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.':'Choisis une autre note pour changer ta réponse, ou avance avec ›.'):(isNew(c)?'Nouveau mot':isLearning(c)?`En apprentissage · passage ${Math.min(STEPS,(c.ls||0)+1)}/${STEPS}`:'Révision')+(showArtPick?(c.art?' · choisis l’article':' · choisis le cas'):'')}${!session.practice&&isNew(c)&&revealed&&!wrongGuess&&!(past&&past.grade==='known')?' · <button class="link" data-known>Je connais déjà</button>':''}</p></div>`;
-  applyCardAnim();
+  applyCardAnim(); maybeReinf();
 }
 function batchGroups(){
   const all=deck().sort((a,b)=>a.created-b.created);
@@ -1477,8 +1500,7 @@ function levelsHTML(){
     const first=nxt.length?items.indexOf(nxt[0])+1:0, last=nxt.length?items.indexOf(nxt[nxt.length-1])+1:0;
     let action;
     if(!nxt.length) action=`<p class="hint"><b>Tout le niveau ${openLvl} est dans tes mots.</b></p>`;
-    else if(confirmLvl===openLvl){ const dups=sameFr(nxt); action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
-        ${dups.length?`<div class="dupbox"><p><b>${dups.length} mot${dups.length>1?'s ont':' a'} la même traduction qu'un autre mot.</b> ${DUP_TIP} Tu peux aussi laisser tel quel.</p>${dupItemsHTML(dups,'data-packfr')}</div>`:''}
+    else if(confirmLvl===openLvl){ action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
         <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':'Oui, ajouter'}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>Annuler</button></div></div>`; }
     else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':`Ajouter ${nxt.length} mots`}</button>`;
     packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots ajoutés</small></div>
@@ -1548,7 +1570,7 @@ function renderGuide(){
     <p>Chaque geste a son petit son : la carte qui se retourne, une note qui monte pour « Bien » et « Facile », une note plus grave pour « Encore » et « Difficile », un signal quand l'article ou le cas est faux, un accord à la fin de la session. Ils restent discrets et suivent le volume du téléphone (rien en mode silencieux sur iPhone). Pour les couper : onglet Stats, Réglages, « Sons ».</p></section>
   <section><h2>Les quatre notes</h2>
     <dl class="grades-doc">
-      <dt class="bad">Encore</dt><dd>Tu ne savais pas. La carte revient 3 cartes plus loin, et son intervalle repart de zéro.</dd>
+      <dt class="bad">Encore</dt><dd>Tu ne savais pas. Son intervalle repart de zéro et la carte revient à la fin de la session : une fois toutes les autres cartes passées, l'appli annonce le <b>renforcement</b> et reprend tes « Encore », en boucle, jusqu'à ce que tu les saches.</dd>
       <dt>Difficile</dt><dd>Trouvé avec peine. L'intervalle grandit peu.</dd>
       <dt>Bien</dt><dd>Trouvé normalement. La note par défaut, la plus utilisée.</dd>
       <dt class="good">Facile</dt><dd>Immédiat. L'intervalle s'allonge beaucoup.</dd>
