@@ -462,6 +462,17 @@ nav.tabs button:active{transform:translateY(1px)}
 #sync[data-state="ok"]::before{background:var(--ok)} #sync[data-state="pend"]::before,#sync[data-state="busy"]::before{background:var(--learn)} #sync[data-state="err"]::before{background:var(--bad)}
 #acct{display:flex;flex-direction:column;gap:10px}
 
+
+/* ---------- mot du jour et notifications ---------- */
+.wotd{background:var(--surface);border:2px solid var(--ink);border-radius:3px;box-shadow:var(--bevel),4px 4px 0 var(--ink);padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.wt-head{display:flex;justify-content:space-between;align-items:center;font:600 .72rem/1 var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.wt-word{font-family:var(--f-display);font-weight:700;font-size:1.4rem;line-height:1.2}
+.wt-fr{color:var(--muted)}
+.wotd .row{margin-top:4px}
+.wotd .btn{padding:9px 14px;font-size:.9rem}
+.nf-state{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+#nfBtns .btn{padding:9px 14px;font-size:.9rem}
+.nf-msg{color:var(--ink)}
 /* ---------- stats et série ---------- */
 .statsview{display:flex;flex-direction:column;gap:14px}
 .panel{position:relative;background:var(--surface);border:2px solid var(--ink);border-radius:4px;box-shadow:var(--bevel),5px 5px 0 var(--ink);padding:36px 16px 16px;display:flex;flex-direction:column;gap:10px}
@@ -582,7 +593,7 @@ function loadLists(){
     if(lang!==LANG) return;
     // italien : 7e colonne = genre (m, f), utile quand l'article est élidé (l'amico, l'amica)
     LISTDATA={}; LISTPOS=new Map(); d.forEach(([L,w,p,g,pl,fr,gen])=>{ const f={de:w, art:g, pl, fr, ex:'', pos:p, ...(gen?{g:gen}:{})}; (LISTDATA[L]=LISTDATA[L]||[]).push(f); LISTPOS.set(dkey(f),p); });
-    listState='ready'; rerenderLevels(); if(tab==='stats') renderStats(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
+    listState='ready'; rerenderLevels(); if(tab==='stats') renderStats(); wotdFill(); if(tab==='review' && !session) renderReview(); if(mode!=='loading'){ listSynced=true; syncListCards(); }
   }).catch(()=>{ if(lang!==LANG) return; listState='error'; rerenderLevels(); });
 }
 // les traductions des listes sont corrigées au fil des versions : on met à jour les mots venus des listes
@@ -932,7 +943,7 @@ function todayPlan(){
   const due=all.filter(c=>!isNew(c)&&isDue(c));
   const learn=due.filter(isLearning).sort((a,b)=>a.due-b.due);
   const rev=due.filter(c=>!isLearning(c)).sort((a,b)=>a.due-b.due);
-  const pending=all.filter(isNew).sort((a,b)=>a.created-b.created);
+  const pending=all.filter(isNew).sort((a,b)=>(b.prio||0)-(a.prio||0) || a.created-b.created);
   return { learn, rev, fresh: pending, pending };
 }
 const minutesFor = n => Math.max(1, Math.round(n*10/60)); // ~10 s par carte, ratés compris
@@ -1117,6 +1128,7 @@ function statsHTML(){
   }
   if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.</p></section>`);
   const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-stset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
+  out.push(notifHTML());
   out.push(`<section class="panel" id="statSet"><h2>Réglages</h2>
     <div class="srow"><span>Sons</span>${seg('sound',['on','off'],settings.sound!==false?'on':'off',v=>v==='on'?'Activés':'Coupés')}</div>
     <div class="srow"><span>Série</span>${seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?'Activée':'Désactivée')}</div>
@@ -1127,10 +1139,110 @@ function statsHTML(){
   </section>`);
   return `<div class="statsview" id="statsView">${out.join('')}</div>`;
 }
-function renderStats(){ if(listState==='idle') loadLists(); $('#view').innerHTML=statsHTML(); }
+function renderStats(){ if(listState==='idle') loadLists(); $('#view').innerHTML=statsHTML(); notifState(); }
+/* ---------- mot du jour et notifications ----------
+   settings.wotd = {lang, days:{"AAAA-MM-JJ": {de, art, pl, fr, pos, g, lvl}}} : les 14 prochains mots du jour, tirés au hasard
+   (niveau A1-C2 au hasard, puis un mot de ce niveau pas encore dans tes mots). Le serveur lit cette ligne pour envoyer la notification.
+   settings.notif = {on, times:["08:00","19:30"], wotd:true, wotdAt:"10:00"} ; settings.tz = fuseau de l'appareil.
+   Le bouton « Ajouter » d'une notification range le mot dans IndexedDB (mx-inbox) ; l'appli l'ajoute à son prochain lancement. */
+const VAPID_PUB="BEoH21v0zIYPSfi7TOcZsGiUecddtE3-fTuuYipu2c7W85YQ1xlZLb2o5kTOdtmqRKB56jEIGSG7TpG5t2hxlXk";
+const NOTIF_TIMES={'08:00':'Matin · 8 h','12:30':'Midi · 12 h 30','19:30':'Soir · 19 h 30'};
+const WOTD_AT=['08:00','10:00','12:00','18:00'];
+const NF = () => ({ on:false, times:['08:00','19:30'], wotd:true, wotdAt:'10:00', ...(settings.notif||{}) });
+const wotdOn = () => NF().wotd!==false;
+function wotdFill(){
+  if(!LISTDATA || mode==='loading' || !LANG) return;
+  const have=new Set(deck().map(keyOf)), today=dayKey(Date.now());
+  const old=settings.wotd && settings.wotd.lang===LANG ? settings.wotd.days||{} : {};
+  const days={}, used=new Set(); let changed=!settings.wotd || settings.wotd.lang!==LANG;
+  for(const k in old){ const f=old[k]; if(k>=today && !have.has(keyOf({...f,lang:LANG}))){ days[k]=f; used.add(keyOf({...f,lang:LANG})); } else changed=true; }
+  const lv=Object.keys(LEVELS).filter(L=>(LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))));
+  for(let i=0;i<14 && lv.length;i++){ const k=dayKey(addDays(Date.now(),i)); if(days[k]) continue;
+    for(let t=0;t<30;t++){ const L=lv[Math.floor(Math.random()*lv.length)], items=LISTDATA[L], f=items[Math.floor(Math.random()*items.length)], key=keyOf(f);
+      if(have.has(key)||used.has(key)) continue; days[k]={de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ...(f.pos?{pos:f.pos}:{}), ...(f.g?{g:f.g}:{}), lvl:L}; used.add(key); changed=true; break; } }
+  let tz=''; try{ tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''; }catch(e){}
+  if(tz && settings.tz!==tz){ settings.tz=tz; changed=true; }
+  if(changed){ settings.wotd={lang:LANG, days}; saveSettings(); }
+}
+const wordLine = f => (f.art ? f.art+(/'$/.test(f.art)?'':' ') : '')+f.de;
+function wotdToday(){ const w=settings.wotd; if(!w || w.lang!==LANG) return null; const f=(w.days||{})[dayKey(Date.now())]; if(!f) return null; return deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG})) ? null : f; }
+function wotdHTML(){
+  if(!wotdOn()) return ''; const f=wotdToday(); if(!f) return '';
+  return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
+    <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
+    <div class="row"><button class="btn" data-wotdadd>Ajouter à l'apprentissage</button></div></div>`;
+}
+// ajoute un mot (mot du jour, depuis l'appli ou une notification) ; il passe avant les autres nouveaux mots
+async function addWord(f, lang){
+  const l=lang||LANG; if([...cards.values()].some(c=>keyOf(c)===keyOf({...f,lang:l}))) return false;
+  const c={...newCard(f,''), lang:l, lvl:f.lvl, src:'lists', batchLabel:'Mot du jour', sorted:1, prio:1};
+  await put(c); return true;
+}
+// boîte de réception des notifications (écrite par le service worker)
+function idbInbox(fn){ return new Promise(res=>{ let r; try{ r=indexedDB.open('mx',1); }catch(e){ return res([]); }
+  r.onupgradeneeded=()=>r.result.createObjectStore('inbox',{autoIncrement:true});
+  r.onerror=()=>res([]);
+  r.onsuccess=()=>{ const db=r.result; try{ const tx=db.transaction('inbox','readwrite'), st=tx.objectStore('inbox'), g=st.getAll(); g.onsuccess=()=>{ const items=g.result||[]; if(fn==='take') st.clear(); tx.oncomplete=()=>{ db.close(); res(items); }; }; g.onerror=()=>{ db.close(); res([]); }; }catch(e){ db.close(); res([]); } }; }); }
+let inboxBusy=false;
+async function takeInbox(){
+  if(inboxBusy || mode==='loading') return; inboxBusy=true;
+  try{ const items=await idbInbox('take'); let n=0, last='';
+    for(const it of items){ if(it && it.f && await addWord(it.f, it.lang)){ n++; last=wordLine(it.f); } }
+    if(n){ refresh(); toast(n===1?`« ${last} » ajouté : il arrive dans ta prochaine session`:`${n} mots du jour ajoutés`); }
+  } finally { inboxBusy=false; }
+}
+if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('message', e=>{ if(e.data && e.data.type==='inbox') takeInbox(); });
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible'){ takeInbox(); if(tab==='review' && !session) renderReview(); } });
+// abonnement : la synchro est obligatoire (le serveur doit savoir quand t'écrire)
+const pushOK = () => 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+const b64u = s => { const p='='.repeat((4-s.length%4)%4), b=atob((s+p).replace(/-/g,'+').replace(/_/g,'/')); return Uint8Array.from(b, ch=>ch.charCodeAt(0)); };
+let notifMsg='';
+const swReady = () => Promise.race([navigator.serviceWorker.ready, new Promise((_,no)=>setTimeout(()=>no(new Error('service worker absent')),4000))]);
+async function pushSub(){ try{ const reg=await swReady(); return await reg.pushManager.getSubscription(); }catch(e){ return null; } }
+async function notifEnable(){
+  notifMsg='';
+  if(!pushOK()){ notifMsg=/iPhone|iPad/.test(navigator.userAgent)?"Sur iPhone, ajoute d'abord l'appli à l'écran d'accueil (Partager → Sur l'écran d'accueil), puis ouvre-la depuis l'icône.":"Ce navigateur ne gère pas les notifications."; return; }
+  if(!SY.tok){ notifMsg='Connecte-toi d’abord à la synchronisation (onglet Guide) : le serveur en a besoin pour savoir quand t’écrire.'; return; }
+  const p=await Notification.requestPermission(); if(p!=='granted'){ notifMsg='Notifications refusées. Autorise-les dans les réglages du téléphone (Applis → Memolex → Notifications).'; return; }
+  try{ const reg=await swReady();
+    const sub=await reg.pushManager.getSubscription() || await reg.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:b64u(VAPID_PUB)});
+    await sbReq('/rest/v1/memolex_push?on_conflict=endpoint',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:{endpoint:sub.endpoint, sub:sub.toJSON()}},true);
+    settings.notif={...NF(), on:true}; wotdFill(); await saveSettings(); notifMsg='Notifications activées sur cet appareil.';
+  }catch(e){ notifMsg = e && (e.code===404 || /memolex_push/.test(e.message||'')) ? 'Le serveur des notifications n’est pas encore installé (étape Supabase).' : 'Activation impossible : '+((e&&e.message)||'erreur'); }
+}
+async function notifDisable(){
+  const sub=await pushSub();
+  if(sub){ try{ await sbReq('/rest/v1/memolex_push?endpoint=eq.'+encodeURIComponent(sub.endpoint),{method:'DELETE'},true); }catch(e){} try{ await sub.unsubscribe(); }catch(e){} }
+  settings.notif={...NF(), on:false}; await saveSettings(); notifMsg='Notifications coupées sur cet appareil.';
+}
+async function notifTest(){
+  notifMsg='Envoi…'; renderStats();
+  try{ const r=await sbReq('/functions/v1/memolex-push',{method:'POST',body:{test:true}},true); notifMsg = r && r.sent ? 'Envoyé : la notification arrive dans quelques secondes.' : 'Aucun appareil abonné : active d’abord les notifications.'; }
+  catch(e){ notifMsg='Test impossible : '+(e.code===404?'la fonction memolex-push n’est pas encore déployée.':(e.message||'erreur')); }
+}
+function notifHTML(){
+  const n=NF(); const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-nfset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
+  return `<section class="panel" id="notifSet"><h2>Rappels et mot du jour</h2>
+    <div class="srow"><span>Sur cet appareil</span><span class="nf-state" id="nfState">…</span></div>
+    <div class="row" id="nfBtns"></div>
+    ${notifMsg?`<p class="hint nf-msg">${esc(notifMsg)}</p>`:''}
+    <div class="srow col"><span>Rappels</span><div class="row">${Object.entries(NOTIF_TIMES).map(([t,l])=>`<button type="button" class="chip" data-nftime="${t}" aria-pressed="${n.times.includes(t)}">${l}</button>`).join('')}</div></div>
+    <p class="hint">Un rappel n'arrive que si tu n'as pas encore fait ton minimum du jour (${ST().dayMin} cartes). Dès que c'est fait, les rappels suivants de la journée sautent.</p>
+    <div class="srow"><span>Mot du jour</span>${seg('wotd',['on','off'],n.wotd!==false?'on':'off',v=>v==='on'?'Activé':'Coupé')}</div>
+    ${n.wotd!==false?`<div class="srow"><span>Heure du mot du jour</span>${seg('wotdAt',WOTD_AT,n.wotdAt,v=>v.replace(':00',' h'))}</div>`:''}
+    <p class="hint">Un mot de A1 à C2 que tu n'as pas encore, avec sa traduction. Le bouton « Ajouter » de la notification le met dans tes mots ; il passe avant les autres nouveaux mots. Il s'affiche aussi sur l'écran Réviser.</p>
+  </section>`;
+}
+async function notifState(){
+  const el=document.getElementById('nfState'), btns=document.getElementById('nfBtns'); if(!el) return;
+  const sub=pushOK()?await pushSub():null, perm='Notification' in window?Notification.permission:'default';
+  el.textContent = !pushOK() ? 'non disponible' : sub && perm==='granted' ? 'activées' : perm==='denied' ? 'bloquées' : 'désactivées';
+  btns.innerHTML = sub && perm==='granted' ? '<button class="btn" data-nftest>Envoyer un test</button><button class="btn ghost" data-nfoff>Couper</button>' : '<button class="btn" data-nfon>Activer les notifications</button>';
+}
 /* ---------- render ---------- */
 function refresh(){
   updatePair();
+  if(mode!=='loading' && LANG){ const now=Date.now(); if(!refresh._w || now-refresh._w>300000){ refresh._w=now; setTimeout(()=>{ wotdFill(); takeInbox(); },0); } }
   if(mode!=='loading' && (!LANG || langPicking)){ ['#sDue','#sTotal','#sKnown'].forEach(id=>$(id).textContent='–'); $('#progress').innerHTML=''; renderLangPick(); return; }
   const all=deck();
   const plan=todayPlan();
@@ -1403,7 +1515,7 @@ function renderReview(){
     const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
     const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
     stopped=null; session=null;
-    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${streakHTML(true)}${sessionChooser()}</div>`;
+    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
     return;
   }
   const {front, back, reveal, showArtPick}=cardFaces(c);
@@ -1562,6 +1674,10 @@ function renderGuide(){
     </ul>
     <p class="hint">Un mot écarté n'est pas supprimé : il revient une fois dans un mois pour vérifier. Si tu le sais, il s'espace encore. Pour l'enlever pour de bon, supprime-le dans Mes mots.</p></section>
 
+  <section><h2>Rappels et mot du jour</h2>
+    <p>Dans l'onglet Stats, « Activer les notifications » demande l'autorisation au téléphone. Il faut être connecté à la synchronisation : c'est le serveur qui envoie les notifications, même quand l'appli est fermée.</p>
+    <p>Les rappels (matin, midi, soir, au choix) n'arrivent que si tu n'as pas encore fait ton minimum de cartes du jour. Le mot du jour est un mot de A1 à C2 que tu n'as pas encore ; le bouton « Ajouter » de la notification le met dans tes mots, en tête des nouveaux.</p>
+    <p>Sur iPhone, les notifications ne marchent que si l'appli est ajoutée à l'écran d'accueil.</p></section>
   <section><h2>La série et les statistiques</h2>
     <p>Une journée compte dans ta série quand tu réponds à au moins 10 cartes en session (réglable : 5, 10, 20 ou 30). L'entraînement libre ne compte pas.</p>
     <p>L'objectif est de 5 jours sur 7 par défaut : chaque semaine (du lundi au dimanche) te laisse donc 2 jokers. La série ne casse que si tu manques plus de jours que tes jokers dans la même semaine. Tu peux changer l'objectif ou couper la série dans l'onglet Stats.</p>
@@ -1860,6 +1976,12 @@ document.addEventListener('click', async e=>{
   if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
   if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; sfx('flip'); renderReview(); return; }
   if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
+  if('wotdadd' in t.dataset){ const f=wotdToday(); if(!f) return; t.disabled=true; if(await addWord(f)){ toast(`« ${wordLine(f)} » ajouté : il arrive dans ta prochaine session`); } refresh(); return; }
+  if('nfon' in t.dataset){ t.disabled=true; await notifEnable(); renderStats(); return; }
+  if('nfoff' in t.dataset){ t.disabled=true; await notifDisable(); renderStats(); return; }
+  if('nftest' in t.dataset){ t.disabled=true; await notifTest(); renderStats(); return; }
+  if(t.dataset.nftime){ const n=NF(), k=t.dataset.nftime, ts=new Set(n.times); ts.has(k)?ts.delete(k):ts.add(k); settings.notif={...n, times:Object.keys(NOTIF_TIMES).filter(x=>ts.has(x))}; saveSettings(); renderStats(); return; }
+  if(t.dataset.nfset){ const n=NF(), k=t.dataset.nfset, v=t.dataset.v; settings.notif={...n, [k]: k==='wotd' ? v==='on' : v}; if(k==='wotd' && v==='on') wotdFill(); saveSettings(); renderStats(); return; }
   if(t.dataset.stset){ const k=t.dataset.stset, v=t.dataset.v; settings[k] = (k==='streakOn'||k==='sound') ? v==='on' : +v; saveSettings(); if(k==='sound' && v==='on') sfx('good'); renderStats(); return; }
   if(t.dataset.stshow){ const k=t.dataset.stshow, sh=new Set(ST().show); sh.has(k)?sh.delete(k):sh.add(k); settings.statShow=Object.keys(STAT_KEYS).filter(x=>sh.has(x)); saveSettings(); renderStats(); return; }
   if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; sfx('next'); renderReview(); } return; }
