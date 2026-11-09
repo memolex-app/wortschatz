@@ -582,7 +582,14 @@ const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Aut
 const PACK = 100, BATCH = 50;
 let confirmLvl='';
 // les 50 prochains mots du niveau qui ne sont pas encore dans tes mots, dans l'ordre de fréquence
-function nextBatch(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,BATCH); }
+// garde-fou : au-delà de NEW_CAP nouveaux mots en attente, on n'ajoute plus par paquets (un par un reste possible)
+const NEW_CAP = 50;
+const pendingNew = () => deck().filter(isNew).length;
+const newRoom = () => Math.max(0, NEW_CAP - pendingNew());
+function capHTML(){ const n=pendingNew(), unsorted=deck().filter(c=>isNew(c)&&!c.sorted).length;
+  return `<div class="confirm"><p><b>${n} nouveaux mots t'attendent déjà.</b> On n'ajoute plus de paquet au-delà de ${NEW_CAP} mots en attente : apprends-les ou trie-les d'abord. Tu peux toujours ajouter un mot à la fois (formulaire, dictionnaire, mot du jour).</p>${unsorted?`<div class="row"><button type="button" class="btn" data-triage>Trier mes ${unsorted} nouveaux mots</button></div>`:''}</div>`; }
+function nextBatch(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,Math.min(BATCH,newRoom())); }
+function levelLeft(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))); }
 let LISTPOS=new Map(); let dictDeck=null;
 let LISTDATA=null, listState='idle', openLvl='', listSynced=false;
 function loadLists(){
@@ -1620,14 +1627,15 @@ function levelsHTML(){
     const items=LISTDATA[openLvl]; const {got}=stat(openLvl); const nxt=nextBatch(openLvl); const busy=importing;
     const first=nxt.length?items.indexOf(nxt[0])+1:0, last=nxt.length?items.indexOf(nxt[nxt.length-1])+1:0;
     let action;
-    if(!nxt.length) action=`<p class="hint"><b>Tout le niveau ${openLvl} est dans tes mots.</b></p>`;
+    if(!levelLeft(openLvl)) action=`<p class="hint"><b>Tout le niveau ${openLvl} est dans tes mots.</b></p>`;
+    else if(!nxt.length) action=capHTML();
     else if(confirmLvl===openLvl){ action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
         <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':'Oui, ajouter'}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>Annuler</button></div></div>`; }
     else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':`Ajouter ${nxt.length} mots`}</button>`;
     packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots ajoutés</small></div>
       <div class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></div>
       ${action}
-      <p class="hint">Les mots s'ajoutent par 50, du plus fréquent au moins fréquent.</p></div>`;
+      <p class="hint">Les mots s'ajoutent par 50 au plus, du plus fréquent au moins fréquent, et jamais au-delà de ${NEW_CAP} nouveaux mots en attente.</p></div>`;
   }
   return `<div class="levels-wrap" data-levels>${grid}${packs}</div>`;
 }
@@ -1721,7 +1729,7 @@ function renderGuide(){
       <li><b>Listes par niveau</b> : les 8 000 mots les plus fréquents, de A1 à C2, ajoutés 50 par 50. Les premiers mots de l'A1 sont les plus utilisés de la langue.</li>
       <li><b>Coller une liste</b> : une ligne par mot, <code>${LANG==='it'?"il cane, i cani ; le chien ; exemple":"der Hund, -e ; le chien ; exemple"}</code>.</li>
       ${LANG==='it' ? `<li>Les boutons <b>à è é ì ò ù</b> sous les champs insèrent ces lettres.</li>` : `<li>Les boutons <b>ä ö ü ß</b> sous les champs insèrent ces lettres. Dans les exercices, tu peux aussi écrire <code>ae</code>, <code>oe</code>, <code>ue</code> et <code>ss</code> : c'est accepté.</li>`}
-      <li>Ajouter beaucoup de mots d'un coup ne pose pas de problème : ils attendent leur tour et arrivent au rythme de ton quota.</li>
+      <li><b>Garde-fou</b> : au-delà de 50 nouveaux mots en attente, les ajouts groupés (paquets de niveau, leçons, liste collée) s'arrêtent. Trie ou apprends d'abord les mots qui attendent. Un mot à la fois (formulaire, dictionnaire, mot du jour) reste toujours possible.</li>
       <li>Pour annuler un import : <b>Mes mots → Retirer un ajout groupé</b>. Les mots déjà commencés sont conservés.</li>
     </ul></section>
 
@@ -2012,7 +2020,8 @@ document.addEventListener('click', async e=>{
     if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
     const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
-  if('triage' in t.dataset){ triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
+  if('triage' in t.dataset){ if(tab!=='review'){ document.querySelector('nav.tabs [data-tab="review"]').click(); }
+    triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
   if('endtriage' in t.dataset){ triage=null; refresh(); return; }
   if('tknow' in t.dataset && triage){ sfx('good'); flyOut('r','v-ok'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c){ triage.known++; await put(markKnown(c)); } refresh(); return; }
   if('tlearn' in t.dataset && triage){ sfx('next'); flyOut('l'); cardAnim='in'; const c=cards.get(triage.ids.shift()); if(c) await put({...c, sorted:1}); refresh(); return; }
@@ -2036,7 +2045,9 @@ document.addEventListener('click', async e=>{
   if(t.dataset.lesson){ importing=true; t.disabled=true; try{ const id=t.dataset.lesson, L=t.dataset.lvl; const ex=new Set(deck().map(keyOf));
     const b=newBatch(LESSONS[id].title+(L?' · '+L:'')); const list=lessonItems(id).filter(f=>(!L||f.lvl===L)&&!ex.has(keyOf(f))).map(f=>({...newCard(f,b.id),batchLabel:b.label,lvl:f.lvl,src:id}));
     if(!list.length){ toast('Déjà dans tes mots'); return; }
-    await putMany(list); refresh(); renderAdd(); toast(`${list.length} mots de la ${LESSONS[id].title.toLowerCase()} ajoutés`); } finally { importing=false; } return; }
+    const room=newRoom(); if(!room){ toast(`Déjà ${pendingNew()} nouveaux mots en attente : trie-les ou apprends-les d'abord`); return; }
+    const cut=list.length>room; if(cut) list.length=room;
+    await putMany(list); if(cut){ refresh(); renderAdd(); toast(`${room} mots ajoutés (limite de ${NEW_CAP} nouveaux mots en attente). Le reste viendra plus tard.`); return; } refresh(); renderAdd(); toast(`${list.length} mots de la ${LESSONS[id].title.toLowerCase()} ajoutés`); } finally { importing=false; } return; }
   if(t.dataset.rmbatch || 'rmfilter' in t.dataset){
     let ids;
     if(t.dataset.rmbatch){ const g=batchGroups().find(x=>x.key===t.dataset.rmbatch); ids=g?g.ids:[]; }
@@ -2057,7 +2068,7 @@ document.addEventListener('click', async e=>{
     // les nuances saisies sont lues avant que la confirmation ne soit redessinée
     const edits=new Map([...document.querySelectorAll('[data-packfr]')].map(i=>[+i.dataset.packfr, i.value.trim()]));
     importing=true; rerenderLevels();
-    try{ const nxt=nextBatch(L); if(!nxt.length){ toast('Tout le niveau est déjà dans tes mots'); return; }
+    try{ const nxt=nextBatch(L); if(!nxt.length){ toast(levelLeft(L)?`Déjà ${pendingNew()} nouveaux mots en attente : trie-les ou apprends-les d'abord`:'Tout le niveau est déjà dans tes mots'); return; }
       const items=LISTDATA[L]; const b=newBatch(`${L} · mots ${items.indexOf(nxt[0])+1}–${items.indexOf(nxt[nxt.length-1])+1}`);
       const list=nxt.map((f,i)=>{ const fr=edits.get(i); const own=fr && fr!==f.fr; return {...newCard(own?{...f,fr}:f,b.id),batchLabel:b.label,lvl:L,src:'lists',...(own?{frOwn:true}:{})}; });
       await putMany(list); toast(`${list.length} mots ${L} ajoutés`);
@@ -2090,7 +2101,9 @@ document.addEventListener('submit', async e=>{
     if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=entArt(e); if(LANG==='it' && !f.g && e.g) f.g=e.g; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
     if(!ok.length){ toast('Aucune ligne reconnue. Format : der Hund ; le chien'); return; }
     const existing=new Set(deck().map(dkey));
-    const bb=newBatch('Liste collée'); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
+    const room=newRoom(); if(!room){ toast(`Déjà ${pendingNew()} nouveaux mots en attente : trie-les ou apprends-les d'abord (un mot à la fois reste possible)`); return; }
+    const bb=newBatch('Liste collée'); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).slice(0,room).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
+    if(ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).length>room) toast(`Limite : ${room} mots seulement seront importés (${NEW_CAP} nouveaux mots en attente au plus)`);
     const dups=sameFr(fresh);
     if(dups.length){ bulkPending={fresh, ok:ok.length, bad};
       box.innerHTML=`<p><b>${dups.length} mot${dups.length>1?'s ont':' a'} la même traduction qu'un autre mot.</b> ${DUP_TIP}</p>${dupItemsHTML(dups,'data-bulkfr')}<p class="hint">Appuie à nouveau sur « Importer » pour ajouter la liste, avec ou sans nuances.</p>`;
