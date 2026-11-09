@@ -666,6 +666,9 @@ const srcOf = c => c.src || (c.lvl && c.batchLabel!=='Liste collée' ? 'lists' :
 const STATUS = c => isNew(c) ? 'new' : isLearning(c) ? 'learn' : (c.ivl||0)>=21 ? 'known' : 'rev';
 const STATUS_LABEL = {new:'À découvrir', learn:'En apprentissage', rev:'En révision', known:'Acquis'};
 let statFilter='';
+let listSort=(()=>{ try{ return localStorage.getItem('mx-sort')||'new'; }catch(e){ return 'new'; } })();
+const frSortKey = t => (t||'').toLowerCase().replace(/^(le|la|les|un|une|des) +|^l['’]/,'').replace(/^\(.*?\) */,'');
+const SORTS = { new:(a,b)=>b.created-a.created, de:(a,b)=>a.de.localeCompare(b.de,LANG,{sensitivity:'base'}), fr:(a,b)=>frSortKey(a.fr).localeCompare(frSortKey(b.fr),'fr',{sensitivity:'base'}) };
 const srcLabel = k => k==='lists' ? 'Listes par niveau' : k==='manual' ? 'Mes ajouts' : k==='dict' ? 'Dictionnaire' : k==='starter' ? 'Pack de départ' : (LESSONS[k]?LESSONS[k].title:k);
 const lvlOf = c => c.lvl || (c.est ? '~'+c.est : 'none');
 const EST_LABEL = {A:'≈ A1-A2', B:'≈ B1-B2', C:'≈ C1+'};
@@ -1155,7 +1158,7 @@ function wotdFill(){
   const have=new Set(deck().map(keyOf)), today=dayKey(Date.now());
   const old=settings.wotd && settings.wotd.lang===LANG ? settings.wotd.days||{} : {};
   const days={}, used=new Set(); let changed=!settings.wotd || settings.wotd.lang!==LANG;
-  for(const k in old){ const f=old[k]; if(k>=today && !have.has(keyOf({...f,lang:LANG}))){ days[k]=f; used.add(keyOf({...f,lang:LANG})); } else changed=true; }
+  for(const k in old){ const f=old[k]; if(k===today || (k>today && !have.has(keyOf({...f,lang:LANG})))){ days[k]=f; used.add(keyOf({...f,lang:LANG})); } else changed=true; }
   const lv=Object.keys(LEVELS).filter(L=>(LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))));
   for(let i=0;i<14 && lv.length;i++){ const k=dayKey(addDays(Date.now(),i)); if(days[k]) continue;
     for(let t=0;t<30;t++){ const L=lv[Math.floor(Math.random()*lv.length)], items=LISTDATA[L], f=items[Math.floor(Math.random()*items.length)], key=keyOf(f);
@@ -1165,9 +1168,14 @@ function wotdFill(){
   if(changed){ settings.wotd={lang:LANG, days}; saveSettings(); }
 }
 const wordLine = f => (f.art ? f.art+(/'$/.test(f.art)?'':' ') : '')+f.de;
-function wotdToday(){ const w=settings.wotd; if(!w || w.lang!==LANG) return null; const f=(w.days||{})[dayKey(Date.now())]; if(!f) return null; return deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG})) ? null : f; }
+function wotdRaw(){ const w=settings.wotd; if(!w || w.lang!==LANG) return null; return (w.days||{})[dayKey(Date.now())]||null; }
+const wotdAdded = f => deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG}));
+function wotdToday(){ const f=wotdRaw(); return f && !wotdAdded(f) ? f : null; }
 function wotdHTML(){
-  if(!wotdOn()) return ''; const f=wotdToday(); if(!f) return '';
+  if(!wotdOn()) return ''; const f=wotdRaw(); if(!f) return '';
+  if(wotdAdded(f)) return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
+    <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
+    <div class="wt-fr">✓ Ajouté à ton apprentissage. Prochain mot demain.</div></div>`;
   return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
     <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
     <div class="row"><button class="btn" data-wotdadd>Ajouter à l'apprentissage</button></div></div>`;
@@ -1402,7 +1410,7 @@ function frFront(c){ const f=splitFr(c.fr, c.de); return `<div class="word">${f.
 function frNotesBack(c){ const f=splitFr(c.fr, c.de); return f.gram.length?`<div class="fnote gram">${esc(f.gram.join(' · '))}</div>`:''; }
 // nature du mot (nom, verbe, adjectif…) : enregistrée sur la carte, sinon reprise de la liste, sinon déduite de l'article
 function posOf(c){ return c.pos || (langOf(c)===LANG ? LISTPOS.get(dkey(c)) : '') || (c.art?'n':''); }
-function posTag(c){ const l=POS_LABEL[posOf(c)]; return l?`<div class="postag">${esc(l)}</div>`:''; }
+function posTag(c){ const l=POS_LABEL[posOf(c)], v=c.lvl||(c.est?EST_LABEL[c.est]:''); const t=[l,v].filter(Boolean).join(' · '); return t?`<div class="postag">${esc(t)}</div>`:''; }
 function cardTone(c){
   if(!revealed) return '';
   if(artGuess && artGuess.startsWith('K:')) return caseVerdict(c, artGuess).includes('verdict ok') ? ' v-ok' : ' v-bad';
@@ -1556,7 +1564,7 @@ function renderList(){
   const v=$('#view');
   const q=listQuery.trim().toLowerCase();
   const every=deck();
-  const all=every.filter(c=>filterMatch(c)&&(!q||(artWord(c)+' '+c.fr).toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
+  const all=every.filter(c=>filterMatch(c)&&(!q||(artWord(c)+' '+c.fr).toLowerCase().includes(q))).sort(SORTS[listSort]||SORTS.new);
   const inSrc=every.filter(c=>!srcFilter||srcOf(c)===srcFilter), inLvl=every.filter(c=>!lvlFilter||lvlOf(c)===lvlFilter);
   const lvlOpts=['A1','A2','B1','B2','C1','C2','~A','~B','~C','none'].filter(L=>every.some(c=>lvlOf(c)===L));
   const lvlName = L => L==='none' ? 'Sans niveau' : L[0]==='~' ? EST_LABEL[L[1]]+' (estimé)' : L;
@@ -1565,6 +1573,7 @@ function renderList(){
   const chips=`<div class="filters">
     ${lvlOpts.length?`<div class="frow"><span class="flabel">Niveau</span><div class="row">${chip('lvl','','Tous',inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
     <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
+    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',(LANG==='it'?'Italien':'Allemand')+' A→Z'],['fr','Français A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
     ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
   </div>
   <div class="legend" aria-label="Code couleur">${LANG==='it'
@@ -2037,6 +2046,7 @@ document.addEventListener('click', async e=>{
     if(!t.dataset.confirm){ t.dataset.confirm='1'; t.dataset.orig=t.textContent; t.textContent=`Confirmer (${ids.length})`; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=t.dataset.orig; } },3500); return; }
     await removeMany(ids); refresh(); toast(`${ids.length} mots retirés`); return;
   }
+  if(t.dataset.sort){ listSort=t.dataset.sort; try{ localStorage.setItem('mx-sort',listSort); }catch(e){} renderList(); return; }
   if(t.dataset.axis){ if(t.dataset.axis==='lvl') lvlFilter=t.dataset.val; else if(t.dataset.axis==='stat') statFilter=t.dataset.val; else srcFilter=t.dataset.val; renderList(); return; }
   if(t.dataset.statgo){ statFilter=t.dataset.statgo; lvlFilter=''; srcFilter=''; document.querySelector('nav.tabs [data-tab="list"]').click(); return; }
   if('lretry' in t.dataset){ listState='idle'; rerenderLevels(); return; }
