@@ -17,6 +17,20 @@
 .reinf-box small{font-size:.85rem;opacity:.75}
 @keyframes reinfIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){.reinf{animation:none}}
+.flagrow{display:flex;justify-content:flex-end;margin-top:.9rem}
+.flagbtn{font-size:.8rem;color:var(--muted);background:none;border:0;padding:.3rem .2rem;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.flagbtn[disabled]{text-decoration:none;cursor:default}
+.rsheet{position:fixed;inset:0;z-index:45;display:flex;align-items:flex-end;justify-content:center;background:color-mix(in srgb, var(--bg) 70%, transparent)}
+.rbox{width:100%;max-width:520px;max-height:90vh;overflow:auto;background:var(--surface);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:6px 6px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.rbox h2{margin:0;font-size:1.15rem}
+.rbox .rword{margin:0;color:var(--muted);font-size:.9rem}
+.rreasons{display:flex;flex-direction:column;gap:6px}
+.rbox .rreasons label{display:flex;flex-direction:row;justify-content:flex-start;text-align:left;gap:10px;align-items:center;font-weight:500;margin:0;color:var(--ink);padding:9px 10px;border:1px solid var(--line);border-radius:4px;cursor:pointer;font-size:.95rem}
+.rbox .rreasons input{width:18px;height:18px;flex:none;margin:0;padding:0;accent-color:var(--accent);appearance:auto;-webkit-appearance:radio;box-shadow:none;border:0;background:none}
+.rbox .rreasons label:has(input:checked){border-color:var(--ink);background:var(--bg)}
+.rbox textarea{width:100%;box-sizing:border-box;min-height:70px;font:inherit;font-size:.95rem;padding:8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);resize:vertical}
+.rbox .ract{display:flex;gap:8px;justify-content:flex-end}
+@media (min-width:600px){.rsheet{align-items:center}.rbox{border-radius:6px}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
@@ -1492,7 +1506,7 @@ function cardFaces(c){
     const verdict = artGuess && artGuess.startsWith('K:') ? caseVerdict(c, artGuess) : artGuess ? (artGuess===c.art?`<div class="verdict ok">Bon article</div>`:`<div class="verdict bad">Pas « ${artGuess} » mais « ${c.art} »</div>`) : '';
     back = `<div class="answer">${verdict}${frToDe
       ? `<div class="word">${deWord(c)}</div>${gramLine(c)}${frNotesBack(c)}`
-      : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">Même traduction : ${sibs.slice(0,4).map(x=>deWord(x)).join(', ')}</div>`:''}${exampleHTML(c)}</div>`;
+      : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">Même traduction : ${sibs.slice(0,4).map(x=>deWord(x)).join(', ')}</div>`:''}${exampleHTML(c)}${flagHTML(c)}</div>`;
   }
   const reveal = showCasePick
     ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES.map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
@@ -1755,6 +1769,9 @@ function renderGuide(){
     <p>Une journée compte dans ta série quand tu réponds à au moins 10 cartes en session (réglable : 5, 10, 20 ou 30). L'entraînement libre ne compte pas.</p>
     <p>L'objectif est de 5 jours sur 7 par défaut : chaque semaine (du lundi au dimanche) te laisse donc 2 jokers. La série ne casse que si tu manques plus de jours que tes jokers dans la même semaine. Tu peux changer l'objectif ou couper la série dans l'onglet Stats.</p>
     <p>L'onglet Stats montre les mots acquis par niveau, les révisions des 7 prochains jours, ta réussite sur les mots mûrs (intervalle de 21 jours ou plus), tes jours actifs du mois et ton taux d'erreur sur l'article et le cas. Seule ta première réponse à chaque carte dans une session est comptée. Tu choisis les statistiques affichées.</p></section>
+  <section><h2>Signaler une erreur</h2>
+    <p>Une traduction te paraît fausse, une phrase d'exemple bizarre ou choquante ? Une fois la réponse affichée, touche <b>⚑ Signaler une erreur</b> en bas de la carte, choisis le motif et ajoute un mot si tu veux. Le signalement emporte la carte telle que tu la vois. Il part même sans compte ; hors ligne, il attend la prochaine connexion. Chaque erreur signalée est corrigée dans les listes pour tous les mots du même type, pas seulement pour cette carte.</p>
+  </section>
   <section><h2>Les sons</h2>
     <p>Chaque geste a son petit son : la carte qui se retourne, une note qui monte pour « Bien » et « Facile », une note plus grave pour « Encore » et « Difficile », un signal quand l'article ou le cas est faux, un accord à la fin de la session. Ils restent discrets et suivent le volume du téléphone (rien en mode silencieux sur iPhone). Pour les couper : onglet Stats, Réglages, « Sons ».</p></section>
   <section><h2>Les quatre notes</h2>
@@ -2191,6 +2208,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
+const APP_VER="1.7.0";
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
 SY.dirty=SY.dirty||{}; SY.tomb=SY.tomb||{};
@@ -2211,6 +2229,65 @@ async function sbRefresh(){ if(!SY.ref) throw new SyErr('Session expirée','auth
   catch(e){ if(e.code==='net') throw e; syOutLocal(); throw new SyErr('Session expirée : reconnecte-toi','auth'); }
   sbSession(j); }
 function syOutLocal(){ SY={dirty:{},tomb:{}}; syPut(); syUi(); }
+
+/* --- signaler une carte : file locale, envoi à Supabase (table memolex_report) --- */
+const REPORT_REASONS=[['trad','Traduction incorrecte'],['exemple','Phrase d’exemple douteuse'],['chunk','Expression « À retenir » fausse'],['gram','Article, pluriel, nature ou cas faux'],['offensif','Contenu choquant ou offensant'],['autre','Autre']];
+const RQ_KEY='mx-reports', RDONE_KEY='mx-reported';
+const rqGet=k=>{ try{ return JSON.parse(localStorage.getItem(k))||(k===RQ_KEY?[]:{}); }catch(e){ return k===RQ_KEY?[]:{}; } };
+const rqSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} };
+function reportedKey(c){ return langOf(c)+'|'+dkey(c); }
+function flagHTML(c){ const done=rqGet(RDONE_KEY)[reportedKey(c)];
+  return `<div class="flagrow">${done?`<button class="flagbtn" disabled>⚑ Signalé, merci</button>`:`<button class="flagbtn" data-flag aria-label="Signaler une erreur sur cette carte">⚑ Signaler une erreur</button>`}</div>`; }
+function reportSnapshot(c){
+  const k=dkey(c), ch=CHDATA&&CHDATA[k], ex=(EXDATA&&EXDATA[k])||[];
+  return { key:k, de:c.de, art:c.art||'', pl:c.pl||'', fr:c.fr, pos:posOf(c)||'', lvl:c.lvl||'', src:c.src||'own', frOwn:!!c.frOwn,
+    chunk:ch?[ch[0],ch[1]]:null, ex:ex.slice(0,4).map(e=>[e[0],e[1],e[3]||'']), def:c.def||'', ownEx:c.ex||'', dir };
+}
+let reportCard=null;
+function openReport(c){
+  reportCard=c; document.querySelector('.rsheet')?.remove();
+  const o=document.createElement('div'); o.className='rsheet'; o.setAttribute('role','dialog'); o.setAttribute('aria-modal','true'); o.setAttribute('aria-labelledby','rTitle');
+  o.innerHTML=`<div class="rbox"><h2 id="rTitle">Signaler une erreur</h2><p class="rword">${deWord(c)} · ${esc(c.fr)}</p>
+    <div class="rreasons" role="radiogroup">${REPORT_REASONS.map(([v,l])=>`<label><input type="radio" name="rreason" value="${v}"> ${esc(l)}</label>`).join('')}</div>
+    <textarea id="rComment" maxlength="1000" placeholder="Précise si tu veux (facultatif, sauf pour « Autre ») : la bonne traduction, ce qui ne va pas…"></textarea>
+    <div class="ract"><button class="btn ghost" data-rcancel>Annuler</button><button class="btn" data-rsend disabled>Envoyer</button></div>
+    <p class="hint" style="margin:0">Le signalement contient la carte telle qu'elle est affichée et ton commentaire. Il nous sert à corriger les listes pour tout le monde.</p></div>`;
+  document.body.appendChild(o);
+  const upd=()=>{ const r=o.querySelector('input[name=rreason]:checked'); const t=o.querySelector('#rComment').value.trim(); o.querySelector('[data-rsend]').disabled=!r||(r.value==='autre'&&!t); };
+  o.addEventListener('change',upd); o.addEventListener('input',upd);
+  o.addEventListener('click',e=>{ if(e.target===o) closeReport(); });
+}
+function closeReport(){ document.querySelector('.rsheet')?.remove(); reportCard=null; }
+function sendReport(){
+  const o=document.querySelector('.rsheet'), c=reportCard; if(!o||!c) return;
+  const r=o.querySelector('input[name=rreason]:checked'); if(!r) return;
+  const comment=o.querySelector('#rComment').value.trim().slice(0,1000);
+  const q=rqGet(RQ_KEY); q.push({ lang:langOf(c), reason:r.value, comment, card:reportSnapshot(c), app_ver:APP_VER, client_id:clientId(), at:new Date().toISOString() }); rqSet(RQ_KEY,q.slice(-50));
+  const d=rqGet(RDONE_KEY); d[reportedKey(c)]=Date.now(); rqSet(RDONE_KEY,d);
+  closeReport(); toast('Merci ! Signalement enregistré.'); renderReview(); flushReports();
+}
+function clientId(){ let id; try{ id=localStorage.getItem('mx-cid'); if(!id){ id=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()); localStorage.setItem('mx-cid',id); } }catch(e){ id='?'; } return id; }
+let REP_FLUSHING=false;
+async function flushReports(){
+  if(REP_FLUSHING || !navigator.onLine) return; const q=rqGet(RQ_KEY); if(!q.length) return; REP_FLUSHING=true;
+  try{
+    while(true){ const cur=rqGet(RQ_KEY); if(!cur.length) break; const it=cur[0];
+      const h={apikey:SB_KEY,'Content-Type':'application/json',Prefer:'return=minimal'};
+      if(SY.tok && Date.now()<(SY.exp||0)-60e3) h.Authorization='Bearer '+SY.tok;
+      let r; try{ r=await fetch(SB_URL+'/rest/v1/memolex_report',{method:'POST',headers:h,body:JSON.stringify({lang:it.lang,reason:it.reason,comment:it.comment,card:it.card,app_ver:it.app_ver,client_id:it.client_id})}); }catch(e){ break; }
+      if(r.ok || (r.status>=400 && r.status<500 && r.status!==401 && r.status!==429)){ if(!r.ok) console.warn('signalement refusé', r.status); rqSet(RQ_KEY, rqGet(RQ_KEY).slice(1)); continue; }
+      break;
+    }
+  } finally { REP_FLUSHING=false; }
+}
+window.addEventListener('online', ()=>flushReports());
+setTimeout(()=>flushReports(), 4000);
+document.addEventListener('click', e=>{ const t=e.target.closest('button'); if(!t) return;
+  if('flag' in t.dataset){ const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) openReport(cc); return; }
+  if('rcancel' in t.dataset){ closeReport(); return; }
+  if('rsend' in t.dataset){ sendReport(); return; }
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && document.querySelector('.rsheet')) closeReport(); });
 
 /* --- ce qui change ici est noté pour le prochain envoi --- */
 function syMark(id){ if(!SY.tok) return; if(id) SY.dirty[id]=1; syPut(); clearTimeout(SYNC_T); SYNC_T=setTimeout(()=>syncNow(true),2500); syUi(); }
