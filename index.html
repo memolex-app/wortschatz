@@ -1182,6 +1182,7 @@ function wotdFill(){
   const old=settings.wotd && settings.wotd.lang===LANG ? settings.wotd.days||{} : {};
   const days={}, used=new Set(); let changed=!settings.wotd || settings.wotd.lang!==LANG;
   for(const k in old){ const f=old[k]; if(k===today || (k>today && !have.has(keyOf({...f,lang:LANG})))){ days[k]=f; used.add(keyOf({...f,lang:LANG})); } else changed=true; }
+  const tk=wotdTakenToday(); if(tk && (!days[today] || keyOf({...days[today],lang:LANG})!==keyOf(tk))){ days[today]=wotdRaw(); changed=true; }
   const lv=Object.keys(LEVELS).filter(L=>(LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))));
   for(let i=0;i<14 && lv.length;i++){ const k=dayKey(addDays(Date.now(),i)); if(days[k]) continue;
     for(let t=0;t<30;t++){ const L=lv[Math.floor(Math.random()*lv.length)], items=LISTDATA[L], f=items[Math.floor(Math.random()*items.length)], key=keyOf(f);
@@ -1191,12 +1192,16 @@ function wotdFill(){
   if(changed){ settings.wotd={lang:LANG, days}; saveSettings(); }
 }
 const wordLine = f => (f.art ? f.art+(/'$/.test(f.art)?'':' ') : '')+f.de;
-function wotdRaw(){ const w=settings.wotd; if(!w || w.lang!==LANG) return null; return (w.days||{})[dayKey(Date.now())]||null; }
+// le mot du jour ajouté aujourd'hui (bouton de l'écran ou de la notification) fait foi : le serveur et l'appareil
+// peuvent avoir tiré des mots différents, ou une ancienne version avoir remplacé l'entrée du jour
+function wotdTakenToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.batchLabel==='Mot du jour' && c.created>=sod).sort((a,b)=>a.created-b.created)[0]||null; }
+function wotdRaw(){ const t=wotdTakenToday(); if(t) return {de:t.de, art:t.art||'', pl:t.pl||'', fr:t.fr, ...(t.pos?{pos:t.pos}:{}), lvl:t.lvl||''};
+  const w=settings.wotd; if(!w || w.lang!==LANG) return null; return (w.days||{})[dayKey(Date.now())]||null; }
 const wotdAdded = f => deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG}));
 function wotdToday(){ const f=wotdRaw(); return f && !wotdAdded(f) ? f : null; }
 function wotdHTML(){
   if(!wotdOn()) return ''; const f=wotdRaw(); if(!f) return '';
-  if(wotdAdded(f)) return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
+  if(wotdAdded(f)) return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span>${f.lvl?`<span class="pill lvl">${esc(f.lvl)}</span>`:''}</div>
     <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
     <div class="wt-fr">✓ Ajouté à ton apprentissage. Prochain mot demain.</div></div>`;
   return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
