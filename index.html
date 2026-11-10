@@ -918,7 +918,7 @@ function schedule(c, g){
 }
 function startOfDay(t){ const d=new Date(t); d.setHours(0,0,0,0); return d.getTime(); }
 function preview(c,g){
-  if(g===1) return session && session.ids.length>1?'dans 3 cartes':'tout de suite';
+  if(g===1) return session && session.ids.length>1?'en fin de session':'tout de suite';
   const {n}=gradeCard(c,g);
   if(!isLearning(n)) return daysLabel(n.ivl);
   const m=Math.round((n.due-Date.now())/60000); return m<60 ? `${m} min` : `${Math.round(m/60)} h`;
@@ -1033,12 +1033,26 @@ function startPractice(size){
   const ids=all.slice(0,size).map(c=>c.id); if(!ids.length) return false;
   session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null, practice:true}; revealed=false; artGuess=null; return true;
 }
-function startSession(size){
+/* composition d'une session : les mots « durs » (en apprentissage + nouveaux) occupent au plus HARD_SHARE de la session,
+   le reste est fait de révisions (mots déjà passés en jours, plus faciles). Viser ~80 % de réussite garde la session
+   tenable et efficace. S'il manque des révisions, la session est plus courte : on ne la comble pas avec des mots durs
+   (mieux vaut une 2e session plus tard, quand les mots en apprentissage ont eu le temps de reposer).
+   Les mots durs sont répartis régulièrement dans la session. */
+const HARD_SHARE = 0.4;
+function composeSession(size){
   const {learn,rev,fresh}=todayPlan();
-  const due=[...learn,...rev].slice(0,size), nf=fresh.slice(0,size-due.length);
-  // les nouveaux mots sont répartis dans la session au lieu d'arriver en bloc à la fin
-  const total=due.length+nf.length, at=new Set(nf.map((_,k)=>Math.floor((k+0.5)*total/nf.length)));
-  const ids=[]; let j=0, k=0; for(let i=0;i<total;i++) ids.push(at.has(i) ? nf[k++].id : due[j++].id);
+  const hardCap=Math.max(1, Math.round(size*HARD_SHARE));
+  const L=learn.slice(0, hardCap), F=fresh.slice(0, Math.max(0, hardCap-L.length));
+  const R=rev.slice(0, size-L.length-F.length);
+  const learnAll=L, freshAll=F;
+  // mots durs : apprentissage et nouveaux alternés
+  const hard=[]; for(let i=0;i<Math.max(learnAll.length,freshAll.length);i++){ if(learnAll[i]) hard.push(learnAll[i]); if(freshAll[i]) hard.push(freshAll[i]); }
+  const total=hard.length+R.length, at=new Set(hard.map((_,k)=>Math.floor((k+0.5)*total/hard.length)));
+  const ids=[]; let j=0, k=0; for(let i=0;i<total;i++) ids.push(at.has(i) ? hard[k++].id : R[j++].id);
+  return {ids, nLearn:learnAll.length, nRev:R.length, nFresh:freshAll.length};
+}
+function startSession(size){
+  const {ids}=composeSession(size);
   if(!ids.length) return false;
   session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null}; revealed=false; artGuess=null; return true;
 }
@@ -1515,14 +1529,14 @@ function sessionChooser(){
       <div class="more"><button class="btn" data-go="add">Ajouter des mots</button>${deck().some(c=>!isNew(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small></button>`:''}</div></div>`;
   }
   // ce que contiendra la session choisie : d'abord ce qui est dû, puis des nouveaux mots pour compléter
-  const mix=n=>{ const d=Math.min(n,due); return {d, f:Math.min(n-d, plan.fresh.length)}; };
-  const m=mix(size); const total=m.d+m.f;
-  const parts=[m.d?`${m.d} à revoir`:'', m.f?`${m.f} nouveau${m.f>1?'x':''}`:''].filter(Boolean).join(' + ');
+  const m=composeSession(size); const total=m.ids.length;
+  const parts=[m.nRev?`${m.nRev} révision${m.nRev>1?'s':''}`:'', m.nLearn?`${m.nLearn} en apprentissage`:'', m.nFresh?`${m.nFresh} nouveau${m.nFresh>1?'x':''}`:''].filter(Boolean).join(' + ');
   return `<div class="card empty session-pick"><h2>Nouvelle session</h2>
       <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length?`${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} possible${plan.fresh.length>1?'s':''} aujourd'hui`:plan.pending.length?`nouveaux mots : quota du jour atteint (${newPerDay()})`:'aucun nouveau en attente'}</p>
       <div class="sizes" role="group" aria-label="Taille de la session">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?'pas assez de mots':`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
+      ${total<size && plan.learn.length>m.nLearn ? `<p class="hint">Session raccourcie à ${total} cartes : ${plan.learn.length-m.nLearn} mots en apprentissage attendent, mais il n'y a pas assez de révisions faciles pour les entourer. Refais une petite session dans 15 à 30 minutes.</p>`:''}
       <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${deck().some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
-      <p class="hint">Au plus ${newPerDay()} nouveaux mots par jour (réglable dans Stats → Réglages), répartis dans la session. Les mots à revoir passent avant. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
+      <p class="hint">Au plus ${newPerDay()} nouveaux mots par jour (réglable dans Stats → Réglages). Dans une session, les mots difficiles (en apprentissage ou nouveaux) ne dépassent pas ${Math.round(HARD_SHARE*100)} % des cartes et sont mêlés à des révisions plus faciles, tant qu'il y en a. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
 }
 function renderTriage(v){
   triage.ids=triage.ids.filter(id=>cards.has(id) && isNew(cards.get(id)));
