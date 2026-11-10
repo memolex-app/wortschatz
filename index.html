@@ -687,6 +687,20 @@ const SIZES = [20,40,60];
 let stopped = null;  // résumé affiché après « Arrêter »
 let finished = '';   // bilan de la session terminée, gardé à l'écran jusqu'à la session suivante
 let session = null;   // { ids:[], total, done, ok }
+/* session en cours gardée sur l'appareil (par langue) : si l'appli se ferme, on peut la reprendre.
+   Les réponses, elles, sont enregistrées dans les cartes au moment où on les donne. */
+const SESS_KEY = () => 'mx-sess-'+(LANG||'de');
+function saveSess(){ if(!session) return; try{ localStorage.setItem(SESS_KEY(), JSON.stringify({...session, seen:[...(session.seen||[])], again:[...(session.again||[])], revealed, artGuess, t:Date.now()})); }catch(e){} }
+function clearSess(){ try{ localStorage.removeItem(SESS_KEY()); }catch(e){} }
+function savedSess(){ let s=null; try{ s=JSON.parse(localStorage.getItem(SESS_KEY())||'null'); }catch(e){} if(!s || !Array.isArray(s.ids)) return null;
+  let ids=s.ids.filter(id=>cards.has(id));
+  // session vieille de plus de 12 h : on ne garde que les cartes à revoir ou nouvelles
+  if(Date.now()-(s.t||0)>12*3600000) ids=ids.filter(id=>{ const c=cards.get(id); return isNew(c)||isDue(c); });
+  if(!ids.length){ clearSess(); return null; }
+  return {...s, ids}; }
+function resumeSess(){ const s=savedSess(); if(!s) return false; const {revealed:r, artGuess:a, t, ...rest}=s;
+  session={...rest, seen:new Set(s.seen||[]), again:new Set(s.again||[]), hist:s.hist||[], view:null, live:null};
+  revealed=!!r; artGuess=a||null; return true; }
 let triage = null;    // { ids:[], i, known }
 try{ const st=JSON.parse(localStorage.getItem('mx-settings')||'null'); if(st) settings={...settings,...st}; }catch(e){}
 
@@ -1482,6 +1496,11 @@ function sizeChoices(ready){
   return SIZES.map(n=>{ if(capped) return {tier:n, val:n, off:true}; if(n>=ready){ capped=true; return {tier:n, val:ready, off:false}; } return {tier:n, val:n, off:false}; });
 }
 function effSize(ready){ const t=SIZES.includes(settings.sessSize)?settings.sessSize:20; return Math.max(1, Math.min(t, ready)); }
+function resumeHTML(){ const s=savedSess(); if(!s) return '';
+  const left=new Set(s.ids).size, pos=s.done||0, tot=s.total||pos+left;
+  return `<div class="card empty resume"><h2>${s.practice?'Entraînement interrompu':'Session interrompue'}</h2>
+    <p>Tu en étais à <b>${Math.min(pos+1,tot)}/${tot}</b> · ${left} carte${left>1?'s':''} restante${left>1?'s':''}. Tes réponses déjà données sont enregistrées.</p>
+    <div class="more"><button class="btn" data-resume>Reprendre où j'en étais</button><button class="btn ghost" data-dropresume>Abandonner cette session</button></div></div>`; }
 function sessionChooser(){
   const plan=todayPlan(); const due=plan.learn.length+plan.rev.length; const ready=due+plan.fresh.length;
   const size=effSize(ready);
@@ -1528,7 +1547,8 @@ function maybeReinf(){
   const close=()=>{ if(!o.isConnected) return; o.classList.add('out'); setTimeout(()=>o.remove(), calm()?0:250); };
   o.addEventListener('click', close); setTimeout(close, 2600);
 }
-function renderReview(){
+function renderReview(){ _renderReview(); saveSess(); }
+function _renderReview(){
   if(!revealed && renderReview._cid!==(session&&session.ids&&session.ids[0])){ caseSel=new Set(); renderReview._cid=session&&session.ids&&session.ids[0]; }
   const v=$('#view');
   if(mode==='loading'){ v.innerHTML='<div class="card"><p class="prompt-label">Chargement de tes mots…</p></div>'; return; }
@@ -1551,8 +1571,8 @@ function renderReview(){
     const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p>${session.parked?`<p class="hint">${session.parked} mot${session.parked>1?'s':''} encore difficile${session.parked>1?'s':''} après ${ENC_MAX} essais : ${session.parked>1?'ils reviennent':'il revient'} dans 15 minutes. C'est normal, l'espacement fera le travail.</p>`:''}</div>` : '';
     const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
     if(done) finished=done;
-    stopped=null; session=null;
-    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done||(stop?'':finished)}${stop}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
+    if(session) clearSess(); stopped=null; session=null;
+    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done||(stop?'':finished)}${stop}${resumeHTML()}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
     return;
   }
   const {front, back, reveal, showArtPick}=cardFaces(c);
@@ -1701,7 +1721,7 @@ function renderGuide(){
       <li><b>Pas de limite de nouveaux mots</b> : c'est toi qui règles le rythme. Chaque nouveau mot revient environ 5 fois le premier mois, donc beaucoup de nouveaux mots aujourd'hui, ce sont beaucoup de révisions dans les jours qui viennent.</li>
       <li>Une session longue d'un coup retient moins bien que plusieurs sessions courtes : 20 cartes le matin, 20 à midi, 20 le soir valent mieux que 60 d'affilée.</li>
       <li><b>Réviser quand même</b> : quand il n'y a rien à réviser, un entraînement libre te fait repasser tes mots sans attendre. Tes réponses n'y sont pas enregistrées et ne changent pas ton calendrier.</li>
-      <li><b>Arrêter</b> : chaque réponse est enregistrée dès que tu donnes ta note. Tu peux arrêter une session (ou fermer l'appli) à tout moment sans rien perdre. La session suivante repart sur 20, 40 ou 60 cartes, au choix.</li>
+      <li><b>Arrêter</b> : chaque réponse est enregistrée dès que tu donnes ta note. Tu peux arrêter une session à tout moment sans rien perdre. Si l'appli se ferme en pleine session (appel, batterie, téléphone posé), elle te propose au retour de <b>reprendre où tu en étais</b>, même plusieurs heures après. « Arrêter » met fin à la session pour de bon.</li>
       <li><b>Revenir en arrière</b> : la flèche ‹ à gauche de la carte ramène aux cartes déjà vues, réponse affichée et ta note encadrée. Choisis une autre note pour la corriger, ou avance avec la flèche › jusqu'à la carte en cours. Il n'y a pas de flèche › sur une carte à laquelle tu n'as pas encore répondu : on ne saute pas de carte.</li>
     </ul></section>
 
@@ -2030,11 +2050,13 @@ document.addEventListener('click', async e=>{
     session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; sfx('tick'); renderReview(); return; }
   if('fwd' in t.dataset && session && session.view!=null){
     session.view++; if(session.view>=session.hist.length){ session.view=null; liveRestore(); } cardAnim='from-r'; sfx('tick'); renderReview(); return; }
+  if('resume' in t.dataset){ finished=''; if(resumeSess()){ cardAnim='in'; sfx('next'); } renderReview(); return; }
+  if('dropresume' in t.dataset){ clearSess(); renderReview(); return; }
   if('endsession' in t.dataset){
     // chaque réponse est enregistrée au moment où on la donne : arrêter ne perd rien
     const left=session ? session.ids.filter(id=>cards.has(id)).length : 0;
     stopped = session ? {done:session.done, answers:session.hist?session.hist.length:session.done, left, practice:!!session.practice} : null;
-    session=null; revealed=false; artGuess=null; renderReview(); return; }
+    clearSess(); session=null; revealed=false; artGuess=null; renderReview(); return; }
   if('known' in t.dataset && session){
     const curK = session.view!=null ? session.hist[session.view]?.before : cards.get(session.ids[0]);
     if(curK && guessWrong(curK, artGuess)) return; // article ou cas faux : « Je connais déjà » refusé
