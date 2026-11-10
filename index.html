@@ -685,6 +685,7 @@ const filterMatch = c => (!lvlFilter || lvlOf(c)===lvlFilter) && (!srcFilter || 
 let settings = { sessSize: 20 };
 const SIZES = [20,40,60];
 let stopped = null;  // résumé affiché après « Arrêter »
+let finished = '';   // bilan de la session terminée, gardé à l'écran jusqu'à la session suivante
 let session = null;   // { ids:[], total, done, ok }
 let triage = null;    // { ids:[], i, known }
 try{ const st=JSON.parse(localStorage.getItem('mx-settings')||'null'); if(st) settings={...settings,...st}; }catch(e){}
@@ -948,6 +949,12 @@ function scheduleWake(t){
 
 const isNew = c => (c.reps||0)===0 && (c.lapses||0)===0 && !isLearning(c);
 function introToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.intro && c.intro>=sod).length; }
+// nouveaux mots par jour : au-delà, la session ne propose plus que des révisions (charge de travail tenable, cf. Anki : 20/jour par défaut)
+const NEW_DAY_OPTS=[5,10,15,20];
+const newPerDay = () => NEW_DAY_OPTS.includes(settings.newPerDay) ? settings.newPerDay : 10;
+const newLeftToday = () => Math.max(0, newPerDay() - introToday());
+// renforcement : au plus 3 « Encore » par mot et par session ; ensuite il revient à la session suivante
+const ENC_MAX = 3;
 // ce qui est prêt maintenant : mots en apprentissage dont le délai est passé, révisions du jour, puis nouveaux mots
 function todayPlan(){
   const all=deck();
@@ -955,7 +962,7 @@ function todayPlan(){
   const learn=due.filter(isLearning).sort((a,b)=>a.due-b.due);
   const rev=due.filter(c=>!isLearning(c)).sort((a,b)=>a.due-b.due);
   const pending=all.filter(isNew).sort((a,b)=>(b.prio||0)-(a.prio||0) || a.created-b.created);
-  return { learn, rev, fresh: pending, pending };
+  return { learn, rev, fresh: pending.slice(0, newLeftToday()), pending };
 }
 const minutesFor = n => Math.max(1, Math.round(n*10/60)); // ~10 s par carte, ratés compris
 // avant chaque réponse : copie de la carte et de la session, pour pouvoir revenir en arrière (pas d'avance possible)
@@ -979,7 +986,11 @@ function recordAnswer(c, g){
   if(counted){ session.seen.add(c.id); session.done++; if(okc) session.ok++; }
   // « Encore » : la carte passe en fin de session ; ces cartes reviennent en boucle (phase de renforcement) tant qu'on répond « Encore »
   if(!session.again) session.again=new Set();
-  if(a.requeue){ session.ids.push(c.id); session.again.add(c.id); } else session.again.delete(c.id);
+  if(!session.enc) session.enc={};
+  if(a.requeue){ session.enc[c.id]=(session.enc[c.id]||0)+1;
+    if(session.enc[c.id]<ENC_MAX){ session.ids.push(c.id); session.again.add(c.id); }
+    else { session.again.delete(c.id); session.parked=(session.parked||0)+1; a.after.due=Date.now()+STEP_DELAY[1]; } }
+  else session.again.delete(c.id);
   return a.after;
 }
 // nouvelle réponse sur une carte déjà passée : on recalcule cette carte (et ses passages suivants), sans toucher aux autres
@@ -995,7 +1006,7 @@ function changeAnswer(i, g){
   if(!later.length){
     if(!session.again) session.again=new Set();
     if(e.requeue && !a.requeue){ const k=session.ids.lastIndexOf(e.id); if(k>=0) session.ids.splice(k,1); session.again.delete(e.id); }
-    if(a.requeue && !e.requeue){ session.ids.push(e.id); session.again.add(e.id); }
+    if(a.requeue && !e.requeue && ((session.enc||{})[e.id]||0)<ENC_MAX){ session.ids.push(e.id); session.again.add(e.id); }
   }
   Object.assign(e,{after:a.after, grade:g, requeue:a.requeue, counted, okc});
   let prev=a.after;
@@ -1010,7 +1021,10 @@ function startPractice(size){
 }
 function startSession(size){
   const {learn,rev,fresh}=todayPlan();
-  const ids=[...learn,...rev,...fresh].slice(0,size).map(c=>c.id);
+  const due=[...learn,...rev].slice(0,size), nf=fresh.slice(0,size-due.length);
+  // les nouveaux mots sont répartis dans la session au lieu d'arriver en bloc à la fin
+  const total=due.length+nf.length, at=new Set(nf.map((_,k)=>Math.floor((k+0.5)*total/nf.length)));
+  const ids=[]; let j=0, k=0; for(let i=0;i<total;i++) ids.push(at.has(i) ? nf[k++].id : due[j++].id);
   if(!ids.length) return false;
   session={ids, total:ids.length, done:0, ok:0, seen:new Set(), hist:[], view:null}; revealed=false; artGuess=null; return true;
 }
@@ -1143,6 +1157,7 @@ function statsHTML(){
   out.push(`<section class="panel" id="statSet"><h2>Réglages</h2>
     <div class="srow"><span>Sons</span>${seg('sound',['on','off'],settings.sound!==false?'on':'off',v=>v==='on'?'Activés':'Coupés')}</div>
     <div class="srow"><span>Série</span>${seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?'Activée':'Désactivée')}</div>
+    <div class="srow"><span>Nouveaux mots par jour</span>${seg('newPerDay',NEW_DAY_OPTS,newPerDay(),v=>String(v))}</div>
     <div class="srow"><span>Minimum par jour</span>${seg('dayMin',[5,10,20,30],dayMin,v=>v+' cartes')}</div>
     <div class="srow"><span>Objectif par semaine</span>${seg('weekGoal',[3,4,5,6,7],weekGoal,v=>v+' j')}</div>
     <p class="hint">${weekGoal<7?`Objectif ${weekGoal} jours sur 7 : ${7-weekGoal} joker${7-weekGoal>1?'s':''} par semaine, la série ne casse pas un jour sans révision.`:'7 jours sur 7 : aucun joker, chaque jour manqué casse la série.'}</p>
@@ -1480,10 +1495,10 @@ function sessionChooser(){
   const m=mix(size); const total=m.d+m.f;
   const parts=[m.d?`${m.d} à revoir`:'', m.f?`${m.f} nouveau${m.f>1?'x':''}`:''].filter(Boolean).join(' + ');
   return `<div class="card empty session-pick"><h2>Nouvelle session</h2>
-      <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} en attente</p>
+      <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length?`${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} possible${plan.fresh.length>1?'s':''} aujourd'hui`:plan.pending.length?`nouveaux mots : quota du jour atteint (${newPerDay()})`:'aucun nouveau en attente'}</p>
       <div class="sizes" role="group" aria-label="Taille de la session">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?'pas assez de mots':`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
       <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${deck().some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
-      <p class="hint">Les mots à revoir passent toujours en premier, les nouveaux complètent la session. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
+      <p class="hint">Au plus ${newPerDay()} nouveaux mots par jour (réglable dans Stats → Réglages), répartis dans la session. Les mots à revoir passent avant. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
 }
 function renderTriage(v){
   triage.ids=triage.ids.filter(id=>cards.has(id) && isNew(cards.get(id)));
@@ -1503,7 +1518,7 @@ function maybeReinf(){
   if(!session || session.reinf || session.view!=null || revealed || !inReinf()) return;
   session.reinf=true; const n=new Set(session.ids).size;
   const o=document.createElement('div'); o.className='reinf'; o.setAttribute('role','status');
-  o.innerHTML=`<div class="reinf-box"><b>Renforcement</b><span>${n} mot${n>1?'s':''} à consolider</span><small>Ils reviennent tant que tu réponds « Encore ».</small></div>`;
+  o.innerHTML=`<div class="reinf-box"><b>Renforcement</b><span>${n} mot${n>1?'s':''} à consolider</span><small>Chaque mot revient au plus ${ENC_MAX} fois. Au-delà, il attend ta prochaine session.</small></div>`;
   document.body.appendChild(o); sfx('reinf');
   const close=()=>{ if(!o.isConnected) return; o.classList.add('out'); setTimeout(()=>o.remove(), calm()?0:250); };
   o.addEventListener('click', close); setTimeout(close, 2600);
@@ -1528,10 +1543,11 @@ function renderReview(){
   if(past){ revealed=true; artGuess=past.art; }
   const c = past ? past.before : session && cards.get(session.ids[0]);
   if(!c){
-    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p></div>` : '';
+    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p>${session.parked?`<p class="hint">${session.parked} mot${session.parked>1?'s':''} encore difficile${session.parked>1?'s':''} après ${ENC_MAX} essais : ${session.parked>1?'ils reviennent':'il revient'} dans 15 minutes. C'est normal, l'espacement fera le travail.</p>`:''}</div>` : '';
     const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
+    if(done) finished=done;
     stopped=null; session=null;
-    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done}${stop}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
+    v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done||(stop?'':finished)}${stop}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
     return;
   }
   const {front, back, reveal, showArtPick}=cardFaces(c);
@@ -1704,7 +1720,7 @@ function renderGuide(){
     <p>Chaque geste a son petit son : la carte qui se retourne, une note qui monte pour « Bien » et « Facile », une note plus grave pour « Encore » et « Difficile », un signal quand l'article ou le cas est faux, un accord à la fin de la session. Ils restent discrets et suivent le volume du téléphone (rien en mode silencieux sur iPhone). Pour les couper : onglet Stats, Réglages, « Sons ».</p></section>
   <section><h2>Les quatre notes</h2>
     <dl class="grades-doc">
-      <dt class="bad">Encore</dt><dd>Tu ne savais pas. Son intervalle repart de zéro et la carte revient à la fin de la session : une fois toutes les autres cartes passées, l'appli annonce le <b>renforcement</b> et reprend tes « Encore », en boucle, jusqu'à ce que tu les saches.</dd>
+      <dt class="bad">Encore</dt><dd>Tu ne savais pas. Son intervalle repart de zéro et la carte revient à la fin de la session : une fois toutes les autres cartes passées, l'appli annonce le <b>renforcement</b> et reprend tes « Encore ». Chaque mot revient au plus 3 fois dans une session : au-delà, répéter ne sert plus à grand-chose, il vaut mieux espacer. Le mot t'attend à ta prochaine session.</dd>
       <dt>Difficile</dt><dd>Trouvé avec peine. L'intervalle grandit peu.</dd>
       <dt>Bien</dt><dd>Trouvé normalement. La note par défaut, la plus utilisée.</dd>
       <dt class="good">Facile</dt><dd>Immédiat. L'intervalle s'allonge beaucoup.</dd>
@@ -1777,13 +1793,13 @@ function renderGuide(){
     <div class="tbl"><table>
       <thead><tr><th>Nouveaux mots / jour</th><th>Temps quotidien estimé</th><th>Mots appris en 3 mois</th></tr></thead>
       <tbody>
-        <tr><td>10</td><td>15–20 min</td><td>~850</td></tr>
-        <tr class="rec"><td>20</td><td>30–40 min</td><td>~1 700</td></tr>
-        <tr><td>30</td><td>50–60 min</td><td>~2 600</td></tr>
-        <tr><td>50</td><td>1 h 20 – 1 h 40</td><td>~4 300</td></tr>
+        <tr><td>5</td><td>8–10 min</td><td>~430</td></tr>
+        <tr class="rec"><td>10</td><td>15–20 min</td><td>~850</td></tr>
+        <tr><td>15</td><td>25–30 min</td><td>~1 300</td></tr>
+        <tr><td>20</td><td>30–40 min</td><td>~1 700</td></tr>
       </tbody></table></div>
     <p class="hint">Estimations pour environ 10 secondes par carte. Le temps réel dépend de ta vitesse et de ton taux de réussite.</p>
-    <div class="advice"><b>Le conseil</b><p>Sur un niveau facile pour toi, trie tes paquets puis avance vite : les mots connus disparaissent et tu ne perds pas de temps. Sur un niveau nouveau, environ <b>20 nouveaux mots par jour</b> est un bon rythme. Si tes sessions se remplissent de révisions au point de ne plus laisser de place aux nouveaux mots, c'est le signal de ralentir : mieux vaut un rythme tenu six mois qu'un sprint de deux semaines.</p></div></section>
+    <div class="advice"><b>Le conseil</b><p>Sur un niveau facile pour toi, trie tes paquets puis avance vite : les mots connus disparaissent et tu ne perds pas de temps. Sur un niveau nouveau, commence à <b>10 nouveaux mots par jour</b> (le réglage par défaut, dans Stats → Réglages) et monte à 15 ou 20 seulement si tes sessions restent confortables. L'appli ne dépasse jamais ce nombre dans une journée, même si tu choisis une session de 60 cartes : le reste de la session est fait de révisions. Si tes sessions se remplissent de révisions au point de ne plus laisser de place aux nouveaux mots, c'est le signal de ralentir : mieux vaut un rythme tenu six mois qu'un sprint de deux semaines.</p></div></section>
 
   <section><h2>Les compteurs</h2>
     <ul>
@@ -1986,7 +2002,7 @@ document.addEventListener('click', async e=>{
   if(t.dataset.lang && LANGS[t.dataset.lang]){ setLang(t.dataset.lang); return; }
   if('langcancel' in t.dataset){ langPicking=false; refresh(); return; }
   if('acct' in t.dataset){ document.querySelector('nav.tabs [data-tab="guide"]').click(); setTimeout(()=>$('#acctSec')?.scrollIntoView({behavior:'smooth'}),50); return; }
-  if(t.dataset.tab){ tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
+  if(t.dataset.tab){ if(t.dataset.tab!=='review') finished=''; tab=t.dataset.tab; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b===t?'page':'false')); const vw=$('#view'); vw.innerHTML=''; vw.classList.remove('a-view'); refresh(); if(!calm()){ void vw.offsetWidth; vw.classList.add('a-view'); } window.scrollTo(0,0); return; }
   if(t.dataset.go){ document.querySelector(`nav.tabs [data-tab="${t.dataset.go}"]`).click(); return; }
   if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; if(session) session.live=null; renderReview(); return; }
   if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
@@ -2002,8 +2018,8 @@ document.addEventListener('click', async e=>{
   if(t.dataset.nfset){ const n=NF(), k=t.dataset.nfset, v=t.dataset.v; settings.notif={...n, [k]: k==='wotd' ? v==='on' : v}; if(k==='wotd' && v==='on') wotdFill(); saveSettings(); renderStats(); return; }
   if(t.dataset.stset){ const k=t.dataset.stset, v=t.dataset.v; settings[k] = (k==='streakOn'||k==='sound') ? v==='on' : +v; saveSettings(); if(k==='sound' && v==='on') sfx('good'); renderStats(); return; }
   if(t.dataset.stshow){ const k=t.dataset.stshow, sh=new Set(ST().show); sh.has(k)?sh.delete(k):sh.add(k); settings.statShow=Object.keys(STAT_KEYS).filter(x=>sh.has(x)); saveSettings(); renderStats(); return; }
-  if('practice' in t.dataset){ if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; sfx('next'); renderReview(); } return; }
-  if('start' in t.dataset){ const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; sfx('next'); renderReview(); } return; }
+  if('practice' in t.dataset){ finished=''; if(startPractice(SIZES.includes(settings.sessSize)?settings.sessSize:20)){ cardAnim='in'; sfx('next'); renderReview(); } return; }
+  if('start' in t.dataset){ finished=''; const p=todayPlan(); if(startSession(effSize(p.learn.length+p.rev.length+p.fresh.length))){ cardAnim='in'; sfx('next'); renderReview(); } return; }
   if('back' in t.dataset && session && session.hist.length){
     liveSave();
     session.view = session.view==null ? session.hist.length-1 : Math.max(0, session.view-1); cardAnim='from-l'; sfx('tick'); renderReview(); return; }
