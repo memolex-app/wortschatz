@@ -4,7 +4,11 @@ Catalogue de départ de mots familiers français, à enrichir à chaque erreur t
 Usage : python3 register.py
 """
 import re
-from common import load, shown, fr_senses
+import os
+from common import load, shown, fr_senses, PAIR
+# exceptions vérifiées (une clé de carte par ligne, # = commentaire) : ignore_register_<paire>.txt
+_IG = os.path.join(os.path.dirname(os.path.abspath(__file__)), f'ignore_register_{PAIR}.txt')
+IGNORE = {l.split('#')[0].strip() for l in open(_IG, encoding='utf-8')} - {''} if os.path.exists(_IG) else set()
 FAMILIERS = set("""tabasser caser costaud bouffer bouffe boulot fric flic gosse mec nana bagnole chiper fiche-moi foutre foutu
 bosser bidule machin truc zigouiller trimer pote fringues frusques godasses clope baratin pépère flinguer piger déglinguer
 clébard bécane fauché pognon oseille thune moche chouette chiant emmerder emmerdant merde putain pisser clamser canasson
@@ -14,7 +18,7 @@ def run(repo='..'):
     cards, _, _ = load(repo)
     out = []
     for c in cards:
-        if MARK.search(c['fr']): continue
+        if MARK.search(c['fr']) or shown(c) in IGNORE: continue
         for g in fr_senses(c['fr']):
             if set(re.findall(r"[\wéèêàâîïôûç-]+", g.lower())) & FAMILIERS:
                 out.append((c, g)); break

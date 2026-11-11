@@ -7,6 +7,8 @@ ST = snowballstemmer.stemmer('french')
 STOP = {'de', 'du', 'des', 'd', 'à', 'au', 'aux', 'en', 'se', 's', 'ne', 'pas', 'qn', 'qch', 'un', 'une', 'le', 'la', 'les', 'l', 'ce', 'cette', 'ces', 'y', 'n'}
 def words(s): return [w for w in re.findall(r"[\wœ]+", s.lower().replace('’', "'")) if w not in STOP]
 MAXW = {'A1': 3, 'A2': 3, 'B1': 4, 'B2': 4, 'C1': 5, 'C2': 5}
+# conjonctions doubles (weder … noch, zwar … aber, nicht … sondern) : un mot de plus, les deux parties sont indispensables
+CORREL = {'sondern', 'zwar', 'weder', 'sowohl', 'entweder', 'je', 'nicht nur'}
 SENS = '--sens' in __import__('sys').argv   # contrôle de sens : informatif (les chunks sont traduits librement, ~15 % de fausses alertes)
 def run(repo='..'):
     cards, _, ch = load(repo)
@@ -18,7 +20,7 @@ def run(repo='..'):
         if not cs: bad.append((w, 'chunk sans carte', it, fr)); continue
         if '*' not in it: bad.append((w, 'mot non marqué', it, fr))
         n = len(re.findall(r"[\wàèéìòù']+", it.replace('*', '')))
-        if n > max(MAXW[c['lv']] for c in cs): bad.append((w, f'trop long ({n} mots)', it, fr))
+        if n > max(MAXW[c['lv']] for c in cs) + (1 if w in CORREL else 0): bad.append((w, f'trop long ({n} mots)', it, fr))
         stems = {ST.stemWord(x) for x in words(fr)} | set(words(fr))
         ok = False
         for c in cs:

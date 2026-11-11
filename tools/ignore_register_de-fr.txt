@@ -1,0 +1,2 @@
+# Cartes signalées à tort par register.py, vérifiées à la main.
+die Eule  # « chouette » = l'oiseau, pas l'adjectif familier
