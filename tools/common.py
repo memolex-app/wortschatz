@@ -1,13 +1,28 @@
-"""Chargement des données Memolex (paire italien -> français) depuis les JSON publiés.
-Usage : from common import load ; cards, ex, chunks = load('/chemin/vers/depot')
+"""Chargement des données Memolex d'une paire, pour les contrôles.
+Par défaut : format source data/ (via build.py, en mémoire). MX_SOURCE=json : fichiers JSON publiés.
+Paire : variable MX_PAIR (« de-fr », « it-fr »… ; défaut it-fr, historique).
+Usage : from common import load ; cards, ex, chunks = load()
 """
 import json, os, re, sys
-REPO = os.environ.get('MEMOLEX_REPO', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.environ.get('MEMOLEX_REPO', os.path.join(HERE, '..'))
+PAIR = os.environ.get('MX_PAIR', 'it-fr')
+SOURCE = os.environ.get('MX_SOURCE', 'data')
 
-def load(repo=REPO, pair='it-fr'):
-    lists = json.load(open(os.path.join(repo, f'lists-{pair}.json')))
-    ex = json.load(open(os.path.join(repo, f'examples-{pair}.json')))
-    chunks = json.load(open(os.path.join(repo, f'chunks-{pair}.json')))
+def load(repo=REPO, pair=None):
+    pair = pair or PAIR
+    if SOURCE == 'data':
+        sys.path.insert(0, HERE)
+        from build import build
+        L, U = pair.split('-')
+        b = build(L, U)
+        lists, ex, chunks = b['lists'], b['examples'], b['chunks']
+    else:
+        if not os.path.exists(os.path.join(repo, f'lists-{pair}.json')):
+            repo = REPO
+        lists = json.load(open(os.path.join(repo, f'lists-{pair}.json')))
+        ex = json.load(open(os.path.join(repo, f'examples-{pair}.json')))
+        chunks = json.load(open(os.path.join(repo, f'chunks-{pair}.json')))
     cards = []
     for i, r in enumerate(lists):
         lv, w, nat, art, pl, fr = r[:6]
@@ -18,7 +33,8 @@ def load(repo=REPO, pair='it-fr'):
 
 def ex_key(art, w):
     # clé des exemples : article + mot, sans espace (« ilmarzo », « l'anno ») ; sans article : le mot seul
-    return (art + w) if art else w
+    # (en minuscules, comme l'appli : « derunternehmer »)
+    return (art + w).lower()
 
 def shown(c):
     a = c['art']

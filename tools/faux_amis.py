@@ -1,13 +1,13 @@
-"""Contrôle 3 : faux amis italien-français.
+"""Contrôle 3 : faux amis, par paire (catalogue FAUX_AMIS[paire]).
 Catalogue de départ (à enrichir) : mot italien -> traductions françaises trompeuses (ressemblance de forme, sens différent).
 Une carte est signalée si l'une de ses traductions est un faux ami du catalogue. Le catalogue est volontairement court
 (entrées sûres seulement) : l'enrichir à chaque erreur trouvée par un relecteur.
 Usage : python3 faux_amis.py
 """
 import sys, re, unicodedata
-from common import load, shown, fr_senses
+from common import load, shown, fr_senses, PAIR
 # (mot italien, nature ou '*', traduction française trompeuse, sens réel / remarque)
-FAUX_AMIS = [
+FAUX_AMIS = {'it-fr': [
  ('puntualmente', '*', 'ponctuellement', "= comme prévu / sans faute ; « ponctuellement » signifie surtout « de façon occasionnelle »"),
  ('camera', 'n', 'caméra', 'camera = chambre ; caméra = telecamera'),
  ('cantina', 'n', 'cantine', 'cantina = cave ; cantine = mensa'),
@@ -31,7 +31,25 @@ FAUX_AMIS = [
  ('stampa', 'n', 'estampe', 'stampa = presse, impression'),
  ('fiera', 'n', 'fière', 'fiera = foire, salon'),
  ('mobile', 'n', 'mobile', 'il mobile = meuble'),
-]
+],
+# (mot allemand, nature ou '*', traduction française trompeuse, sens réel / remarque)
+'de-fr': [
+ ('Gift', 'n', 'cadeau', 'das Gift = le poison ; cadeau = das Geschenk'),
+ ('Messer', 'n', 'compteur', 'das Messer = le couteau ; compteur = der Zähler'),
+ ('bekommen', 'v', 'devenir', 'bekommen = recevoir ; devenir = werden'),
+ ('Rente', 'n', 'rente', 'die Rente = la retraite (pension)'),
+ ('Lokal', 'n', 'local', 'das Lokal = le bistrot, le restaurant'),
+ ('Konkurs', 'n', 'concours', 'der Konkurs = la faillite ; concours = der Wettbewerb'),
+ ('Promotion', 'n', 'promotion', 'die Promotion = le doctorat'),
+ ('blamieren', 'v', 'blâmer', 'sich blamieren = se ridiculiser ; blâmer = tadeln'),
+ ('Dose', 'n', 'dose', 'die Dose = la boîte (de conserve) ; dose = die Dosis'),
+ ('Tablett', 'n', 'tablette', 'das Tablett = le plateau ; tablette = das Tablet'),
+ ('Rat', 'n', 'rat', 'der Rat = le conseil ; rat = die Ratte'),
+ ('Hut', 'n', 'hutte', 'der Hut = le chapeau ; hutte = die Hütte'),
+ ('also', '*', 'aussi', 'also = donc ; aussi = auch'),
+ ('Kompass', 'n', 'compas', 'der Kompass = la boussole ; compas = der Zirkel'),
+],
+}
 def norm(s):
     s = unicodedata.normalize('NFD', s.lower())
     return ''.join(ch for ch in s if unicodedata.category(ch) != 'Mn')
@@ -40,7 +58,7 @@ def run(repo='..'):
     hits = []
     for c in cards:
         gl = [norm(g) for g in fr_senses(c['fr'])]
-        for w, nat, bad, note in FAUX_AMIS:
+        for w, nat, bad, note in FAUX_AMIS.get(PAIR, []):
             if c['w'] == w and (nat == '*' or c['nat'].startswith(nat)) and norm(bad) in gl:
                 hits.append((c, bad, note))
     return hits
