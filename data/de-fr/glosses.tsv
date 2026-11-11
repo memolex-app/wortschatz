@@ -47,14 +47,13 @@ bis#1	jusqu'à (temps, lieu)
 doch#1	quand même (particule ; si : réponse à une négation)
 immer#1	toujours (à chaque fois)
 jetzt#1	maintenant (terme courant)
-wieder#1	de nouveau
-wieder#2	encore
+wieder#1	de nouveau (courant)
 gut#1	bon
 unter#1	sous (aussi : parmi)
 können#1	pouvoir (capacité, possibilité)
 ab#1	à partir de
 ab#2	dès (point de départ)
-also#1	donc
+also#1	donc (alors)
 ganz#1	entier
 ganz#2	tout à fait
 ohne#1	sans
@@ -99,7 +98,7 @@ lassen#1	laisser (permettre ; faire faire)
 müssen#1	devoir
 müssen#2	falloir
 weiter#1	plus loin (encore, ensuite)
-wirklich#1	vraiment
+wirklich#1	vraiment (réellement)
 zwischen#1	entre
 nie#1	ne … jamais
 der Tag#1	le jour
@@ -128,9 +127,9 @@ einmal#1	une fois (aussi : un jour)
 kommen#1	venir
 kommen#2	arriver
 wollen#1	vouloir
-bereits#1	déjà
+bereits#1	déjà (plutôt écrit)
 während#1	pendant
-vielleicht#1	peut-être
+vielleicht#1	peut-être (courant)
 gar#1	pas du tout (gar nicht)
 tun#1	faire (agir, accomplir une action)
 etwa#1	environ
@@ -140,7 +139,7 @@ fast#2	à peu près
 das Geld#1	l'argent (monnaie ; familier : sous)
 klar#1	clair (évident, net)
 paar#1	quelques (petit nombre, familier)
-der Teil#1	la partie
+der Teil#1	la partie (d'un tout)
 danke#1	merci
 davon#1	en
 davon#2	de cela
@@ -227,8 +226,8 @@ beide#1	les deux (tous les deux)
 daher#1	de là
 daher#2	c'est pourquoi
 daran#1	à cela
-genug#1	assez
-der Grund#1	la raison
+genug#1	assez (suffisamment)
+der Grund#1	la raison (cause, motif)
 die Nacht#1	la nuit
 sonst#1	autrement (sinon ; d'habitude)
 das Thema#1	le sujet
@@ -251,21 +250,20 @@ spielen#1	jouer (terme général)
 stellen#1	poser
 stellen#2	mettre (debout)
 arbeiten#1	travailler
-arbeiten#2	bosser
-außerdem#1	en plus
+außerdem#1	en plus (en outre)
 das Beispiel#1	l'exemple (cas qui illustre)
 bekommen#1	recevoir (terme courant)
 besonders#1	particulièrement
 besonders#2	spécialement
 die Geschichte#1	l'histoire (récit ; matière scolaire)
-das Unternehmen#1	l'entreprise
+das Unternehmen#1	l'entreprise (société)
 unternehmen#1	entreprendre
 los#1	parti
 los#2	Was ist los ? = que se passe-t-il ?
 der Ort#1	l'endroit
 der Ort#2	le lieu
 pro#1	par (par unité : par jour, par personne)
-das Auto#1	la voiture
+das Auto#1	la voiture (courant)
 bald#1	bientôt
 dank#1	grâce à (cause positive)
 echt#1	vrai (authentique)
@@ -279,7 +277,6 @@ der Gott#2	le dieu
 die Hand#1	la main
 hoch#1	haut
 das Kind#1	l'enfant
-das Kind#2	le gosse
 der Kopf#1	la tête (terme courant)
 lang#1	long
 oben#1	en haut
@@ -294,7 +291,7 @@ stark#1	fort
 stark#2	solide
 allein#1	seul (sans personne)
 anders#1	autrement (d'une autre manière, différent)
-der Anfang#1	le début
+der Anfang#1	le début (courant)
 bisher#1	jusqu'à présent
 damals#1	à l'époque
 damals#2	alors
@@ -320,12 +317,12 @@ bekannt#1	connu
 bringen#1	apporter
 bringen#2	amener
 endlich#1	enfin (après une longue attente)
-wichtig#1	important
+wichtig#1	important (qui compte)
 deutlich#1	clair
 deutlich#2	net
 erhalten#1	recevoir
 erhalten#2	conserver
-ebenfalls#1	également
+ebenfalls#1	également (aussi)
 gegenüber#1	en face de
 gegenüber#2	vis-à-vis de
 überhaupt#1	du tout (überhaupt nicht)
@@ -352,7 +349,7 @@ groß#2	gros
 der Herr#1	monsieur
 der Herr#2	le seigneur
 die Idee#1	l'idée (pensée nouvelle)
-die Lage#1	la situation
+die Lage#1	la situation (circonstances)
 laut#1	d'après
 laut#2	selon
 raus#1	dehors (familier, oral)
@@ -367,13 +364,12 @@ die Wahl#1	le choix
 die Wahl#2	l'élection
 wann#1	quand
 der Wert#1	la valeur
-der Wert#2	le prix
 wert#1	qui vaut (wert sein)
 das Wort#1	le mot
 das Wort#2	la parole
 das Ziel#1	le but
 das Ziel#2	la destination
-die Angst#1	la peur
+die Angst#1	la peur (crainte, angoisse)
 außer#1	hors de
 außer#2	sauf
 darum#1	c'est pourquoi
@@ -400,7 +396,7 @@ trotz#1	malgré
 trotz#2	en dépit de
 der Vater#1	le père
 wieso#1	pourquoi (familier, oral)
-denken#1	penser
+denken#1	penser (réfléchir)
 dürfen#1	pouvoir
 dürfen#2	avoir la permission de
 der Erfolg#1	le succès
@@ -424,9 +420,9 @@ suchen#1	chercher (essayer de trouver)
 vorbei#1	fini
 vorbei#2	passé
 völlig#1	complètement
-zahlen#1	payer
+zahlen#1	payer (verser de l'argent)
 der Artikel#1	l'article
-der Bereich#1	le domaine
+der Bereich#1	le domaine (secteur, zone)
 das Deutsch#1	l'allemand (la langue)
 deutsch#1	allemand
 gestern#1	hier
@@ -443,11 +439,11 @@ die Zukunft#2	l'avenir
 aufgrund#1	en raison de (soutenu, écrit)
 bestimmt#1	certain (déterminé, précis ; adverbe : sûrement)
 bisschen#1	un peu (familier : un petit peu)
-brauchen#1	avoir besoin de
+brauchen#1	avoir besoin de (courant)
 manchmal#1	parfois
 manchmal#2	quelquefois
 die Richtung#1	la direction (sens, orientation)
-trotzdem#1	quand même
+trotzdem#1	quand même (malgré tout)
 ziemlich#1	assez
 ziemlich#2	plutôt
 zunächst#1	d'abord (dans un premier temps)
@@ -467,8 +463,7 @@ schließlich#1	finalement
 schließlich#2	après tout
 das Bad#1	la salle de bain
 das Bad#2	le bain
-der Job#1	le job
-der Job#2	le boulot
+der Job#1	le boulot (familier)
 per#1	par (moyen : par courrier, par e-mail)
 der Sex#1	le sexe (l'acte, relations intimes)
 die Band#1	le groupe (de musique)
@@ -537,12 +532,12 @@ der Spieler#1	le joueur
 die Sprache#1	la langue
 die Sprache#2	le langage
 die Tochter#1	la fille (enfant de ses parents)
-die Wohnung#1	l'appartement
+die Wohnung#1	l'appartement (logement)
 schaffen#1	réussir
 schaffen#2	créer
 schlecht#1	mauvais
-schlecht#2	mal
-sprechen#1	parler
+schlecht#2	mal (courant)
+sprechen#1	parler (une langue, à qn)
 übrigens#1	au fait
 übrigens#2	d'ailleurs
 gemeinsam#1	commun (partagé, ensemble)
@@ -580,7 +575,7 @@ der Text#1	le texte
 toll#1	génial
 toll#2	super
 der Boden#1	le sol (plancher, terre)
-darin#1	dedans
+darin#1	là-dedans
 der Druck#1	la pression (physique ; aussi : impression)
 die Firma#1	l'entreprise (terme courant)
 der Kampf#1	le combat
@@ -609,16 +604,16 @@ der Sport#1	le sport
 der Staat#1	l'État (pays, nation)
 die Sucht#1	la dépendance
 die Sucht#2	l'addiction
-unten#1	en bas
+unten#1	en bas (position)
 weder#1	ni
 zuvor#1	auparavant (soutenu)
 die Ahnung#1	l'idée (pressentiment ; aucune idée : keine …)
 der Beginn#1	le commencement
-bereit#1	prêt
+bereit#1	prêt (disposé à)
 der Bruder#1	le frère
 der Bürger#1	le citoyen (habitant, bourgeois)
-fallen#1	tomber
-falsch#1	faux
+fallen#1	tomber (courant)
+falsch#1	faux (erroné)
 fertig#1	prêt
 fertig#2	fini
 das Gefühl#1	le sentiment
@@ -656,8 +651,7 @@ dennoch#2	néanmoins
 der Fußball#1	le football
 der Fußball#2	le ballon de foot
 gehören#1	appartenir
-genauso#1	de même
-genauso#2	exactement
+genauso#1	de même (tout aussi)
 das Gesicht#1	le visage
 jeweils#1	chaque fois
 jeweils#2	respectivement
@@ -715,7 +709,7 @@ verlassen#1	quitter
 verlassen#2	abandonner
 versuchen#1	essayer
 versuchen#2	tenter
-weiterhin#1	encore (toujours, à l'avenir)
+weiterhin#1	à l'avenir (continuer à)
 die Ausbildung#1	la formation (professionnelle, apprentissage)
 die Verbindung#1	la liaison
 die Verbindung#2	la connexion
@@ -789,7 +783,7 @@ total#1	total (familier : complètement)
 der Besuch#1	la visite (chez quelqu'un)
 der Dollar#1	le dollar
 dritte#1	troisième
-erneut#1	de nouveau
+erneut#1	de nouveau (soutenu)
 die Freude#1	la joie
 freuen#1	se réjouir
 die Gefahr#1	le danger
@@ -802,7 +796,7 @@ der Montag#1	le lundi
 nennen#1	appeler
 nennen#2	nommer
 die Nummer#1	le numéro
-der Scheiß#1	la merde
+der Scheiß#1	la merde (vulgaire)
 die Schuld#1	la culpabilité
 die Schuld#2	la faute
 schuld#1	fautif (schuld sein : être responsable)
@@ -1350,7 +1344,7 @@ die Religion#1	la religion
 schicken#1	envoyer (terme courant)
 die Stiftung#1	la fondation (organisme)
 ungefähr#1	environ
-verdammt#1	foutu
+verdammt#1	foutu (familier)
 verdammt#2	maudit
 der Anschluss#1	la connexion (raccordement ; correspondance)
 empfehlen#1	recommander
@@ -1470,8 +1464,7 @@ das Tier#2	la bête
 der Wein#1	le vin (aussi : la vigne)
 der Witz#1	la blague
 der Wolf#1	le loup
-das Zeug#1	le machin
-das Zeug#2	le truc
+das Zeug#1	le truc (familier)
 breit#1	large (en largeur)
 die Bühne#1	la scène (plateau de théâtre)
 die Dauer#1	la durée (temps)
@@ -1892,8 +1885,7 @@ die Tasche#2	la poche
 das Umfeld#1	le milieu (entourage, environnement)
 das Verbot#1	l'interdiction
 das Verbot#2	la prohibition
-witzig#1	drôle
-witzig#2	marrant
+witzig#1	drôle (spirituel)
 worauf#1	sur quoi
 der Wähler#1	l'électeur
 der Zufall#1	la coïncidence
@@ -2900,7 +2892,7 @@ der Beschluss#2	l'arrêté
 dauerhaft#1	durable
 dauerhaft#2	durablement
 demnächst#1	prochainement
-einkaufen#1	acheter (faire les courses)
+einkaufen#1	faire les courses
 empfangen#1	recevoir (accueillir des invités ; un signal)
 entdecken#1	découvrir (trouver)
 erkennbar#1	reconnaissable
@@ -3030,7 +3022,8 @@ der Bart#1	la barbe
 die Buße#1	l'amende
 die Buße#2	la pénitence
 doof#1	con (débile, nul : familier)
-drum#1	aussi (familier : c'est pourquoi ; autour)
+drum#1	c'est pourquoi (familier)
+drum#2	autour
 der Erbe#1	l'héritier
 der Funk#1	la radio (transmission)
 der Funk#2	le funk (musique)
@@ -3438,8 +3431,7 @@ das Gutachten#1	l'expertise (rapport d'expert)
 hilfreich#1	utile
 hinweisen#1	signaler
 hinweisen#2	attirer l'attention
-der Hurensohn#1	le fils de pute
-der Hurensohn#2	le fils de putain
+der Hurensohn#1	le fils de pute (vulgaire)
 irgendein#1	quelque
 irgendein#2	n'importe quel
 jahrelang#1	pendant des années
@@ -3726,7 +3718,7 @@ der Stift#1	le crayon (stylo, terme général)
 die Stirn#1	le front
 die Tasse#1	la tasse
 die Treue#1	la fidélité
-der Trick#1	le truc
+der Trick#1	l'astuce
 der Trick#2	le tour
 die Wiese#1	le pré
 die Wiese#2	la prairie
@@ -3790,7 +3782,7 @@ sinken#2	couler
 stetig#1	continu (constant, régulier ; maths : continu)
 stoßen#1	pousser
 stoßen#2	heurter
-stoßen#3	tomber (auf : sur)
+stoßen#3	tomber sur (trouver)
 der Strauß#1	le bouquet (aussi : autruche)
 das Tablet#1	la tablette (numérique)
 trauen#1	faire confiance (à)
@@ -4213,7 +4205,7 @@ der Rap#1	le rap
 die Ära#1	l'ère
 anal#1	anal
 brav#1	sage (obéissant : enfant, animal)
-der Dreh#1	le truc (tour de main)
+der Dreh#1	le truc (familier)
 der Dreh#2	le tournage
 das Echo#1	l'écho
 der Fang#1	la prise
@@ -4586,7 +4578,6 @@ gewähren#1	accorder (octroyer)
 die Hardware#1	le matériel (informatique)
 der Horizont#1	l'horizon
 hässlich#1	laid
-hässlich#2	moche
 indirekt#1	indirect
 inmitten#1	au milieu de
 das Jubiläum#1	l'anniversaire (d'une institution : 10, 50, 100 ans)
@@ -4876,8 +4867,7 @@ verschieben#1	reporter (repousser dans le temps ; déplacer un objet)
 verschieden#1	différent (distinct ; divers, plusieurs)
 der Verteidiger#1	le défenseur
 der Verteidiger#2	l'arrière
-das Verzeichnis#1	le répertoire
-das Verzeichnis#2	la liste
+das Verzeichnis#1	le répertoire (index, registre)
 vorbehalten#1	réserver (se réserver un droit)
 wöchentlich#1	hebdomadaire
 überflüssig#1	superflu
@@ -4975,8 +4965,7 @@ der Herd#2	le foyer
 der Homo#1	le gay
 der Homo#2	l'homo
 homo#1	homo
-die Hure#1	la putain
-die Hure#2	la pute
+die Hure#1	la putain (vulgaire)
 der Korb#1	le panier
 der Kram#1	le bazar
 der Kram#2	le fatras
@@ -5466,7 +5455,6 @@ der Wettkampf#1	la compétition (épreuve sportive)
 widerlich#1	dégoûtant
 widerlich#2	dégueulasse
 die Zigarette#1	la cigarette
-die Zigarette#2	la clope
 die Abgrenzung#1	la délimitation
 die Abgrenzung#2	la démarcation
 abschalten#1	éteindre

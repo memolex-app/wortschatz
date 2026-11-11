@@ -79,6 +79,13 @@ Ces contrôles n'avaient jamais tourné sur les données allemandes publiées. R
 - `faux_amis` : 0.
 - `ex_gloss` : 783 alertes sur 6 123 phrases, surtout des traductions libres justes (« noch » → « toujours »), mais aussi de vraies erreurs : *der Laut* illustré par « Tom spielt Laute » (*die Laute* = le luth), *der Teil* par « Teilen macht Freude » (verbe), une phrase allemande fautive (« Laut Tageszeitung gab in der Stadt einen Brand », sans *es*). Relecture à faire, en commençant par les noms ; un `ex_pos` allemand attraperait les verbes pris pour des noms.
 
+## Corrections des données (décisions)
+
+- Une correction = une ligne dans un fichier daté `data/<L>-<U>/decisions/AAAA-MM-JJ-<nom>.tsv` (clé · nouvelle traduction · justification), appliqué par `tools/apply_decisions.py`, puis `build.py` et `check.py`.
+- Avant application : essai, comparaison des ambiguïtés avant / après (aucune nouvelle), liste montrée à Andrea.
+- **Lot 1 (11/11/2026, version 1.8.2)** : `2026-11-11-ambig-1.tsv`, 50 cartes (13 registre, 37 ambiguïtés). Cartes ambiguës 214 → 179, 0 doublon, 0 mot familier sans étiquette (reste *chouette*, fausse alerte).
+- Règle validée par Andrea (11/11/2026) : pour de vrais synonymes, le mot de base peut porter « (courant) » quand ses synonymes plus rares sont tous marqués (soutenu, familier…) ; ce n'est pas l'étiquette vide « terme courant » retirée en octobre.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).

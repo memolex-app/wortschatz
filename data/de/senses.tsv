@@ -48,7 +48,6 @@ doch#1	doch
 immer#1	immer
 jetzt#1	jetzt
 wieder#1	wieder
-wieder#2	wieder
 gut#1	gut
 unter#1	unter
 können#1	können
@@ -251,7 +250,6 @@ spielen#1	spielen
 stellen#1	stellen
 stellen#2	stellen
 arbeiten#1	arbeiten
-arbeiten#2	arbeiten
 außerdem#1	außerdem
 das Beispiel#1	das Beispiel
 bekommen#1	bekommen
@@ -279,7 +277,6 @@ der Gott#2	der Gott
 die Hand#1	die Hand
 hoch#1	hoch
 das Kind#1	das Kind
-das Kind#2	das Kind
 der Kopf#1	der Kopf
 lang#1	lang
 oben#1	oben
@@ -367,7 +364,6 @@ die Wahl#1	die Wahl
 die Wahl#2	die Wahl
 wann#1	wann
 der Wert#1	der Wert
-der Wert#2	der Wert
 wert#1	wert
 das Wort#1	das Wort
 das Wort#2	das Wort
@@ -468,7 +464,6 @@ schließlich#2	schließlich
 das Bad#1	das Bad
 das Bad#2	das Bad
 der Job#1	der Job
-der Job#2	der Job
 per#1	per
 der Sex#1	der Sex
 die Band#1	die Band
@@ -657,7 +652,6 @@ der Fußball#1	der Fußball
 der Fußball#2	der Fußball
 gehören#1	gehören
 genauso#1	genauso
-genauso#2	genauso
 das Gesicht#1	das Gesicht
 jeweils#1	jeweils
 jeweils#2	jeweils
@@ -1471,7 +1465,6 @@ der Wein#1	der Wein
 der Witz#1	der Witz
 der Wolf#1	der Wolf
 das Zeug#1	das Zeug
-das Zeug#2	das Zeug
 breit#1	breit
 die Bühne#1	die Bühne
 die Dauer#1	die Dauer
@@ -1893,7 +1886,6 @@ das Umfeld#1	das Umfeld
 das Verbot#1	das Verbot
 das Verbot#2	das Verbot
 witzig#1	witzig
-witzig#2	witzig
 worauf#1	worauf
 der Wähler#1	der Wähler
 der Zufall#1	der Zufall
@@ -3031,6 +3023,7 @@ die Buße#1	die Buße
 die Buße#2	die Buße
 doof#1	doof
 drum#1	drum
+drum#2	drum
 der Erbe#1	der Erbe
 der Funk#1	der Funk
 der Funk#2	der Funk
@@ -3439,7 +3432,6 @@ hilfreich#1	hilfreich
 hinweisen#1	hinweisen
 hinweisen#2	hinweisen
 der Hurensohn#1	der Hurensohn
-der Hurensohn#2	der Hurensohn
 irgendein#1	irgendein
 irgendein#2	irgendein
 jahrelang#1	jahrelang
@@ -4586,7 +4578,6 @@ gewähren#1	gewähren
 die Hardware#1	die Hardware
 der Horizont#1	der Horizont
 hässlich#1	hässlich
-hässlich#2	hässlich
 indirekt#1	indirekt
 inmitten#1	inmitten
 das Jubiläum#1	das Jubiläum
@@ -4877,7 +4868,6 @@ verschieden#1	verschieden
 der Verteidiger#1	der Verteidiger
 der Verteidiger#2	der Verteidiger
 das Verzeichnis#1	das Verzeichnis
-das Verzeichnis#2	das Verzeichnis
 vorbehalten#1	vorbehalten
 wöchentlich#1	wöchentlich
 überflüssig#1	überflüssig
@@ -4976,7 +4966,6 @@ der Homo#1	der Homo
 der Homo#2	der Homo
 homo#1	homo
 die Hure#1	die Hure
-die Hure#2	die Hure
 der Korb#1	der Korb
 der Kram#1	der Kram
 der Kram#2	der Kram
@@ -5466,7 +5455,6 @@ der Wettkampf#1	der Wettkampf
 widerlich#1	widerlich
 widerlich#2	widerlich
 die Zigarette#1	die Zigarette
-die Zigarette#2	die Zigarette
 die Abgrenzung#1	die Abgrenzung
 die Abgrenzung#2	die Abgrenzung
 abschalten#1	abschalten
