@@ -1,6 +1,6 @@
 # Memolex multilingue : conception
 
-État : **étape 1 faite** (11/11/2026). Ce document est la référence ; il est mis à jour à chaque étape.
+État : **étapes 1 et 2 faites** (11/11/2026). Ce document est la référence ; il est mis à jour à chaque étape.
 
 ## Objectif
 
@@ -62,6 +62,23 @@ Critère : régénérer les fichiers publiés **à l'octet près**. Résultat : 
 
 **À partir de maintenant, toute correction des listes allemandes ou italiennes se fait dans `data/`, puis `build.py`.**
 
+## Contrôles (`tools/check.py L U [--full] [--compare]`)
+
+- Généraux pour une langue d'utilisateur française : `check_dups` (doublons, cartes ambiguës), `chunks_check`, `register`, `ex_gloss` (avec `--full`).
+- Par langue apprise : `plural_check` (it, alertes « à vérifier » informatives), `ex_pos` (it, `--full`), `prep_case` (de, audit n° 9).
+- Par paire : `faux_amis` (catalogues it-fr et de-fr ; de-fr commencé le 11/11/2026, entrées sûres seulement).
+- Dépendances : `snowballstemmer`, spaCy avec `fr_core_news_md`, `it_core_news_lg` (et `de_core_news_md` pour un futur `ex_pos` allemand).
+- Une nouvelle paire doit avoir ses contrôles **dans la langue de l'utilisateur** (articles, registre, racines) : ceux d'aujourd'hui sont écrits pour le français.
+
+### Premier passage des contrôles sur l'allemand (11/11/2026)
+Ces contrôles n'avaient jamais tourné sur les données allemandes publiées. Résultats, **non corrigés** (décisions d'Andrea à prendre) :
+- `check_dups` : 0 doublon, **214 cartes ambiguës** (carte sans nuance dont la traduction est incluse dans celle d'un autre mot de même nature : *auch* « aussi » ⊂ *drum* « aussi (familier…) », *der Teil* « la partie » ⊂ *die Partie* « la partie (de jeu…) »). Retard attendu depuis la simplification d'octobre (le contrôle des inclusions n'avait pas été refait).
+- `register` : 14 cartes à mot familier ou vulgaire sans étiquette (*bosser*, *gosse*, *boulot*, *merde*, *fils de pute*, *putain*, *clope*… ; *chouette* (l'oiseau) et *truc* (tour) sont de fausses alertes).
+- `chunks_check` : 3 chunks de 4 mots en A1–A2, tous des conjonctions doubles (*nicht heute, sondern morgen*, *zwar teuer, aber gut*, *weder heute noch morgen*) : tolérance à décider.
+- `prep_case` : *versus* absent de la table des cas.
+- `faux_amis` : 0.
+- `ex_gloss` : 783 alertes sur 6 123 phrases, surtout des traductions libres justes (« noch » → « toujours »), mais aussi de vraies erreurs : *der Laut* illustré par « Tom spielt Laute » (*die Laute* = le luth), *der Teil* par « Teilen macht Freude » (verbe), une phrase allemande fautive (« Laut Tageszeitung gab in der Stadt einen Brand », sans *es*). Relecture à faire, en commençant par les noms ; un `ex_pos` allemand attraperait les verbes pris pour des noms.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
@@ -78,7 +95,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | # | Étape | Critère de sortie |
 |---|---|---|
 | 1 | Format source + build à l'identique | ✅ 6/6 fichiers identiques |
-| 2 | Contrôles sur le format source (`check_dups`, chunks, pluriels, faux amis… adaptés à `data/`), par paire | mêmes résultats que sur les JSON (0 doublon, 0 ambiguïté) |
+| 2 | Contrôles sur le format source, par paire (`tools/check.py`) | ✅ sorties identiques sur `data/` et sur les JSON (de-fr, it-fr, contrôles rapides et complets) |
 | 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ≥ 99 % des phrases Tatoeba retrouvées ; crédits identiques ou plus complets |
 | 4 | Grammaire par langue sortie de l'appli (`langue.json`) | appli de/it inchangée à l'usage (tests Playwright) |
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | appli en français inchangée ; textes extraits |
