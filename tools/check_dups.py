@@ -4,7 +4,12 @@
 Usage : python3 check_dups.py     -> doit afficher 0 et 0
 """
 import re, collections
-from common import load, shown, strip_note
+import os
+from common import load, shown, strip_note, PAIR
+# exceptions vérifiées à la main (une clé de carte par ligne, # = commentaire) : ignore_check_dups_<paire>.txt
+def ignored_keys():
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), f'ignore_check_dups_{PAIR}.txt')
+    return {l.split('#')[0].strip() for l in open(p, encoding='utf-8')} - {''} if os.path.exists(p) else set()
 ART = re.compile(r"^(?:(?:le|la|les|un|une|des)\s+|l')", re.I)
 def norm_full(s):
     return [ART.sub('', p.strip()).lower() for p in re.split(r'[;,](?![^(]*\))', s) if p.strip()]
@@ -18,8 +23,9 @@ def run(repo='..', cards=None):
     for c in cards:
         for s in norm_full(strip_note(c['fr'])): bysense[(key_nat(c), s)].add(c['i'])
     amb = []
+    skip = ignored_keys()
     for c in cards:
-        if '(' in c['fr']: continue
+        if '(' in c['fr'] or shown(c) in skip: continue
         senses = norm_full(c['fr'])
         if not senses: continue
         others = None
