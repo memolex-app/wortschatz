@@ -637,13 +637,13 @@ der Verein#1	l'association
 der Verein#2	le club
 vorher#1	avant
 vorher#2	auparavant
-warten#1	attendre
+warten#1	attendre (patienter)
 wählen#1	choisir
 wählen#2	voter (élire)
 ziehen#1	tirer (traîner, tirer vers soi)
 das Zimmer#1	la chambre
 das Zimmer#2	la pièce
-zuerst#1	d'abord
+zuerst#1	d'abord (en premier)
 anderer#1	autre (un autre, une autre)
 die Antwort#1	la réponse (terme courant)
 dennoch#1	pourtant
@@ -652,7 +652,7 @@ der Fußball#1	le football
 der Fußball#2	le ballon de foot
 gehören#1	appartenir
 genauso#1	de même (tout aussi)
-das Gesicht#1	le visage
+das Gesicht#1	le visage (courant)
 jeweils#1	chaque fois
 jeweils#2	respectivement
 niemals#1	jamais (soutenu, insistant)
@@ -664,12 +664,11 @@ der Schüler#1	l'élève
 der Schüler#2	l'écolier
 der Sonntag#1	le dimanche
 stimmen#1	être exact (Das stimmt. = c'est vrai)
-die Zeitung#1	le journal
+die Zeitung#1	le journal (presse)
 überall#1	partout (en tout lieu)
 deswegen#1	c'est pourquoi
 deswegen#2	pour cela
 durchaus#1	tout à fait
-durchaus#2	absolument
 entfernt#1	éloigné
 entfernt#2	distant
 das Ergebnis#1	le résultat (terme courant)
@@ -678,7 +677,7 @@ die Freundin#1	l'amie
 die Freundin#2	la petite amie
 der Gefallen#1	le service
 der Gefallen#2	la faveur
-gefallen#1	plaire
+gefallen#1	plaire (courant)
 die Gemeinde#1	la commune
 die Gemeinde#2	la paroisse
 gewinnen#1	gagner (un match, un prix)
@@ -788,7 +787,7 @@ die Freude#1	la joie
 freuen#1	se réjouir
 die Gefahr#1	le danger
 das Gesetz#1	la loi
-die Gewalt#1	la violence
+die Gewalt#1	la violence (force brutale)
 der Lehrer#1	le professeur
 der Lehrer#2	l'enseignant
 lieben#1	aimer (d'amour)
@@ -833,7 +832,7 @@ der Versuch#1	la tentative
 der Versuch#2	l'essai
 der Vertrag#1	le contrat
 der Vertrag#2	le traité
-das Zeichen#1	le signe
+das Zeichen#1	le signe (marque, symbole)
 zuletzt#1	en dernier
 zuletzt#2	pour finir
 ähnlich#1	semblable
@@ -844,8 +843,8 @@ englisch#1	anglais
 erfahren#1	apprendre (une nouvelle)
 erfahren#2	faire l'expérience de
 erkennen#1	reconnaître (identifier)
-erwarten#1	attendre (s'attendre à)
-erwarten#2	espérer
+erwarten#1	attendre (une visite, un événement prévu)
+erwarten#2	s'attendre à
 die Freiheit#1	la liberté
 die Leistung#1	la performance
 die Leistung#2	la prestation
@@ -856,7 +855,7 @@ glücklich#1	heureux (terme courant)
 verfahren#1	procéder (agir selon une méthode)
 das Verhalten#1	le comportement
 verhalten#1	se comporter (agir d'une certaine façon)
-der Zeitpunkt#1	le moment
+der Zeitpunkt#1	le moment (date précise)
 irgendwann#1	un jour ou l'autre
 irgendwann#2	n'importe quand
 jedenfalls#1	en tout cas (quoi qu'il en soit)
@@ -889,7 +888,7 @@ cool#1	cool
 das Ding#1	la chose (objet, truc)
 dumm#1	bête (idiot : terme courant)
 fort#1	loin (parti, absent)
-froh#1	content
+froh#1	content (heureux)
 das Grün#1	le vert
 das Grün#2	la verdure
 grün#1	vert
@@ -903,14 +902,14 @@ die Lust#1	l'envie (désir de faire)
 der Mund#1	la bouche
 das Netz#1	le filet
 das Netz#2	le réseau
-die Sage#1	la légende
+die Sage#1	la légende (récit populaire)
 die Show#1	le spectacle (émission de divertissement)
 spät#1	tard
 das Tief#1	la dépression (météo ; moral : passage à vide)
 tief#1	profond
 das Volk#1	le peuple
 wahr#1	vrai (conforme à la vérité)
-der Wald#1	la forêt
+der Wald#1	la forêt (courant)
 das Album#1	l'album
 der Arsch#1	le cul
 der Arsch#2	le salaud
@@ -918,7 +917,7 @@ der Autor#1	l'auteur (écrivain)
 baden#1	se baigner
 baden#2	prendre un bain
 die Basis#1	la base (fondement)
-bauen#1	construire
+bauen#1	construire (courant)
 dahin#1	y (là-bas, avec mouvement)
 das Feuer#1	le feu (flammes)
 frank#1	franc
@@ -963,7 +962,7 @@ die Anzahl#1	le nombre (quantité d'éléments)
 bieten#1	offrir (une possibilité, un cadre : présenter)
 der Dienst#1	le service (travail, fonction ; service public)
 das Extrem#1	l'extrême
-extrem#1	extrême
+extrem#1	extrême (excessif)
 fehlen#1	manquer (être absent, faire défaut)
 feiern#1	fêter
 feiern#2	faire la fête
@@ -996,7 +995,7 @@ längst#1	depuis longtemps
 die Minute#1	la minute
 das Mittel#1	le moyen
 das Mittel#2	le remède
-mittel#1	moyen
+mittel#1	moyen (passable)
 der Müller#1	le meunier
 normal#1	normal
 die Praxis#1	la pratique (aussi : cabinet médical)
@@ -1061,7 +1060,7 @@ die Website#1	le site web
 die Website#2	le site
 die Werbung#1	la publicité
 zuhause#1	à la maison (terme courant)
-der Zustand#1	l'état
+der Zustand#1	l'état (condition)
 aussehen#1	avoir l'air
 bestehen#1	réussir (un examen ; aussi : exister)
 bezahlen#1	payer (un achat, une facture)
@@ -1084,7 +1083,7 @@ irgendwo#2	n'importe où
 der Künstler#1	l'artiste (homme)
 das Mitglied#1	le membre (d'une association)
 die Position#1	la position (place, poste)
-die Qualität#1	la qualité
+die Qualität#1	la qualité (valeur)
 schlafen#1	dormir
 schützen#1	protéger (contre un danger)
 die Umgebung#1	les environs (alentours, entourage)
@@ -1103,7 +1102,7 @@ antworten#1	répondre (à quelqu'un)
 außerhalb#1	hors de
 außerhalb#2	en dehors de
 besondere#1	particulier (spécial)
-die Beziehung#1	la relation
+die Beziehung#1	la relation (lien)
 entstehen#1	naître
 entstehen#2	se former
 der Flughafen#1	l'aéroport
@@ -1146,7 +1145,7 @@ verhindern#1	empêcher (éviter qu'une chose arrive)
 willkommen#1	bienvenu
 zusätzlich#1	supplémentaire
 beschäftigt#1	occupé (personne : qui a à faire)
-entschieden#1	décidé
+entschieden#1	décidé (résolu)
 der Hintergrund#1	l'arrière-plan
 der Hintergrund#2	l'origine
 interessant#1	intéressant
@@ -1154,7 +1153,7 @@ das Jahrhundert#1	le siècle (cent ans)
 das Krankenhaus#1	l'hôpital (terme courant)
 miteinander#1	ensemble (l'un avec l'autre)
 der Unterschied#1	la différence (terme courant)
-anschließend#1	ensuite
+anschließend#1	ensuite (à la suite)
 entsprechend#1	correspondant
 entsprechend#2	en conséquence
 die Organisation#1	l'organisation (structure, association)
@@ -1172,7 +1171,7 @@ der Bus#1	le bus
 der Bus#2	le car
 der Hof#1	la cour (de ferme, d'immeuble ; cour royale)
 die Not#1	la misère (détresse, besoin urgent)
-der Rat#1	le conseil
+der Rat#1	le conseil (avis ; assemblée)
 der Rum#1	le rhum
 der Van#1	le monospace
 wow#1	ouah
@@ -1226,7 +1225,7 @@ die Falle#1	le piège
 die Farbe#1	la couleur (teinte ; peinture)
 der Geist#1	l'esprit
 der Geist#2	le fantôme
-herum#1	autour
+herum#1	autour (tout autour)
 hinzu#1	en plus
 hinzu#2	en prime
 innen#1	à l'intérieur (lieu, sans mouvement)
@@ -1282,7 +1281,7 @@ der Wunsch#2	le souhait
 der Angriff#1	l'attaque (terme courant)
 das Ansehen#1	la réputation
 das Ansehen#2	le prestige
-ansehen#1	regarder
+ansehen#1	regarder (examiner)
 der Auftrag#1	la commande (mission, ordre)
 die Ausgabe#1	l'édition (numéro)
 die Ausgabe#2	la dépense
@@ -1312,14 +1311,14 @@ reichen#1	suffire (aussi : tendre, passer)
 seitdem#1	depuis
 seitdem#2	depuis lors
 die Sendung#1	l'émission (radio, télé ; aussi : envoi)
-sowieso#1	de toute façon
+sowieso#1	de toute façon (courant)
 der Spiegel#1	le miroir
 die Strecke#1	le trajet (distance, parcours ; ligne)
 das Theater#1	le théâtre
 die Wirkung#1	l'effet (résultat, action produite)
 das Zentrum#1	le centre (d'une ville, institution)
 der Zweifel#1	le doute (incertitude)
-anfangen#1	commencer
+anfangen#1	commencer (courant)
 der Anspruch#1	le droit (à)
 der Anspruch#2	l'exigence
 befinden#1	se trouver (être situé)
@@ -1343,7 +1342,7 @@ der Mittwoch#1	le mercredi
 die Religion#1	la religion
 schicken#1	envoyer (terme courant)
 die Stiftung#1	la fondation (organisme)
-ungefähr#1	environ
+ungefähr#1	environ (approximativement)
 verdammt#1	foutu (familier)
 verdammt#2	maudit
 der Anschluss#1	la connexion (raccordement ; correspondance)
@@ -1363,7 +1362,7 @@ notwendig#1	nécessaire (indispensable ; soutenu)
 offiziell#1	officiel (terme courant)
 der Professor#1	le professeur (d'université)
 schließen#1	fermer (terminer)
-schwierig#1	difficile
+schwierig#1	difficile (compliqué)
 unmöglich#1	impossible (terme courant)
 verdienen#1	gagner (de l'argent)
 verdienen#2	mériter
@@ -1398,7 +1397,7 @@ vollständig#2	entièrement
 die Wissenschaft#1	la science
 abgeschlossen#1	terminé
 abgeschlossen#2	fermé à clé
-der Bürgermeister#1	le maire
+der Bürgermeister#1	le maire (d'une commune)
 hauptsächlich#1	principalement
 hauptsächlich#2	surtout
 international#1	international
@@ -1472,7 +1471,7 @@ die Ebene#1	le niveau
 die Ebene#2	la plaine
 gemäß#1	selon
 gemäß#2	conformément
-das Gerät#1	l'appareil
+das Gerät#1	l'appareil (outil, instrument)
 die Halbe#1	le demi-litre de bière
 der Islam#1	l'islam
 das Lager#1	l'entrepôt
@@ -1492,11 +1491,11 @@ der Täter#1	l'auteur (d'un crime)
 der Täter#2	le coupable
 tätig#1	actif (qui exerce un métier, travaille dans)
 woher#1	d'où
-der Zweck#1	le but
+der Zweck#1	le but (finalité)
 zwölf#1	douze
 übrig#1	restant
 der Anlass#1	l'occasion (motif, prétexte)
-der Antrag#1	la demande
+der Antrag#1	la demande (officielle)
 der Aufbau#1	la construction
 der Aufbau#2	la structure
 der Beste#1	le meilleur
@@ -1506,7 +1505,7 @@ die Breite#1	la largeur (mesure)
 die Brücke#1	le pont (ouvrage)
 das Design#1	le design
 dienen#1	servir (être utile ; servir quelqu'un)
-die Fläche#1	la surface
+die Fläche#1	la surface (étendue)
 formen#1	former
 formen#2	façonner
 frisch#1	frais
@@ -1544,7 +1543,7 @@ singen#1	chanter
 die Single#1	le single (disque)
 sparen#1	économiser
 sparen#2	épargner
-der Streit#1	la dispute
+der Streit#1	la dispute (querelle)
 der Termin#1	le rendez-vous
 der Termin#2	la date
 der Umgang#1	le rapport (avec)
@@ -1617,7 +1616,7 @@ der Vorteil#1	l'avantage
 der Wechsel#1	le changement (remplacement, alternance)
 weshalb#1	pourquoi (soutenu)
 zweimal#1	deux fois
-äußerst#1	extrêmement
+äußerst#1	extrêmement (courant)
 der Anhänger#1	le partisan
 der Anhänger#2	la remorque
 die Aufnahme#1	l'enregistrement
@@ -1633,7 +1632,7 @@ dringend#1	urgent (pressant)
 gelassen#1	calme
 gelassen#2	serein
 genießen#1	savourer (profiter de, apprécier)
-das Geschenk#1	le cadeau
+das Geschenk#1	le cadeau (courant)
 das Institut#1	l'institut
 jährlich#1	annuel
 jährlich#2	annuellement
@@ -1645,7 +1644,7 @@ momentan#1	en ce moment
 das Original#1	l'original
 original#1	original (authentique, d'origine)
 pflanzen#1	planter
-das Publikum#1	le public
+das Publikum#1	le public (spectateurs)
 die Reaktion#1	la réaction
 die Realität#1	la réalité (factuelle, objective)
 die Rechnung#1	la facture
@@ -1656,7 +1655,7 @@ scheinen#1	briller (soleil ; aussi : sembler)
 schlagen#1	frapper
 schlagen#2	battre
 die Software#1	le logiciel
-der Standard#1	le standard
+der Standard#1	le standard (norme)
 die Stimmung#1	l'ambiance
 die Stimmung#2	l'humeur
 die Tatsache#1	le fait (réalité établie)
@@ -1704,7 +1703,7 @@ der Vorschlag#1	la proposition
 der Vorschlag#2	la suggestion
 der Zuschauer#1	le spectateur
 der Donnerstag#1	le jeudi
-entwickeln#1	développer
+entwickeln#1	développer (mettre au point)
 die Erinnerung#1	le souvenir
 die Erinnerung#2	la mémoire
 erscheinen#1	apparaître
@@ -1825,7 +1824,7 @@ quasi#2	quasiment
 rufen#1	appeler (crier pour faire venir)
 der Stern#1	l'étoile
 die Story#1	l'histoire (récit, article)
-der Sturm#1	la tempête
+der Sturm#1	la tempête (vent violent)
 die Tiefe#1	la profondeur
 der Trend#1	la tendance (mode du moment)
 wohin#1	où (avec mouvement)
@@ -3880,8 +3879,7 @@ weitaus#1	de loin (bien plus : comparatif)
 wundern#1	étonner (s'étonner : sich …)
 die Zahlung#1	le paiement (le fait de payer)
 überaus#1	extrêmement (littéraire : au plus haut point)
-abwarten#1	attendre
-abwarten#2	temporiser
+abwarten#1	attendre de voir (temporiser)
 die Amtszeit#1	le mandat
 ankommen#1	arriver (terme courant)
 anpassen#1	adapter
@@ -5176,8 +5174,7 @@ der Zusatz#1	l'ajout
 der Zusatz#2	l'additif
 ärgern#1	énerver
 ärgern#2	s'énerver (sich ärgern)
-die Ärztin#1	la médecin
-die Ärztin#2	la doctoresse
+die Ärztin#1	la médecin (femme)
 der Abbruch#1	l'interruption
 der Abbruch#2	la démolition
 der Absturz#1	la chute
@@ -5376,8 +5373,7 @@ die Beachtung#1	l'attention
 die Beachtung#2	la considération
 die Befragung#1	l'interrogatoire
 die Befragung#2	le sondage
-begründen#1	justifier
-begründen#2	fonder
+begründen#1	justifier (motiver)
 bemerkbar#1	perceptible (qui se remarque)
 berechnen#1	calculer (un prix, un coût)
 beruhigen#1	calmer (rassurer)
@@ -6514,8 +6510,7 @@ der Fachbereich#1	le département (université)
 der Fachbereich#2	le domaine
 formulieren#1	formuler
 gleichfalls#1	également (formule : à vous de même)
-gleichmäßig#1	régulier
-gleichmäßig#2	uniforme
+gleichmäßig#1	uniforme (régulier)
 gratulieren#1	féliciter
 der Herzinfarkt#1	la crise cardiaque
 der Herzinfarkt#2	l'infarctus du myocarde

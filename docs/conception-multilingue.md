@@ -84,6 +84,8 @@ Ces contrôles n'avaient jamais tourné sur les données allemandes publiées. R
 - Une correction = une ligne dans un fichier daté `data/<L>-<U>/decisions/AAAA-MM-JJ-<nom>.tsv` (clé · nouvelle traduction · justification), appliqué par `tools/apply_decisions.py`, puis `build.py` et `check.py`.
 - Avant application : essai, comparaison des ambiguïtés avant / après (aucune nouvelle), liste montrée à Andrea.
 - **Lot 1 (11/11/2026, version 1.8.2)** : `2026-11-11-ambig-1.tsv`, 50 cartes (13 registre, 37 ambiguïtés). Cartes ambiguës 214 → 179, 0 doublon, 0 mot familier sans étiquette (reste *chouette*, fausse alerte).
+- **Lot 2 (11/11/2026, version 1.8.3)** : `2026-11-11-ambig-2.tsv`, 44 cartes. Ambiguïtés 179 → 137 (dont *der Arzt*, exception vérifiée dans `tools/ignore_check_dups_de-fr.txt`), 0 nouvelle, 0 doublon.
+- Leçon (correction d'Andrea sur *erwarten*) : lever une ambiguïté ne doit jamais retirer le **sens principal** d'un mot. Si les deux mots partagent un sens courant, on distingue par une nuance sur chacun (*warten* « attendre (patienter) » / *erwarten* « attendre (une visite, un événement prévu), s'attendre à »), on ne supprime pas. Vérifier chaque retrait de sens contre le Duden (sens n° 1).
 - Règle validée par Andrea (11/11/2026) : pour de vrais synonymes, le mot de base peut porter « (courant) » quand ses synonymes plus rares sont tous marqués (soutenu, familier…) ; ce n'est pas l'étiquette vide « terme courant » retirée en octobre.
 
 ## Limites connues (à traiter dans les étapes suivantes)
