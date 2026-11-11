@@ -1,0 +1,294 @@
+{
+ "remove_examples": [
+  {
+   "key": "ilproposito"
+  }
+ ],
+ "_note": "Relecture manuelle des 8184 cartes, lot 1 (rangs 1 à 5100).",
+ "fr": [
+  {
+   "w": "confronto",
+   "nat": "n",
+   "new": "la confrontation (comparaison)",
+   "why": "« confrontation » seul oublie le sens courant de comparaison"
+  },
+  {
+   "w": "proposito",
+   "nat": "n",
+   "new": "le dessein (intention)",
+   "why": "« propos » est un faux ami partiel"
+  },
+  {
+   "w": "roba",
+   "nat": "n",
+   "new": "les affaires (choses, marchandises)",
+   "why": "« trucs » est trop familier pour le sens de base"
+  },
+  {
+   "w": "evidente",
+   "nat": "adj",
+   "new": "patent (évident)",
+   "why": "« flagrant » est plus étroit"
+  },
+  {
+   "w": "dispiacere",
+   "nat": "v",
+   "new": "être désolé, déplaire",
+   "why": "« désoler » n'est pas la construction courante"
+  },
+  {
+   "w": "fascia",
+   "nat": "n",
+   "new": "la bande (tranche d'âge, plage horaire)",
+   "why": "« bandeau » est trop étroit"
+  },
+  {
+   "w": "beccare",
+   "nat": "v",
+   "new": "picorer, choper (familier)",
+   "why": "sens premier = picorer"
+  },
+  {
+   "w": "faccenda",
+   "nat": "n",
+   "new": "l'affaire (chose à régler)",
+   "why": "« tâche » est un autre mot"
+  },
+  {
+   "w": "animo",
+   "nat": "n",
+   "new": "l'état d'âme (esprit)",
+   "why": ""
+  },
+  {
+   "w": "errato",
+   "nat": "adj",
+   "new": "erroné (inexact)",
+   "why": ""
+  },
+  {
+   "w": "approdare",
+   "nat": "v",
+   "new": "accoster, aboutir",
+   "why": "« aborder » est ambigu"
+  },
+  {
+   "w": "stimolo",
+   "nat": "n",
+   "new": "l'incitation, le stimulus",
+   "why": ""
+  },
+  {
+   "w": "mazza",
+   "nat": "n",
+   "new": "la massue, la batte",
+   "why": ""
+  },
+  {
+   "w": "cuffia",
+   "nat": "n",
+   "new": "le bonnet, le casque audio",
+   "why": "cuffia = casque audio, pas écouteurs"
+  },
+  {
+   "w": "sussidio",
+   "nat": "n",
+   "new": "l'allocation (aide)",
+   "why": "« subside » est vieilli"
+  },
+  {
+   "w": "incrementare",
+   "nat": "v",
+   "new": "faire croître (augmenter)",
+   "why": "« faire progresser » est inexact"
+  },
+  {
+   "w": "scordare",
+   "nat": "v",
+   "new": "ne plus se souvenir de",
+   "why": "« zapper » est faux"
+  },
+  {
+   "w": "lieve",
+   "nat": "adj",
+   "new": "bénin (léger)",
+   "why": ""
+  },
+  {
+   "w": "precipitare",
+   "nat": "v",
+   "new": "s'écraser (chuter)",
+   "why": ""
+  },
+  {
+   "w": "scritta",
+   "nat": "n",
+   "new": "la mention écrite",
+   "why": "« texte affiché » est une paraphrase"
+  },
+  {
+   "w": "dispetto",
+   "nat": "n",
+   "new": "le mauvais tour (taquinerie)",
+   "why": ""
+  },
+  {
+   "w": "considerevole",
+   "nat": "adj",
+   "new": "considérable (appréciable)",
+   "why": ""
+  },
+  {
+   "w": "recita",
+   "nat": "n",
+   "new": "la représentation (théâtre)",
+   "why": ""
+  },
+  {
+   "w": "casale",
+   "nat": "n",
+   "new": "la maison de campagne (rustique)",
+   "why": "« mas » est régional, « corps de ferme » = cascina"
+  },
+  {
+   "w": "curatore",
+   "nat": "n",
+   "new": "le curateur (commissaire d'exposition)",
+   "why": ""
+  },
+  {
+   "w": "sufficienza",
+   "nat": "n",
+   "new": "le niveau suffisant (note de passage)",
+   "why": "« suffisance » = vanité en français : faux ami"
+  },
+  {
+   "w": "galla",
+   "nat": "n",
+   "new": "la noix de galle (stare a galla : flotter)",
+   "why": "« flottaison » vient de l'expression"
+  },
+  {
+   "w": "dissenso",
+   "nat": "n",
+   "new": "la dissidence (désaccord)",
+   "why": ""
+  },
+  {
+   "w": "convenienza",
+   "nat": "n",
+   "new": "le bénéfice (avantage)",
+   "why": "« convenance » = faux ami"
+  },
+  {
+   "w": "grana",
+   "nat": "n",
+   "new": "le fric (familier), l'embêtement",
+   "why": "sens courant = argent"
+  },
+  {
+   "w": "aggiustare",
+   "nat": "v",
+   "new": "arranger (réparer)",
+   "why": ""
+  },
+  {
+   "w": "stante",
+   "nat": "adj",
+   "new": "distinct (dans a sé stante)",
+   "why": ""
+  },
+  {
+   "w": "potenziare",
+   "nat": "v",
+   "new": "booster (renforcer)",
+   "why": ""
+  },
+  {
+   "w": "mutare",
+   "nat": "v",
+   "new": "se transformer (muer)",
+   "why": "« muer » est un terme de zoologie"
+  },
+  {
+   "w": "pinguino",
+   "nat": "n",
+   "new": "le manchot (pingouin)",
+   "why": "« pingouin » est un autre oiseau : faux ami"
+  },
+  {
+   "w": "sintonia",
+   "nat": "n",
+   "new": "la syntonie (accord)",
+   "why": "« syntonie » est rare"
+  },
+  {
+   "w": "compravendita",
+   "nat": "n",
+   "new": "l'achat-vente (transaction)",
+   "why": "« compravente » n'existe pas"
+  },
+  {
+   "w": "intensificare",
+   "nat": "v",
+   "new": "intensifier (redoubler)",
+   "why": ""
+  },
+  {
+   "w": "socializzare",
+   "nat": "v",
+   "new": "socialiser (fréquenter)",
+   "why": ""
+  }
+ ],
+ "blank_plural": [
+  {
+   "w": "gennaio",
+   "nat": "n"
+  },
+  {
+   "w": "febbraio",
+   "nat": "n"
+  },
+  {
+   "w": "marzo",
+   "nat": "n"
+  },
+  {
+   "w": "aprile",
+   "nat": "n"
+  },
+  {
+   "w": "maggio",
+   "nat": "n"
+  },
+  {
+   "w": "giugno",
+   "nat": "n"
+  },
+  {
+   "w": "luglio",
+   "nat": "n"
+  },
+  {
+   "w": "agosto",
+   "nat": "n"
+  },
+  {
+   "w": "settembre",
+   "nat": "n"
+  },
+  {
+   "w": "ottobre",
+   "nat": "n"
+  },
+  {
+   "w": "novembre",
+   "nat": "n"
+  },
+  {
+   "w": "dicembre",
+   "nat": "n"
+  }
+ ]
+}
