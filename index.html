@@ -2301,7 +2301,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="2.1.2";
+const APP_VER="2.1.3";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
