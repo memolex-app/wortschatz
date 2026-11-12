@@ -576,16 +576,19 @@ const DAY = 86400000;
 /* ---------- langues : une seule appli, une langue apprise à la fois, toujours depuis le français ----------
    Chaque carte porte sa langue (lang) ; les anciennes cartes, sans lang, sont allemandes.
    Les fichiers de données suivent le motif lists-<langue>-fr.json, examples-…, chunks-…, credits-…, dict-…. */
-const LANGS = {
-  de:{code:'DE', name:'Allemand', adj:'allemand', adjf:'allemande', adjs:'allemands', the:"l'allemand", of:"de l'allemand", bravo:'Perfekt!',
-      chars:['ä','ö','ü','ß'], charsUp:['ä','ö','ü','ß','Ä','Ö','Ü'], charsLabel:'Lettres allemandes',
-      sample:'Schmetterling', sampleEx:'Ein Schmetterling sitzt auf der Blume.', samplePl:'-e, ¨-er, -n…', sampleQ:'Hund, gehen… ou en français : papillon',
-      bulkEx:'die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen', bulkFmt:'der Hund, -e ; le chien'},
-  it:{code:'IT', name:'Italien', adj:'italien', adjf:'italienne', adjs:'italiens', the:"l'italien", of:"de l'italien", bravo:'Perfetto!',
-      chars:['à','è','é','ì','ò','ù'], charsUp:['à','è','é','ì','ò','ù','È'], charsLabel:'Lettres accentuées',
-      sample:'farfalla', sampleEx:'Una farfalla si posa sul fiore.', samplePl:'le farfalle, gli amici…', sampleQ:'cane, andare… ou en français : papillon',
-      bulkEx:"la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami", bulkFmt:'il cane, i cani ; le chien'}
-};
+/* LANG_DATA:BEGIN (généré par tools/build_app.py, ne pas éditer) */
+const LANG_DATA = {"de":{"code":"DE","name":"Allemand","adj":"allemand","adjf":"allemande","adjs":"allemands","the":"l'allemand","of":"de l'allemand","bravo":"Perfekt!","chars":["ä","ö","ü","ß"],"charsUp":["ä","ö","ü","ß","Ä","Ö","Ü"],"charsLabel":"Lettres allemandes","sample":"Schmetterling","sampleEx":"Ein Schmetterling sitzt auf der Blume.","samplePl":"-e, ¨-er, -n…","sampleQ":"Hund, gehen… ou en français : papillon","bulkEx":"die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen","bulkFmt":"der Hund, -e ; le chien","order":1,"tts":{"tag":"de-DE","rate":0.95},"articles":[{"a":"der","g":"m"},{"a":"die","g":"f"},{"a":"das","g":"n"}],"plural":"suffix","pluralArticle":"die","storeGender":false,"dictArticle":"gender","searchFolds":[["ae","ä"],["oe","ö"],["ue","ü"]],"artOptions":[[null,"der"],[null,"die"],[null,"das"]],"legend":"<span><i class=\"dot d-der\"></i>der · masculin</span><span><i class=\"dot d-die\"></i>die · féminin</span><span><i class=\"dot d-das\"></i>das · neutre</span><span><i class=\"dot d-none\"></i>sans article</span>","cases":{"names":[["Akk","Accusatif"],["Dat","Datif"],["Gen","Génitif"]],"prep":{"mit":"Dat.","von":"Dat.","zu":"Dat.","aus":"Dat.","bei":"Dat.","nach":"Dat.","seit":"Dat.","ab":"Dat.","außer":"Dat.","gegenüber":"Dat.","entgegen":"Dat.","gemäß":"Dat.","zufolge":"Dat., placé après le nom","samt":"Dat.","nebst":"Dat.","mitsamt":"Dat.","binnen":"Dat. ou Gén.","dank":"Dat. ou Gén.","laut":"Gén. ou Dat.","für":"Akk.","um":"Akk.","durch":"Akk.","gegen":"Akk.","ohne":"Akk.","wider":"Akk.","gen":"Akk.","bis":"Akk.","pro":"Akk., souvent sans article","per":"Akk., souvent sans article","via":"Akk., souvent sans article","entlang":"Akk. placé après le nom ; Gén. ou Dat. placé avant","in":"Dat. ou Akk.","an":"Dat. ou Akk.","auf":"Dat. ou Akk.","über":"Dat. ou Akk.","unter":"Dat. ou Akk.","vor":"Dat. ou Akk.","hinter":"Dat. ou Akk.","neben":"Dat. ou Akk.","zwischen":"Dat. ou Akk.","wegen":"Gén. ; familier : Dat.","während":"Gén. ; familier : Dat.","trotz":"Gén. ; familier : Dat.","statt":"Gén.","anstatt":"Gén.","anstelle":"Gén.","aufgrund":"Gén.","innerhalb":"Gén.","außerhalb":"Gén.","kraft":"Gén.","ausschließlich":"Gén.","namens":"Gén.","willen":"Gén. ; um … willen","mittels":"Gén.","anhand":"Gén.","bezüglich":"Gén.","angesichts":"Gén.","inklusive":"Gén.","einschließlich":"Gén.","seitens":"Gén.","jenseits":"Gén.","anlässlich":"Gén.","hinsichtlich":"Gén.","abseits":"Gén.","infolge":"Gén.","mithilfe":"Gén.","unterhalb":"Gén.","oberhalb":"Gén.","zugunsten":"Gén.","mangels":"Gén.","inmitten":"Gén.","unweit":"Gén.","eingangs":"Gén.","längs":"Gén. ou Dat.","seitlich":"Gén.","halber":"Gén., placé après le nom","zwecks":"Gén.","voller":"nom sans article : voller Wasser"},"wechselNotes":{"in":["im Park sein","in den Park gehen","temps (im Mai) : toujours datif"],"an":["an der Wand hängen","das Bild an die Wand hängen","date (am Montag) : toujours datif"],"auf":["auf dem Tisch liegen","auf den Tisch legen","« auf Deutsch », « warten auf » : toujours accusatif"],"über":["die Lampe hängt über dem Tisch","über die Straße gehen","« au sujet de » (über Autos) et « au-delà de » (über seine Verhältnisse) : toujours accusatif"],"unter":["unter dem Tisch liegen","unter den Tisch fallen","« parmi » (unter Freunden) : toujours datif"],"vor":["vor dem Haus stehen","vor das Haus fahren","temps « il y a », « avant » (vor einem Jahr) : toujours datif"],"hinter":["hinter dem Haus spielen","hinter das Haus gehen",""],"neben":["neben dem Bett stehen","den Stuhl neben das Bett stellen",""],"zwischen":["zwischen den Stühlen sitzen","sich zwischen die Stühle setzen",""]},"verbFixed":{"mit":"Dat.","von":"Dat.","zu":"Dat.","aus":"Dat.","bei":"Dat.","nach":"Dat.","seit":"Dat.","gegenüber":"Dat.","für":"Akk.","um":"Akk.","durch":"Akk.","gegen":"Akk.","ohne":"Akk."},"verbs":{"warten auf":"Akk.","sich freuen auf":"Akk.","sich freuen über":"Akk.","sich erinnern an":"Akk.","sich beschweren über":"Akk.","verzichten auf":"Akk.","sich auswirken auf":"Akk.","nachdenken über":"Akk.","sich konzentrieren auf":"Akk.","warnen vor":"Dat.","denken an":"Akk.","glauben an":"Akk.","achten auf":"Akk.","aufpassen auf":"Akk.","sich kümmern um":"Akk.","sich interessieren für":"Akk.","sich ärgern über":"Akk.","sprechen über":"Akk.","teilnehmen an":"Dat.","Angst haben vor":"Dat.","sich fürchten vor":"Dat.","sich gewöhnen an":"Akk.","sich verlassen auf":"Akk.","reagieren auf":"Akk.","hoffen auf":"Akk.","sich vorbereiten auf":"Akk."}}},"it":{"code":"IT","name":"Italien","adj":"italien","adjf":"italienne","adjs":"italiens","the":"l'italien","of":"de l'italien","bravo":"Perfetto!","chars":["à","è","é","ì","ò","ù"],"charsUp":["à","è","é","ì","ò","ù","È"],"charsLabel":"Lettres accentuées","sample":"farfalla","sampleEx":"Una farfalla si posa sul fiore.","samplePl":"le farfalle, gli amici…","sampleQ":"cane, andare… ou en français : papillon","bulkEx":"la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami","bulkFmt":"il cane, i cani ; le chien","order":2,"tts":{"tag":"it-IT","rate":1},"articles":[{"a":"il","g":"m"},{"a":"lo","g":"m"},{"a":"l'","g":"","elided":true},{"a":"la","g":"f"},{"a":"i","g":"m","pl":true},{"a":"gli","g":"m","pl":true},{"a":"le","g":"f","pl":true}],"plural":"full","storeGender":true,"dictArticle":"explicit","searchFolds":[],"artOptions":[["il|m","il"],["lo|m","lo"],["l'|m","l' (masc.)"],["la|f","la"],["l'|f","l' (fém.)"],["i|m","i (pluriel)"],["gli|m","gli (pluriel)"],["le|f","le (pluriel)"]],"legend":"<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>"}};
+/* LANG_DATA:END */
+// description de chaque langue apprise (data/<langue>/langue.json) : articles, genres, pluriel, cas, lettres, voix…
+const LANGS = LANG_DATA;
+const LG = l => LANGS[l] || LANGS.de;
+// article → {a, g (m, f, n ou vide si élidé), pl (article du pluriel), elided}
+const ARTS = l => (LG(l)._arts = LG(l)._arts || Object.fromEntries(LG(l).articles.map(x=>[x.a, x])));
+const artInfo = (l, a) => ARTS(l)[a] || null;
+const artGender = (l, a) => (artInfo(l, a)||{}).g || '';
+const artPlural = (l, a) => !!(artInfo(l, a)||{}).pl;
+// couleur d'un genre : bleu masculin, rouge féminin, vert neutre (classes historiques g-der, g-die, g-das)
+const GCOLOR = {m:'der', f:'die', n:'das'};
 let LANG = (()=>{ try{ return LANGS[localStorage.getItem('mx-lang')] ? localStorage.getItem('mx-lang') : ''; }catch(e){ return ''; } })();
 let langPicking = false;
 const L_ = () => LANGS[LANG] || LANGS.de;
@@ -593,14 +596,18 @@ const langOf = c => c.lang || 'de';
 // les mots de la langue choisie ; les autres langues restent dans le stockage, intactes
 const deck = () => [...cards.values()].filter(c=>langOf(c)===LANG);
 const dataFile = k => `${k}-${LANG}-fr.json`;
-// italien : genre d'après l'article (l' : genre enregistré sur la carte)
-const itGender = c => c.g || (/^(il|lo|i|gli)$/.test(c.art||'') ? 'm' : /^(la|le)$/.test(c.art||'') ? 'f' : '');
-// couleur du genre : bleu masculin, rouge féminin, vert neutre (allemand)
-const gcls = c => langOf(c)==='de' ? (c.art ? 'g-'+c.art : '') : (c.art ? ({m:'g-der', f:'g-die'}[itGender(c)]||'') : '');
+// genre d'un nom : enregistré sur la carte (article élidé : l'amico / l'amica), sinon donné par l'article
+const genderOf = c => (LG(langOf(c)).storeGender && c.g) || artGender(langOf(c), c.art||'');
+// couleur du genre : bleu masculin, rouge féminin, vert neutre
+const gcls = c => c.art ? (GCOLOR[genderOf(c)] ? 'g-'+GCOLOR[genderOf(c)] : '') : '';
 // « l'amico » sans espace, « il libro », « der Hund »
 const artWord = c => (c.art ? c.art+(/['’]$/.test(c.art)?'':' ') : '')+c.de;
-const ART_RE = () => LANG==='it' ? /^(?:(il|lo|la|i|gli|le)\s+|(l)['’]\s*)(.+)$/i : /^(der|die|das)\s+()(.+)$/i;
-function splitArt(s){ const m=String(s||'').trim().match(ART_RE()); if(!m) return null; return {art: m[1] ? m[1].toLowerCase() : "l'", de: m[3]}; }
+// article en tête d'un mot tapé : « der Hund », « il cane », « l'amico » (article élidé collé au mot)
+const ART_RE = () => { const L=LG(LANG); if(L._re) return L._re;
+  const full=L.articles.filter(x=>!x.elided).map(x=>x.a), eli=L.articles.filter(x=>x.elided).map(x=>x.a.replace(/['’]$/,''));
+  // groupes : 1 article complet, 2 article élidé (jamais trouvé si la langue n'en a pas), 3 le mot
+  return L._re = new RegExp(`^(?:(${full.join('|')})\\s+|(${eli.length?eli.join('|'):'(?!)'})['’]\\s*)(.+)$`, 'i'); };
+function splitArt(s){ const m=String(s||'').trim().match(ART_RE()); if(!m) return null; return {art: m[1] ? m[1].toLowerCase() : m[2].toLowerCase()+"'", de: m[3]}; }
 function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · Français` : 'Choisir une langue'; }
 /* listes par niveau : les mots les plus fréquents, chargés depuis lists-de-fr.json */
 const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Autonome', C2:'Maîtrise'};
@@ -788,7 +795,7 @@ const sfx = n => SND.play(n);
    settings.tts : false = boutons 🔊 masqués ; settings.ttsAuto : lecture du mot dès qu'il s'affiche ; settings.ttsRate : 1 (normal) ou 0.7 (lent). */
 const SAY = (()=>{
   const ok = typeof window!=='undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined';
-  const TAG = {de:'de-DE', it:'it-IT'};
+  const TAG = Object.fromEntries(Object.entries(LANGS).map(([k,o])=>[k, o.tts.tag]));
   let voices=[];
   const load=()=>{ try{ voices=speechSynthesis.getVoices()||[]; }catch(e){ voices=[]; } };
   if(ok){ load(); try{ speechSynthesis.addEventListener('voiceschanged', ()=>{ load(); if(tab==='stats') renderStats(); }); }catch(e){} }
@@ -806,7 +813,7 @@ const SAY = (()=>{
       speechSynthesis.cancel();
       const u=new SpeechSynthesisUtterance(s); u.lang=TAG[lang]||lang;
       const v=voice(lang); if(v) u.voice=v;
-      u.rate = (+settings.ttsRate||1) * (lang==='de'?0.95:1); u.pitch=1; u.volume=1;
+      u.rate = (+settings.ttsRate||1) * (LANGS[lang] ? LANGS[lang].tts.rate : 1); u.pitch=1; u.volume=1;
       speechSynthesis.speak(u);
     }catch(e){}
   }
@@ -860,15 +867,16 @@ function parseLine(line){
   const fr = (frRaw||'').trim(), ex = exRest.join(';').trim();
   if(!left || !left.trim() || !fr) return null;
   let de = left.trim(), art = '', pl = '';
-  if(LANG==='it'){ // « il cane, i cani ; le chien » : pluriel écrit en entier, avec son article
+  if(LG(LANG).plural==='full'){ // « il cane, i cani ; le chien » : pluriel écrit en entier, avec son article
     const c = de.indexOf(','); if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
     const a = splitArt(de); let g='';
-    if(a){ art=a.art; de=a.de; g = /^(il|lo|i|gli)$/.test(art) ? 'm' : /^(la|le)$/.test(art) ? 'f' : ''; }
-    if(!g && /^(i|gli)\s/i.test(pl)) g='m'; else if(!g && /^le\s/i.test(pl)) g='f';
+    if(a){ art=a.art; de=a.de; g = artGender(LANG, art); }
+    if(!g){ const pa=splitArt(pl); if(pa && artPlural(LANG, pa.art)) g=artGender(LANG, pa.art); }
     return { de, art, pl, fr, ex, ...(g?{g}:{}) };
   }
-  const m = de.match(/^(der|die|das)\s+(.+)$/i);
-  if(m){ art = m[1].toLowerCase(); de = m[2]; }
+  // « der Hund, -e ; le chien » : pluriel noté par sa terminaison
+  const m = splitArt(de);
+  if(m){ art = m.art; de = m.de; }
   const c = de.indexOf(',');
   if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
   return { de, art, pl, fr, ex };
@@ -1241,8 +1249,8 @@ function statsHTML(){
   }
   if(show.includes('err')){
     const rows=[`<div class="er"><span>Article</span><b>${s30.aq>=10?pct(s30.ae,s30.aq):'–'}</b><small>${s30.ae} faux sur ${s30.aq}</small></div>`];
-    if(LANG==='de') rows.push(`<div class="er"><span>Cas des prépositions</span><b>${s30.cq>=5?pct(s30.ce,s30.cq):'–'}</b><small>${s30.ce} faux sur ${s30.cq}</small></div>`);
-    out.push(`<section class="panel"><h2>Taux d'erreur · 30 jours</h2>${rows.join('')}<p class="hint">Première réponse de chaque carte en session. Un chiffre s'affiche à partir de 10 articles${LANG==='de'?' et 5 cas':''}.</p></section>`);
+    if(LG(LANG).cases) rows.push(`<div class="er"><span>Cas des prépositions</span><b>${s30.cq>=5?pct(s30.ce,s30.cq):'–'}</b><small>${s30.ce} faux sur ${s30.cq}</small></div>`);
+    out.push(`<section class="panel"><h2>Taux d'erreur · 30 jours</h2>${rows.join('')}<p class="hint">Première réponse de chaque carte en session. Un chiffre s'affiche à partir de 10 articles${LG(LANG).cases?' et 5 cas':''}.</p></section>`);
   }
   if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.</p></section>`);
   const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-stset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
@@ -1392,54 +1400,36 @@ function refresh(){
   else if(tab==='guide' && !$('#guide')){ renderGuide(); syUi(); }
 }
 // cas régi par la préposition des verbes à préposition
-const PREP_FIXED = {mit:'Dat.',von:'Dat.',zu:'Dat.',aus:'Dat.',bei:'Dat.',nach:'Dat.',seit:'Dat.',gegenüber:'Dat.','für':'Akk.',um:'Akk.',durch:'Akk.',gegen:'Akk.',ohne:'Akk.'};
-const VERB_CASE = {'warten auf':'Akk.','sich freuen auf':'Akk.','sich freuen über':'Akk.','sich erinnern an':'Akk.','sich beschweren über':'Akk.','verzichten auf':'Akk.','sich auswirken auf':'Akk.','nachdenken über':'Akk.','sich konzentrieren auf':'Akk.','warnen vor':'Dat.','denken an':'Akk.','glauben an':'Akk.','achten auf':'Akk.','aufpassen auf':'Akk.','sich kümmern um':'Akk.','sich interessieren für':'Akk.','sich ärgern über':'Akk.','sprechen über':'Akk.','teilnehmen an':'Dat.','Angst haben vor':'Dat.','sich fürchten vor':'Dat.','sich gewöhnen an':'Akk.','sich verlassen auf':'Akk.','reagieren auf':'Akk.','hoffen auf':'Akk.','sich vorbereiten auf':'Akk.'};
-// cas régi par chaque préposition seule (grammaire de référence : Duden) ; WECHSEL = datif pour le lieu, accusatif pour la direction
-const WECHSEL='Dat. ou Akk.';
-// prépositions mixtes : la règle, un exemple avec la préposition elle-même, puis les emplois figurés qui ont un cas fixe
-const WECHSEL_NOTE = {
-  in:['im Park sein','in den Park gehen','temps (im Mai) : toujours datif'],
-  an:['an der Wand hängen','das Bild an die Wand hängen','date (am Montag) : toujours datif'],
-  auf:['auf dem Tisch liegen','auf den Tisch legen','« auf Deutsch », « warten auf » : toujours accusatif'],
-  'über':['die Lampe hängt über dem Tisch','über die Straße gehen','« au sujet de » (über Autos) et « au-delà de » (über seine Verhältnisse) : toujours accusatif'],
-  unter:['unter dem Tisch liegen','unter den Tisch fallen','« parmi » (unter Freunden) : toujours datif'],
-  vor:['vor dem Haus stehen','vor das Haus fahren','temps « il y a », « avant » (vor einem Jahr) : toujours datif'],
-  hinter:['hinter dem Haus spielen','hinter das Haus gehen',''],
-  neben:['neben dem Bett stehen','den Stuhl neben das Bett stellen',''],
-  zwischen:['zwischen den Stühlen sitzen','sich zwischen die Stühle setzen','']
-};
+// cas des prépositions (langues à cas : description de la langue, rubrique « cases »)
+const CASE_OF = l => LG(l).cases || null;
 function prepLine(c){
-  const n=!c.art && langOf(c)==='de' && posOf(c)==='prep' && WECHSEL_NOTE[c.de]; if(!n) return '';
-  return `<div class="prepnote"><p><b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang="de">${esc(n[0])}</span>.</p><p><b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang="de">${esc(n[1])}</span>.</p>${n[2]?`<p>Sens figuré, ${esc(n[2])}.</p>`:''}</div>`;
+  const K=CASE_OF(langOf(c)), n=!c.art && K && posOf(c)==='prep' && K.wechselNotes[c.de]; if(!n) return '';
+  return `<div class="prepnote"><p><b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang="${langOf(c)}">${esc(n[0])}</span>.</p><p><b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang="${langOf(c)}">${esc(n[1])}</span>.</p>${n[2]?`<p>Sens figuré, ${esc(n[2])}.</p>`:''}</div>`;
 }
-const PREP_CASE = {
-  mit:'Dat.',von:'Dat.',zu:'Dat.',aus:'Dat.',bei:'Dat.',nach:'Dat.',seit:'Dat.',ab:'Dat.',außer:'Dat.','gegenüber':'Dat.',entgegen:'Dat.','gemäß':'Dat.',zufolge:'Dat., placé après le nom',samt:'Dat.',nebst:'Dat.',mitsamt:'Dat.',binnen:'Dat. ou Gén.',dank:'Dat. ou Gén.',laut:'Gén. ou Dat.',
-  'für':'Akk.',um:'Akk.',durch:'Akk.',gegen:'Akk.',ohne:'Akk.',wider:'Akk.',gen:'Akk.',bis:'Akk.',pro:'Akk., souvent sans article',per:'Akk., souvent sans article',via:'Akk., souvent sans article',entlang:'Akk. placé après le nom ; Gén. ou Dat. placé avant',
-  in:WECHSEL,an:WECHSEL,auf:WECHSEL,'über':WECHSEL,unter:WECHSEL,vor:WECHSEL,hinter:WECHSEL,neben:WECHSEL,zwischen:WECHSEL,
-  wegen:'Gén. ; familier : Dat.','während':'Gén. ; familier : Dat.',trotz:'Gén. ; familier : Dat.',statt:'Gén.',anstatt:'Gén.',anstelle:'Gén.',aufgrund:'Gén.',innerhalb:'Gén.',außerhalb:'Gén.',kraft:'Gén.',ausschließlich:'Gén.',namens:'Gén.',willen:'Gén. ; um … willen',mittels:'Gén.',anhand:'Gén.','bezüglich':'Gén.',angesichts:'Gén.',inklusive:'Gén.',einschließlich:'Gén.',seitens:'Gén.',jenseits:'Gén.','anlässlich':'Gén.',hinsichtlich:'Gén.',abseits:'Gén.',infolge:'Gén.',mithilfe:'Gén.',unterhalb:'Gén.',oberhalb:'Gén.',zugunsten:'Gén.',mangels:'Gén.',inmitten:'Gén.',unweit:'Gén.',eingangs:'Gén.','längs':'Gén. ou Dat.',seitlich:'Gén.',halber:'Gén., placé après le nom',zwecks:'Gén.',voller:'nom sans article : voller Wasser'
-};
 function prepCase(de, c){
-  if(c && langOf(c)!=='de') return '';
-  if(VERB_CASE[de]) return VERB_CASE[de];
-  if(c && /^(prep|postp)$/.test(posOf(c)) && PREP_CASE[de]) return PREP_CASE[de];
+  const K=CASE_OF(c ? langOf(c) : LANG); if(!K) return '';
+  if(K.verbs[de]) return K.verbs[de];
+  if(c && /^(prep|postp)$/.test(posOf(c)) && K.prep[de]) return K.prep[de];
   const m=de.match(/\s(\S+)$/); if(!m || !/^(sich\s|[a-zäöüß])/.test(de)) return '';
-  return PREP_FIXED[m[1]] || '';
+  return K.verbFixed[m[1]] || '';
 }
-const GENRE = {der:'masculin', die:'féminin', das:'neutre'};
+const GENRE = {m:'masculin', f:'féminin', n:'neutre'};
 /* deviner le cas d'une préposition, comme l'article d'un nom : on coche un ou plusieurs cas */
-const CASES=[['Akk','Accusatif'],['Dat','Datif'],['Gen','Génitif']];
+// cas proposés au quiz, dans l'ordre de la langue (description de la langue, cases.names)
+const CASES_OF = l => (CASE_OF(l)||{}).names || [];
 function casesIn(t){ const r=[]; if(/Akk/.test(t)) r.push('Akk'); if(/Dat/.test(t)) r.push('Dat'); if(/Gén/.test(t)) r.push('Gen'); return r; }
 // cas attendus : ceux de la langue standard ; un datif « familier » est accepté en plus, sans être exigé
 function caseTarget(c){
-  if(c.art || langOf(c)!=='de' || !/^(prep|postp)$/.test(posOf(c))) return null;
-  const t=PREP_CASE[c.de]; if(!t) return null;
+  const K=CASE_OF(langOf(c));
+  if(c.art || !K || !/^(prep|postp)$/.test(posOf(c))) return null;
+  const t=K.prep[c.de]; if(!t) return null;
   const [std, fam]=t.split(/;\s*familier\s*:/); const need=casesIn(std); if(!need.length) return null;
   return {need, extra: fam?casesIn(fam):[]};
 }
 let caseSel=new Set();
 function caseVerdict(c, guess){
   const t=caseTarget(c); if(!t) return '';
-  const g=guess.slice(2).split('+').filter(Boolean), L=k=>CASES.find(x=>x[0]===k)[1].toLowerCase();
+  const g=guess.slice(2).split('+').filter(Boolean), L=k=>CASES_OF(langOf(c)).find(x=>x[0]===k)[1].toLowerCase();
   const ok=t.need.every(k=>g.includes(k)) && g.every(k=>t.need.includes(k)||t.extra.includes(k));
   const famUsed=g.some(k=>t.extra.includes(k)&&!t.need.includes(k));
   if(ok) return `<div class="verdict ok">${t.need.length>1?'Bons cas':'Bon cas'}${famUsed?` (le ${t.extra.map(L).join(', ')} est familier)`:''}</div>`;
@@ -1451,24 +1441,23 @@ function guessWrong(c, guess){
   if(guess.startsWith('K:')) return !!caseTarget(c) && !caseVerdict(c, guess).includes('verdict ok');
   return guess!==c.art;
 }
-const GENRE_IT = {m:'masculin', f:'féminin'};
-// italien : genre et pluriel écrit en entier avec son article (« gli amici », « le città » : invariable)
-function gramLineIt(c){
+// pluriel écrit en entier avec son article (italien : « gli amici », « le città » : invariable)
+function gramLineFull(c){
   if(!c.art) return '';
-  const g=GENRE_IT[itGender(c)]||'';
-  if(/^(i|gli|le)$/.test(c.art)) return `<div class="plural">${esc(g?g+' pluriel':'pluriel')}</div>`;
+  const g=GENRE[genderOf(c)]||'';
+  if(artPlural(langOf(c), c.art)) return `<div class="plural">${esc(g?g+' pluriel':'pluriel')}</div>`;
   const pl=(c.pl||'').trim();
   const p = !pl ? (c.lvl?'pas de pluriel':'') : pl.replace(/^\S+\s+/,'')===c.de ? `pluriel invariable : ${pl}` : `pluriel : ${pl}`;
   return `<div class="plural">${esc(g?g+' singulier':'')}${g&&p?' · ':''}${esc(p)}</div>`;
 }
 function gramLine(c){
-  if(langOf(c)==='it') return gramLineIt(c);
+  if(LG(langOf(c)).plural==='full') return gramLineFull(c);
   if(!c.art) return prepLine(c);
-  const g=GENRE[c.art]+' singulier';
+  const g=GENRE[genderOf(c)]+' singulier', pa=LG(langOf(c)).pluralArticle;
   const pl=(c.pl||'').trim();
   let p;
   if(!pl) p = c.lvl ? 'pas de pluriel' : '';
-  else { const f=pluralOf(c.de,pl); p = f ? (f===c.de ? `pluriel identique : die ${f}` : `pluriel : die ${f}`) : `pluriel : ${pl}`; }
+  else { const f=pluralOf(c.de,pl); p = f ? (f===c.de ? `pluriel identique : ${pa} ${f}` : `pluriel : ${pa} ${f}`) : `pluriel : ${pl}`; }
   return `<div class="plural">${esc(g)}${p?` · ${esc(p)}`:''}</div>`;
 }
 function deWord(c){
@@ -1544,9 +1533,9 @@ function cardTone(c){
 }
 // boutons du quiz de l'article : der / die / das ; en italien il, lo, l', la (i, gli, le pour un nom qui n'existe qu'au pluriel)
 function artButtons(c){
-  if(langOf(c)==='de') return ['der','die','das'].map(a=>`<button class="b-${a}" data-art="${a}">${a}</button>`).join('');
-  const opts = /^(i|gli|le)$/.test(c.art) ? ['i','gli','le'] : ['il','lo',"l'",'la'];
-  return opts.map(a=>`<button class="b-${/^(il|lo|i|gli)$/.test(a)?'der':/^(la|le)$/.test(a)?'die':'neutral'}" data-art="${a}">${a}</button>`).join('');
+  const l=langOf(c), pl=artPlural(l, c.art);
+  const opts = LG(l).articles.filter(x=>!!x.pl===pl).map(x=>x.a);   // ordre du fichier de la langue
+  return opts.map(a=>`<button class="b-${GCOLOR[artGender(l,a)]||'neutral'}" data-art="${a}">${a}</button>`).join('');
 }
 function cardFaces(c){
   const frToDe = dir==='fr-de';
@@ -1564,7 +1553,7 @@ function cardFaces(c){
       : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">Même traduction : ${sibs.slice(0,4).map(x=>deWord(x)).join(', ')}</div>`:''}${exampleHTML(c)}${flagHTML(c)}</div>`;
   }
   const reveal = showCasePick
-    ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES.map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
+    ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES_OF(langOf(c)).map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
        <button class="btn" data-casego ${caseSel.size?'':'disabled'}>Valider</button><button class="btn ghost" data-reveal>Afficher sans choisir</button></div>`
     : showArtPick
     ? `<div class="artpick">${artButtons(c)}</div>
@@ -1707,12 +1696,10 @@ function renderList(){
   const chips=`<div class="filters">
     ${lvlOpts.length?`<div class="frow"><span class="flabel">Niveau</span><div class="row">${chip('lvl','','Tous',inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
     <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
-    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',(LANG==='it'?'Italien':'Allemand')+' A→Z'],['fr','Français A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
+    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',L_().name+' A→Z'],['fr','Français A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
     ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
   </div>
-  <div class="legend" aria-label="Code couleur">${LANG==='it'
-    ? `<span><i class="dot d-der"></i>masculin · il, lo, l'</span><span><i class="dot d-die"></i>féminin · la, l'</span><span><i class="dot d-none"></i>sans article</span>`
-    : `<span><i class="dot d-der"></i>der · masculin</span><span><i class="dot d-die"></i>die · féminin</span><span><i class="dot d-das"></i>das · neutre</span><span><i class="dot d-none"></i>sans article</span>`}</div>`;
+  <div class="legend" aria-label="Code couleur">${L_().legend}</div>`;
   const rows=all.map(c=>{
     const st=STATUS(c); const when = st==='rev' ? (isDue(c)?'À revoir':'dans '+Math.max(1,Math.ceil((c.due-Date.now())/DAY))+' j') : '';
     const status = `<select class="stsel st-${st}" data-setstat="${c.id}" aria-label="Statut de ${esc(c.de)}">${['new','learn','rev','known'].map(k=>`<option value="${k}" ${k===st?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}</select>${when?`<small class="when">${when}</small>`:''}`;
@@ -1939,9 +1926,7 @@ function renderAdd(){
     <div id="dSense" class="dsense" hidden></div></section>
   <form id="addForm"><h3>Un mot</h3>
     <p class="hint">Choisis un mot dans le dictionnaire ci-dessus pour remplir les champs, puis ajuste si besoin.</p>
-    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option>${LANG==='it'
-      ? `<option value="il|m">il</option><option value="lo|m">lo</option><option value="l'|m">l' (masc.)</option><option value="la|f">la</option><option value="l'|f">l' (fém.)</option><option value="i|m">i (pluriel)</option><option value="gli|m">gli (pluriel)</option><option value="le|f">le (pluriel)</option>`
-      : `<option>der</option><option>die</option><option>das</option>`}</select></label>
+    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option>${L_().artOptions.map(([v,t])=>v===null?`<option>${t}</option>`:`<option value="${v}">${t}</option>`).join('')}</select></label>
     <label for="fDe">${L_().name}<input id="fDe" required autocomplete="off" autocapitalize="off" placeholder="${L_().sample}"></label></div>
     ${umlautBar(L_().charsUp,'fDe')}
     <label for="fLvl">Niveau (facultatif)<select id="fLvl"><option value="">Sans niveau</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
@@ -1964,9 +1949,9 @@ function renderAdd(){
 /* ---------- dictionnaire allemand-français (Wiktionary, hors ligne) ---------- */
 let DICT=null, DICT_BY=new Map(), dictState='idle', dictHits=[], dictTimer=null;
 const fold = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss');
-const ART_OF = {m:'der', f:'die', n:'das'};
-const entArt = e => LANG==='it' ? (e.a||'') : (ART_OF[e.g]||'');
-const entCls = e => LANG==='it' ? ({m:'g-der', f:'g-die'}[e.g]||'') : (ART_OF[e.g]?'g-'+ART_OF[e.g]:'');
+// article d'une entrée du dictionnaire : donné par l'entrée (italien : élision), ou déduit du genre (allemand)
+const entArt = e => LG(LANG).dictArticle==='explicit' ? (e.a||'') : ((LG(LANG).articles.find(x=>!x.pl && !x.elided && x.g===e.g)||{}).a||'');
+const entCls = e => GCOLOR[e.g] ? 'g-'+GCOLOR[e.g] : '';
 const POS_LABEL = {n:'nom', v:'verbe', adj:'adjectif', adv:'adverbe', 'adj,adv':'adjectif / adverbe', 'adj,prep':'adjectif / préposition', prep:'préposition', postp:'postposition', pron:'pronom', conj:'conjonction', num:'nombre', int:'interjection', parti:'particule', abr:'abréviation', loc:'expression'};
 function loadDict(){
   if(dictState==='loading' || dictState==='ready' || !LANG) return;
@@ -1989,7 +1974,7 @@ function dictSearch(){
   const box=$('#dRes'); if(!box || dictState!=='ready') return;
   const raw0=($('#dq')?.value||'').trim(), sa=splitArt(raw0), raw=sa?sa.de:raw0;
   if(!raw){ box.innerHTML=''; dictHits=[]; return; }
-  const q1=fold(raw), q2=LANG==='de' ? fold(raw.replace(/ae/gi,'ä').replace(/oe/gi,'ö').replace(/ue/gi,'ü')) : q1;
+  const q1=fold(raw), F=L_().searchFolds||[], q2=F.length ? fold(F.reduce((s,[a,b])=>s.replace(new RegExp(a,'gi'),b), raw)) : q1;
   const de=[], fr=[];
   const lowQ = raw[0]===raw[0].toLowerCase();
   for(const e of DICT){
@@ -2029,10 +2014,10 @@ function plPreview(){
   let de=($('#fDe')?.value||'').trim(); const m=splitArt(de); if(m) de=m.de;
   const pl=($('#fPl')?.value||'').trim();
   if(!de || !pl){ el.textContent=''; return; }
-  if(LANG!=='de'){ el.innerHTML=`Pluriel : <b>${esc(pl)}</b>`; return; }
+  if(L_().plural!=='suffix'){ el.innerHTML=`Pluriel : <b>${esc(pl)}</b>`; return; }
   if(/^pl\.?$/i.test(pl)){ el.textContent="Mot qui n'existe qu'au pluriel"; return; }
   const f=pluralOf(de,pl);
-  el.innerHTML = f ? `Pluriel : <b>die ${esc(f)}</b>${f===de?' (identique au singulier)':''}` : '';
+  el.innerHTML = f ? `Pluriel : <b>${L_().pluralArticle} ${esc(f)}</b>${f===de?' (identique au singulier)':''}` : '';
 }
 // mot tapé à la main : complète article et pluriel s'ils sont vides
 function dictAutofill(){
@@ -2047,7 +2032,7 @@ function dictAutofill(){
 function deckEntry(w, art){ if(!LISTDATA) return null; const k=((art||'')+w).toLowerCase();
   for(const L of Object.keys(LISTDATA)){ const f=LISTDATA[L].find(x=>dkey(x)===k); if(f) return {f, L}; } return null; }
 // valeur du menu « Article » : der / die / das ; en italien article|genre (l'|m, l'|f)
-const artVal = (art, g) => LANG==='it' ? (art ? art+'|'+(g || (/^(il|lo|i|gli)$/.test(art)?'m':'f')) : '') : (art||'');
+const artVal = (art, g) => L_().storeGender ? (art ? art+'|'+(g || (artGender(LANG,art)==='m'?'m':'f')) : '') : (art||'');
 function dictPick(i){
   const h=dictHits[i]; if(!h) return; const e=h.e, si=h.si||0;
   $('#fArt').value=artVal(entArt(e), e.g); $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`Niveau estimé : <b>${EST_LABEL[dictEst]}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.`; $('#fPl').value=e.pl||'';
@@ -2125,7 +2110,7 @@ document.addEventListener('click', async e=>{
   if(t.dataset.dir){ dir=t.dataset.dir; try{localStorage.setItem('mx-dir',dir);}catch(_){} revealed=false; artGuess=null; if(session) session.live=null; renderReview(); return; }
   if(t.dataset.art){ artGuess=t.dataset.art; revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
   if(t.dataset.case){ const k=t.dataset.case; sfx('tap'); caseSel.has(k)?caseSel.delete(k):caseSel.add(k); t.setAttribute('aria-pressed', caseSel.has(k)); const go=document.querySelector('[data-casego]'); if(go) go.disabled=!caseSel.size; return; }
-  if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES.map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
+  if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES_OF(LANG).map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
   if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; sfx('flip'); renderReview(); return; }
   if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
   if('wotdadd' in t.dataset){ const f=wotdToday(); if(!f) return; t.disabled=true; if(await addWord(f)){ toast(`« ${wordLine(f)} » ajouté : il arrive dans ta prochaine session`); } refresh(); return; }
@@ -2216,8 +2201,8 @@ document.addEventListener('submit', async e=>{
   if(e.target.id==='addForm'){
     dictAutofill();
     const de=$('#fDe').value.trim(), fr=$('#fFr').value.trim(); if(!de||!fr) return;
-    let [art, g='']=$('#fArt').value.split('|'), word=de; const m=splitArt(de); if(m){ art=m.art; word=m.de; if(LANG==='it'){ g = /^(il|lo|i|gli)$/.test(art)?'m':/^(la|le)$/.test(art)?'f':g; } }
-    if(LANG==='it' && art && !g){ const de0=DICT_BY.get(word); if(de0 && de0.g) g=de0.g; }
+    let [art, g='']=$('#fArt').value.split('|'), word=de; const m=splitArt(de); if(m){ art=m.art; word=m.de; if(L_().storeGender){ g = artGender(LANG, art) || g; } }
+    if(L_().storeGender && art && !g){ const de0=DICT_BY.get(word); if(de0 && de0.g) g=de0.g; }
     const fd=$('#fDup'), fi=$('#fFr');
     if(fi.dataset.ok!==fr){ const d=sameFr([{de:word, art, fr}]); if(d.length){ fi.dataset.ok=fr;
       fd.innerHTML=`<p><b>« ${esc(fr)} » est déjà la traduction de ${d[0].others.slice(0,4).map(x=>deWord(x)).join(', ')}.</b> ${DUP_TIP}</p><p class="hint">Pour ajouter quand même, appuie à nouveau sur « Ajouter le mot ».</p>`;
@@ -2235,7 +2220,7 @@ document.addEventListener('submit', async e=>{
       box.hidden=true; box.innerHTML=''; await finishBulk(fresh, ok, bad); return; }
     const lines=$('#fBulk').value.split('\n').map(l=>l.trim()).filter(Boolean);
     const parsed=lines.map(parseLine); const ok=parsed.filter(Boolean);
-    if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=entArt(e); if(LANG==='it' && !f.g && e.g) f.g=e.g; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
+    if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=entArt(e); if(L_().storeGender && !f.g && e.g) f.g=e.g; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
     if(!ok.length){ toast('Aucune ligne reconnue. Format : der Hund ; le chien'); return; }
     const existing=new Set(deck().map(dkey));
     const room=newRoom(); if(!room){ toast(`Déjà ${pendingNew()} mots en cours d'apprentissage (limite ${NEW_CAP}) : un mot à la fois reste possible`); return; }
@@ -2270,7 +2255,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="1.8.6";
+const APP_VER="1.8.7";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();

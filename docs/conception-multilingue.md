@@ -1,6 +1,6 @@
 # Memolex multilingue : conception
 
-État : **étapes 1, 2 et 3 faites** (12/11/2026) ; dette qualité de l'allemand soldée (versions 1.8.2 à 1.8.5). Ce document est la référence ; il est mis à jour à chaque étape.
+État : **étapes 1 à 4 faites** (12/11/2026) ; dette qualité de l'allemand soldée (versions 1.8.2 à 1.8.5). Ce document est la référence ; il est mis à jour à chaque étape.
 
 ## Objectif
 
@@ -125,12 +125,26 @@ Adaptation technique à faire : origine de la traduction au niveau de la paire (
 **Relecture** (décision d'Andrea, 12/11/2026) : on rédige d'abord ; les corrections se font **après, par échantillon**, avec les contrôles automatiques à chaque étape.
 Volume pour l'allemand : ~2 200 traductions à rédiger vers l'anglais, ~4 400 vers l'espagnol, ~5 300 vers l'italien.
 
+## Étape 4 : grammaire de chaque langue hors du code (faite, 12/11/2026, version 1.8.7)
+
+- **`data/<L>/langue.json`** décrit la langue apprise. Il contient :
+  - les noms et formes utilisés par l'interface (`name`, `adj`…) et les lettres spéciales ;
+  - la voix (`tts.tag`, `tts.rate`) ;
+  - les **articles** (`a`, genre `g` m/f/n ou vide, `pl` pour un article du pluriel, `elided` pour un article élidé collé au mot), dans l'ordre des boutons du quiz ;
+  - le style du **pluriel** : `suffix` (allemand : « -e », affiché « die Hunde ») ou `full` (italien : écrit en entier avec son article), avec `pluralArticle` ;
+  - `storeGender` (genre enregistré sur la carte quand l'article ne le dit pas : *l'amico*), `dictArticle` (article des entrées du dictionnaire : déduit du genre ou donné par l'entrée), `searchFolds` (recherche tolérante : *ae* → *ä*), `artOptions` (menu « Article » du formulaire), `legend` (code couleur de la liste) ;
+  - les **cas** (`cases` : noms proposés au quiz, cas de chaque préposition, notes des prépositions mixtes, verbes à préposition), seulement pour une langue à cas.
+- **`tools/build_app.py`** injecte ces descriptions dans `index.html` entre les balises `LANG_DATA:BEGIN/END` (l'appli démarre sans chargement supplémentaire) ; `--check` vérifie que l'appli est à jour. **Ne jamais éditer ce bloc à la main.**
+- Le code ne teste plus « allemand » ou « italien » pour la grammaire : il lit `LG(langue)`. Exceptions voulues : l'identité historique des cartes allemandes (`keyOf`, `langOf` par défaut `de`), à garder pour ne pas casser les données des utilisateurs.
+- **`tools/regress_app.py capture|compare`** : test de non-régression. Pour chaque mot des listes (de et it) : couleur, mot affiché, ligne de grammaire, cas, quiz ; analyse de mots tapés et de lignes collées ; verdicts du quiz des cas ; dictionnaire ; recto et verso d'un échantillon de cartes dans les deux sens ; écrans Mots, Ajouter, Guide, Statistiques, choix de la langue, recherche ; voix ; ajout d'un mot tapé à la main. Horloge et hasard figés. Référence capturée sur la 1.8.6, comparée à la 1.8.7 : **0 différence**, 0 erreur JavaScript. À relancer avant chaque modification de l'appli.
+- Ajouter une langue apprise = écrire son `langue.json`. Points à prévoir au moment voulu : une langue **sans article ni genre** (anglais : `articles: []`, pas de quiz d'article ni de couleur), une langue à **trois genres et cas** autre que l'allemand (russe : le quiz des cas porte aujourd'hui sur les prépositions), une écriture **de droite à gauche** (étape 5).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
 2. ~~Phrases sans numéro Tatoeba~~ : réglé à l'étape 3 (les identifiants internes `clé@n` restent, le numéro Tatoeba est une colonne).
 3. **Non migré** : le dictionnaire (`dict-de-fr.json`, 46 029 mots, importé d'une source externe). Il reste tel quel pour l'instant.
-4. **Grammaire écrite dans l'appli** : `LANGS`, `ART_RE`, `PREP_CASE`, couleurs de genre, tout cela est dans `index.html` et pensé pour de/it. À déplacer dans un fichier de description par langue (`data/<L>/langue.json` : genres, articles, élision, cas, ce qu'on fait deviner).
+4. ~~Grammaire écrite dans l'appli~~ : réglé à l'étape 4 (`data/<L>/langue.json`). Restent écrits pour de/it les **textes du guide** (code couleur, exemples d'aide, sources des listes) : étape 5.
 5. **Interface entièrement en français** : tous les textes de l'appli sont écrits en dur. À extraire dans des fichiers de traduction de l'interface.
 6. **Langue de l'utilisateur fixée au français** dans l'appli (`dataFile = k-LANG-fr.json`, article français, comparaisons « le / la / l' »).
 
@@ -143,7 +157,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 1 | Format source + build à l'identique | ✅ 6/6 fichiers identiques |
 | 2 | Contrôles sur le format source, par paire (`tools/check.py`) | ✅ sorties identiques sur `data/` et sur les JSON (de-fr, it-fr, contrôles rapides et complets) |
 | 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ✅ 100 % (de-fr 5 821, it-fr 4 435) ; crédits générés : toutes les paires et tous les auteurs déjà présents dans les anciens crédits, les phrases retirées n'y figurent plus |
-| 4 | Grammaire par langue sortie de l'appli (`langue.json`) | appli de/it inchangée à l'usage (tests Playwright) |
+| 4 | Grammaire par langue sortie de l'appli (`langue.json`) | ✅ test de non-régression : 0 différence (de, it) |
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | appli en français inchangée ; textes extraits |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | chaque mot à plusieurs sens relu ; build de-fr toujours identique en contenu |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |

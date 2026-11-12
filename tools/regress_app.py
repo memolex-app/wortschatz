@@ -64,6 +64,22 @@ async (lang) => {
   renderList(); out.views.list = $('#view').innerHTML;
   renderAdd(); out.views.add = $('#view').innerHTML;
   const dq=$('#dq'); if(dq){ for(const q of (lang==='de'?['Hund','haus','Schluessel','partie','der Tisch']:['cane','casa',"l'amico",'partie','ville'])){ dq.value=q; dictSearch(); await new Promise(r=>setTimeout(r,30)); out.views['dict:'+q]=($('#dRes')||{}).innerHTML||''; } }
+  // aperçu du pluriel et ajout d'un mot tapé à la main (article, genre déduit, dictionnaire)
+  out.plPreview = []; out.added = [];
+  const TYPED = lang==='de'
+    ? [['Hund','-e','',''],['der Tisch','¨e','',''],['Kind','-er','das',''],['Auto','pl.','',''],['Lehrer','-','der','']]
+    : [['cane','i cani','il|m',''],["l'amico",'gli amici','',''],["l'amica",'le amiche','',''],['casa','le case','la|f',''],['abate','gli abati','','']];
+  for(const [w,pl,a] of TYPED){
+    renderAdd(); $('#fDe').value=w; $('#fPl').value=pl; $('#fArt').value=a; plPreview(); out.plPreview.push([w,pl,a,($('#fPlPrev')||{}).innerHTML||'']);
+    $('#fFr').value='zz '+w; const before=new Set(cards.keys());
+    $('#addForm').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})); await new Promise(r=>setTimeout(r,60));
+    const nw=[...cards.values()].filter(c=>!before.has(c.id)).map(c=>[c.de,c.art,c.pl,c.g||'',c.fr,c.lang]);
+    out.added.push([w, JSON.stringify(nw)]);
+  }
+  // voix : langue et vitesse de l'énoncé
+  const said=[]; try{ speechSynthesis.speak=u=>said.push([u.lang, +u.rate.toFixed(3)]); SAY.speak('Test', lang); }catch(e){ said.push('ERREUR '+e.message); }
+  out.tts = {said};
+  renderStats(); await new Promise(r=>setTimeout(r,50)); out.views.stats = $('#view').innerHTML;
   renderGuide(); out.views.guide = $('#view').innerHTML;
   renderLangPick(); out.views.langpick = $('#view').innerHTML;
   out.meta = {code: L_().code, name: L_().name, adj: L_().adj, chars: L_().chars, pair: (document.getElementById('pair')||{}).textContent};

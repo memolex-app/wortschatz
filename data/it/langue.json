@@ -1,0 +1,112 @@
+{
+ "code": "IT",
+ "name": "Italien",
+ "adj": "italien",
+ "adjf": "italienne",
+ "adjs": "italiens",
+ "the": "l'italien",
+ "of": "de l'italien",
+ "bravo": "Perfetto!",
+ "chars": [
+  "à",
+  "è",
+  "é",
+  "ì",
+  "ò",
+  "ù"
+ ],
+ "charsUp": [
+  "à",
+  "è",
+  "é",
+  "ì",
+  "ò",
+  "ù",
+  "È"
+ ],
+ "charsLabel": "Lettres accentuées",
+ "sample": "farfalla",
+ "sampleEx": "Una farfalla si posa sul fiore.",
+ "samplePl": "le farfalle, gli amici…",
+ "sampleQ": "cane, andare… ou en français : papillon",
+ "bulkEx": "la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami",
+ "bulkFmt": "il cane, i cani ; le chien",
+ "order": 2,
+ "tts": {
+  "tag": "it-IT",
+  "rate": 1
+ },
+ "articles": [
+  {
+   "a": "il",
+   "g": "m"
+  },
+  {
+   "a": "lo",
+   "g": "m"
+  },
+  {
+   "a": "l'",
+   "g": "",
+   "elided": true
+  },
+  {
+   "a": "la",
+   "g": "f"
+  },
+  {
+   "a": "i",
+   "g": "m",
+   "pl": true
+  },
+  {
+   "a": "gli",
+   "g": "m",
+   "pl": true
+  },
+  {
+   "a": "le",
+   "g": "f",
+   "pl": true
+  }
+ ],
+ "plural": "full",
+ "storeGender": true,
+ "dictArticle": "explicit",
+ "searchFolds": [],
+ "artOptions": [
+  [
+   "il|m",
+   "il"
+  ],
+  [
+   "lo|m",
+   "lo"
+  ],
+  [
+   "l'|m",
+   "l' (masc.)"
+  ],
+  [
+   "la|f",
+   "la"
+  ],
+  [
+   "l'|f",
+   "l' (fém.)"
+  ],
+  [
+   "i|m",
+   "i (pluriel)"
+  ],
+  [
+   "gli|m",
+   "gli (pluriel)"
+  ],
+  [
+   "le|f",
+   "le (pluriel)"
+  ]
+ ],
+ "legend": "<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>"
+}

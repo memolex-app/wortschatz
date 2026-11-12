@@ -1,0 +1,270 @@
+{
+ "code": "DE",
+ "name": "Allemand",
+ "adj": "allemand",
+ "adjf": "allemande",
+ "adjs": "allemands",
+ "the": "l'allemand",
+ "of": "de l'allemand",
+ "bravo": "Perfekt!",
+ "chars": [
+  "ä",
+  "ö",
+  "ü",
+  "ß"
+ ],
+ "charsUp": [
+  "ä",
+  "ö",
+  "ü",
+  "ß",
+  "Ä",
+  "Ö",
+  "Ü"
+ ],
+ "charsLabel": "Lettres allemandes",
+ "sample": "Schmetterling",
+ "sampleEx": "Ein Schmetterling sitzt auf der Blume.",
+ "samplePl": "-e, ¨-er, -n…",
+ "sampleQ": "Hund, gehen… ou en français : papillon",
+ "bulkEx": "die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen",
+ "bulkFmt": "der Hund, -e ; le chien",
+ "order": 1,
+ "tts": {
+  "tag": "de-DE",
+  "rate": 0.95
+ },
+ "articles": [
+  {
+   "a": "der",
+   "g": "m"
+  },
+  {
+   "a": "die",
+   "g": "f"
+  },
+  {
+   "a": "das",
+   "g": "n"
+  }
+ ],
+ "plural": "suffix",
+ "pluralArticle": "die",
+ "storeGender": false,
+ "dictArticle": "gender",
+ "searchFolds": [
+  [
+   "ae",
+   "ä"
+  ],
+  [
+   "oe",
+   "ö"
+  ],
+  [
+   "ue",
+   "ü"
+  ]
+ ],
+ "artOptions": [
+  [
+   null,
+   "der"
+  ],
+  [
+   null,
+   "die"
+  ],
+  [
+   null,
+   "das"
+  ]
+ ],
+ "legend": "<span><i class=\"dot d-der\"></i>der · masculin</span><span><i class=\"dot d-die\"></i>die · féminin</span><span><i class=\"dot d-das\"></i>das · neutre</span><span><i class=\"dot d-none\"></i>sans article</span>",
+ "cases": {
+  "names": [
+   [
+    "Akk",
+    "Accusatif"
+   ],
+   [
+    "Dat",
+    "Datif"
+   ],
+   [
+    "Gen",
+    "Génitif"
+   ]
+  ],
+  "prep": {
+   "mit": "Dat.",
+   "von": "Dat.",
+   "zu": "Dat.",
+   "aus": "Dat.",
+   "bei": "Dat.",
+   "nach": "Dat.",
+   "seit": "Dat.",
+   "ab": "Dat.",
+   "außer": "Dat.",
+   "gegenüber": "Dat.",
+   "entgegen": "Dat.",
+   "gemäß": "Dat.",
+   "zufolge": "Dat., placé après le nom",
+   "samt": "Dat.",
+   "nebst": "Dat.",
+   "mitsamt": "Dat.",
+   "binnen": "Dat. ou Gén.",
+   "dank": "Dat. ou Gén.",
+   "laut": "Gén. ou Dat.",
+   "für": "Akk.",
+   "um": "Akk.",
+   "durch": "Akk.",
+   "gegen": "Akk.",
+   "ohne": "Akk.",
+   "wider": "Akk.",
+   "gen": "Akk.",
+   "bis": "Akk.",
+   "pro": "Akk., souvent sans article",
+   "per": "Akk., souvent sans article",
+   "via": "Akk., souvent sans article",
+   "entlang": "Akk. placé après le nom ; Gén. ou Dat. placé avant",
+   "in": "Dat. ou Akk.",
+   "an": "Dat. ou Akk.",
+   "auf": "Dat. ou Akk.",
+   "über": "Dat. ou Akk.",
+   "unter": "Dat. ou Akk.",
+   "vor": "Dat. ou Akk.",
+   "hinter": "Dat. ou Akk.",
+   "neben": "Dat. ou Akk.",
+   "zwischen": "Dat. ou Akk.",
+   "wegen": "Gén. ; familier : Dat.",
+   "während": "Gén. ; familier : Dat.",
+   "trotz": "Gén. ; familier : Dat.",
+   "statt": "Gén.",
+   "anstatt": "Gén.",
+   "anstelle": "Gén.",
+   "aufgrund": "Gén.",
+   "innerhalb": "Gén.",
+   "außerhalb": "Gén.",
+   "kraft": "Gén.",
+   "ausschließlich": "Gén.",
+   "namens": "Gén.",
+   "willen": "Gén. ; um … willen",
+   "mittels": "Gén.",
+   "anhand": "Gén.",
+   "bezüglich": "Gén.",
+   "angesichts": "Gén.",
+   "inklusive": "Gén.",
+   "einschließlich": "Gén.",
+   "seitens": "Gén.",
+   "jenseits": "Gén.",
+   "anlässlich": "Gén.",
+   "hinsichtlich": "Gén.",
+   "abseits": "Gén.",
+   "infolge": "Gén.",
+   "mithilfe": "Gén.",
+   "unterhalb": "Gén.",
+   "oberhalb": "Gén.",
+   "zugunsten": "Gén.",
+   "mangels": "Gén.",
+   "inmitten": "Gén.",
+   "unweit": "Gén.",
+   "eingangs": "Gén.",
+   "längs": "Gén. ou Dat.",
+   "seitlich": "Gén.",
+   "halber": "Gén., placé après le nom",
+   "zwecks": "Gén.",
+   "voller": "nom sans article : voller Wasser"
+  },
+  "wechselNotes": {
+   "in": [
+    "im Park sein",
+    "in den Park gehen",
+    "temps (im Mai) : toujours datif"
+   ],
+   "an": [
+    "an der Wand hängen",
+    "das Bild an die Wand hängen",
+    "date (am Montag) : toujours datif"
+   ],
+   "auf": [
+    "auf dem Tisch liegen",
+    "auf den Tisch legen",
+    "« auf Deutsch », « warten auf » : toujours accusatif"
+   ],
+   "über": [
+    "die Lampe hängt über dem Tisch",
+    "über die Straße gehen",
+    "« au sujet de » (über Autos) et « au-delà de » (über seine Verhältnisse) : toujours accusatif"
+   ],
+   "unter": [
+    "unter dem Tisch liegen",
+    "unter den Tisch fallen",
+    "« parmi » (unter Freunden) : toujours datif"
+   ],
+   "vor": [
+    "vor dem Haus stehen",
+    "vor das Haus fahren",
+    "temps « il y a », « avant » (vor einem Jahr) : toujours datif"
+   ],
+   "hinter": [
+    "hinter dem Haus spielen",
+    "hinter das Haus gehen",
+    ""
+   ],
+   "neben": [
+    "neben dem Bett stehen",
+    "den Stuhl neben das Bett stellen",
+    ""
+   ],
+   "zwischen": [
+    "zwischen den Stühlen sitzen",
+    "sich zwischen die Stühle setzen",
+    ""
+   ]
+  },
+  "verbFixed": {
+   "mit": "Dat.",
+   "von": "Dat.",
+   "zu": "Dat.",
+   "aus": "Dat.",
+   "bei": "Dat.",
+   "nach": "Dat.",
+   "seit": "Dat.",
+   "gegenüber": "Dat.",
+   "für": "Akk.",
+   "um": "Akk.",
+   "durch": "Akk.",
+   "gegen": "Akk.",
+   "ohne": "Akk."
+  },
+  "verbs": {
+   "warten auf": "Akk.",
+   "sich freuen auf": "Akk.",
+   "sich freuen über": "Akk.",
+   "sich erinnern an": "Akk.",
+   "sich beschweren über": "Akk.",
+   "verzichten auf": "Akk.",
+   "sich auswirken auf": "Akk.",
+   "nachdenken über": "Akk.",
+   "sich konzentrieren auf": "Akk.",
+   "warnen vor": "Dat.",
+   "denken an": "Akk.",
+   "glauben an": "Akk.",
+   "achten auf": "Akk.",
+   "aufpassen auf": "Akk.",
+   "sich kümmern um": "Akk.",
+   "sich interessieren für": "Akk.",
+   "sich ärgern über": "Akk.",
+   "sprechen über": "Akk.",
+   "teilnehmen an": "Dat.",
+   "Angst haben vor": "Dat.",
+   "sich fürchten vor": "Dat.",
+   "sich gewöhnen an": "Akk.",
+   "sich verlassen auf": "Akk.",
+   "reagieren auf": "Akk.",
+   "hoffen auf": "Akk.",
+   "sich vorbereiten auf": "Akk."
+  }
+ }
+}
