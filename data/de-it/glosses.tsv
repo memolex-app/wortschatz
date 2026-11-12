@@ -2524,7 +2524,7 @@ das Blatt#1	la foglia
 das Blatt#1	il foglio (di carta)
 der Brand#1	l'incendio
 die Brust#1	il petto
-die Brust#2	il seno
+die Brust#2	il seno (comune)
 das Chaos#1	il caos
 das Datum#1	la data (del calendario)
 die Decke#1	la coperta
@@ -2945,7 +2945,7 @@ die Atmosphäre#1	l'atmosfera (anche: aria che circonda la Terra)
 bestätigen#1	confermare
 betrachten#1	osservare
 betrachten#1	esaminare (considerare come)
-die Bibliothek#1	la biblioteca
+die Bibliothek#1	la biblioteca (comune)
 darstellen#1	rappresentare
 darstellen#1	costituire
 die Definition#1	la definizione (di una parola)
@@ -3273,7 +3273,7 @@ das Update#1	l'aggiornamento (software)
 vierte#1	quarto
 der Wandel#1	il mutamento
 der Wandel#1	la trasformazione (profonda, graduale)
-weinen#1	piangere
+weinen#1	piangere (comune)
 wetten#1	scommettere
 wonach#1	che cosa (cercare)
 wonach#1	dopo di che
@@ -4482,7 +4482,7 @@ backen#1	cuocere al forno
 backen#1	fare dolci
 das Becken#1	la vasca
 das Becken#1	il bacino
-das Benzin#1	la benzina
+das Benzin#1	la benzina (comune)
 bitter#1	amaro
 blasen#1	soffiare (comune)
 die Bronze#1	il bronzo
@@ -5081,9 +5081,9 @@ die Made#1	la larva
 pink#1	rosa (acceso, fucsia)
 der Riss#1	lo strappo
 der Riss#1	la crepa
-das Rohr#1	il tubo
+das Rohr#1	il tubo (comune)
 das Ross#1	il destriero (formale: cavallo)
-der Safe#1	la cassaforte
+der Safe#1	la cassaforte (d'albergo, privata)
 der Saft#1	il succo
 der Sang#1	il canto (poetico, antiquato)
 der Stau#1	l'ingorgo
@@ -5352,7 +5352,7 @@ die Filiale#1	la succursale
 der Flieger#1	l'aviatore (familiare: aereo)
 fließen#1	scorrere
 die Haustür#1	la porta di casa
-die Heizung#1	il riscaldamento
+die Heizung#1	il riscaldamento (impianto)
 klappen#1	andare bene
 klappen#1	riuscire (familiare)
 klappen#2	ribaltare
@@ -5415,7 +5415,7 @@ die Währung#1	la moneta
 zuhören#1	ascoltare (prestare attenzione)
 zusehen#1	guardare (osservare qualcuno che fa)
 die Öffnung#1	l'apertura (buco; anche: atto di aprire)
-der Anfänger#1	il principiante
+der Anfänger#1	il principiante (comune)
 der Anführer#1	il capo
 der Anführer#1	il capobanda (di un gruppo)
 anwenden#1	applicare
@@ -5480,7 +5480,7 @@ folglich#1	quindi
 der Fotograf#1	il fotografo
 fraglich#1	dubbio
 fraglich#1	incerto
-die Garantie#1	la garanzia
+die Garantie#1	la garanzia (comune)
 gerissen#1	furbo
 gerissen#1	scaltro
 gewaltig#1	enorme
@@ -5620,7 +5620,7 @@ der Herrscher#1	il sovrano
 der Herrscher#1	il dominatore
 der Holocaust#1	l'Olocausto
 identisch#1	identico
-die Ideologie#1	l'ideologia
+die Ideologie#1	l'ideologia (comune)
 die Infektion#1	l'infezione
 irgendwer#1	qualcuno (familiare)
 irgendwer#2	chiunque (familiare)
@@ -5851,7 +5851,8 @@ die Überprüfung#1	la verifica
 die Überprüfung#1	il controllo (approfondito)
 die Abhängigkeit#1	la dipendenza (rapporto: da qualcuno, da qualcosa)
 die Bereitschaft#1	la disponibilità (a fare)
-die Dissertation#1	la tesi di dottorato
+die Dissertation#1	la dissertazione
+die Dissertation#1	la tesi di dottorato (formale)
 die Enttäuschung#1	la delusione
 die Formulierung#1	la formulazione
 die Gewerkschaft#1	il sindacato
@@ -5862,8 +5863,8 @@ der Journalismus#1	il giornalismo
 die Kriminalität#1	la criminalità
 die Privatsphäre#1	la sfera privata
 die Privatsphäre#1	la privacy
-der Sonnenschein#1	la luce del sole
 der Sonnenschein#1	il sole
+der Sonnenschein#1	il bel tempo (luce del sole)
 der Staatsanwalt#1	il pubblico ministero
 der Staatsanwalt#1	il procuratore
 der Steuerzahler#1	il contribuente
@@ -5946,8 +5947,8 @@ die Dose#1	il barattolo
 der Duft#1	il profumo
 der Duft#1	l'aroma
 der Esel#1	l'asino
-das Fell#1	la pelliccia
-das Fell#1	il pelo (di un animale)
+das Fell#1	il pelo
+das Fell#1	il manto (di un animale)
 der Fund#1	il ritrovamento
 der Fund#1	la cosa trovata
 der Hang#1	il pendio
@@ -5986,7 +5987,7 @@ naiv#1	ingenuo
 das Nest#1	il nido
 der Page#1	il fattorino (d'albergo)
 der Page#1	il paggio
-die Pest#1	la peste
+die Pest#1	la peste (malattia)
 der Port#1	la porta (informatica)
 der Puls#1	il polso
 der Puls#1	il battito
@@ -6317,7 +6318,7 @@ die Wertung#1	la valutazione
 die Wertung#1	la classifica (sport)
 das Zeugnis#1	la pagella
 das Zeugnis#2	il certificato
-das Zeugnis#2	la referenza
+das Zeugnis#2	l'attestato (di servizio)
 das Zubehör#1	gli accessori
 östlich#1	orientale
 östlich#1	a est di
@@ -6448,7 +6449,7 @@ der Wohnsitz#1	la residenza
 wörtlich#1	letterale
 wörtlich#1	alla lettera
 der Zahnarzt#1	il dentista
-zweifeln#1	dubitare
+zweifeln#1	dubitare (comune)
 der Überfall#1	l'aggressione
 der Überfall#1	l'assalto (anche: rapina)
 abstimmen#1	votare (su una questione)
@@ -6730,7 +6731,7 @@ die Renaissance#2	la rinascita
 die Renaissance#2	il ritorno in auge
 statistisch#1	statistico
 statistisch#1	statisticamente
-die Straßenbahn#1	il tram
+die Straßenbahn#1	il tram (comune)
 stundenlang#1	per ore
 stundenlang#1	di ore
 sympathisch#1	simpatico (comune)
@@ -6768,7 +6769,7 @@ die Besonderheit#1	la particolarità
 die Besonderheit#1	la specialità
 die Bundesstraße#1	la strada statale
 der Einzelhandel#1	il commercio al dettaglio
-faszinierend#1	affascinante
+faszinierend#1	affascinante (che avvince)
 die Feststellung#1	la constatazione
 die Feststellung#1	l'osservazione
 der Geheimdienst#1	i servizi segreti
@@ -6839,8 +6840,7 @@ das Selbstbewusstsein#1	l'autostima
 der Migrationshintergrund#1	il background migratorio
 der Migrationshintergrund#1	le origini straniere
 das Aa#1	la cacca (linguaggio infantile)
-das Abc#1	l'abbiccì
-das Abc#1	l'alfabeto
+das Abc#1	l'abbiccì (anche: alfabeto)
 das Abi#1	la maturità (familiare)
 aua#1	ahi (linguaggio infantile)
 der Bon#1	lo scontrino
@@ -7028,7 +7028,7 @@ der Abriss#1	la demolizione (comune)
 die Absage#1	la disdetta
 die Absage#1	la risposta negativa
 der Anstoß#1	il calcio d'inizio (anche: impulso)
-der Aufzug#1	l'ascensore
+der Aufzug#1	l'ascensore (comune)
 der Ausweg#1	la via d'uscita
 der Ausweg#1	la soluzione
 der Balken#1	la trave
@@ -7045,7 +7045,7 @@ die Epoche#1	l'epoca (periodo storico)
 die Etappe#1	la tappa
 falten#1	piegare (carta, biancheria)
 die Fliege#1	la mosca
-formal#1	formale
+formal#1	formale (di forma, procedurale)
 die Frisur#1	la pettinatura
 die Frisur#1	il taglio di capelli
 der Frosch#1	la rana
@@ -7077,7 +7077,7 @@ kippen#1	ribaltare
 kippen#1	inclinare
 kleben#1	incollare
 kleben#1	attaccare
-die Klinge#1	la lama
+die Klinge#1	la lama (di coltello, di spada)
 der Knappe#1	lo scudiero
 die Kneipe#1	la birreria
 die Kneipe#1	il bar
@@ -7317,7 +7317,7 @@ vorüber#1	finito (formale)
 der Western#1	il western
 der Wohnort#1	il luogo di residenza
 zimmern#1	costruire (in legno)
-zittern#1	tremare
+zittern#1	tremare (comune)
 der Zuhörer#1	l'ascoltatore
 der Zuhörer#1	il pubblico (comune)
 die Zunahme#1	l'aumento
@@ -7666,7 +7666,7 @@ zuschauen#1	guardare (da spettatore)
 abgelaufen#1	scaduto
 abschaffen#1	abolire
 abschaffen#1	eliminare
-anderthalb#1	uno e mezzo
+anderthalb#1	uno e mezzo (un po' antiquato)
 anerkennen#1	riconoscere (ufficialmente)
 anerkennen#2	apprezzare
 die Angeklagte#1	l'imputata
@@ -7758,7 +7758,7 @@ nachfragen#1	informarsi
 nachfragen#1	chiedere
 nachfragen#2	richiedere
 nachfragen#2	chiedere di nuovo
-die Prävention#1	la prevenzione
+die Prävention#1	la prevenzione (comune)
 der Psychiater#1	lo psichiatra
 die Realschule#1	la scuola media (in Germania)
 das Referendum#1	il referendum
@@ -8026,7 +8026,7 @@ die Wiederherstellung#1	il ripristino
 die Wiederherstellung#1	il ristabilimento
 die Wiedervereinigung#1	la riunificazione (tedesca)
 die Gleichberechtigung#1	la parità dei diritti
-die Staatsbürgerschaft#1	la cittadinanza
+die Staatsbürgerschaft#1	la cittadinanza (comune)
 die Arbeitsgemeinschaft#1	il gruppo di lavoro
 der Ast#1	il ramo (di un albero)
 die Aue#1	la golena
@@ -8041,7 +8041,7 @@ der Affe#1	la scimmia
 das Blei#1	il piombo
 der Depp#1	lo scemo
 der Depp#1	il tonto (Germania del sud, familiare)
-der Dorn#1	la spina
+der Dorn#1	la spina (di pianta)
 die Eile#1	la fretta
 ergo#1	ergo
 ergo#1	dunque (latino, formale)
@@ -8490,14 +8490,13 @@ erziehen#1	educare
 erziehen#1	crescere (un bambino)
 der Fachmann#1	l'esperto
 der Fachmann#1	il professionista del settore
-das Formular#1	il modulo
+das Formular#1	il modulo (da compilare)
 fünfzehn#1	quindici
 das Gasthaus#1	la locanda
 das Gasthaus#1	la trattoria
 geduldig#1	paziente
 geduldig#1	pazientemente
-geordnet#1	ordinato
-geordnet#1	in ordine
+geordnet#1	ordinato (organizzato)
 das Geschick#1	l'abilità
 das Geschick#1	la destrezza
 das Geschick#2	il destino (formale)
@@ -8595,7 +8594,7 @@ ungültig#1	nullo
 das Unwetter#1	il maltempo
 das Unwetter#1	la tempesta
 der Urlauber#1	il villeggiante
-der Urlauber#1	il turista
+der Urlauber#1	il vacanziere
 der Verräter#1	il traditore
 vierzehn#1	quattordici
 vorlegen#1	presentare (un documento, un progetto)
@@ -8755,7 +8754,7 @@ verärgert#1	seccato
 die Vorfreude#1	la gioia dell'attesa
 die Wartezeit#1	il tempo d'attesa
 der Wohnwagen#1	la roulotte
-der Wohnwagen#1	il camper
+der Wohnwagen#1	la caravan
 das Würstchen#1	il würstel
 das Würstchen#1	la salsiccetta
 zahlreich#1	numeroso
@@ -8863,7 +8862,7 @@ der Screenshot#1	la schermata
 sehenswert#1	da vedere
 sehenswert#1	degno di nota
 der Soundtrack#1	la colonna sonora
-der Spezialist#1	lo specialista
+der Spezialist#1	lo specialista (esperto di un settore)
 spezifisch#1	specifico
 die Sprecherin#1	la portavoce
 der Stammtisch#1	il tavolo dei clienti abituali
@@ -8879,7 +8878,6 @@ der Völkermord#1	il genocidio
 wochenlang#1	per settimane
 wundervoll#1	meraviglioso (formale)
 die Zuversicht#1	la fiducia (nel futuro)
-die Zuversicht#1	l'ottimismo
 überdenken#1	riconsiderare
 überdenken#1	ripensare
 überfahren#1	investire (con un veicolo)
@@ -9021,8 +9019,8 @@ das Urheberrecht#1	il diritto d'autore
 die Verschiebung#1	il rinvio
 die Verschiebung#1	lo spostamento
 verschwenden#1	sprecare
-verschwiegen#1	discreto
-verschwiegen#1	riservato (che sa tenere un segreto)
+verschwiegen#1	riservato
+verschwiegen#1	abbottonato (che sa tenere un segreto)
 weiterhelfen#1	aiutare
 weiterhelfen#1	dare una mano
 der Zusammenhalt#1	la coesione
@@ -9061,7 +9059,6 @@ die Zuständigkeit#1	la competenza (attribuzione)
 die Überlegenheit#1	la superiorità
 die Beschaffenheit#1	la natura
 die Beschaffenheit#1	lo stato
-die Beschaffenheit#1	la consistenza
 das Einverständnis#1	il consenso (dato)
 die Elektrotechnik#1	l'elettrotecnica
 die Gefangenschaft#1	la prigionia
@@ -9097,3 +9094,2904 @@ das Erscheinungsbild#1	l'immagine
 leidenschaftlich#1	appassionato
 leidenschaftlich#1	appassionatamente
 die Selbstbestimmung#1	l'autodeterminazione
+die Sozialdemokratie#1	la socialdemocrazia
+die Zusammenstellung#1	la raccolta
+die Zusammenstellung#1	la compilazione
+die Zusammenstellung#1	la selezione
+auseinandersetzen#1	confrontarsi con
+auseinandersetzen#1	occuparsi a fondo di (sich auseinandersetzen mit)
+der Rechtsextremismus#1	l'estremismo di destra
+das Vorstandsmitglied#1	il membro del consiglio di amministrazione
+die Aktiengesellschaft#1	la società per azioni
+die Flüchtlingspolitik#1	la politica sui profughi
+die Rentenversicherung#1	l'assicurazione pensionistica
+die Rentenversicherung#1	la previdenza
+die Staatsangehörigkeit#1	la cittadinanza (status giuridico)
+die Alm#1	l'alpeggio
+die Alm#1	la malga
+der Ami#1	l'americano (gergo)
+der Bub#1	il ragazzino
+der Bub#1	il bimbo (Germania del sud)
+die Fee#1	la fata
+das Gel#1	il gel
+der Hai#1	lo squalo
+der Hub#1	l'hub
+der Hub#1	il nodo di scambio
+das Lot#1	il filo a piombo
+das Lot#1	la perpendicolare
+der Met#1	l'idromele
+rau#1	ruvido
+rau#2	rauco
+der Yen#1	lo yen
+das Zen#1	lo zen
+zig#1	decine di
+zig#1	un sacco di (familiare)
+der Akut#1	l'accento acuto
+akut#1	acuto
+akut#1	urgente
+amen#1	amen
+die Aura#1	l'aura
+der Bote#1	il messaggero
+der Bote#1	il fattorino
+der Brei#1	la pappa
+der Brei#1	il purè
+dual#1	duale
+edel#1	nobile
+edel#1	pregiato
+hold#1	propizio
+hold#1	favorevole (poetico)
+der Igel#1	il riccio (animale)
+der Kahn#1	la chiatta
+der Kahn#1	la barca a fondo piatto
+der Kalk#1	la calce
+der Kalk#2	il calcare
+der Kamm#1	il pettine
+das Kinn#1	il mento
+das Lamm#1	l'agnello
+das Laub#1	il fogliame
+das Laub#1	le foglie
+die Mami#1	mammina (linguaggio infantile)
+mint#1	verde menta
+das Moor#1	la torbiera
+das Moos#1	il muschio (familiare: grana, soldi)
+die Nuss#1	la noce
+der Pakt#1	il patto
+der Pony#1	la frangia (capelli)
+der Putz#1	l'intonaco
+das Quiz#1	il quiz
+die Reue#1	il pentimento
+die Reue#1	il rimorso
+das Ried#1	il canneto
+der Ritt#1	la cavalcata
+der Rost#1	la ruggine
+der Rost#2	la griglia
+der Sarg#1	la bara
+die Tube#1	il tubetto
+vage#1	vago
+vage#1	vagamente
+der Wahn#1	il delirio
+der Wahn#1	la follia
+der Wels#1	il siluro (pesce)
+das Yang#1	lo yang
+das Zink#1	lo zinco
+der Zins#1	l'interesse (finanziario)
+der Zoom#1	lo zoom
+der Alien#1	l'alieno
+der Alien#1	l'extraterrestre
+die Arche#1	l'arca
+die Birne#1	il pero
+die Birne#2	la pera
+blass#1	pallido (comune)
+das Blech#1	la lamiera
+das Blech#1	la latta
+der Bulle#1	il toro (familiare: sbirro)
+der Busen#1	il seno (familiare)
+clean#1	pulito (familiare: disintossicato)
+der Court#1	il campo (da tennis)
+der Curry#1	il curry
+der Dildo#1	il dildo
+der Dildo#1	il fallo artificiale
+der Essig#1	l'aceto
+die Fauna#1	la fauna
+flott#1	svelto
+flott#1	rapido
+flott#2	elegante
+flott#2	disinvolto (familiare)
+die Folie#1	la pellicola
+die Folie#1	il foglio di plastica
+die Folie#2	il lucido (per proiezione)
+der Funke#1	la scintilla
+die Gabel#1	la forchetta
+die Gabel#2	il forcone
+der Geier#1	l'avvoltoio
+die Geige#1	il violino (comune)
+die Gunst#1	il favore
+die Gunst#1	la benevolenza
+der Hoden#1	il testicolo
+das Indiz#1	l'indizio (giuridico)
+das Intro#1	l'intro
+das Intro#1	l'introduzione (musica)
+das Komma#1	la virgola
+der Käfig#1	la gabbia
+das Küken#1	il pulcino
+die Lache#1	la pozzanghera
+die Lache#1	la pozza
+die Lache#2	la risata (familiare)
+die Lehne#1	lo schienale
+die Lehne#2	il bracciolo
+die Linde#1	il tiglio
+der Loser#1	lo sfigato
+der Loser#1	il perdente (familiare)
+die Matte#1	il tappetino
+die Matte#1	la stuoia
+die Meile#1	il miglio
+die Mensa#1	la mensa universitaria
+der Milan#1	il nibbio
+der Modul#1	il modulo (componente)
+der Notar#1	il notaio
+die Notiz#1	l'appunto
+die Notiz#1	la nota
+die Nutte#1	la battona
+die Nutte#1	la mignotta (volgare)
+nähen#1	cucire
+die Panne#1	il guasto
+die Panne#1	l'inconveniente
+die Perle#1	la perla
+das Pixel#1	il pixel
+posen#1	posare
+posen#1	mettersi in posa
+die Prosa#1	la prosa
+die Pumpe#1	la pompa
+der Quark#1	il quark (formaggio fresco)
+das Remis#1	la patta (scacchi)
+der Riese#1	il gigante
+der Rumpf#1	lo scafo
+der Rumpf#1	la fusoliera (anche: tronco)
+die Röhre#1	il tubo (anche: forno; familiare: televisione)
+scheu#1	schivo
+scheu#1	timoroso (animale)
+die Seide#1	la seta
+die Sekte#1	la setta
+die Sonde#1	la sonda
+der Speer#1	la lancia
+der Speer#1	il giavellotto
+der Spieß#1	lo spiedo
+der Spieß#1	lo spiedino
+der Spitz#1	lo spitz (razza di cane)
+spitz#1	appuntito
+spitz#1	aguzzo
+der Spott#1	lo scherno
+der Spott#1	la derisione
+starr#1	rigido
+starr#1	immobile
+das Steak#1	la bistecca
+steif#1	rigido
+steif#1	duro
+der Stier#1	il toro (corrida; segno zodiacale)
+das Sushi#1	il sushi
+der Tango#1	il tango
+die Tinte#1	l'inchiostro
+der Toast#1	il pane tostato
+der Toast#1	il toast
+der Toast#2	il brindisi
+der Tumor#1	il tumore
+tönen#1	risuonare (anche: vantarsi)
+tönen#2	tingere
+tönen#2	fare riflessi (capelli)
+der Umweg#1	la deviazione
+der Umweg#1	il giro più lungo
+der Unmut#1	il malumore
+der Unmut#1	il disappunto
+das Visum#1	il visto
+das Wachs#1	la cera
+das Wales#1	il Galles
+die Weide#1	il salice
+die Wiege#1	la culla
+der Wodka#1	la vodka
+das Wrack#1	il relitto
+das Wrack#1	il rottame
+die Wucht#1	la forza
+die Wucht#1	l'impeto (di un urto)
+der Zwerg#1	il nano
+der Ärmel#1	la manica
+der Anfall#1	l'attacco
+der Anfall#1	la crisi (medica)
+der Ankauf#1	l'acquisto (di beni, di titoli)
+der Anreiz#1	l'incentivo
+der Anreiz#1	lo stimolo
+das Backup#1	il backup
+das Backup#1	la copia di sicurezza
+das Barock#1	il barocco
+bellen#1	abbaiare
+bergab#1	in discesa
+beugen#1	piegare
+beugen#1	chinare (sich beugen: sottomettersi)
+biegen#1	piegare
+biegen#1	curvare (anche: svoltare)
+der Bikini#1	il bikini
+der Bikini#1	il due pezzi
+das Bistum#1	la diocesi
+das Bistum#1	il vescovado
+blühen#1	fiorire
+bohren#1	trapanare
+bohren#1	forare
+der Bomber#1	il bombardiere
+das Bridge#1	il bridge
+das Dasein#1	l'esistenza (formale, filosofico)
+der Denker#1	il pensatore
+dezent#1	discreto
+dezent#1	sobrio
+der Donner#1	il tuono
+das Doping#1	il doping
+der Dozent#1	il docente universitario
+der Drache#1	il drago
+dreist#1	sfrontato
+dreist#1	sfacciato
+dulden#1	tollerare (lasciar fare)
+düster#1	cupo
+düster#1	tetro
+eifrig#1	zelante
+eifrig#1	solerte
+das Eiweiß#1	l'albume
+das Eiweiß#1	il bianco d'uovo
+das Eiweiß#2	le proteine
+die Elster#1	la gazza
+das Empire#1	l'impero (britannico; stile)
+endlos#1	interminabile
+endlos#1	senza fine
+der Entzug#1	il ritiro (della patente; anche: disintossicazione)
+der Falter#1	la falena
+der Falter#1	il lepidottero
+fasten#1	digiunare
+färben#1	tingere
+färben#1	colorare
+der Geiger#1	il violinista
+das Genüge#1	(zur Genüge: a sufficienza, fin troppo)
+das Gewand#1	la veste
+das Gewand#1	l'abito (formale)
+der Globus#1	il mappamondo
+der Globus#1	il globo
+der Granit#1	il granito
+der Halter#1	il supporto
+der Halter#1	il portaoggetti (sostegno)
+der Halter#2	il proprietario (di un veicolo, di un animale)
+hausen#1	vivere (in condizioni misere)
+hausen#2	devastare
+hausen#2	imperversare
+heizen#1	riscaldare (un ambiente)
+herbei#1	qui
+herbei#1	da questa parte (verso chi parla)
+hetzen#1	correre
+hetzen#1	affrettarsi
+hetzen#2	braccare
+hetzen#2	inseguire
+hetzen#3	aizzare
+hetzen#3	istigare all'odio
+die Hoheit#1	l'altezza (titolo; anche: sovranità)
+joggen#1	fare jogging
+jubeln#1	esultare
+jubeln#1	giubilare
+die Kapsel#1	la capsula
+das Karate#1	il karate
+der Kenner#1	l'intenditore
+der Kenner#1	il conoscitore
+die Kuppel#1	la cupola
+kürzen#1	accorciare
+kürzen#1	tagliare
+kürzen#1	ridurre
+der Leader#1	il leader (anglicismo)
+lebend#1	vivo
+lebend#1	vivente
+die Leiste#1	il listello
+die Leiste#1	la modanatura
+die Leiste#2	la barra (degli strumenti)
+die Leiste#3	l'inguine
+der Macher#1	l'uomo d'azione
+der Macher#1	il realizzatore
+der Magier#1	il mago
+der Magier#1	l'illusionista
+die Manier#1	la maniera (stile personale)
+münden#1	sfociare
+münden#1	sboccare
+das Nickel#1	il nichel
+die Nische#1	la nicchia
+paaren#1	accoppiare
+paaren#1	appaiare
+das Palais#1	il palazzo (dimora signorile)
+der Penner#1	il barbone
+der Penner#1	il clochard (spregiativo)
+die Pfeife#1	la pipa
+die Pfeife#2	il fischietto
+das Platin#1	il platino
+der Plural#1	il plurale (termine grammaticale)
+das Podium#1	il podio
+die Pracht#1	lo splendore
+die Pracht#1	lo sfarzo
+quälen#1	tormentare
+quälen#1	torturare
+der Radius#1	il raggio (geometria)
+der Radler#1	la birra con limonata
+der Radler#2	il ciclista (Germania del sud)
+reiben#1	strofinare
+reiben#1	sfregare
+rundum#1	completamente
+rundum#1	tutto intorno
+rächen#1	vendicare (sich rächen: vendicarsi)
+der Schaum#1	la schiuma
+schier#1	quasi
+schier#1	pressoché
+schier#2	puro
+schier#2	mero
+sehnen#1	desiderare ardentemente (sich sehnen nach)
+siebte#1	settimo
+der Slalom#1	lo slalom
+der Sockel#1	il piedistallo
+der Sockel#1	lo zoccolo
+sodann#1	quindi
+sodann#1	poi (formale)
+die Sparte#1	il settore
+die Sparte#1	la categoria
+die Spinne#1	il ragno
+das Spital#1	l'ospedale (Svizzera, Austria)
+tapfer#1	valoroso
+tapfer#1	prode
+tasten#1	tastare
+tasten#1	procedere a tentoni
+die Tracht#1	il costume tradizionale (regionale)
+die Trasse#1	il tracciato (di una linea, di una ferrovia)
+die Tugend#1	la virtù
+die Utopie#1	l'utopia
+das Vakuum#1	il vuoto (fisica)
+der Vorort#1	il sobborgo
+der Vorort#1	la periferia
+der Vorrat#1	la scorta
+der Vorrat#1	le provviste
+der Vortag#1	il giorno prima
+der Vortag#1	la vigilia
+der Weiler#1	la frazione
+der Weiler#1	il casale
+die Zeugin#1	la testimone (donna)
+die Ziffer#1	la cifra
+die Zugabe#1	il bis
+die Zugabe#2	l'aggiunta
+die Zugabe#2	l'omaggio
+ähneln#1	somigliare a
+abbauen#1	smontare
+abbauen#2	ridurre
+abbauen#2	smaltire
+die Abhilfe#1	il rimedio (soluzione)
+abwärts#1	in giù
+abwärts#1	verso il basso
+alltags#1	nei giorni feriali
+alltags#1	nella vita di tutti i giorni
+amüsant#1	divertente
+amüsant#1	spassoso
+die Anreise#1	il viaggio di andata
+die Anreise#1	l'arrivo
+die Antenne#1	l'antenna
+der Antritt#1	l'inizio (di un viaggio)
+der Antritt#1	l'insediamento (in una carica)
+der Apostel#1	l'apostolo
+der Asphalt#1	l'asfalto
+der Asphalt#1	il bitume
+der Aufruhr#1	il tumulto
+der Aufruhr#1	la sommossa
+der Aufruhr#1	il subbuglio
+das Baujahr#1	l'anno di costruzione
+das Baujahr#1	l'anno di fabbricazione
+das Bauwerk#1	l'edificio
+das Bauwerk#1	la costruzione
+das Bauwerk#1	l'opera architettonica
+die Bauzeit#1	la durata dei lavori
+bereuen#1	pentirsi di
+bereuen#1	rimpiangere
+betteln#1	mendicare
+betteln#1	elemosinare
+bewohnt#1	abitato
+der Blowjob#1	il pompino (volgare)
+die Brigade#1	la brigata
+brüllen#1	urlare
+brüllen#1	ruggire
+brüllen#1	sbraitare
+das Casting#1	il casting
+das Casting#1	il provino
+die Deutung#1	l'interpretazione (di un sogno, di un segno)
+die Eignung#1	l'idoneità
+die Eignung#1	l'attitudine
+die Eingabe#1	l'immissione
+die Eingabe#1	l'input (anche: istanza)
+der Einwand#1	l'obiezione
+die Enkelin#1	la nipote (figlia del figlio o della figlia)
+erraten#1	indovinare (azzeccare)
+der Erreger#1	l'agente patogeno
+der Förster#1	la guardia forestale
+fünfmal#1	cinque volte
+der Gasthof#1	la locanda
+der Gasthof#1	l'albergo di campagna
+gehörig#1	notevole
+gehörig#1	bello (familiare)
+gehörig#2	dovuto
+gehörig#2	come si deve
+gelaunt#1	di umore (gut gelaunt: di buon umore)
+das Gremium#1	l'organo collegiale
+das Gremium#1	la commissione
+haltbar#1	conservabile
+haltbar#1	resistente
+haltbar#1	duraturo
+das Hörbuch#1	l'audiolibro
+das Innere#1	l'interno
+das Innere#1	l'intimo
+instant#1	istantaneo
+instant#1	solubile
+das Kaliber#1	il calibro
+die Kaution#1	la cauzione
+die Kaution#1	il deposito cauzionale
+knüpfen#1	annodare
+knüpfen#1	allacciare (rapporti)
+der Komfort#1	il comfort
+der Komfort#1	le comodità
+der Komiker#1	il comico
+krachen#1	scricchiolare
+krachen#1	schioccare
+krachen#2	schiantarsi
+kratzen#1	grattare
+kratzen#1	graffiare
+der Kratzer#1	il graffio
+der Kratzer#1	la scalfittura
+kreuzen#1	incrociare (anche: ibridare)
+der Kreuzer#1	l'incrociatore
+die Krönung#1	l'incoronazione
+die Krönung#1	il coronamento
+die Laterne#1	la lanterna
+die Laterne#1	il lampione
+legitim#1	legittimo (giustificato)
+die Lektion#1	la lezione (di un manuale; lezione di vita)
+das Lenkrad#1	il volante
+manuell#1	manuale
+manuell#1	manualmente
+das Manöver#1	la manovra
+mitsamt#1	insieme a
+mitsamt#1	con tutto
+die Mundart#1	la parlata (regionale)
+die Mündung#1	la foce
+die Mündung#1	l'estuario
+die Palette#1	la gamma
+die Palette#1	la tavolozza
+die Palette#1	il pallet
+der Panther#1	la pantera
+der Paprika#1	il peperone
+die Parodie#1	la parodia
+die Pfarrei#1	la parrocchia (circoscrizione)
+pinkeln#1	fare pipì (familiare)
+die Polemik#1	la polemica
+das Popcorn#1	i popcorn
+der Prophet#1	il profeta
+prügeln#1	picchiare (sich prügeln: azzuffarsi)
+der Raucher#1	il fumatore
+der Rotwein#1	il vino rosso
+die Räumung#1	lo sgombero
+die Räumung#1	l'evacuazione
+der Schauer#1	l'acquazzone
+der Schauer#1	il rovescio
+der Schauer#2	il brivido
+der Schwamm#1	la spugna
+separat#1	separato
+separat#1	a parte
+der Siedler#1	il colono
+sommers#1	d'estate
+der Spargel#1	l'asparago
+der Spargel#1	gli asparagi
+der Spoiler#1	lo spoiler (anticipazione)
+der Spoiler#2	lo spoiler (auto)
+die Spritze#1	la siringa
+die Spritze#1	l'iniezione
+der Stecker#1	la spina (elettrica)
+die Strophe#1	la strofa
+strömen#1	affluire
+strömen#1	scorrere a fiotti
+das Subjekt#1	il soggetto
+das Symptom#1	il sintomo (medico)
+süchtig#1	dipendente
+süchtig#1	drogato (di)
+das Terrain#1	il terreno (formale, militare)
+der Tourist#1	il turista
+der Traktor#1	il trattore
+die Trommel#1	il tamburo
+umarmen#1	abbracciare
+die Violine#1	il violino (formale, orchestra)
+der Vorstoß#1	l'iniziativa
+der Vorstoß#1	il tentativo (anche: avanzata)
+weithin#1	da lontano
+weithin#1	ampiamente
+wertlos#1	senza valore
+wichsen#1	farsi una sega (volgare; antiquato: lucidare)
+der Wichser#1	il segaiolo
+der Wichser#1	lo stronzo (volgare)
+die Wildnis#1	la natura selvaggia
+die Willkür#1	l'arbitrio
+winters#1	d'inverno
+der Zerfall#1	la disgregazione
+der Zerfall#1	il decadimento
+der Zerfall#1	il crollo
+die Zitrone#1	il limone
+zusagen#1	accettare (un invito)
+zusagen#2	piacere
+zusagen#2	andare a genio
+abbiegen#1	svoltare
+abbiegen#1	girare
+ablaufen#1	scadere
+ablaufen#1	trascorrere
+ableiten#1	derivare
+ableiten#1	dedurre
+der Absender#1	il mittente
+der Albtraum#1	l'incubo
+das Alphabet#1	l'alfabeto
+das Ambiente#1	l'atmosfera
+das Ambiente#1	l'ambiente
+anzünden#1	accendere (una candela, un fuoco)
+anzünden#1	incendiare
+arrogant#1	arrogante
+die Arroganz#1	l'arroganza
+ausruhen#1	riposarsi (sich ausruhen)
+die Ausschau#1	(Ausschau halten nach: cercare con lo sguardo)
+der Baseball#1	il baseball
+der Baumarkt#1	il negozio di bricolage
+der Baumarkt#1	il fai da te
+die Bebauung#1	l'edificazione
+die Bebauung#1	l'urbanizzazione
+bedrohen#1	minacciare (qualcuno)
+bedürfen#1	necessitare di
+bedürfen#1	richiedere (formale)
+befahren#1	percorrere (una strada)
+befahren#1	navigare
+befolgen#1	seguire (un consiglio)
+befolgen#1	osservare (una regola)
+die Betonung#1	l'accento
+die Betonung#1	l'enfasi
+die Blockade#1	il blocco
+die Blockade#1	l'embargo
+die Blondine#1	la bionda (spesso spregiativo)
+die Bücherei#1	la biblioteca (comunale, di prestito)
+charmant#1	affascinante (persona)
+charmant#1	incantevole
+der Chemiker#1	il chimico
+der Cocktail#1	il cocktail
+dreifach#1	triplo
+dreifach#1	triplice
+dreizehn#1	tredici
+drittens#1	terzo
+drittens#1	in terzo luogo
+die Dynastie#1	la dinastia
+die Echtzeit#1	il tempo reale
+eingangs#1	all'inizio di
+eingeben#1	inserire
+eingeben#1	immettere (dati; anche: somministrare)
+einholen#1	raggiungere
+einholen#1	riprendere
+einholen#2	raccogliere (informazioni)
+die Empathie#1	l'empatia
+die Epidemie#1	l'epidemia
+die Erlösung#1	la redenzione
+die Erlösung#1	la salvezza (anche: liberazione)
+erneuern#1	rinnovare
+erneuern#1	sostituire
+die Erwägung#1	la considerazione (riflessione)
+der Facharzt#1	lo specialista (medico)
+die Fahndung#1	la ricerca (della polizia)
+die Fahndung#1	la caccia all'uomo
+der Fahrplan#1	l'orario (dei trasporti)
+das Festland#1	la terraferma (anche: continente)
+forschen#1	fare ricerca
+forschen#1	indagare
+der Fußboden#1	il pavimento (di una stanza)
+geborgen#1	al sicuro
+geborgen#1	protetto
+der Gehorsam#1	l'obbedienza
+gehorsam#1	obbediente
+die Genesung#1	la guarigione (formale)
+die Genesung#1	la convalescenza
+das Geschrei#1	le grida
+das Geschrei#1	gli strilli
+der Hausarzt#1	il medico di famiglia
+das Haustier#1	l'animale domestico
+die Herzogin#1	la duchessa
+die Ignoranz#1	l'ignoranza (spregiativo)
+das Imperium#1	l'impero (grande potenza)
+der Innenhof#1	il cortile interno
+das Internat#1	il collegio
+das Internat#1	l'internato
+das Inventar#1	l'inventario
+das Inventar#1	l'arredo
+das Kabarett#1	il cabaret
+das Klischee#1	il cliché
+das Klischee#1	lo stereotipo
+die Kompanie#1	la compagnia (militare)
+die Kosmetik#1	la cosmesi
+die Kosmetik#1	i cosmetici
+die Krawatte#1	la cravatta
+das Kätzchen#1	il gattino
+das Kätzchen#1	il micino
+das Landhaus#1	la casa di campagna
+der Lehrgang#1	il corso (di formazione)
+der Leichnam#1	la salma
+das Manifest#1	il manifesto (testo politico)
+die Matratze#1	il materasso
+die Metapher#1	la metafora
+der Nachname#1	il cognome
+der Neustart#1	il riavvio (anche: nuovo inizio)
+die Ohnmacht#1	lo svenimento
+die Ohnmacht#2	l'impotenza
+die Ohnmacht#2	l'impotenza (sentirsi impotenti)
+optional#1	opzionale
+optional#1	facoltativo
+die Pandemie#1	la pandemia
+das Parkhaus#1	il parcheggio multipiano
+physisch#1	fisico (corporeo, materiale)
+das Polnisch#1	il polacco (la lingua)
+polnisch#1	polacco
+das Postfach#1	la casella postale (anche: casella di posta)
+das Promille#1	il per mille (tasso alcolemico)
+der Prototyp#1	il prototipo
+der Provider#1	il provider
+prächtig#1	splendido
+prächtig#1	sontuoso
+die Pubertät#1	la pubertà
+rasieren#1	radere (sich rasieren: radersi)
+rauschen#1	stormire
+rauschen#1	mormorare
+rauschen#1	frusciare
+die Referenz#1	la referenza
+die Rotation#1	la rotazione (tecnica; alternanza)
+der Rundgang#1	il giro
+der Rundgang#1	la visita
+rutschen#1	scivolare
+rutschen#1	slittare
+die Rückgabe#1	la restituzione
+scheißen#1	cagare (volgare)
+die Schlucht#1	la gola
+die Schlucht#1	il burrone
+der Schnabel#1	il becco (d'uccello)
+die Schneide#1	il filo (della lama)
+die Schnitte#1	la fetta
+die Schnitte#1	la tartina
+schweben#1	fluttuare
+schweben#1	librarsi
+der Sexismus#1	il sessismo
+die Spionage#1	lo spionaggio
+die Synthese#1	la sintesi
+der Südosten#1	il sud-est
+treffend#1	calzante
+treffend#1	appropriato
+die Trilogie#1	la trilogia
+umdrehen#1	girare
+umdrehen#1	voltare (sich umdrehen: voltarsi)
+die Variable#1	la variabile
+vehement#1	veemente
+vehement#1	con veemenza
+veraltet#1	obsoleto
+veraltet#1	antiquato
+das Versteck#1	il nascondiglio
+verwöhnt#1	viziato
+die Vorschau#1	l'anteprima
+die Vorschau#1	il trailer
+die Vorsorge#1	la prevenzione
+die Vorsorge#1	la previdenza
+der Zeichner#1	il disegnatore
+der Zeichner#1	l'illustratore
+die Zuflucht#1	il rifugio
+die Zuflucht#1	l'asilo
+zuordnen#1	assegnare
+zuordnen#1	attribuire
+zuordnen#1	classificare
+der Zuschlag#1	il supplemento
+der Zuschlag#1	la maggiorazione
+die Ökologie#1	l'ecologia
+abgelenkt#1	distratto
+die Abkühlung#1	il rinfresco
+die Abkühlung#1	il raffreddamento
+die Abneigung#1	l'avversione
+die Abneigung#1	l'antipatia
+abweichen#1	deviare
+abweichen#1	differire
+abweichen#1	scostarsi
+anbringen#1	fissare
+anbringen#1	applicare
+anbringen#1	installare
+die Animation#1	l'animazione
+anrichten#1	causare (danni)
+anrichten#2	impiattare
+anrichten#2	preparare (un piatto)
+der Aufschrei#1	il grido
+der Aufschrei#1	l'ondata di proteste
+aufsetzen#1	mettere (occhiali, cappello)
+aufsetzen#2	redigere
+aufsetzen#2	stilare
+das Augenmerk#1	l'attenzione (formale)
+der Ausbilder#1	l'istruttore
+der Ausbilder#1	il formatore
+ausleihen#1	prendere in prestito (in biblioteca)
+ausleihen#2	prestare
+der Ausschlag#1	l'eruzione cutanea
+der Ausschlag#1	lo sfogo
+der Ausschlag#2	il fattore decisivo (den Ausschlag geben: essere decisivo)
+das Automobil#1	l'automobile (formale, tecnico)
+der Bahnsteig#1	la banchina (del binario)
+die Baumwolle#1	il cotone
+behindern#1	ostacolare
+behindern#1	intralciare
+die Benennung#1	la denominazione (atto di nominare)
+beständig#1	costante
+beständig#1	stabile
+der Bildhauer#1	lo scultore
+der Bruchteil#1	la frazione
+der Bruchteil#1	una piccola parte
+chronisch#1	cronico
+die Dividende#1	il dividendo
+der Durchfall#1	la diarrea
+die Einigkeit#1	l'unità
+die Einigkeit#1	la concordia
+einleiten#1	avviare
+einleiten#1	introdurre
+entsorgen#1	smaltire (rifiuti)
+entwerfen#1	progettare
+entwerfen#1	disegnare
+entwerfen#1	abbozzare
+ersticken#1	soffocare
+ersticken#1	asfissiare
+erstmalig#1	per la prima volta
+erstmalig#1	primo
+erwischen#1	beccare
+erwischen#1	acchiappare (familiare)
+die Erwärmung#1	il riscaldamento (aumento di temperatura)
+erzwingen#1	imporre con la forza
+erzwingen#1	forzare
+die Exekutive#1	l'esecutivo
+die Expertise#1	la competenza
+die Expertise#1	l'esperienza
+der Flohmarkt#1	il mercato delle pulci
+der Flugplatz#1	l'aerodromo
+der Flugplatz#1	il piccolo aeroporto
+die Fälschung#1	la falsificazione
+die Fälschung#1	il falso
+das Gelächter#1	le risate
+genetisch#1	genetico
+genetisch#1	geneticamente
+die Geometrie#1	la geometria
+geradeaus#1	dritto
+geradeaus#1	sempre dritto
+gespalten#1	diviso
+gespalten#1	spaccato
+gestatten#1	permettere
+gestatten#1	consentire (formale)
+die Gleichung#1	l'equazione
+der Gletscher#1	il ghiacciaio
+gnadenlos#1	spietato
+die Gänsehaut#1	la pelle d'oca
+der Hauptsitz#1	la sede centrale (sociale)
+die Hautfarbe#1	il colore della pelle
+der Holländer#1	l'olandese (persona)
+die Hypothese#1	l'ipotesi (scientifica)
+die Immunität#1	l'immunità
+die Intention#1	l'intenzione (formale)
+die Isolation#1	l'isolamento (termico)
+die Isolation#2	l'isolamento (sociale)
+die Karikatur#1	la caricatura
+die Karikatur#1	la vignetta
+der Kaufpreis#1	il prezzo d'acquisto
+das Kleinkind#1	il bambino piccolo
+die Konstante#1	la costante
+das Labyrinth#1	il labirinto
+das Landesamt#1	l'ufficio regionale (di un Land)
+der Lastwagen#1	il camion
+der Lastwagen#1	l'autocarro
+der Lehrstuhl#1	la cattedra
+loslassen#1	lasciare andare
+loslassen#1	mollare
+die Loyalität#1	la lealtà
+der Magistrat#1	la giunta comunale
+das Marihuana#1	la marijuana
+die Marmelade#1	la marmellata
+die Marmelade#1	la confettura
+die Müdigkeit#1	la stanchezza
+nachholen#1	recuperare (ciò che si è perso)
+nachsehen#1	controllare
+nachsehen#1	verificare
+nachsehen#1	guardare
+der Neuanfang#1	il nuovo inizio
+der Neuanfang#1	la ripartenza
+obendrein#1	per giunta
+obendrein#1	per di più
+das Plätzchen#1	il biscotto
+das Plätzchen#2	il posticino
+das Porzellan#1	la porcellana
+produktiv#1	produttivo
+die Provision#1	la provvigione
+die Präzision#1	la precisione (tecnica, formale)
+die Raumfahrt#1	l'astronautica
+die Raumfahrt#1	i viaggi spaziali
+der Realismus#1	il realismo
+die Rebellion#1	la ribellione
+die Reflexion#1	il riflesso (della luce)
+die Reflexion#1	la riflessione (filosofica)
+die Richterin#1	la giudice (donna)
+schleifen#1	trascinare (per terra; anche: affilare)
+schleppen#1	trascinare
+schleppen#1	trainare
+der Schlepper#1	il trafficante di migranti
+der Schlepper#2	il rimorchiatore
+schmelzen#1	sciogliersi
+schmelzen#1	fondere
+der Schwimmer#1	il nuotatore
+der Schwindel#1	la vertigine
+der Schwindel#1	il capogiro
+der Schwindel#2	l'imbroglio
+der Schwindel#2	la truffa
+senkrecht#1	verticale
+senkrecht#1	in verticale
+die Sensation#1	la sensazione
+die Sensation#1	il colpo sensazionale
+servieren#1	servire (un piatto)
+sortieren#1	smistare
+sortieren#1	ordinare
+sortieren#1	classificare
+die Spaghetti#1	gli spaghetti
+das Spielfeld#1	il campo da gioco
+das Stockwerk#1	il piano (livello)
+subjektiv#1	soggettivo
+teilhaben#1	partecipare (a)
+teilhaben#1	condividere
+das Trinkgeld#1	la mancia
+die Täuschung#1	l'inganno (anche: illusione ottica)
+umsteigen#1	cambiare (treno, autobus)
+umstellen#1	spostare
+umstellen#1	riorganizzare
+umstellen#2	circondare
+umstellen#2	accerchiare
+variieren#1	variare
+verklagen#1	fare causa a
+verklagen#1	citare in giudizio
+vermehren#1	aumentare
+vermehren#1	moltiplicare (sich vermehren: riprodursi)
+vernehmen#1	udire
+vernehmen#1	sentire (formale)
+vernehmen#2	interrogare (un testimone)
+verspätet#1	in ritardo
+verspätet#1	tardivo
+verwalten#1	amministrare
+verwalten#1	gestire
+der Verwalter#1	l'amministratore (di beni, di un immobile)
+verweilen#1	soffermarsi
+verweilen#1	trattenersi
+verwöhnen#1	viziare
+verwöhnen#1	coccolare
+der Vormarsch#1	l'avanzata
+vorwerfen#1	rimproverare
+vorwerfen#1	accusare
+wahlweise#1	a scelta
+wegwerfen#1	buttare via
+die Witterung#1	le condizioni meteorologiche (anche: fiuto)
+das Wohnmobil#1	il camper
+die Würdigung#1	l'omaggio
+die Würdigung#1	il riconoscimento
+der Zeitgeist#1	lo spirito del tempo
+die Zuneigung#1	l'affetto
+ängstlich#1	pauroso
+ängstlich#1	ansioso
+überreden#1	persuadere (convincere a fare qualcosa)
+abschieben#1	espellere
+abschieben#1	rimpatriare
+die Abtreibung#1	l'aborto
+die Abweichung#1	la deviazione
+die Abweichung#1	lo scarto
+die Abweichung#1	la discrepanza
+die Abwicklung#1	lo svolgimento
+die Abwicklung#1	il disbrigo (di una pratica)
+die Aggression#1	l'aggressività
+die Aggression#1	l'aggressione
+der Akademiker#1	il laureato
+der Akademiker#1	l'accademico
+akzeptabel#1	accettabile
+auffallend#1	vistoso
+auffallend#1	sorprendente
+aufrichtig#1	sincero
+aufrichtig#1	sinceramente
+die Ausprägung#1	la forma
+die Ausprägung#1	il grado
+die Ausprägung#1	la caratteristica
+die Auszahlung#1	l'erogazione
+die Auszahlung#1	il versamento
+der Autounfall#1	l'incidente d'auto
+der Baumeister#1	il capomastro
+der Baumeister#1	il costruttore
+die Bekleidung#1	l'abbigliamento (commercio, amministrativo)
+die Belagerung#1	l'assedio
+bereichern#1	arricchire (sich bereichern: arricchirsi)
+beruhigend#1	rassicurante
+beruhigend#1	calmante
+bezweifeln#1	dubitare (mettere in dubbio)
+die Braunkohle#1	la lignite
+der Champagner#1	lo champagne
+die Dekoration#1	la decorazione
+die Dekoration#1	l'addobbo
+demzufolge#1	di conseguenza (formale)
+das Department#1	il dipartimento (universitario)
+die Diplomatie#1	la diplomazia
+die Direktorin#1	la direttrice
+die Direktorin#1	la preside
+dominieren#1	dominare
+dominieren#1	predominare
+einberufen#1	convocare
+eineinhalb#1	uno e mezzo (comune)
+einfließen#1	confluire (in)
+einfließen#1	entrare (in considerazione)
+einstecken#1	mettere in tasca
+einstecken#1	intascare (anche: incassare colpi)
+das Elternhaus#1	la casa dei genitori
+das Elternhaus#1	la casa paterna
+erfreulich#1	gradito
+erfreulich#1	piacevole
+die Erpressung#1	il ricatto
+die Erpressung#1	l'estorsione
+erschweren#1	rendere più difficile
+erschweren#1	complicare
+das Erzgebirge#1	i Monti Metalliferi
+das Evangelium#1	il Vangelo
+die Festlegung#1	la definizione
+die Festlegung#1	la fissazione
+die Finsternis#1	le tenebre
+die Finsternis#1	l'oscurità
+die Finsternis#2	l'eclissi
+der Fragebogen#1	il questionario
+frühestens#1	al più presto
+die Gaststätte#1	il ristorante
+die Gaststätte#1	la trattoria
+die Gaststätte#1	l'osteria
+generieren#1	generare (informatica)
+die Gesamtheit#1	la totalità
+die Gesamtheit#1	l'insieme
+die Gewohnheit#1	l'abitudine
+die Gewohnheit#1	la consuetudine
+die Grafschaft#1	la contea (storico)
+die Haftstrafe#1	la reclusione
+die Haftstrafe#1	la pena carceraria
+das Handgelenk#1	il polso (articolazione)
+die Handhabung#1	l'uso
+die Handhabung#1	il maneggio
+hartnäckig#1	ostinato
+hartnäckig#1	tenace
+hartnäckig#1	persistente
+die Hausarbeit#1	le faccende domestiche (anche: tesina)
+das Heilmittel#1	il rimedio
+das Heilmittel#1	il medicamento
+die Helligkeit#1	la luminosità
+der Hinterkopf#1	l'occipite
+der Hinterkopf#1	la parte posteriore della testa
+die Integrität#1	l'integrità
+irrelevant#1	irrilevante
+die Kandidatin#1	la candidata
+die Kathedrale#1	la cattedrale (termine generale)
+katholisch#1	cattolico
+das Kindergeld#1	gli assegni familiari
+das Kriegsende#1	la fine della guerra
+die Kundschaft#1	la clientela (di un negozio)
+der Leuchtturm#1	il faro (marittimo)
+die Meditation#1	la meditazione
+der Mitschüler#1	il compagno di classe
+der Mitspieler#1	il compagno di squadra
+monatelang#1	per mesi
+die Mythologie#1	la mitologia
+der Niedergang#1	il declino
+der Niedergang#1	la decadenza
+der Nordwesten#1	il nord-ovest
+die Normalität#1	la normalità
+die Obdachlose#1	la senzatetto
+der Oberkörper#1	il busto
+der Oberkörper#1	il torso
+der Optimismus#1	l'ottimismo
+der Psychologe#1	lo psicologo
+das Raumschiff#1	l'astronave
+das Raumschiff#1	la navicella spaziale
+der Regenbogen#1	l'arcobaleno
+rezeptfrei#1	senza ricetta
+rezeptfrei#1	da banco
+schlichten#1	appianare
+schlichten#1	comporre (una lite)
+die Schlägerei#1	la rissa
+die Schlägerei#1	la zuffa
+schmunzeln#1	sorridere (divertito, sotto i baffi)
+der Schriftzug#1	la scritta
+der Schriftzug#2	il logo
+die Sekretärin#1	la segretaria
+die Seltenheit#1	la rarità
+der Sportwagen#1	l'auto sportiva
+sprachlich#1	linguistico
+sprachlich#1	linguisticamente
+das Sprichwort#1	il proverbio
+das Stipendium#1	la borsa di studio
+streicheln#1	accarezzare
+der Stützpunkt#1	la base (militare)
+der Stützpunkt#1	il punto d'appoggio
+thematisch#1	tematico
+thematisch#1	per argomento
+der Tierschutz#1	la protezione degli animali
+das Todesopfer#1	la vittima (mortale)
+das Todesopfer#1	il morto
+der Treibstoff#1	il carburante
+ungeeignet#1	inadatto
+unzulässig#1	inammissibile
+unzulässig#1	non consentito
+der Vegetarier#1	il vegetariano
+die Vegetation#1	la vegetazione
+die Verachtung#1	il disprezzo
+verdoppeln#1	raddoppiare
+verdrängen#1	rimuovere (psicologia)
+verdrängen#2	soppiantare
+verdrängen#2	scalzare
+verhungern#1	morire di fame
+versammeln#1	radunare
+versammeln#1	riunire (sich versammeln: radunarsi)
+der Verschluss#1	il tappo
+der Verschluss#1	il fermaglio (dispositivo di chiusura)
+die Versöhnung#1	la riconciliazione
+die Verwertung#1	il riutilizzo
+die Verwertung#1	il riciclaggio
+die Verwertung#1	lo sfruttamento
+vorgestern#1	l'altro ieri
+vormittags#1	di mattina
+vormittags#1	in mattinata
+der Wasserfall#1	la cascata
+die Wiederwahl#1	la rielezione
+der Wortschatz#1	il lessico
+der Wortschatz#1	il vocabolario (di una persona)
+das Zertifikat#1	il certificato
+das Zertifikat#1	l'attestato (di frequenza, di qualifica)
+der Zuwanderer#1	il nuovo arrivato
+der Zuwanderer#1	il migrante
+ökologisch#1	ecologico
+ökologisch#1	ecologicamente
+ökonomisch#1	economico (formale, scientifico)
+übermorgen#1	dopodomani
+der Überschuss#1	l'eccedenza
+der Überschuss#1	l'avanzo
+der Überschuss#1	il surplus
+überweisen#1	bonificare
+überweisen#1	trasferire (denaro; anche: indirizzare un paziente)
+überwiegen#1	prevalere
+überwiegen#1	predominare
+anschaulich#1	chiaro
+anschaulich#1	concreto
+anschaulich#1	eloquente
+die Anstrengung#1	lo sforzo (fisico, mentale)
+die Archäologie#1	l'archeologia
+ausgleichen#1	compensare
+ausgleichen#1	pareggiare
+der Außenseiter#1	l'emarginato
+der Außenseiter#1	l'outsider
+die Befestigung#1	il fissaggio
+die Befestigung#2	la fortificazione
+befriedigen#1	soddisfare (comune)
+die Belegschaft#1	il personale
+die Belegschaft#1	i dipendenti
+die Belästigung#1	la molestia
+die Belästigung#1	il fastidio
+bestenfalls#1	nel migliore dei casi
+der Betriebsrat#1	il consiglio di fabbrica
+der Betriebsrat#1	la rappresentanza sindacale
+der Blickwinkel#1	l'angolazione
+der Blickwinkel#1	il punto di vista
+die Buchhaltung#1	la contabilità
+der Cheftrainer#1	l'allenatore capo
+der Dinosaurier#1	il dinosauro
+die Disposition#1	la disposizione (organizzazione, pianificazione)
+durchhalten#1	resistere
+durchhalten#1	tenere duro
+durchsuchen#1	perquisire
+durchsuchen#1	frugare
+einschlagen#1	sfondare
+einschlagen#1	conficcare
+einschlagen#2	cadere (fulmine)
+einschlagen#3	imboccare (una direzione)
+erschrecken#1	spaventare (sich erschrecken: spaventarsi)
+evangelisch#1	evangelico
+evangelisch#1	protestante
+die Finanzkrise#1	la crisi finanziaria
+frühstücken#1	fare colazione
+gerichtlich#1	giudiziario
+gerichtlich#1	giudiziale
+die Germanistik#1	la germanistica
+glaubwürdig#1	credibile
+glaubwürdig#1	attendibile
+das Glücksspiel#1	il gioco d'azzardo
+das Grundwasser#1	le acque sotterranee
+das Grundwasser#1	la falda
+die Hauptschule#1	la scuola media inferiore (percorso breve, in Germania)
+das Immunsystem#1	il sistema immunitario
+inspirieren#1	ispirare
+kombinieren#1	combinare
+konstruktiv#1	costruttivo
+die Lebensdauer#1	la durata (di vita)
+das Länderspiel#1	la partita internazionale
+der Meilenstein#1	la pietra miliare
+der Meilenstein#1	la tappa fondamentale
+meinerseits#1	da parte mia
+meinerseits#1	per parte mia
+das Meisterwerk#1	il capolavoro
+die Moderatorin#1	la presentatrice
+die Moderatorin#1	la conduttrice
+die Offenbarung#1	la rivelazione
+offenkundig#1	evidente
+offenkundig#1	palese
+der Pfannkuchen#1	la frittella
+der Pfannkuchen#1	il pancake
+die Provokation#1	la provocazione
+der Querschnitt#1	la sezione trasversale
+der Querschnitt#2	il campione rappresentativo
+schlechthin#1	per eccellenza
+die Sommerpause#1	la pausa estiva
+das Sonnenlicht#1	la luce del sole
+die Spekulation#1	la speculazione
+spielerisch#1	giocoso
+spielerisch#1	giocando
+der Sportverein#1	la società sportiva
+der Sprengstoff#1	l'esplosivo
+der Staubsauger#1	l'aspirapolvere
+das Taschengeld#1	la paghetta
+tendenziell#1	tendenzialmente
+tendenziell#1	in linea di massima
+umfangreich#1	ampio
+umfangreich#1	voluminoso
+umfangreich#1	esteso
+unterbinden#1	impedire
+unterbinden#1	stroncare
+unterlassen#1	tralasciare
+unterlassen#1	astenersi da
+unterziehen#1	sottoporre (sich unterziehen: sottoporsi a)
+unverschämt#1	sfacciato
+unverschämt#1	spudorato
+verbindlich#1	vincolante
+verbindlich#1	impegnativo
+verbindlich#2	garbato
+verbindlich#2	cortese (nei modi)
+vertraglich#1	contrattuale
+vertraglich#1	per contratto
+die Vertreibung#1	la cacciata
+die Vertreibung#1	l'espulsione (di una popolazione)
+vorbildlich#1	esemplare
+die Vorderseite#1	la parte anteriore
+die Vorderseite#1	il recto
+das Völkerrecht#1	il diritto internazionale
+das Wahrzeichen#1	l'emblema
+das Wahrzeichen#1	il monumento simbolo (di una città)
+die Wirbelsäule#1	la colonna vertebrale
+die Zentralbank#1	la banca centrale
+zweieinhalb#1	due e mezzo
+die Überlebende#1	la sopravvissuta
+die Überweisung#1	il bonifico (anche: impegnativa medica)
+der Arbeitskreis#1	il gruppo di studio
+der Arbeitskreis#1	il circolo di lavoro
+die Auferstehung#1	la risurrezione
+beanspruchen#1	rivendicare
+beanspruchen#1	reclamare
+beanspruchen#2	richiedere
+beanspruchen#2	occupare (tempo)
+die Berechtigung#1	l'autorizzazione
+die Berechtigung#1	il diritto
+die Berechtigung#1	la legittimità
+die Berufsschule#1	la scuola professionale
+die Beschränkung#1	la limitazione (imposta)
+deaktivieren#1	disattivare
+distanzieren#1	prendere le distanze (sich distanzieren von)
+distanzieren#2	distanziare
+distanzieren#2	staccare
+das Eichhörnchen#1	lo scoiattolo
+eifersüchtig#1	geloso
+einschränken#1	ridurre
+einschränken#1	restringere (limitare)
+die Einwilligung#1	il consenso
+die Einwilligung#1	l'assenso
+das Fragezeichen#1	il punto interrogativo
+der Freitagabend#1	il venerdì sera
+die Fremdsprache#1	la lingua straniera
+die Gedenkstätte#1	il memoriale
+die Gedenkstätte#1	il luogo della memoria
+die Gelassenheit#1	la calma
+die Gelassenheit#1	la serenità
+die Gelassenheit#1	l'imperturbabilità
+hoffnungslos#1	disperato
+hoffnungslos#1	senza speranza
+kennzeichnen#1	contrassegnare
+kennzeichnen#1	caratterizzare
+die Lebensfreude#1	la gioia di vivere
+die Lebensgefahr#1	il pericolo di vita
+der Mathematiker#1	il matematico
+mathematisch#1	matematico
+nachdenklich#1	pensieroso
+nachdenklich#1	meditabondo
+die Rechenschaft#1	il rendiconto (zur Rechenschaft ziehen: chiamare a rispondere)
+rechtswidrig#1	illegale
+rechtswidrig#1	illecito
+rechtswidrig#1	contrario alla legge
+reflektieren#1	riflettere (la luce; anche: meditare)
+der Scheinwerfer#1	il riflettore
+der Scheinwerfer#1	il proiettore
+der Scheinwerfer#2	il faro (auto)
+die Schreibweise#1	la grafia
+die Schreibweise#1	il modo di scrivere
+die Sonnenbrille#1	gli occhiali da sole
+das Stadtzentrum#1	il centro città (centro geografico)
+das Theaterstück#1	l'opera teatrale
+das Theaterstück#1	la pièce
+unregelmäßig#1	irregolare
+unregelmäßig#1	irregolarmente
+unterbrechen#1	interrompere (comune)
+unterbringen#1	ospitare
+unterbringen#1	alloggiare
+unterstellen#1	insinuare
+unterstellen#1	attribuire (intenzioni)
+verständigen#1	avvisare
+verständigen#1	avvertire
+verständigen#2	intendersi
+verständigen#2	farsi capire (sich verständigen)
+vorenthalten#1	negare
+vorenthalten#1	tenere nascosto
+vorzugsweise#1	preferibilmente (di preferenza)
+das Wahlergebnis#1	il risultato elettorale
+das Wohlbefinden#1	il benessere (fisico e psichico)
+zurückhalten#1	trattenere (sich zurückhalten: trattenersi)
+zurückkommen#1	tornare (comune)
+zurückkommen#1	ritornare
+der Zwischenfall#1	l'incidente
+der Zwischenfall#1	l'inconveniente
+die Brandstiftung#1	l'incendio doloso
+der Denkmalschutz#1	la tutela dei beni culturali
+die Fernbedienung#1	il telecomando
+der Fernsehsender#1	l'emittente televisiva
+der Fernsehsender#1	il canale televisivo
+das Fitnessstudio#1	la palestra (fitness)
+die Fußgängerzone#1	la zona pedonale
+die Fußgängerzone#1	l'isola pedonale
+das Geschäftsjahr#1	l'esercizio (finanziario)
+der Gesetzentwurf#1	il disegno di legge
+die Handelskammer#1	la camera di commercio
+herunterladen#1	scaricare (download)
+der Landesverband#1	la federazione regionale (di un Land)
+mittelfristig#1	a medio termine
+der Olympiasieger#1	il campione olimpico
+der Projektleiter#1	il capoprogetto
+der Projektleiter#1	il responsabile di progetto
+recherchieren#1	fare ricerche
+recherchieren#1	documentarsi
+die Schnittstelle#1	l'interfaccia
+die Schwierigkeit#1	la difficoltà
+selbstbewusst#1	sicuro di sé
+unterzeichnen#1	sottoscrivere
+unterzeichnen#1	firmare (ufficialmente)
+die Vergessenheit#1	l'oblio
+vergewaltigen#1	violentare
+vergewaltigen#1	stuprare
+der Vergewaltiger#1	lo stupratore
+die Verschwendung#1	lo spreco
+die Verschwendung#1	lo sperpero
+zurückhaltend#1	riservato
+zurückhaltend#1	cauto
+die Zurückhaltung#1	il riserbo
+die Zurückhaltung#1	la moderazione
+die Aktualisierung#1	l'aggiornamento (comune)
+die Bereitstellung#1	la messa a disposizione
+die Bereitstellung#1	lo stanziamento
+die Beschleunigung#1	l'accelerazione
+die Bushaltestelle#1	la fermata dell'autobus
+die Fachhochschule#1	l'università di scienze applicate
+die Fachhochschule#1	il politecnico
+folgendermaßen#1	nel modo seguente
+folgendermaßen#1	così
+die Freundlichkeit#1	la gentilezza
+die Freundlichkeit#1	la cortesia
+das Grundeinkommen#1	il reddito di base
+die Nachkriegszeit#1	il dopoguerra
+die Pressefreiheit#1	la libertà di stampa
+die Privatisierung#1	la privatizzazione
+die Programmierung#1	la programmazione (informatica)
+der Schulabschluss#1	il diploma di fine studi (scolastici)
+das Süddeutschland#1	la Germania meridionale
+ununterbrochen#1	ininterrotto
+ununterbrochen#1	ininterrottamente
+ununterbrochen#1	senza sosta
+die Weihnachtszeit#1	il periodo natalizio
+die Weltanschauung#1	la concezione del mondo
+die Weltanschauung#1	l'ideologia
+die Wiederaufnahme#1	la ripresa (di attività interrotte)
+zusammenfassen#1	riassumere
+zusammenfassen#1	ricapitolare
+zusammenhängen#1	essere collegato
+zusammenhängen#1	essere connesso (con)
+zuversichtlich#1	fiducioso
+zuversichtlich#1	ottimista
+österreichisch#1	austriaco
+beeinträchtigen#1	compromettere
+beeinträchtigen#1	danneggiare
+beeinträchtigen#1	pregiudicare
+die Berufserfahrung#1	l'esperienza professionale
+die Differenzierung#1	la differenziazione (comune)
+das Einfamilienhaus#1	la villetta unifamiliare
+das Geschäftsmodell#1	il modello di business
+das Geschäftsmodell#1	il modello economico
+die Kunstgeschichte#1	la storia dell'arte
+die Lebenserwartung#1	l'aspettativa di vita
+die Ungerechtigkeit#1	l'ingiustizia (comune)
+die Unzufriedenheit#1	l'insoddisfazione
+die Unzufriedenheit#1	il malcontento
+die Zuverlässigkeit#1	l'affidabilità
+das Abgeordnetenhaus#1	la Camera dei deputati (Berlino)
+der Abteilungsleiter#1	il capo reparto
+der Abteilungsleiter#1	il responsabile di settore
+aufrechterhalten#1	mantenere (in vita)
+das Außenministerium#1	il ministero degli Esteri
+die Berufsausbildung#1	la formazione professionale
+charakteristisch#1	caratteristico
+charakteristisch#1	tipico
+die Fluggesellschaft#1	la compagnia aerea (comune)
+der Gesprächspartner#1	l'interlocutore (in una conversazione)
+die Luftfeuchtigkeit#1	l'umidità dell'aria
+niedergeschlagen#1	abbattuto
+niedergeschlagen#1	avvilito
+die Schlussfolgerung#1	la conclusione
+die Schlussfolgerung#1	la deduzione
+die Schriftstellerin#1	la scrittrice
+der Waffenstillstand#1	il cessate il fuoco
+der Waffenstillstand#1	l'armistizio
+die Wasserversorgung#1	l'approvvigionamento idrico
+die Wirtschaftskrise#1	la crisi economica
+die Selbstständigkeit#1	l'autonomia personale (anche: lavoro autonomo)
+die Untersuchungshaft#1	la custodia cautelare
+der Verbraucherschutz#1	la tutela dei consumatori
+die Generalversammlung#1	l'assemblea generale (ONU, associazione)
+die Wirtschaftspolitik#1	la politica economica
+das Konzentrationslager#1	il campo di concentramento
+der Religionsunterricht#1	l'ora di religione
+das Wirtschaftswachstum#1	la crescita economica
+höchstwahrscheinlich#1	molto probabilmente
+der Verteidigungsminister#1	il ministro della Difesa
+die Selbstverständlichkeit#1	l'ovvietà
+die Selbstverständlichkeit#1	la cosa scontata
+der Untersuchungsausschuss#1	la commissione d'inchiesta
+die Vorratsdatenspeicherung#1	la conservazione dei dati (di traffico)
+das Deo#1	il deodorante
+das Heu#1	il fieno
+der Kot#1	gli escrementi
+der Kot#1	le feci
+lau#1	tiepido
+lau#1	mite
+mau#1	così così
+mau#1	scarso (familiare)
+rar#1	raro
+rar#1	scarso
+das Reh#1	il capriolo
+roh#1	crudo
+roh#1	grezzo
+der Wal#1	la balena
+zäh#1	duro
+zäh#1	coriaceo
+zäh#1	tenace
+öde#1	desolato
+öde#1	squallido (anche: noioso)
+die Aula#1	l'aula magna
+die Brut#1	la covata
+die Brut#1	la nidiata (familiare: marmaglia)
+das Cape#1	la mantella
+das Cape#1	la cappa
+der Coup#1	il colpo (azione audace)
+der Ekel#1	il disgusto
+der Ekel#1	il ribrezzo
+der Etat#1	il bilancio (di uno Stato, di un'istituzione)
+die Eule#1	il gufo
+die Eule#1	la civetta
+fies#1	cattivo
+fies#1	meschino (familiare)
+das Foul#1	il fallo (sport)
+die Gans#1	l'oca
+der Gips#1	il gesso (ingessatura)
+der Gips#2	il gesso (minerale)
+das Gros#1	il grosso
+das Gros#1	la maggior parte
+hohl#1	cavo (anche: vuoto)
+der Host#1	l'host (informatica)
+der Host#1	il padrone di casa
+huch#1	ops
+huch#1	oddio (spavento)
+das Idol#1	l'idolo (star ammirata)
+das Kalb#1	il vitello
+das Kanu#1	la canoa
+der Keil#1	il cuneo
+der Kran#1	la gru
+der Lama#1	il lama (animale)
+der Lift#1	l'ascensore (regionale)
+die Mast#1	l'ingrasso (del bestiame)
+mild#1	mite
+mild#1	clemente (clima; anche: delicato)
+der Narr#1	il folle
+der Narr#1	il buffone
+der Narr#1	il giullare
+oral#1	orale
+oral#1	per via orale
+der Pelz#1	la pelliccia
+der Puff#1	il bordello
+der Puff#1	il casino (familiare)
+der Puma#1	il puma
+die Rage#1	la furia (familiare)
+das Rind#1	il manzo
+das Rind#1	il bovino
+die Soja#1	la soia
+der Steg#1	la passerella
+der Steg#1	il pontile
+der Stoß#1	il colpo
+der Stoß#1	la spinta
+der Stoß#1	l'urto
+die Sure#1	la sura
+die Tram#1	il tram (Germania del sud, Svizzera)
+das Uran#1	l'uranio
+die Urne#1	l'urna
+die Abtei#1	l'abbazia
+die Adria#1	il mare Adriatico
+die Adria#1	l'Adriatico
+beben#1	tremare (terra; voce)
+der Besen#1	la scopa
+der Biber#1	il castoro
+die Biene#1	l'ape
+die Bluse#1	la camicetta
+die Causa#1	il caso
+die Causa#1	la vicenda (formale, giuridico)
+die Demut#1	l'umiltà
+der Dämon#1	il demone
+die Dürre#1	la siccità
+der Eifer#1	lo zelo
+der Eifer#1	il fervore
+das Erdöl#1	il petrolio
+der Erlös#1	il ricavato
+der Erlös#1	il provento
+fatal#1	fatale
+fatal#1	disastroso
+der Fleiß#1	la diligenza
+der Fleiß#1	l'operosità
+die Flöte#1	il flauto
+das Gefäß#1	il recipiente
+das Gefäß#1	il vaso
+das Glied#1	l'arto
+das Glied#2	l'anello (di una catena)
+die Haube#1	il cofano
+die Haube#2	la cuffia (unter die Haube kommen: sposarsi)
+hüten#1	custodire
+hüten#1	sorvegliare (animali, un segreto)
+hüten#2	guardarsi da (sich hüten vor)
+die Kappe#1	il berretto (con visiera; anche: cappuccio, tappo)
+der Kegel#1	il cono (anche: birillo)
+die Kippe#1	il mozzicone
+die Kippe#1	la cicca (familiare)
+der Kranz#1	la corona (di fiori)
+der Lachs#1	il salmone
+das Müsli#1	il muesli
+die Narbe#1	la cicatrice
+die Niere#1	il rene
+die Niere#1	il rognone
+die Nonne#1	la suora
+die Nonne#1	la monaca
+das Omega#1	l'omega
+die Palme#1	la palma
+das Pfand#1	il vuoto a rendere
+das Pfand#1	la cauzione
+das Pfand#2	il pegno
+der Pulli#1	il maglioncino (familiare)
+die Quest#1	la quest
+die Quest#1	la missione (videogioco)
+die Rampe#1	la rampa
+die Ratte#1	il ratto
+der Rubel#1	il rublo
+die Ruine#1	la rovina
+die Ruine#1	il rudere
+der Schub#1	la spinta
+der Schub#2	l'attacco
+der Schub#2	la crisi (medica)
+selig#1	beato
+selig#1	felice
+selig#2	defunto
+selig#2	buonanima
+die Sense#1	la falce
+die Sohle#1	la pianta del piede
+die Sohle#2	la suola
+der Spion#1	la spia
+der Sprit#1	la benzina (familiare)
+der Stiel#1	il manico
+der Stiel#1	il gambo
+die Stute#1	la giumenta
+die Stute#1	la cavalla
+die Viola#1	la viola (strumento)
+das Votum#1	il voto
+das Votum#1	il verdetto (formale)
+die Wange#1	la guancia (comune)
+die Yacht#1	lo yacht
+die Ziege#1	la capra
+das Zivil#1	l'abito civile
+zivil#1	civile (non militare; familiare: ragionevole)
+der Abflug#1	la partenza (di un aereo)
+der Abflug#1	il decollo
+die Abkehr#1	l'abbandono
+die Abkehr#1	l'allontanamento
+die Ananas#1	l'ananas
+das Asthma#1	l'asma
+die Atmung#1	la respirazione
+der Bagger#1	l'escavatore
+der Bagger#1	la ruspa
+der Ballon#1	il palloncino
+der Ballon#1	la mongolfiera
+der Banker#1	il banchiere
+der Befund#1	il referto
+der Befund#1	l'esito (di un esame)
+belebt#1	animato
+belebt#1	frequentato
+blutig#1	sanguinoso
+blutig#1	insanguinato
+bumsen#1	scopare (volgare)
+bumsen#2	battere
+bumsen#2	sbattere (rumore sordo)
+das Cabrio#1	la decappottabile
+das Cabrio#1	il cabriolet
+eichen#1	tarare
+eichen#1	calibrare
+das Examen#1	l'esame (di fine studi)
+der Farmer#1	il farmer
+der Farmer#1	il ranchero (agricoltore americano)
+faulen#1	marcire
+feuern#1	licenziare (anche: sparare)
+die Fichte#1	l'abete rosso
+die Fracht#1	il carico
+die Fracht#1	le merci (trasportate)
+der Fußweg#1	il sentiero pedonale
+der Fußweg#2	il tragitto a piedi
+der Gehweg#1	il marciapiede
+giftig#1	velenoso
+giftig#1	tossico
+die Glatze#1	la calvizie
+die Glatze#1	la testa pelata
+heiter#1	gaio
+heiter#1	di buon umore
+heiter#2	limpido
+heiter#2	sereno (cielo)
+der Hengst#1	lo stallone
+hetero#1	etero
+die Hummel#1	il bombo
+die Hündin#1	la cagna
+der Imbiss#1	lo spuntino
+der Imbiss#1	la tavola calda
+impfen#1	vaccinare
+der Jaguar#1	il giaguaro
+kacken#1	fare la cacca
+kacken#1	cagare (volgare)
+der Kaplan#1	il cappellano
+der Kaplan#1	il vicario
+der Knecht#1	il servo
+der Knecht#1	il garzone (di fattoria)
+das Kondom#1	il preservativo
+der Konter#1	il contropiede (sport)
+das Konzil#1	il concilio
+der Krämer#1	il bottegaio
+der Krämer#1	il droghiere
+die Kundin#1	la cliente (donna)
+der Kürbis#1	la zucca
+der Lacher#1	la risata
+der Lacher#2	chi ride
+das Layout#1	il layout
+das Layout#1	l'impaginazione
+der Lenker#1	il manubrio
+der Lenker#2	il conducente
+linear#1	lineare
+linear#1	linearmente
+lästig#1	fastidioso
+lästig#1	molesto
+lüften#1	arieggiare
+lüften#1	aerare
+die Masche#1	la maglia
+die Masche#1	il punto (lavoro a maglia)
+die Masche#2	il trucco
+die Masche#2	la tattica (familiare)
+die Matura#1	la maturità (Austria, Svizzera)
+neunte#1	nono
+das Newton#1	il newton (unità)
+der Pilger#1	il pellegrino
+der Pinsel#1	il pennello
+pissen#1	pisciare (volgare)
+der Prügel#1	le botte
+der Prügel#1	la batosta
+der Prügel#2	il randello
+das Puzzle#1	il puzzle
+rasant#1	rapidissimo
+rasant#1	vertiginoso
+ratlos#1	perplesso
+ratlos#1	disorientato
+rauben#1	rapinare
+rauben#1	rubare (con violenza)
+die Razzia#1	la retata
+die Razzia#1	il blitz (di polizia)
+reizen#1	attirare
+reizen#1	tentare
+reizen#2	irritare
+reizen#2	provocare
+der Schall#1	il suono (fisica: onda sonora)
+der Scheck#1	l'assegno
+das Schott#1	la paratia (stagna)
+der Schwan#1	il cigno
+der Sensor#1	il sensore
+servus#1	ciao (Germania del sud, Austria)
+die Seuche#1	la pestilenza
+die Seuche#1	il morbo
+die Skizze#1	lo schizzo
+die Skizze#1	l'abbozzo
+das Skript#1	le dispense (universitarie)
+das Skript#2	lo script
+das Skript#2	il copione
+spülen#1	sciacquare
+spülen#2	lavare i piatti
+der Strahl#1	il raggio
+der Strahl#2	il getto
+der Strang#1	la corda
+der Strang#1	il filo
+der Strang#1	il cavo
+der Strick#1	la corda (anche: cappio)
+der String#1	il perizoma
+die Stütze#1	il sostegno
+die Stütze#1	il supporto
+der Tresor#1	la cassaforte
+der Tresor#1	il caveau
+der Tribut#1	il tributo (omaggio dovuto)
+turnen#1	fare ginnastica
+unwohl#1	a disagio
+unwohl#1	indisposto
+das Ventil#1	la valvola
+das Ventil#1	lo sfogo
+versus#1	contro
+versus#1	versus
+vorweg#1	prima di tutto
+vorweg#1	in anticipo
+der Walzer#1	il valzer
+der Weise#1	il saggio (persona)
+winken#1	salutare con la mano
+winken#1	fare cenno
+der Winzer#1	il viticoltore
+zehnte#1	decimo
+zelten#1	campeggiare
+zelten#1	fare campeggio
+der Zähler#1	il contatore
+zünden#1	accendere
+zünden#1	innescare (motore, esplosivo)
+der Ableger#1	la talea
+der Ableger#2	la filiale
+der Ableger#2	la propaggine
+die Airline#1	la compagnia aerea (anglicismo)
+die Akustik#1	l'acustica
+amtlich#1	ufficiale (familiare: sicuro)
+anheben#1	alzare
+anheben#1	rialzare (prezzi, salari)
+der Anpfiff#1	il fischio d'inizio
+anregen#1	stimolare
+anregen#2	suggerire (dare lo spunto)
+das Armband#1	il braccialetto
+asozial#1	asociale
+der Atemzug#1	il respiro (singolo)
+der Ausstoß#1	le emissioni
+der Ausstoß#1	la produzione
+bergauf#1	in salita
+der Bettler#1	il mendicante
+das Bordell#1	il bordello (comune)
+das Bordell#1	la casa chiusa
+der Boykott#1	il boicottaggio
+das Bußgeld#1	la multa (contravvenzione)
+der Chirurg#1	il chirurgo
+das Defizit#1	il deficit
+das Defizit#1	il disavanzo
+das Dessert#1	il dessert
+das Dessert#1	il dolce
+der Diamant#1	il diamante
+diskret#1	discreto
+diskret#1	riservato
+die Diözese#1	la diocesi (cattolica)
+die Drehung#1	la rotazione
+die Drehung#1	il giro
+dringen#1	penetrare
+dringen#1	filtrare
+dringen#2	insistere (auf: su)
+das Einhorn#1	l'unicorno
+der Einlass#1	l'ingresso
+der Einlass#1	l'apertura delle porte
+der Elefant#1	l'elefante
+die Emotion#1	l'emozione (formale)
+erahnen#1	intuire
+erahnen#1	presagire (formale)
+erregen#1	suscitare
+erregen#1	eccitare
+der Feldzug#1	la campagna (militare)
+die Fiktion#1	la finzione
+formell#1	formale
+formell#1	formalmente
+das Fünftel#1	il quinto (frazione)
+die Galaxie#1	la galassia
+das Gebüsch#1	i cespugli
+das Gebüsch#1	la boscaglia
+das Gemisch#1	la miscela (chimica)
+das Gemisch#1	il miscuglio
+geneigt#1	propenso (a)
+das Gestein#1	la roccia (geologia)
+glänzen#1	brillare
+glänzen#1	luccicare
+das Hashtag#1	l'hashtag
+die Hebamme#1	l'ostetrica
+die Hebamme#1	la levatrice
+das Honorar#1	l'onorario
+das Honorar#1	il compenso
+das Höschen#1	le mutandine
+jüdisch#1	ebraico
+jüdisch#1	ebreo
+der Ketchup#1	il ketchup
+die Klausel#1	la clausola
+der Knaller#1	il petardo
+der Knaller#2	il successo strepitoso (familiare)
+der Kompass#1	la bussola
+magisch#1	magico
+der Messias#1	il messia
+die Migräne#1	l'emicrania
+das Monopol#1	il monopolio
+der Nachruf#1	il necrologio
+der Neuling#1	il novellino
+der Neuling#1	il principiante
+der Notarzt#1	il medico d'urgenza
+die Notwehr#1	la legittima difesa
+das Paradox#1	il paradosso
+paradox#1	paradossale
+das Parkett#1	il parquet
+der Patriot#1	il patriota
+der Pendler#1	il pendolare
+pervers#1	perverso
+der Pfeiler#1	il pilastro
+der Pfeiler#1	il pilone (di un ponte)
+der Pianist#1	il pianista
+der Pionier#1	il pioniere
+das Plateau#1	l'altopiano
+das Plateau#1	il plateau
+pressen#1	premere
+pressen#1	spremere
+pressen#1	comprimere
+der Pächter#1	l'affittuario
+der Pächter#1	il gestore
+der Pächter#2	il fittavolo
+das Quadrat#1	il quadrato
+restlos#1	completamente
+restlos#1	del tutto
+riskant#1	rischioso
+römisch#1	romano
+die Scharia#1	la sharia
+scheuen#1	evitare
+scheuen#1	rifuggire da
+der Schmied#1	il fabbro
+die Sequenz#1	la sequenza (film; serie)
+das Skelett#1	lo scheletro
+die Sklavin#1	la schiava
+sparsam#1	parsimonioso
+sparsam#1	economico
+spurlos#1	senza lasciare traccia
+der Stollen#1	la galleria (di miniera; anche: dolce natalizio)
+stopfen#1	riempire
+stopfen#1	ficcare (anche: rammendare)
+der Ständer#1	il supporto
+der Ständer#1	l'espositore
+der Söldner#1	il mercenario
+trauern#1	essere in lutto
+trauern#1	piangere (un defunto)
+der Treiber#1	il driver (informatica)
+der Treiber#2	il battitore (caccia)
+die Tribüne#1	la tribuna
+trösten#1	consolare
+der Umbruch#1	il cambiamento radicale
+der Umbruch#1	lo sconvolgimento
+das Unkraut#1	l'erbaccia
+unruhig#1	inquieto
+unruhig#1	agitato
+das Upgrade#1	l'upgrade
+das Upgrade#1	l'aggiornamento
+die Vanille#1	la vaniglia
+der Verlass#1	(auf ihn ist Verlass: si può contare su di lui)
+der Verzehr#1	il consumo (di cibo)
+das Violett#1	il viola (colore)
+violett#1	viola
+violett#1	violetto
+das Vollgas#1	il massimo dei giri
+das Vollgas#1	il gas a tavoletta
+die Vorgabe#1	la direttiva
+die Vorgabe#1	l'obiettivo fissato
+wandeln#1	trasformare (sich wandeln: trasformarsi)
+weigern#1	rifiutarsi (sich weigern)
+das Weltall#1	lo spazio cosmico (comune)
+die Wendung#1	la piega (degli eventi)
+die Wendung#1	la locuzione
+wischen#1	pulire
+wischen#1	passare lo straccio
+wählbar#1	eleggibile
+zugehen#1	andare verso (auf: verso)
+zugehen#2	succedere
+zugehen#2	svolgersi
+die Zwiebel#1	la cipolla
+die Übersee#1	l'oltremare
+abdecken#1	coprire (anche: sparecchiare)
+die Ablösung#1	il cambio
+die Ablösung#1	la sostituzione (anche: distacco)
+der Abnehmer#1	l'acquirente
+der Abnehmer#1	il cliente (commerciale)
+abreißen#1	strappare
+abreißen#1	demolire
+absehbar#1	prevedibile
+abstrakt#1	astratto
+abwenden#1	evitare
+abwenden#1	scongiurare (sich abwenden: voltarsi)
+die Adoption#1	l'adozione
+der Aktivist#1	l'attivista
+die Analogie#1	l'analogia
+anfällig#1	soggetto (a)
+anfällig#1	vulnerabile
+anfällig#1	cagionevole
+anstehen#1	fare la fila
+anstehen#2	essere in programma
+der Anwender#1	l'utente (professionale, di un software)
+die Anwältin#1	l'avvocata
+die Anwältin#1	l'avvocatessa
+das Aquarium#1	l'acquario
+aufgehen#1	aprirsi (anche: sorgere, sole)
+aufladen#1	caricare
+aufladen#1	ricaricare
+auflegen#1	posare (anche: riattaccare il telefono)
+die Ausbeute#1	il rendimento
+die Ausbeute#1	la resa
+die Ausbeute#2	il bottino
+ausleben#1	vivere pienamente
+ausleben#1	realizzare
+befehlen#1	ordinare
+befehlen#1	comandare
+begnügen#1	accontentarsi (sich begnügen mit)
+belangen#1	perseguire
+belangen#1	chiamare a rispondere
+der Beschuss#1	il fuoco
+der Beschuss#1	il bombardamento
+betrügen#1	imbrogliare
+betrügen#1	truffare (anche: tradire)
+chemisch#1	chimico
+chemisch#1	chimicamente
+dastehen#1	stare lì
+dastehen#1	trovarsi (in una situazione)
+das Diagramm#1	il diagramma
+das Diagramm#1	il grafico
+das Ehrenamt#1	il volontariato
+das Ehrenamt#1	la carica onorifica
+erhitzen#1	riscaldare
+erhitzen#1	scaldare (a temperatura elevata)
+das Ermessen#1	la discrezione
+das Ermessen#1	il giudizio
+ermorden#1	assassinare
+der Espresso#1	l'espresso
+die Euphorie#1	l'euforia
+der Fasching#1	il carnevale (Baviera, Austria)
+das Fracking#1	il fracking
+das Fracking#1	la fratturazione idraulica
+der Förderer#1	il mecenate
+der Förderer#1	il sostenitore
+der Förderer#1	lo sponsor
+gefällig#1	compiacente
+gefällig#1	servizievole (anche: gradevole)
+die Gemahlin#1	la consorte (molto formale)
+die Geologie#1	la geologia
+die Gottheit#1	la divinità
+hinlegen#1	posare
+hinlegen#1	mettere giù
+hinlegen#2	sdraiarsi (sich hinlegen)
+das Hinspiel#1	la partita d'andata
+das Hochhaus#1	il grattacielo
+das Hochhaus#1	il palazzone
+der Häftling#1	il detenuto
+das Händchen#1	la manina (ein Händchen für: un talento per)
+das Hörspiel#1	il radiodramma
+das Kaufhaus#1	il grande magazzino
+das Keyboard#1	la tastiera (strumento elettronico)
+kindisch#1	infantile
+kindisch#1	puerile
+die Klientel#1	la clientela (di un avvocato; elettorato; formale)
+der Kristall#1	il cristallo
+der Kurfürst#1	il principe elettore
+lauschen#1	ascoltare attentamente
+lauschen#2	origliare
+der Lehrplan#1	il programma scolastico
+machtlos#1	impotente
+merklich#1	sensibile
+merklich#1	notevole (avvertibile)
+mitreden#1	avere voce in capitolo
+mitreden#1	partecipare alla conversazione
+der Märtyrer#1	il martire
+mündlich#1	orale
+mündlich#1	verbale
+nebenher#1	nel contempo
+nebenher#1	parallelamente
+die Neuerung#1	la novità
+die Neuerung#1	il cambiamento (innovazione)
+notieren#1	annotare
+notieren#1	prendere nota
+offensiv#1	offensivo
+das Olivenöl#1	l'olio d'oliva
+die Ostküste#1	la costa orientale
+der Pavillon#1	il padiglione (edificio)
+das Picknick#1	il picnic
+die Pipeline#1	l'oleodotto
+die Pipeline#1	il gasdotto
+die Pipeline#1	la pipeline
+die Playlist#1	la playlist
+das Plädoyer#1	l'arringa
+das Plädoyer#1	la perorazione
+predigen#1	predicare
+das Prestige#1	il prestigio (comune)
+das Prädikat#1	il predicato (anche: menzione, distinzione)
+die Pyramide#1	la piramide
+rational#1	razionale
+rational#1	razionalmente
+der Rohstoff#1	la materia prima
+räumlich#1	spaziale
+der Rückhalt#1	il sostegno
+der Rückhalt#1	l'appoggio (morale)
+das Sandwich#1	il sandwich
+das Sandwich#1	il tramezzino
+der Satellit#1	il satellite
+der Schimmel#1	la muffa
+der Schimmel#2	il cavallo bianco
+der Schimmer#1	il barlume
+der Schimmer#1	il luccichio
+der Schleier#1	il velo (sul viso)
+die Schleuse#1	la chiusa
+die Schmiede#1	la fucina
+die Schmiede#1	la forgia
+der Schulhof#1	il cortile della scuola
+schwören#1	giurare
+schöpfen#1	attingere
+die Seilbahn#1	la funivia
+sensibel#1	sensibile (persona)
+sensibel#1	delicato
+der Sterling#1	la sterlina
+streiken#1	scioperare
+stressig#1	stressante
+die Talkshow#1	il talk show
+tierisch#1	animale (familiare: tremendamente)
+die Trompete#1	la tromba
+die Umarmung#1	l'abbraccio
+ungewiss#1	incerto (futuro, esito)
+der Versager#1	il fallito
+der Versager#1	lo sfigato
+vollends#1	del tutto
+vollends#1	interamente (formale)
+der Vollmond#1	la luna piena
+der Vorabend#1	la vigilia
+der Vorabend#1	la sera prima
+der Weinberg#1	il vigneto
+die Wortwahl#1	la scelta delle parole
+der Zigeuner#1	lo zingaro (termine spregiativo)
+zärtlich#1	tenero
+zärtlich#1	affettuoso
+die Übelkeit#1	la nausea
+abspielen#1	riprodurre (una registrazione; sich abspielen: svolgersi)
+das Abzeichen#1	il distintivo
+das Abzeichen#1	lo scudetto
+das Adrenalin#1	l'adrenalina
+allerhand#1	di tutto
+allerhand#1	parecchio (familiare)
+die Anschrift#1	l'indirizzo (postale; amministrativo)
+ansteigen#1	salire
+ansteigen#1	aumentare
+anwendbar#1	applicabile
+aufwärmen#1	riscaldare (anche: scaldarsi)
+auslaufen#1	perdere
+auslaufen#1	colare
+auslaufen#2	scadere
+auslaufen#2	terminare
+auspacken#1	disfare (i bagagli)
+auspacken#1	scartare (un regalo)
+ausweisen#1	espellere
+ausweisen#2	identificarsi
+ausweisen#2	mostrare un documento (sich ausweisen)
+auszahlen#1	pagare
+auszahlen#1	versare (sich auszahlen: ripagare, valere la pena)
+die Außenwelt#1	il mondo esterno
+das Bataillon#1	il battaglione
+beitreten#1	aderire a
+beitreten#1	entrare in
+der Bernstein#1	l'ambra
+das Blaulicht#1	il lampeggiante (blu)
+der Bleistift#1	la matita (di grafite)
+die Bratwurst#1	la salsiccia (alla griglia)
+der Bräutigam#1	lo sposo
+die Buchmesse#1	la fiera del libro
+der Dachboden#1	la soffitta
+der Dachboden#1	il sottotetto (comune)
+depressiv#1	depresso
+depressiv#1	depressivo
+dynamisch#1	dinamico
+die Dämmerung#1	il crepuscolo
+die Dämmerung#1	l'imbrunire
+der Edelstahl#1	l'acciaio inossidabile
+der Edelstahl#1	l'acciaio inox
+einordnen#1	classificare
+einordnen#1	collocare
+einordnen#2	incolonnarsi
+einordnen#2	inserirsi (sich einordnen)
+einpacken#1	impacchettare
+einpacken#1	incartare
+einpacken#1	mettere in valigia
+entführen#1	rapire
+entführen#1	sequestrare
+entführen#2	dirottare (un aereo)
+entsetzen#1	inorridire
+entsetzen#1	sconvolgere
+das Equipment#1	l'attrezzatura
+das Equipment#1	l'equipaggiamento (anglicismo)
+erbrechen#1	vomitare (formale, medico)
+die Erkennung#1	il riconoscimento (facciale, vocale)
+die Fachkraft#1	il lavoratore qualificato
+die Fachkraft#1	il professionista
+der Fahrstuhl#1	l'ascensore (sinonimo, familiare)
+der Feinstaub#1	le polveri sottili
+fungieren#1	fungere da
+der Gentleman#1	il gentiluomo
+der Gentleman#1	il gentleman
+der Gitarrist#1	il chitarrista
+gleichsam#1	per così dire (letterario)
+der Indikator#1	l'indicatore
+insgeheim#1	segretamente
+insgeheim#1	in cuor suo
+der Intendant#1	il sovrintendente
+der Intendant#1	il direttore (di un teatro, di un'emittente)
+die Kollision#1	la collisione
+kriminell#1	criminale
+königlich#1	reale
+königlich#1	regale
+die Landkarte#1	la carta geografica
+die Landkarte#1	la mappa
+der Landsmann#1	il compatriota
+der Landsmann#1	il connazionale
+der Lokführer#1	il macchinista
+die Luftfahrt#1	l'aviazione
+die Luftfahrt#1	l'aeronautica
+der Marschall#1	il maresciallo (alto grado militare)
+mittwochs#1	il mercoledì (ogni settimana)
+der Mülleimer#1	la pattumiera
+der Mülleimer#1	il secchio della spazzatura
+der Nachschub#1	i rifornimenti
+der Nachschub#1	il rifornimento
+der Naturpark#1	il parco naturale
+der Neuzugang#1	il nuovo acquisto
+der Neuzugang#1	il nuovo arrivato
+die Nostalgie#1	la nostalgia (del passato)
+operieren#1	operare (chirurgia)
+operieren#2	operare
+operieren#2	agire
+die Parallele#1	la parallela (anche: parallelo, confronto)
+der Passagier#1	il passeggero
+die Pauschale#1	la somma forfettaria
+die Pauschale#1	il forfait
+planmäßig#1	come previsto
+planmäßig#1	secondo i piani
+plausibel#1	plausibile
+die Postkarte#1	la cartolina
+der Prozessor#1	il processore
+das Pseudonym#1	lo pseudonimo
+die Quantität#1	la quantità (contrapposta a qualità)
+quatschen#1	chiacchierare
+quatschen#1	cianciare (familiare)
+die Rangliste#1	la classifica (graduatoria)
+das Recycling#1	il riciclaggio (comune)
+der Regenwald#1	la foresta pluviale
+ruinieren#1	rovinare (completamente)
+ruinieren#1	mandare in rovina
+die Rückfahrt#1	il viaggio di ritorno
+der Sandstein#1	l'arenaria
+der Sanitäter#1	il soccorritore
+der Sanitäter#1	il paramedico
+der Sarkasmus#1	il sarcasmo
+die Schachtel#1	la scatola (di cartone)
+die Schachtel#1	il pacchetto
+schimpfen#1	brontolare
+schimpfen#1	imprecare
+schimpfen#2	sgridare
+der Schlitten#1	la slitta
+schlüpfen#1	scivolare
+schlüpfen#1	infilarsi (anche: uscire dall'uovo)
+schmücken#1	decorare
+schmücken#1	addobbare
+der Schreiner#1	il falegname
+der Schreiner#1	l'ebanista
+der Schuldner#1	il debitore
+schwanken#1	oscillare
+schwanken#1	vacillare
+schwanken#1	fluttuare
+sinngemäß#1	a senso
+sinngemäß#1	nella sostanza
+der Spektakel#1	il baccano
+der Spektakel#1	il fracasso
+das Spielchen#1	il giochetto
+der Spielfilm#1	il lungometraggio
+der Spielfilm#1	il film
+der Spielplan#1	il cartellone (di un teatro)
+sprachlos#1	senza parole
+sprachlos#1	ammutolito
+die Steckdose#1	la presa (di corrente)
+die Steinzeit#1	l'età della pietra
+das Sternchen#1	la stellina
+das Sternchen#1	l'asterisco (anche: starlette)
+die Stichwahl#1	il ballottaggio
+das Städtchen#1	la cittadina
+das Städtchen#1	il paesino
+das Telefonat#1	la telefonata (formale)
+der Triathlon#1	il triathlon
+die Turnhalle#1	la palestra (scolastica)
+ungewohnt#1	insolito
+ungewohnt#1	inconsueto
+ungünstig#1	sfavorevole
+ungünstig#1	inopportuno
+unhöflich#1	scortese
+unhöflich#1	maleducato
+die Unterwelt#1	gli inferi (anche: malavita)
+die Variation#1	la variazione
+verbuchen#1	contabilizzare
+verbuchen#1	registrare
+die Verehrung#1	la venerazione
+die Verehrung#1	l'adorazione
+verführen#1	sedurre
+verführen#1	indurre (in tentazione)
+vergebens#1	invano
+vergebens#1	inutilmente
+die Vergebung#1	il perdono (religioso)
+vergraben#1	sotterrare
+vergraben#1	interrare
+die Verhütung#1	la contraccezione
+die Verhütung#2	la prevenzione
+verkehren#1	circolare (mezzi pubblici; anche: frequentare)
+verkürzen#1	accorciare
+verkürzen#1	ridurre (una durata)
+verlinken#1	linkare
+verlinken#1	collegare (con un link)
+versenden#1	spedire
+versenden#1	inoltrare (merci)
+vertiefen#1	approfondire
+der Vollidiot#1	l'idiota totale
+der Vollidiot#1	il deficiente (insulto)
+der Vorläufer#1	il precursore (di una cosa)
+der Vorreiter#1	l'apripista
+der Vorreiter#1	il precursore
+der Wegweiser#1	il cartello indicatore
+der Wegweiser#1	la guida
+der Werdegang#1	il percorso
+der Werdegang#1	la carriera
+die Westküste#1	la costa occidentale
+die Windkraft#1	l'energia eolica
+der Wirkstoff#1	il principio attivo
+der Überfluss#1	l'abbondanza
+der Überfluss#1	la sovrabbondanza
+übergehen#1	ignorare
+übergehen#1	tralasciare (anche: passare a)
+übermäßig#1	eccessivo
+übermäßig#1	eccessivamente
+abonnieren#1	abbonarsi a
+abonnieren#1	iscriversi a
+die Abspaltung#1	la scissione
+die Abspaltung#1	la secessione
+der Alleingang#1	l'iniziativa individuale
+der Alleingang#1	l'azione solitaria
+anfertigen#1	fare
+anfertigen#1	realizzare
+anfertigen#1	confezionare (su misura)
+die Astronomie#1	l'astronomia
+aufgeräumt#1	ordinato
+aufgeräumt#1	in ordine
+aufgeräumt#2	di buon umore
+aufwachsen#1	crescere (trascorrere l'infanzia)
+ausbreiten#1	stendere
+ausbreiten#1	distendere
+ausbreiten#2	diffondersi
+ausbreiten#2	propagarsi (sich ausbreiten)
+ausgebucht#1	al completo
+ausgebucht#1	esaurito
+ausstellen#1	esporre
+ausstellen#2	rilasciare (un documento)
+bedrohlich#1	minaccioso
+beleuchten#1	illuminare
+belästigen#1	importunare
+belästigen#1	molestare
+bewusstlos#1	privo di sensi
+bewusstlos#1	svenuto
+der Biergarten#1	la birreria all'aperto
+der Buddhismus#1	il buddismo
+die Bundesbank#1	la Bundesbank (banca centrale tedesca)
+bürgerlich#1	civile
+bürgerlich#1	borghese
+egoistisch#1	egoista
+egoistisch#1	egoistico
+einmischen#1	immischiarsi
+einmischen#1	intromettersi (sich einmischen)
+der Einsteiger#1	il principiante (che inizia)
+der Elternteil#1	il genitore (padre o madre)
+die Enteignung#1	l'esproprio
+die Enteignung#1	l'espropriazione
+die Entzündung#1	l'infiammazione
+das Fachgebiet#1	il campo
+das Fachgebiet#1	il settore di competenza
+fahrlässig#1	colposo
+fahrlässig#1	negligente
+die Fahrschule#1	la scuola guida
+fehlerhaft#1	difettoso
+fehlerhaft#1	sbagliato
+fragwürdig#1	discutibile
+fragwürdig#1	dubbio
+das Grundrecht#1	il diritto fondamentale
+die Handarbeit#1	il lavoro manuale (anche: lavoro a mano, ricamo)
+der Hauptgrund#1	il motivo principale
+die Heiligkeit#1	la santità
+die Hierarchie#1	la gerarchia
+das Hinterland#1	l'entroterra
+die Homophobie#1	l'omofobia
+horizontal#1	orizzontale
+die Innenseite#1	il lato interno
+die Innenseite#1	l'interno
+das Kanzleramt#1	la Cancelleria federale
+die Kavallerie#1	la cavalleria
+der Kommandeur#1	il comandante (di un'unità militare)
+kompatibel#1	compatibile
+die Konjunktur#1	la congiuntura (economica)
+die Konsistenz#1	la consistenza
+kontrovers#1	controverso
+die Kreuzfahrt#1	la crociera
+das Lagerfeuer#1	il falò
+das Lagerfeuer#1	il fuoco da campo
+lateinisch#1	latino
+lebenslang#1	a vita
+lebenslang#1	per tutta la vita
+das Lebenswerk#1	l'opera di una vita
+massenhaft#1	in massa
+massenhaft#1	un'infinità di
+der Mechaniker#1	il meccanico
+mechanisch#1	meccanico
+mechanisch#1	meccanicamente
+die Mikrowelle#1	il microonde
+minimieren#1	minimizzare
+minimieren#1	ridurre al minimo
+das Multimedia#1	la multimedialità
+die Muskulatur#1	la muscolatura
+mutmaßlich#1	presunto (sospettato)
+der Nobelpreis#1	il premio Nobel
+die Obergrenze#1	il tetto massimo
+die Obergrenze#1	il limite superiore
+offenbaren#1	rivelare
+offenbaren#1	svelare
+das Pflegeheim#1	la casa di riposo
+das Pflegeheim#1	la casa di cura
+die Philologie#1	la filologia
+die Polizistin#1	la poliziotta
+die Polizistin#1	l'agente (donna)
+die Population#1	la popolazione (biologia: di una specie)
+die Quarantäne#1	la quarantena
+rechtmäßig#1	legittimo
+rechtmäßig#1	legale
+respektlos#1	irrispettoso
+die Schießerei#1	la sparatoria
+das Schwedisch#1	lo svedese (la lingua)
+schwedisch#1	svedese
+die Sommerzeit#1	l'ora legale
+die Sommerzeit#2	l'estate
+die Sommerzeit#2	la stagione estiva
+die Sporthalle#1	il palazzetto dello sport
+der Sportplatz#1	il campo sportivo
+der Straftäter#1	il delinquente
+der Straftäter#1	l'autore di reato
+die Systematik#1	la sistematica
+die Systematik#1	la classificazione
+tagtäglich#1	quotidiano
+tagtäglich#1	giorno dopo giorno
+unbegrenzt#1	illimitato
+ungeduldig#1	impaziente
+ungeduldig#1	con impazienza
+unterlegen#1	inferiore (più debole)
+die Vergeltung#1	la rappresaglia
+die Vergeltung#1	la ritorsione
+verprügeln#1	picchiare
+verprügeln#1	pestare
+verrichten#1	svolgere
+verrichten#1	sbrigare (lavoro)
+die Verzeihung#1	il perdono (Verzeihung!: scusi!)
+vielerorts#1	in molti luoghi
+vielseitig#1	versatile
+vielseitig#1	poliedrico
+die Volksmusik#1	la musica popolare
+die Volksmusik#1	la musica folk
+die Vorführung#1	la dimostrazione
+die Vorführung#2	la proiezione
+die Vorführung#2	la rappresentazione
+das Vorzeichen#1	il presagio
+das Vorzeichen#2	il segno (matematica: più o meno)
+die Waffenruhe#1	la tregua
+widerlegen#1	confutare
+wohlfühlen#1	sentirsi bene
+wohlfühlen#1	sentirsi a proprio agio (sich wohlfühlen)
+das Wohngebiet#1	la zona residenziale
+zeitweilig#1	temporaneo
+zeitweilig#1	temporaneamente
+zerbrechen#1	rompere
+zerbrechen#1	rompersi
+zerbrechen#1	frantumarsi
+der Zulieferer#1	il fornitore
+der Zulieferer#1	il subfornitore (industriale)
+die Zustellung#1	il recapito
+die Zustellung#1	la consegna (della posta)
+das Äquivalent#1	l'equivalente
+äquivalent#1	equivalente
+überfällig#1	in ritardo
+überfällig#1	atteso da tempo
+der Alkoholiker#1	l'alcolizzato
+der Alkoholiker#1	l'alcolista
+die Anforderung#1	il requisito
+die Anforderung#1	l'esigenza
+die Assistentin#1	l'assistente (donna)
+die Befürchtung#1	il timore
+die Befürchtung#1	l'apprensione
+der Buchhändler#1	il libraio
+der Dolmetscher#1	l'interprete (traduttore orale)
+durchkommen#1	passare
+durchkommen#1	cavarsela
+durchkommen#1	superare
+die Einfachheit#1	la semplicità
+das Elektroauto#1	l'auto elettrica
+enttäuschen#1	deludere
+die Erschöpfung#1	l'esaurimento
+die Erschöpfung#1	lo sfinimento
+der Extremismus#1	l'estremismo
+das Gedankengut#1	le idee
+das Gedankengut#1	il patrimonio di idee
+das Gedankengut#1	l'ideologia
+gewalttätig#1	violento (persona)
+die Gratulation#1	le congratulazioni (formale)
+hervorrufen#1	provocare
+hervorrufen#1	suscitare
+die Himmelfahrt#1	l'Ascensione (festa religiosa)
+die Höflichkeit#1	la cortesia (buone maniere)
+ideologisch#1	ideologico
+das Kaiserreich#1	l'impero (retto da un imperatore)
+die Küstenwache#1	la guardia costiera
+der Marktführer#1	il leader di mercato
+die Musikschule#1	la scuola di musica
+nachschauen#1	controllare
+nachschauen#1	andare a vedere (Germania del sud)
+die Notaufnahme#1	il pronto soccorso
+der Radiosender#1	l'emittente radiofonica
+der Radiosender#1	la stazione radio
+reibungslos#1	senza intoppi
+reibungslos#1	liscio
+der Reiseführer#1	la guida turistica (libro o persona)
+das Rollenspiel#1	il gioco di ruolo
+die Rückmeldung#1	il riscontro
+die Rückmeldung#1	la risposta
+die Rückzahlung#1	il rimborso
+die Schlagzeile#1	il titolo (di prima pagina)
+der Schulleiter#1	il preside
+der Schulleiter#1	il dirigente scolastico
+die Selbsthilfe#1	l'autoaiuto
+die Selbsthilfe#1	il mutuo aiuto
+die Sozialhilfe#1	l'assistenza sociale
+die Sozialhilfe#1	il sussidio sociale
+die Spezialität#1	la specialità (culinaria)
+der Startschuss#1	il via
+der Startschuss#1	il segnale di partenza
+die Sterbehilfe#1	l'eutanasia
+die Sterbehilfe#1	il suicidio assistito
+die Transaktion#1	la transazione
+die Traurigkeit#1	la tristezza (comune)
+umständlich#1	macchinoso
+umständlich#1	farraginoso
+unbegründet#1	infondato
+unbrauchbar#1	inservibile
+unbrauchbar#1	inutilizzabile
+unerheblich#1	trascurabile
+unerheblich#1	insignificante
+unterwerfen#1	sottomettere
+unterwerfen#1	assoggettare (sich unterwerfen: sottomettersi)
+verbrauchen#1	consumare
+die Verbrennung#1	l'incenerimento
+die Verbrennung#2	la combustione
+die Verkleidung#1	il travestimento
+die Verkleidung#2	il rivestimento
+die Verkäuferin#1	la commessa
+die Verkäuferin#1	la venditrice
+das Vermächtnis#1	il lascito
+das Vermächtnis#1	l'eredità (morale)
+verschlafen#1	non svegliarsi in tempo
+vertraulich#1	confidenziale
+vertraulich#1	riservato
+vorhersagen#1	prevedere
+vorhersagen#1	predire
+vorsätzlich#1	intenzionale
+vorsätzlich#1	premeditato
+vorteilhaft#1	vantaggioso
+vorteilhaft#1	favorevole
+die Wehrpflicht#1	la leva obbligatoria
+die Wehrpflicht#1	il servizio militare obbligatorio
+die Wellenlänge#1	la lunghezza d'onda
+wiedergeben#1	riportare
+wiedergeben#1	rendere
+wiedergeben#1	riprodurre
+der Zeigefinger#1	il dito indice
+die Zubereitung#1	la preparazione (di un piatto)
+übertreffen#1	superare (in bravura)
+übertreffen#1	surclassare
+amerikanisch#1	americano
+die Anlaufstelle#1	il punto di riferimento
+die Anlaufstelle#1	lo sportello
+die Arbeitskraft#1	la forza lavoro
+die Arbeitskraft#1	la manodopera
+die Arbeitskraft#2	la capacità lavorativa
+das Arbeitsrecht#1	il diritto del lavoro
+die Ausarbeitung#1	l'elaborazione
+die Ausarbeitung#1	la stesura
+ausgestorben#1	estinto
+ausgestorben#2	deserto
+der Campingplatz#1	il campeggio
+die Dienststelle#1	l'ufficio
+die Dienststelle#1	il servizio (amministrativo)
+die Doktorarbeit#1	la tesi di dottorato (comune)
+durchbrechen#1	sfondare
+durchbrechen#1	infrangere
+das Eigenkapital#1	il capitale proprio
+das Einvernehmen#1	l'intesa
+das Einvernehmen#1	il comune accordo (formale)
+die Elektrizität#1	l'elettricità
+elektronisch#1	elettronico
+elektronisch#1	elettronicamente
+das Fußballspiel#1	la partita di calcio
+fürchterlich#1	tremendo
+fürchterlich#1	spaventoso
+der Gegenspieler#1	l'avversario
+der Gegenspieler#1	il rivale
+gleichgültig#1	indifferente (persona, atteggiamento)
+die Goldmedaille#1	la medaglia d'oro
+inakzeptabel#1	inaccettabile
+der Informatiker#1	l'informatico
+die Kapitulation#1	la capitolazione
+die Kapitulation#1	la resa
+das Kinderzimmer#1	la cameretta dei bambini
+die Konversation#1	la conversazione (formale)
+der Krankenwagen#1	l'ambulanza
+die Legitimation#1	la legittimazione
+misstrauisch#1	diffidente
+misstrauisch#1	sospettoso
+das Mountainbike#1	la mountain bike
+die Photovoltaik#1	il fotovoltaico
+das Portemonnaie#1	il portafoglio
+das Portemonnaie#1	il borsellino (comune)
+der Rechtsstreit#1	la controversia legale
+der Rechtsstreit#1	la causa
+das Schlachtfeld#1	il campo di battaglia
+der Sonntagabend#1	la domenica sera
+der Stoffwechsel#1	il metabolismo
+die Strafanzeige#1	la denuncia (penale)
+die Suchmaschine#1	il motore di ricerca
+die Todesursache#1	la causa della morte
+unerlässlich#1	indispensabile
+unterirdisch#1	sotterraneo
+unweigerlich#1	inevitabilmente
+unweigerlich#1	immancabilmente
+die Unwissenheit#1	l'ignoranza (mancanza di conoscenze)
+die Uraufführung#1	la prima assoluta
+die Verringerung#1	la riduzione
+die Verringerung#1	la diminuzione
+verschweigen#1	nascondere
+verschweigen#1	non dire (tacere qualcosa)
+vorbeikommen#1	passare (a trovare)
+wiederfinden#1	ritrovare
+zurückzahlen#1	restituire
+zurückzahlen#1	ripagare (un debito)
+überregional#1	sovraregionale (nazionale)
+anspruchsvoll#1	esigente
+anspruchsvoll#1	impegnativo
+der Antragsteller#1	il richiedente
+die Arbeitsstelle#1	il posto (di lavoro)
+die Arbeitsstelle#1	l'impiego
+die Authentizität#1	l'autenticità
+benachteiligt#1	svantaggiato
+bereitstellen#1	mettere a disposizione
+bereitstellen#1	stanziare
+die Einwohnerzahl#1	il numero di abitanti
+das Gewerbegebiet#1	la zona industriale
+das Gewerbegebiet#1	la zona artigianale
+das Klassenzimmer#1	l'aula
+das Klassenzimmer#1	la classe
+die Korrespondenz#1	la corrispondenza
+der Kundenservice#1	il servizio clienti
+das Mineralwasser#1	l'acqua minerale
+die Nächstenliebe#1	la carità
+die Nächstenliebe#1	l'amore per il prossimo
+ordnungsgemäß#1	regolarmente
+ordnungsgemäß#1	in debita forma
+der Programmierer#1	il programmatore
+psychologisch#1	psicologico
+rechtskräftig#1	definitivo
+rechtskräftig#1	passato in giudicato
+der Schwiegersohn#1	il genero
+die Sozialpolitik#1	la politica sociale
+der Spitzenreiter#1	il capolista
+der Spitzenreiter#1	il numero uno
+der Steuerberater#1	il consulente fiscale
+der Steuerberater#1	il commercialista
+unvollständig#1	incompleto
+unvorstellbar#1	inimmaginabile
+unvorstellbar#1	inconcepibile
+die Verständigung#1	la comunicazione
+die Verständigung#1	l'intesa
+die Viertelstunde#1	il quarto d'ora
+die Überarbeitung#1	la revisione
+die Überarbeitung#1	la rielaborazione
+übersichtlich#1	chiaro
+übersichtlich#1	ben organizzato
+der Aufenthaltsort#1	il luogo di soggiorno
+der Aufenthaltsort#1	il recapito
+die Bequemlichkeit#1	la comodità
+die Bequemlichkeit#2	la pigrizia
+der Bundesminister#1	il ministro federale
+der Dokumentarfilm#1	il documentario (film)
+flächendeckend#1	capillare
+flächendeckend#1	su tutto il territorio
+die Instandhaltung#1	la manutenzione (ordinaria)
+der Motorradfahrer#1	il motociclista
+das Niederländisch#1	il neerlandese
+das Niederländisch#1	l'olandese (la lingua)
+niederländisch#1	olandese
+niederländisch#1	neerlandese
+der Parlamentarier#1	il parlamentare (comune)
+die Rehabilitation#1	la riabilitazione
+der Sachbearbeiter#1	l'addetto
+der Sachbearbeiter#1	l'impiegato (che gestisce le pratiche)
+typischerweise#1	tipicamente
+unterstreichen#1	sottolineare (anche: con la penna)
+die Verwirklichung#1	la realizzazione (di un sogno, di un progetto)
+das Wintersemester#1	il semestre invernale
+die Zeitgeschichte#1	la storia contemporanea
+augenscheinlich#1	evidentemente (a prima vista)
+die Automatisierung#1	l'automazione
+die Bürgermeisterin#1	la sindaca
+die Einkommensteuer#1	l'imposta sul reddito
+die Forstwirtschaft#1	la silvicoltura
+die Forstwirtschaft#1	l'economia forestale
+die Implementierung#1	l'implementazione
+die Kinderbetreuung#1	l'assistenza all'infanzia
+die Preisverleihung#1	la premiazione
+die Schwiegermutter#1	la suocera
+der Staatspräsident#1	il presidente della Repubblica
+der Staatspräsident#1	il capo dello Stato
+die Stadtbibliothek#1	la biblioteca civica
+stellvertretend#1	vice
+stellvertretend#1	facente funzione
+stellvertretend#2	a nome di
+stellvertretend#2	in rappresentanza di
+die Strafverfolgung#1	l'azione penale
+die Strafverfolgung#1	il perseguimento penale
+vernachlässigen#1	trascurare (comune)
+das Arbeitslosengeld#1	l'indennità di disoccupazione
+die Beeinträchtigung#1	il pregiudizio
+die Beeinträchtigung#1	la compromissione
+die Beeinträchtigung#1	il disturbo
+die Elektromobilität#1	la mobilità elettrica
+der Fachkräftemangel#1	la carenza di personale qualificato
+die Gastfreundschaft#1	l'ospitalità
+der Geschäftspartner#1	il socio d'affari
+der Geschäftspartner#1	il partner commerciale
+der Gesichtsausdruck#1	l'espressione del viso
+die Hauptversammlung#1	l'assemblea generale (degli azionisti)
+das Kriegsverbrechen#1	il crimine di guerra
+die Sachbeschädigung#1	il danneggiamento (di beni altrui)
+schnellstmöglich#1	il più presto possibile
+der Koalitionsvertrag#1	l'accordo di coalizione
+der Mittelfeldspieler#1	il centrocampista
+die Religionsfreiheit#1	la libertà religiosa
+das Selbstverständnis#1	l'immagine di sé
+das Selbstverständnis#1	la concezione di sé
+verfassungswidrig#1	incostituzionale
+die Automobilindustrie#1	l'industria automobilistica
+der Geschlechtsverkehr#1	il rapporto sessuale
+die Industrialisierung#1	l'industrializzazione
+das Inhaltsverzeichnis#1	l'indice
+das Inhaltsverzeichnis#1	il sommario
+die Lebensversicherung#1	l'assicurazione sulla vita
+die Nachrichtenagentur#1	l'agenzia di stampa
+die Sozialversicherung#1	la previdenza sociale
+die Sozialversicherung#1	l'assicurazione sociale
+der Verkehrsteilnehmer#1	l'utente della strada
+das Familienunternehmen#1	l'azienda di famiglia
+die Steuerhinterziehung#1	l'evasione fiscale
+der Wirtschaftsminister#1	il ministro dell'Economia
+das Vorstellungsgespräch#1	il colloquio di lavoro (assunzione)
+die Höchstgeschwindigkeit#1	la velocità massima
+das Verteidigungsministerium#1	il ministero della Difesa
+das Ion#1	lo ione
+das Mus#1	la purea
+das Mus#1	la composta
+der Tau#1	la rugiada
+der Zar#1	lo zar
+der Zeh#1	il dito del piede
+der Zeh#1	l'alluce
+ciao#1	ciao (andando via)
+die Elle#1	l'ulna
+die Elle#2	il braccio (antica misura)
+das Epos#1	l'epopea
+das Epos#1	il poema epico
+gell#1	vero?
+gell#1	eh? (Germania del sud)
+der Gong#1	il gong
+der Hain#1	il boschetto (poetico)
+der Hanf#1	la canapa (pianta, fibra)
+die Hefe#1	il lievito
+der Hohn#1	lo sprezzo
+der Hohn#1	il dileggio
+der Hort#1	il doposcuola
+der Hort#2	il rifugio
+der Imam#1	l'imam
+die Jade#1	la giada
+der Jeep#1	la jeep
+das Judo#1	il judo
+kahl#1	calvo
+kahl#2	spoglio
+kahl#2	brullo
+der Keim#1	il germe
+der Keim#1	il germoglio
+der Kies#1	la ghiaia
+der Kiez#1	il quartiere (berlinese, familiare)
+der Klee#1	il trifoglio
+die Lava#1	la lava
+der Lehm#1	l'argilla
+der Lehm#1	il fango
+die Loge#1	il palco (teatro; anche: loggia massonica)
+die Muse#1	la musa
+die Oase#1	l'oasi
+oval#1	ovale
+der Pate#1	il padrino
+pfui#1	puah
+pfui#1	che schifo
+der Pier#1	il molo (pontile)
+der Pott#1	la pentola
+der Pott#1	il tazzone (familiare)
+der Rabe#1	il corvo
+der Reim#1	la rima
+das Ries#1	la risma (di carta)
+der Ruin#1	la rovina (finanziaria)
+der Ruin#1	il tracollo
+der Sims#1	il davanzale
+der Sims#1	il cornicione
+der Slip#1	lo slip
+der Slip#1	le mutande
+das Soda#1	la soda (chimica)
+der Span#1	il truciolo
+der Span#1	la scheggia
+stur#1	testardo
+stur#1	cocciuto
+die Säge#1	la sega
+taub#1	sordo
+taub#2	intorpidito
+taub#2	insensibile
+der Tick#1	il tic
+der Tick#1	la fissazione
+der Tick#1	la mania
+die Vase#1	il vaso (per fiori)
+die Wade#1	il polpaccio
+der Zimt#1	la cannella
+der Admin#1	l'admin
+der Admin#1	l'amministratore (di sistema)
+das Alibi#1	l'alibi
+das Aroma#1	l'aroma (gusto)
+artig#1	bravo
+artig#1	educato (bambino)
+die Backe#1	la guancia (familiare; anche: natica)
+beige#1	beige
+das Biest#1	la bestia
+das Biest#2	la peste
+das Biest#2	la canaglia (persona)
+die Burka#1	il burqa
+das Cello#1	il violoncello
+das Chrom#1	il cromo
+der Degen#1	lo stocco
+der Degen#1	la spada da scherma
+empor#1	in alto
+empor#1	verso l'alto (formale)
+der Falke#1	il falco
+die Farce#1	la farsa
+der Flirt#1	il flirt
+der Freak#1	il fanatico
+der Freak#1	lo strambo
+der Fries#1	il fregio
+der Gatte#1	il consorte
+der Gatte#1	il marito (formale)
+das Gemüt#1	l'indole
+das Gemüt#1	il temperamento
+das Gemüt#1	l'animo
+die Gilde#1	la gilda
+die Gilde#1	la corporazione
+die Gurke#1	il cetriolo
+der Hagel#1	la grandine
+der Hecht#1	il luccio
+die Hecke#1	la siepe
+die Henne#1	la gallina (femmina, ovaiola)
+das Hertz#1	l'hertz
+die Ikone#1	l'icona
+die Kanne#1	la caraffa
+die Kanne#1	la teiera
+die Kanne#1	la caffettiera
+die Karre#1	il carretto
+die Karre#2	il macinino
+die Karre#2	la carretta (familiare: auto vecchia)
+kauen#1	masticare
+der Kelch#1	il calice
+die Keule#1	la clava
+die Keule#1	la mazza
+die Keule#2	il cosciotto (carne)
+der Klotz#1	il ceppo
+der Klotz#1	il blocco
+die Kluft#1	l'abisso
+die Kluft#1	il divario
+die Kluft#2	la tenuta (familiare: abbigliamento)
+der Knabe#1	il fanciullo
+der Knabe#1	il ragazzo (formale, antiquato)
+der Köder#1	l'esca
+die Lanze#1	la lancia (arma)
+das Lehen#1	il feudo
+die Linse#1	la lenticchia (anche: lente)
+die Locke#1	il ricciolo
+losen#1	tirare a sorte
+losen#1	sorteggiare
+längs#1	lungo (formale, tecnico)
+mager#1	magro
+mager#1	scarso
+die Mango#1	il mango
+die Miene#1	l'espressione (del viso)
+die Miene#1	l'aria
+die Mimik#1	la mimica
+die Mücke#1	la zanzara
+die Mücke#1	il moscerino
+das Nylon#1	il nylon
+der Panda#1	il panda
+die Pappe#1	il cartone (materiale)
+der Pfiff#1	il fischio (anche: brio, tocco in più)
+der Pirat#1	il pirata
+die Prise#1	il pizzico
+der Psalm#1	il salmo
+ragen#1	ergersi
+ragen#1	svettare
+ragen#1	sporgere
+die Ratio#1	la ragione
+die Ratio#1	la razionalità (formale)
+der Rubin#1	il rubino
+das Rudel#1	il branco
+das Rugby#1	il rugby
+die Salbe#1	la pomata
+die Salbe#1	l'unguento
+die Schar#1	la schiera
+die Schar#1	lo stormo
+die Schar#1	la frotta
+die Sehne#1	il tendine
+das Serum#1	il siero
+die Sitte#1	l'usanza
+die Sitte#1	il costume
+die Socke#1	il calzino
+der Spalt#1	la fessura
+der Spalt#1	lo spiraglio
+die Stube#1	la stanza
+die Stube#1	il salotto (antiquato)
+der Taler#1	il tallero
+toben#1	infuriare
+toben#1	scatenarsi
+die Träne#1	la lacrima
+die Weihe#1	la consacrazione
+die Weihe#1	l'ordinazione
+die Zeche#1	la miniera (di carbone; anche: conto all'osteria)
+die Zunft#1	la corporazione
+die Zunft#1	la categoria
+das Abbild#1	l'immagine (copia fedele)
+das Abbild#1	l'effigie
+abrupt#1	brusco
+abrupt#1	bruscamente
+der Akteur#1	l'attore
+der Akteur#1	il protagonista (economia, politica)
+der Altbau#1	l'edificio d'epoca
+das Altern#1	l'invecchiamento
+der Artist#1	l'artista (di circo)
+autsch#1	ahi
+autsch#1	ahia (dolore improvviso)
+der Avatar#1	l'avatar
+barfuß#1	scalzo
+barfuß#1	a piedi nudi
+bluten#1	sanguinare
+der Brauer#1	il birraio
+der Brauer#1	il mastro birraio
+der Buckel#1	la gobba (familiare: schiena)
+die Charta#1	la carta (costituzionale)
+das Cookie#1	il cookie
+das Corpus#1	il corpus (linguistica)
+der Cowboy#1	il cowboy
+das Dekret#1	il decreto (di un sovrano, di un regime)
+die Devise#1	il motto
+die Devise#1	la massima (anche: valuta estera)
+der Dünger#1	il concime
+der Dünger#1	il fertilizzante
+die Essenz#1	l'essenza
+die Ethnie#1	l'etnia
+farbig#1	colorato
+farbig#1	a colori
+fetzen#1	litigare furiosamente (familiare)
+fetzen#2	fare a brandelli
+fluten#1	allagare
+fluten#1	inondare
+flöten#1	suonare il flauto (familiare: cinguettare)
+das Gebäck#1	i biscotti
+das Gebäck#1	i pasticcini
+das Gerüst#1	l'impalcatura
+das Gerüst#1	il ponteggio
+die Gewähr#1	la garanzia (formale, giuridico)
+gierig#1	avido
+gierig#1	ingordo
+die Hektik#1	la frenesia
+die Hektik#1	la concitazione
+die Heldin#1	l'eroina (di una storia)
+der Henker#1	il boia
+hocken#1	accovacciarsi
+hocken#1	stare accovacciato
+hocken#2	stare piantato (familiare)
+der Hocker#1	lo sgabello
+hörbar#1	udibile
+hüllen#1	avvolgere
+hüpfen#1	saltellare
+immens#1	immenso (formale)
+der Ingwer#1	lo zenzero
+intakt#1	intatto
+intakt#1	integro
+jucken#1	prudere
+jucken#1	pizzicare
+das Kalkül#1	il calcolo strategico
+die Kanone#1	il cannone
+kiffen#1	fumare canne (familiare)
+die Kirmes#1	la sagra
+die Kirmes#1	il luna park
+der Kolben#1	il pistone
+der Konsul#1	il console (diplomatico)
+der Krampf#1	il crampo
+die Kreide#1	il gesso (da lavagna)
+kurzum#1	insomma
+kurzum#1	in breve
+die Köchin#1	la cuoca
+kölsch#1	di Colonia (dialetto)
+lesbar#1	leggibile
+läuten#1	suonare
+läuten#1	rintoccare (campane)
+der Magnet#1	la calamita
+der Magnet#1	il magnete
+die Maxime#1	la massima (comune)
+die Misere#1	la miseria
+die Misere#1	la situazione disastrosa
+mithin#1	pertanto
+mithin#1	quindi (letterario)
+das Mosaik#1	il mosaico
+der Moslem#1	il musulmano
+der Nenner#1	il denominatore
+der Nippel#1	il capezzolo
+der Obmann#1	il presidente (di un'associazione)
+der Obmann#2	il rappresentante
+der Obmann#2	il fiduciario
+das Parfüm#1	il profumo (prodotto)
+die Parole#1	lo slogan
+die Parole#1	la parola d'ordine
+der Pascha#1	il pascià
+die Pforte#1	la porta
+die Pforte#1	il portone
+die Pforte#1	la portineria
+die Phrase#1	la frase fatta
+die Phrase#1	il luogo comune
+der Phönix#1	la fenice
