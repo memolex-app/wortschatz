@@ -184,9 +184,18 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Recommandation : traduire l'interface d'une langue **au moment où sa première paire est prête** (étape 8 pour l'anglais) : les textes peuvent encore changer d'ici là, et une interface traduite sans données ne sert à personne. Volume par langue : ~565 messages (dont le guide et les libellés `lang.*`, `guide.<L>.*` pour chaque langue apprise disponible dans cette langue).
 - À faire aussi pour une nouvelle langue d'utilisateur : `data/<U>/utilisateur.json` (articles, notes grammaticales, locale, `selfFrom`) ; contrôles Python (`tools/*.py`) adaptés à cette langue ; textes des notifications serveur (`supabase/functions`) et de `sw.js`.
 
+## Étape 6 : sens de l'allemand (faite, 12/11/2026)
+
+- Modèle : **un sens peut avoir plusieurs traductions** dans une langue d'utilisateur (`glosses.tsv` : plusieurs lignes pour le même identifiant de sens, dans l'ordre). `build.py` les joint dans l'ordre : la traduction affichée ne change pas.
+- Relecture (sur délégation d'Andrea) des 2 222 mots allemands à plusieurs traductions françaises : **1 575 fusionnés** (traductions synonymes d'un même sens : *sicher* « sûr, certain », *das Jahr* « l'année, l'an », *bringen* « apporter, amener ») ; **645 gardés séparés** (vrais doubles sens : *die Bank* « le banc / la banque », *der Schimmel* « la moisissure / le cheval blanc », *hören* « entendre / écouter ») ; 2 mots à trois sens regroupés en partie (*anhalten* « arrêter, s'arrêter / durer », *aufhängen* « accrocher, étendre / raccrocher ») ; *los* et *setzen* (traduction libre) non touchés.
+- Règle : **en cas de doute, garder séparé** (fusionner à tort ferait perdre une distinction dans une autre langue ; un faux double ne coûte qu'une traduction en double).
+- Résultat : 10 030 → **8 436 sens** (7 130 mots à 1 sens, 635 à 2, 12 à 3). Fichiers publiés de-fr **identiques à l'octet** ; contrôles inchangés.
+- Outil : `tools/apply_sense_merges.py` (fichier `data/de/decisions/2026-11-12-sens.tsv` : clé · groupes « 1+2 », « 1+2|3 » · motif ; idempotent). `apply_decisions.py` garde le regroupement quand une correction conserve le nombre de traductions (sinon : avertissement) et refuse un fichier qui n'a pas le format des décisions sur les cartes.
+- Corrigé au passage : le fichier des 3 traductions de phrases (`phrases-2026-11-12-traductions.tsv`, renommé) aurait été pris pour des traductions de cartes si l'on rejouait toutes les décisions ; `prep_case.py` lit désormais la table des cas dans `data/de/langue.json` (oubli de l'étape 4).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
-1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
+1. ~~Sens initialisés depuis le français~~ (réglé à l'étape 6 pour l'allemand ; à faire pour l'italien avant sa première paire non française). Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
 2. ~~Phrases sans numéro Tatoeba~~ : réglé à l'étape 3 (les identifiants internes `clé@n` restent, le numéro Tatoeba est une colonne).
 3. **Non migré** : le dictionnaire (`dict-de-fr.json`, 46 029 mots, importé d'une source externe). Il reste tel quel pour l'instant.
 4. ~~Grammaire écrite dans l'appli~~ : réglé à l'étape 4 (`data/<L>/langue.json`). Restent écrits pour de/it les **textes du guide** (code couleur, exemples d'aide, sources des listes) : étape 5.
@@ -204,7 +213,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ✅ 100 % (de-fr 5 821, it-fr 4 435) ; crédits générés : toutes les paires et tous les auteurs déjà présents dans les anciens crédits, les phrases retirées n'y figurent plus |
 | 4 | Grammaire par langue sortie de l'appli (`langue.json`) | ✅ test de non-régression : 0 différence (de, it) |
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | ✅ 5.1 à 5.4 (mécanisme) : appli française inchangée (sauf corrections voulues), textes extraits et prouvés ; traductions au moment de chaque paire |
-| 6 | Relecture des sens allemands (fusion des faux doubles) | chaque mot à plusieurs sens relu ; build de-fr toujours identique en contenu |
+| 6 | Relecture des sens allemands (fusion des faux doubles) | ✅ 2 222 mots relus ; build de-fr identique à l'octet |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
 | 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | idem |
 | … | Une paire à la fois | idem |

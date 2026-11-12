@@ -32,17 +32,21 @@ def apply(L, U, path, dry=False):
     d, p = os.path.join(DATA, L), os.path.join(DATA, f'{L}-{U}')
     lex = {r['key'] for r in read_tsv(f'{d}/lexemes.tsv')}
     senses = read_tsv(f'{d}/senses.tsv')
-    glosses = {r['sense']: r['gloss'] for r in read_tsv(f'{p}/glosses.tsv')}
+    glosses = {}                 # sens → traductions (un sens peut en avoir plusieurs : synonymes)
+    for r in read_tsv(f'{p}/glosses.tsv'):
+        glosses.setdefault(r['sense'], []).append(r['gloss'])
     cards = read_tsv(f'{p}/cards.tsv')
     ex_src = read_tsv(f'{d}/examples.tsv')
     ex_tr = read_tsv(f'{p}/examples.tsv')
     decisions = read_tsv(path)
+    if decisions and set(decisions[0]) != {'key', 'translation', 'reason'}:
+        raise SystemExit(f'{path} : pas un fichier de décisions sur les cartes (colonnes attendues : key, translation, reason)')
 
     by_key = {}
     for s in senses:
         by_key.setdefault(s['key'], []).append(s['sense'])
 
-    changed, unlabelled = [], 0
+    changed, unlabelled, regroup = [], 0, []
     for dec in decisions:
         k, fr = dec['key'], dec['translation'].strip()
         if k not in lex:
@@ -51,22 +55,31 @@ def apply(L, U, path, dry=False):
         if join_senses(parts) != fr:
             raise SystemExit(f'{k} : séparer les sens par « , » (« ; » seulement dans une note) : {fr!r}')
         old_ids = by_key.get(k, [])
-        old = join_senses([glosses[s] for s in old_ids])
+        flat = [(s, g) for s in old_ids for g in glosses.get(s, [])]
+        old = join_senses([g for _, g in flat])
         if old == fr and not any(c['key'] == k for c in cards):
             continue
-        used = {int(re.match(r'.*#(\d+)', s).group(1)) for s in old_ids if re.match(r'.*#\d+$', s)}
-        nxt = max(used, default=0) + 1
-        new_ids = []
-        for i, g in enumerate(parts):
-            if i < len(old_ids):
-                sid = old_ids[i]
-            else:
-                sid = f'{k}#{nxt}'
-                nxt += 1
-            new_ids.append(sid)
-            glosses[sid] = g
-        for sid in old_ids[len(parts):]:
-            glosses.pop(sid, None)
+        if len(parts) == len(flat) and len(flat) > len(old_ids):
+            # même nombre de traductions : le regroupement en sens est gardé
+            for sid in old_ids: glosses[sid] = []
+            for (sid, _), g in zip(flat, parts): glosses[sid].append(g)
+            new_ids = old_ids
+        else:
+            if len(flat) > len(old_ids):
+                regroup.append(k)
+            used = {int(re.match(r'.*#(\d+)', s).group(1)) for s in old_ids if re.match(r'.*#\d+$', s)}
+            nxt = max(used, default=0) + 1
+            new_ids = []
+            for i, g in enumerate(parts):
+                if i < len(old_ids):
+                    sid = old_ids[i]
+                else:
+                    sid = f'{k}#{nxt}'
+                    nxt += 1
+                new_ids.append(sid)
+                glosses[sid] = [g]
+            for sid in old_ids[len(parts):]:
+                glosses.pop(sid, None)
         by_key[k] = new_ids
         cards = [c for c in cards if c['key'] != k]
         changed.append((k, old, fr))
@@ -83,9 +96,11 @@ def apply(L, U, path, dry=False):
         order = [r['key'] for r in read_tsv(f'{d}/lexemes.tsv')]
         new_senses = [[sid, k] for k in order for sid in by_key.get(k, [])]
         write_tsv(f'{d}/senses.tsv', ['sense', 'key'], new_senses)
-        write_tsv(f'{p}/glosses.tsv', ['sense', 'gloss'], [[sid, glosses[sid]] for sid, _ in new_senses])
+        write_tsv(f'{p}/glosses.tsv', ['sense', 'gloss'], [[sid, g] for sid, _ in new_senses for g in glosses[sid]])
         write_tsv(f'{p}/cards.tsv', ['key', 'translation'], [[c['key'], c['translation']] for c in cards])
         write_rows(f'{p}/examples.tsv', ex_tr, ['id', 'translation', 'sense_label'])
+    if regroup:
+        print(f'attention : regroupement des sens réinitialisé (nombre de traductions changé) pour {len(regroup)} cartes :', ', '.join(regroup))
     for k, o, n in changed:
         print(f'{k} : {o}  →  {n}')
     print(f'{len(changed)} cartes modifiées, {unlabelled} phrases sans étiquette de sens'

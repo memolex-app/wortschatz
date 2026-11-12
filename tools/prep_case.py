@@ -1,16 +1,18 @@
 """Contrôle (audit n° 9) : chaque préposition ou postposition des listes doit figurer dans la table des cas de l'appli
-(PREP_CASE dans index.html), sinon l'appli ne peut ni afficher ni faire deviner le cas.
+(rubrique cases.prep de data/<L>/langue.json), sinon l'appli ne peut ni afficher ni faire deviner le cas.
 Ne concerne que les langues à cas (allemand).
 Usage : MX_PAIR=de-fr python3 prep_case.py
 """
-import os, re
+import json, os, re
 from common import load, shown, REPO
 
 
 def table(repo=REPO):
-    src = open(os.path.join(repo, 'index.html'), encoding='utf-8').read()
-    body = re.search(r'const PREP_CASE = \{(.*?)\n\};', src, re.S).group(1)
-    return set(re.findall(r"""(?:^|[,{\s])'?([^\s,:'{}]+)'?\s*:""", body))
+    """Prépositions connues : rubrique « cases.prep » de la description de la langue (data/<L>/langue.json)."""
+    from common import PAIR
+    L = PAIR.split('-')[0]
+    d = json.load(open(os.path.join(repo, 'data', L, 'langue.json'), encoding='utf-8'))
+    return set((d.get('cases') or {}).get('prep', {}))
 
 
 def run(repo=REPO):

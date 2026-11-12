@@ -12,7 +12,10 @@ def build(L, U):
     d, p = os.path.join(DATA, L), os.path.join(DATA, f'{L}-{U}')
     lex = read_tsv(f'{d}/lexemes.tsv')
     senses = read_tsv(f'{d}/senses.tsv')
-    gl = {r['sense']: r['gloss'] for r in read_tsv(f'{p}/glosses.tsv')}
+    # un sens peut avoir plusieurs traductions (synonymes : « sûr », « certain ») : lignes successives du même sens
+    gl = {}
+    for r in read_tsv(f'{p}/glosses.tsv'):
+        gl.setdefault(r['sense'], []).append(r['gloss'])
     free = {r['key']: r['translation'] for r in read_tsv(f'{p}/cards.tsv')}
 
     by_key = {}
@@ -25,7 +28,7 @@ def build(L, U):
     lists, app = [], {}
     for r in lex:
         k = r['key']
-        fr = free.get(k) or join_senses([gl[s] for s in by_key.get(k, [])])
+        fr = free.get(k) or join_senses([g for s in by_key.get(k, []) for g in gl[s]])
         row = [r['level'], r['lemma'], r['pos'], r['art'], r['plural'], fr]
         if r['extra'] != NONE:
             row.append(r['extra'])
