@@ -606,7 +606,7 @@ const USER_DATA = {"fr":{"order":1,"code":"FR","name":"Français","locale":"fr-F
 // langue de l'utilisateur (langue des traductions et de l'interface) : data/<langue>/utilisateur.json
 const ULANGS = USER_DATA;
 /* PAIRS:BEGIN (généré par tools/build_app.py, ne pas éditer) */
-const PAIRS = [["de", "en"], ["de", "fr"], ["de", "it", "essai"], ["it", "fr"]];
+const PAIRS = [["de", "en"], ["de", "fr"], ["de", "it"], ["it", "fr"]];
 /* PAIRS:END */
 // paires publiées [langue apprise, langue de l'utilisateur] : seules celles-ci sont proposées
 /* paires en essai (3e élément « essai ») : visibles seulement après une ouverture avec l'adresse ?essai=1 (?essai=0 pour les cacher) */
@@ -2301,7 +2301,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="2.1.5";
+const APP_VER="2.1.6";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();

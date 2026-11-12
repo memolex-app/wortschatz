@@ -213,6 +213,16 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - **Notifications dans la langue de l'utilisateur : version 2.0.2.** L'appli range la langue de l'utilisateur dans `settings.wotd.ul` (absente = français ; si elle change, la file des mots du jour est retirée, pour des traductions dans la bonne langue). La fonction `memolex-push` choisit ses textes dans `TXT[ul]` (fr, en ; français par défaut, sortie française identique à l'ancienne sur 181 cas) et envoie `ul` avec la notification ; `sw.js` traduit le bouton « Ajouter » et la confirmation avec `SWT[ul]`. Nouvelle langue d'utilisateur : ajouter son entrée dans `TXT` et `SWT`. La fonction doit être redéployée à la main dans Supabase.
 - **Phrases allemandes corrigées : version 2.0.1.** Relecture complète des 6 288 phrases de `data/de/examples.tsv` (correcteur orthographique puis lecture) : 62 phrases corrigées (fautes de frappe, accords, virgules, orthographe ancienne, phrases bancales, un « XXX » laissé sur Tatoeba). Seules la phrase et la surbrillance changent ; clé et id restent, donc l'avancement des utilisateurs est conservé. Traductions alignées quand le sens bougeait (*die Verdächtige* au féminin, *Fleisch … noch blutig*, *Stecker*, *Innenseite*, *Danke*). Les traductions anglaises ont été modifiées directement dans `data/de-en/examples.tsv` : ne pas relancer `merge_ex` sans les reporter.
 
+## Étape 9 : allemand depuis l'italien (12/11/2026, versions 2.1.0 à 2.1.6)
+
+- Même méthode que l'anglais, en paire d'essai puis ouverte : sens, chunks et phrases traduits **depuis l'allemand** (jamais via le français), un niveau par version : A1 2.1.0, A2 2.1.1, B1 2.1.2, B2 2.1.3, C1 2.1.4, C2 2.1.5.
+- Conventions italiennes : noms avec article (*il*, *lo*, *la*, *l'*), nuance entre parenthèses, « (comune) » sur le mot de base quand deux cartes se recouvrent ; registre indiqué (« (volgare) », « (familiare) ») sans commentaire.
+- Phrases : traduction Tatoeba italienne directe quand elle existe et qu'elle est juste (relue une à une ; rejetées quand elle changeait le genre, le prénom ou le sens), sinon traduction Memolex. 6 288 phrases, toutes traduites.
+- Ambiguïtés levées à chaque niveau (liste complète, pas seulement les 40 premières) : contrôles finaux doublons 0, ambiguës 0, chunks 0. `prep_case` signale toujours *versus* (même cas qu'en de-fr et de-en).
+- Dictionnaire provisoire `dict-de-it.json` (`tools/dict_from_lists.py de it`) : 7 777 mots. Interface `i18n/it.json`, notifications (`TXT.it`, `SWT.it`) déjà en italien.
+- Contrôle final par échantillon (Claude, à la demande d'Andrea) : 70 cartes et 25 phrases tirées au hasard, justes. Balayage de l'appli en italien (tous les mots, recto et verso) : 0 erreur JavaScript.
+- **Paire ouverte à tous : version 2.1.6** (`pair.json` retiré).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. ~~Sens initialisés depuis le français~~ (réglé à l'étape 6 pour l'allemand ; à faire pour l'italien avant sa première paire non française). Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
@@ -236,6 +246,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 6 | Relecture des sens allemands (fusion des faux doubles) | ✅ 2 222 mots relus ; build de-fr identique à l'octet |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
 | 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | ✅ échantillon 100/100 (2 erreurs Tatoeba relevées et corrigées) ; ouverte en 2.0.0 |
+| 9 | Italien → allemand | ✅ contrôles à 0, échantillon juste ; ouverte en 2.1.6 |
 | … | Une paire à la fois | idem |
 
 ## Règles de qualité (rappel)
