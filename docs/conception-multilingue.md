@@ -208,7 +208,8 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - **A2 à C2 (1.9.5 à 1.9.9)**, un niveau par version, même méthode : sens et chunks traduits par lots (`glosses`/`chunks`), phrases (traduction Tatoeba directe quand elle existe, sinon traduction Memolex faite depuis l'allemand, jamais depuis le français), étiquettes de sens relues sur les cartes à plusieurs sens, puis contrôles. Ambiguïtés levées à chaque niveau en ajoutant une nuance à la carte sans nuance (« (common) » sur le mot de base, « (man) »/« (woman) » pour les paires masculin/féminin, nuance de sens sinon) : A2 14, B1 80, B2 112, C1 144, C2 132.
 - **Paire complète** : 7 777 mots, 8 436 sens, 7 777 chunks, toutes les phrases des listes ; `dict-de-en.json` = 7 777 mots. Contrôles : doublons 0, ambiguës 0, chunks 0 ; `prep_case` signale *versus* (déjà signalé en de-fr, préposition absente de la table des cas : à décider). Non-régression française : seule différence *stimmen* (voulu) + état aléatoire des notifications.
 - Corrigé en de-fr : *Wie spricht man mit Frauen?* étiqueté « comment » (au lieu de « comme »).
-- Reste : relecture par échantillon (Andrea) avant de lever le statut d'essai ; textes des notifications serveur et de `sw.js` encore en français.
+- **Contrôle par échantillon (Andrea, 12/11/2026)** : 100 cartes tirées au hasard (≈ 17 par niveau, widget de relecture) : 100/100 jugées justes ; Claude y a relevé 2 traductions Tatoeba fautives (*musikalisch* « virtuoso », *Edelstahl* « staineless »), corrigées (1.9.10). Puis correcteur orthographique sur toutes les phrases anglaises (seulement des graphies britanniques et des noms propres) et relecture des 78 traductions du même contributeur Tatoeba : 8 remplacées (*Waschmaschine* « costed », *Mathematiker* « originally solved », *Sporthalle*, *Abschnitt*, *nerven*, *Kiosk*, *telefonieren*, *unentschieden*).
+- **Paire ouverte à tous : version 2.0.0** (`pair.json` retiré). Reste : textes des notifications serveur et de `sw.js` encore en français ; phrases allemandes de Tatoeba fautives repérées au passage, communes avec de-fr (*Normalerweise ist Himmel blau*, *gründetete*, *Der Beamter*, *annuliert*, *Anweisungen … folgen*) : à corriger dans `data/de` avec accord d'Andrea.
 
 ## Limites connues (à traiter dans les étapes suivantes)
 
@@ -232,7 +233,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | ✅ 5.1 à 5.4 (mécanisme) : appli française inchangée (sauf corrections voulues), textes extraits et prouvés ; traductions au moment de chaque paire |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | ✅ 2 222 mots relus ; build de-fr identique à l'octet |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
-| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | A1 à C2 traduits, en essai (1.9.9) ; reste l'échantillon ≥ 95 % juste |
+| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | ✅ échantillon 100/100 (2 erreurs Tatoeba relevées et corrigées) ; ouverte en 2.0.0 |
 | … | Une paire à la fois | idem |
 
 ## Règles de qualité (rappel)
