@@ -233,7 +233,7 @@ die Dienstleistung@2	All the necessary services are available on site.	~
 der Gin@1	Tom has gin.	~		
 die Hymne@1	Estonia has its own national anthem.	~	719181	Eldad
 der Sumpf@1	I don't like swimming in swamps.	~		
-der Troll@1	Trolling is a art.	~	653143	BraveSentry
+der Troll@1	Trolling is an art.	~	653143	BraveSentry
 der Marmor@1	Her hands were as cold as marble.	~		
 der Putsch@1	The coup was carefully executed.	~		
 unweit@1	Tom owns a small farm not far from Boston.	~		
@@ -2233,7 +2233,7 @@ gehen@1	Tom doesn't want to go home.	to go	1094256	CK
 gehen@2	Maria walks slowly.	to walk	2373843	waldrumpus
 kein@1	Tom has a lot of money, but he has no friends.	~	4238437	Hybrid
 wie@1	How do you talk to women?	how	3731200	CM
-wie@2	How do you say XXX in English?	how	3789754	Ricardo14
+wie@2	How do you say “thank you” in English?	how	3789754	Ricardo14
 werden@1	His aim is to become a lawyer.	~	287695	CK
 zu@1	Maria doesn't speak English at home.	at		
 zu@2	Money always goes to money.	to		
@@ -3412,7 +3412,7 @@ verkürzen@1	I deliberately choose the smallest potatoes. That shortens the cook
 ausgebucht@1	Unfortunately, the hotel is fully booked.	~		
 bürgerlich@1	The French Revolution was a bourgeois revolt.	~		
 das Fachgebiet@1	That's not my field.	~		
-die Innenseite@1	The door bolts on the inside.	~	239927	CK
+die Innenseite@1	The door can only be bolted from the inside.	~	239927	CK
 der Kommandeur@1	The commander gives the order.	~		
 lateinisch@1	Many English words are of Latin origin.	~		
 mechanisch@1	It's hard to find a totally mechanical pinball machine. These days, they're all electronic.	~	1733793	darinmex
@@ -4631,7 +4631,7 @@ ansehen@1	Tom looks at his little brother.	~
 die Ausgabe@1	His expenses exceed his income by far.	~	286473	\\N
 der Bahnhof@1	It takes ten minutes to get to the railway station.	~	10886099	sundown
 das Fleisch@1	That's neither fish nor fowl!	~		
-das Fleisch@2	This meat is rare.	meat		
+das Fleisch@2	This meat is still rare.	meat		
 handeln@1	A sensible person wouldn't act like that.	~		
 kämpfen@1	To live is to fight.	~		
 seitdem@1	Three years have passed since then.	~	41731	CK
@@ -6196,7 +6196,7 @@ der Regenwald@1	We must protect the rainforest.	~	4540988	Hybrid
 der Sanitäter@1	Do you remember the name of the paramedic that saved my life?	~	3241711	CK
 schimpfen@1	He always speaks of the government with contempt.	~	289171	CM
 sprachlos@1	I have no words.	~	1312015	Ricardo14
-die Steckdose@1	Take the fork out of the electric socket.	~	573909	FeuDRenais2
+die Steckdose@1	Pull the plug out of the socket.	~	573909	FeuDRenais2
 die Steinzeit@1	My musical tastes date from the time of the Stones, in other words from the Stone Age.	~		
 das Städtchen@1	I grew up in a small town.	~	1699226	Spamster
 unhöflich@1	You can decline politely without being rude.	~		

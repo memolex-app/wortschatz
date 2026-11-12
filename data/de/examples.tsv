@@ -50,7 +50,7 @@ der Joker@1	der Joker	Er hat einen Joker.	[[13,5]]	tatoeba	8080181	Pfirsichbaeum
 das Radar@1	das Radar	Dieses Schiff ist nicht mit Radar ausgestattet.	[[28,5]]	tatoeba	469579	tokyomews
 der Makler@1	der Makler	Tom ist Makler.	[[8,6]]	tatoeba	1418782	Zaghawa
 der Retter@1	der Retter	Jesus Christus ist mein Retter.	[[24,6]]	tatoeba	8989387	manese
-das Biathlon@1	das Biathlon	Oberhof ist wirklich die Hauptstadt des Biathlon.	[[40,8]]	tatoeba	9663527	felix63
+das Biathlon@1	das Biathlon	Oberhof ist wirklich die Hauptstadt des Biathlons.	[[40,8]]	tatoeba	9663527	felix63
 der Mitbürger@1	der Mitbürger	Japaner haben wenig Verständnis für obdachlose Mitbürger.	[[47,9]]	tatoeba	1186380	cumori
 der Nordosten@1	der Nordosten	Die Gerichte im Nordosten Chinas sind fad.	[[16,9]]	tatoeba	1809106	Tamy
 die Reportage@1	die Reportage	Die Leute halten diese Reportage für wahr.	[[23,9]]	tatoeba	911947	Sudajaengi
@@ -103,7 +103,7 @@ die Schlägerei@1	die Schlägerei	Ich sehe lieber Filme ohne Schlägereien.	[[27
 der Tierschutz@1	der Tierschutz	Tierschutz ist Erziehung zur Menschlichkeit.	[[0,10]]	tatoeba	2847906	Esperantostern
 die Vegetation@1	die Vegetation	Diese Vegetation ist üppig.	[[6,10]]	tatoeba	12928007	felix63
 das Zertifikat@1	das Zertifikat	Ich habe die Zertifikate versiegelt.	[[13,11]]	tatoeba	5035012	Tamy
-die Archäologie@1	die Archäologie	Die Archäologie ist Spaß!	[[4,11]]	tatoeba	4764836	Esperantostern
+die Archäologie@1	die Archäologie	Archäologie macht Spaß!	[[0,11]]	tatoeba	4764836	Esperantostern
 das Immunsystem@1	das Immunsystem	Wer mit seinen Fingern ständig ins Gesicht greift, tut seinem Immunsystem keinen Gefallen.	[[62,11]]	tatoeba	9635499	felix63
 kombinieren@1	kombinieren	Dieses Modell kann mit jeder Kleidungsfarbe kombiniert werden.	[[44,10]]	tatoeba	494997	MUIRIEL
 unterbinden@1	unterbinden	Wir müssen Toms Mobilität unterbinden.	[[26,11]]	tatoeba	7786282	list
@@ -151,10 +151,10 @@ die Todesursache@1	die Todesursache	Die Todesursache scheint eine Schussverletzu
 die Korrespondenz@1	die Korrespondenz	Tom muss die Korrespondenz der Abteilung sortieren.	[[13,13]]	tatoeba	6330045	felix63
 die Nächstenliebe@1	die Nächstenliebe	Nächstenliebe beginnt zu Hause.	[[0,13]]	tatoeba	441872	xtofu80
 die Stadtbibliothek@1	die Stadtbibliothek	Maria arbeitet in der Stadtbibliothek.	[[22,15]]	tatoeba	6324118	Pfirsichbaeumchen
-verfassungswidrig@1	verfassungswidrig	Die Wahl wurde verfassungswidrig annuliert.	[[15,17]]	tatoeba	13917812	Ioan_Cristian
+verfassungswidrig@1	verfassungswidrig	Die Wahl wurde verfassungswidrig annulliert.	[[15,17]]	tatoeba	13917812	Ioan_Cristian
 das Inhaltsverzeichnis@1	das Inhaltsverzeichnis	Große Menschen sind Inhaltsverzeichnisse der Menschheit.	[[20,20]]	tatoeba	1449950	Esperantostern
 die Steuerhinterziehung@1	die Steuerhinterziehung	Er wurde der Steuerhinterziehung bezichtigt.	[[13,19]]	tatoeba	1821197	pne
-das Mus@1	das Mus	Mirabellen sind lecker auch als Mus.	[[32,3]]	tatoeba	1610210	human600
+das Mus@1	das Mus	Mirabellen sind auch als Mus lecker.	[[25,3]]	tatoeba	1610210	human600
 die Lava@1	die Lava	Der Boden ist Lava!	[[14,4]]	tatoeba	7027291	Pfirsichbaeumchen
 oval@1	oval	Ein Ei ist nicht rund, sondern oval.	[[31,4]]	tatoeba	12050977	Rovo
 der Pate@1	der Pate	Mein Pate knetet gerade den Teig.	[[5,4]]	tatoeba	969371	MUIRIEL
@@ -187,7 +187,7 @@ die Theologie@1	die Theologie	Es ist nicht nötig, Theologie studiert zu haben, 
 die Ethik@1	die Ethik	Politik ist eine Kunst, die etwas mit Ethik zu tun hat.	[[38,5]]	tatoeba	11907873	Adelpa
 das Match@1	das Match	Ich hatte mit einem schwierigeren Match gerechnet.	[[34,5]]	tatoeba	7815495	manese
 das Hektar@1	das Hektar	Das Feld ist über 300 Hektar groß.	[[22,6]]	tatoeba	2242187	Vortarulo
-die Episode@1	die Episode	Niemals werde ich diese schreckliche Episode meiner Kindheit vergessen könnte.	[[37,7]]	tatoeba	1635812	al_ex_an_der
+die Episode@1	die Episode	Niemals werde ich diese schreckliche Episode meiner Kindheit vergessen können.	[[37,7]]	tatoeba	1635812	al_ex_an_der
 der Marathon@1	der Marathon	Er nahm ihre Zeit beim Marathon.	[[23,8]]	tatoeba	2983759	Zaghawa
 problemlos@1	problemlos	Alles funktionierte problemlos.	[[20,10]]	tatoeba	1477440	JayNo
 die Solidarität@1	die Solidarität	Solidarität macht uns stärker.	[[0,11]]	tatoeba	13555631	Rovo
@@ -233,7 +233,7 @@ die Dienstleistung@2	die Dienstleistung	Alle notwendigen Dienstleistungen sind v
 der Gin@1	der Gin	Tom hat Gin.	[[8,3]]	tatoeba	13164897	Rovo
 die Hymne@1	die Hymne	Estland hat seine eigene Hymne.	[[25,5]]	tatoeba	726895	Vortarulo
 der Sumpf@1	der Sumpf	Ich schwimme nicht gern im Sumpfe.	[[27,6]]	tatoeba	9563587	felix63
-der Troll@1	der Troll	Trollen ist ein Kunst.	[[0,7]]	tatoeba	778562	Eldad
+der Troll@1	der Troll	Trollen ist eine Kunst.	[[0,7]]	tatoeba	778562	Eldad
 der Marmor@1	der Marmor	Ihre Hände waren kalt wie Marmor.	[[26,6]]	tatoeba	621553	Manfredo
 der Putsch@1	der Putsch	Der Putsch wurde sorgfältig durchgeführt.	[[4,6]]	tatoeba	392387	xtofu80
 unweit@1	unweit	Tom besitzt eine kleine Farm unweit von Boston.	[[29,6]]	tatoeba	11549689	Grmpy
@@ -545,10 +545,10 @@ verstärken@1	verstärken	Beton wird durch das Einsetzen von Stahlstangen verst�
 der Terrorismus@1	der Terrorismus	Wir werden den Terrorismus nie unterstützen.	[[15,11]]	tatoeba	361106	Kerstin
 das Atom@1	das Atom	Atome sind in allem.	[[0,5]]	tatoeba	970208	Esperantostern
 die Lupe@1	die Lupe	Haben Sie eine Lupe?	[[15,4]]	tatoeba	13257519	Waldelfe
-steil@1	steil	Steile Berge hinaufsteigen erfordert im Anfang langsame Schritte.	[[0,6]]	tatoeba	3072723	Esperantostern
+steil@1	steil	Steile Berge hinaufzusteigen erfordert anfangs langsame Schritte.	[[0,6]]	tatoeba	3072723	Esperantostern
 der Tänzer@1	der Tänzer	Alle Bewegungen des Tänzers waren perfekt.	[[20,7]]	tatoeba	1599632	Zaghawa
 die Kolonie@1	die Kolonie	Frankreich hatte zahlreiche Kolonien in Afrika.	[[28,8]]	tatoeba	1039030	Sudajaengi
-sechste@1	sechste	Die sechste Tag ist der Samstag.	[[4,7]]	tatoeba	13065547	Pfirsichbaeumchen
+sechste@1	sechste	Der sechste Tag ist der Samstag.	[[4,7]]	tatoeba	13065547	Pfirsichbaeumchen
 staunen@1	staunen	Ihr werdet staunen!	[[11,7]]	tatoeba	6321564	felix63
 der Stempel@1	der Stempel	In Russland geht fast nichts ohne Stempel.	[[34,7]]	tatoeba	1241561	Esperantostern
 der Stempel@2	der Stempel	Dieser Brief trägt den Stempel von Paris.	[[23,7]]	tatoeba	10308282	Pfirsichbaeumchen
@@ -663,7 +663,7 @@ das Erdgeschoss@1	das Erdgeschoss	Das Restaurant ist im Erdgeschoss.	[[22,11]]	t
 der Hubschrauber@1	der Hubschrauber	Ich kann einen Hubschrauber fliegen.	[[15,12]]	tatoeba	1796240	Tamy
 hintereinander@1	hintereinander	Jawoll! Ich habe zwei Mal hintereinander gewonnen!	[[26,14]]	tatoeba	1817119	Zaghawa
 der Tank@1	der Tank	Der Tank ist leer.	[[4,4]]	tatoeba	383246	Ole
-der Tank@2	der Tank	Wieviel Kerosin ist noch im Tank?	[[28,4]]	tatoeba	13649291	Waldelfe
+der Tank@2	der Tank	Wie viel Kerosin ist noch im Tank?	[[29,4]]	tatoeba	13649291	Waldelfe
 der Fluch@1	der Fluch	Sie hat oft über unseren Fluch gesprochen.	[[25,5]]	tatoeba	1164841	Eldad
 der Fächer@1	der Fächer	Mein Onkel sammelt chinesische Fächer.	[[31,6]]	tatoeba	8619043	manese
 das Ehepaar@1	das Ehepaar	Das Ehepaar bot sein Haus zum Verkauf an.	[[4,7]]	tatoeba	509654	xtofu80
@@ -835,7 +835,7 @@ der Untertitel@1	der Untertitel	Die Untertitel stimmen nicht.	[[4,10]]	tatoeba	7
 der Dorn@1	der Dorn	Hübsche Blumen haben Dornen.	[[21,6]]	tatoeba	535798	kroko
 die Herde@1	die Herde	Nicht die Diktatoren schaffen Diktaturen, sondern die Herden.	[[54,6]]	tatoeba	1426826	Esperantostern
 die Nichte@1	die Nichte	Meine Nichte wird morgen zwei Jahre alt.	[[6,6]]	tatoeba	7574990	driini
-pumpen@1	pumpen	Das Herz dient dazu, um Blut zu pumpen.	[[32,6]]	tatoeba	1152563	Esperantostern
+pumpen@1	pumpen	Das Herz dient dazu, Blut zu pumpen.	[[29,6]]	tatoeba	1152563	Esperantostern
 die Vorliebe@1	die Vorliebe	Sie hatte schon immer eine Vorliebe für runde Zahlen.	[[27,8]]	tatoeba	1780200	Pfirsichbaeumchen
 die Vorliebe@2	die Vorliebe	Er hat eine Vorliebe für moderne Musik.	[[12,8]]	tatoeba	449844	Espi
 motivieren@1	motivieren	Ich war motiviert.	[[8,9]]	tatoeba	2202307	Esperantostern
@@ -1000,7 +1000,7 @@ prächtig@1	prächtig	Diese Ruinen waren einmal ein prächtiger Palast.	[[30,10]
 der Regenbogen@1	der Regenbogen	Hast du den Regenbogen heute Morgen gesehen?	[[12,10]]	tatoeba	8657571	Pfirsichbaeumchen
 das Sprichwort@1	das Sprichwort	Tom beendete seine Rede mit einem Sprichwort.	[[34,10]]	tatoeba	1500252	Pfirsichbaeumchen
 verdoppeln@1	verdoppeln	Die Bevölkerung der Erde wird sich bald verdoppelt haben.	[[40,10]]	tatoeba	520753	tokyomews
-verdoppeln@2	verdoppeln	Das Glück ist das einzige, was sich verdoppelt, wenn man es teilt.	[[36,10]]	tatoeba	1813850	Esperantostern
+verdoppeln@2	verdoppeln	Das Glück ist das Einzige, was sich verdoppelt, wenn man es teilt.	[[36,10]]	tatoeba	1813850	Esperantostern
 inspirieren@1	inspirieren	Der Film wurde von dem Roman gleichen Titels inspiriert.	[[45,10]]	tatoeba	1559056	Esperantostern
 das Taschengeld@1	das Taschengeld	Tom bekommt kein Taschengeld.	[[17,11]]	tatoeba	4311461	brauchinet
 die Gans@1	die Gans	Ob Gänse Gott sehen?	[[3,5]]	tatoeba	11944754	Rovo
@@ -1178,7 +1178,7 @@ die Melodie@1	die Melodie	Ich liebe diese Melodie.	[[16,7]]	tatoeba	11082939	Pfi
 verkehrt@1	verkehrt	Er hat seine Socken verkehrt herum an.	[[20,8]]	tatoeba	1269122	Esperantostern
 unheimlich@1	unheimlich	Dieser Ort ist unheimlich.	[[15,10]]	tatoeba	1922712	Espi
 wöchentlich@1	wöchentlich	Das Magazin erscheint wöchentlich.	[[22,11]]	tatoeba	362708	Wolf
-die Verdächtige@1	die Verdächtige	Der Verdächtige ist noch nicht gefaßt worden.	[[4,11]]	tatoeba	12814994	Waldelfe
+die Verdächtige@1	die Verdächtige	Die Verdächtige ist noch nicht gefasst worden.	[[4,11]]	tatoeba	12814994	Waldelfe
 zuverlässig@1	zuverlässig	Auch wer regelmäßig versagt, ist zuverlässig.	[[33,11]]	tatoeba	8639710	Esperantostern
 der Pilz@1	der Pilz	Dieser Pilz ist riesig.	[[7,4]]	tatoeba	12890132	Waldelfe
 die Wurzel@1	die Wurzel	Zwei ist die vierte Wurzel von sechzehn.	[[20,6]]	tatoeba	119832	KENTRIL
@@ -1210,7 +1210,7 @@ das Cookie@1	das Cookie	Er macht gerade Cookies.	[[16,7]]	tatoeba	442454	MUIRIEL
 der Kreis@1	der Kreis	Geld bedeutet in politischen Kreisen viel.	[[29,7]]	tatoeba	389503	MUIRIEL
 die Auswahl@1	die Auswahl	Wir hätten eine große Auswahl an Alternativen.	[[22,7]]	tatoeba	520702	lilygilder
 die Auswahl@2	die Auswahl	Es ist eine kleine Auswahl.	[[19,7]]	tatoeba	12271197	felix63
-der Inhalt@1	der Inhalt	Leider stehen diese Inhalte zur Zeit in Ihrer Region nicht zur Verfügung.	[[20,7]]	tatoeba	10830299	Pfirsichbaeumchen
+der Inhalt@1	der Inhalt	Leider stehen diese Inhalte zurzeit in Ihrer Region nicht zur Verfügung.	[[20,7]]	tatoeba	10830299	Pfirsichbaeumchen
 relativ@1	relativ	Alles ist relativ.	[[10,7]]	tatoeba	1064798	MUIRIEL
 der Kaiser@1	der Kaiser	Die Regierung hat ihre Macht vom Kaiser bekommen.	[[33,6]]	tatoeba	8111048	manese
 das Modell@1	das Modell	Jacks Auto ist ein neues Modell.	[[25,6]]	tatoeba	381140	MUIRIEL
@@ -1222,12 +1222,12 @@ die Welle@2	die Welle	Ich sende positive Wellen. Ommmmmm.	[[19,6]]	tatoeba	10167
 das Klo@1	das Klo	Ich renne alle halbe Stunde aufs Klo.	[[33,3]]	tatoeba	1037324	Sudajaengi
 das Klo@2	das Klo	Wo ist das Klo?	[[11,3]]	tatoeba	976178	Esperantostern
 die Wüste@1	die Wüste	Man ist etwas einsam in der Wüste.	[[28,5]]	tatoeba	1731450	al_ex_an_der
-das Kissen@1	das Kissen	Schüttel bitte das Kissen aus.	[[19,6]]	tatoeba	957634	Sudajaengi
+das Kissen@1	das Kissen	Schüttle bitte das Kissen aus.	[[19,6]]	tatoeba	957634	Sudajaengi
 das Kissen@2	das Kissen	Tom kann nicht ohne Kissen schlafen.	[[20,6]]	tatoeba	4982694	Pfirsichbaeumchen
 die Tastatur@1	die Tastatur	Wie installiert man eine russische Tastatur?	[[35,8]]	tatoeba	12391553	felix63
 das Fell@1	das Fell	Katzen haben schönes weiches Fell.	[[29,4]]	tatoeba	1245856	Tlustulimu
 das Fell@2	das Fell	Er hat ein hübsches Fell.	[[20,4]]	tatoeba	10219668	manese
-lecken@1	lecken	Das Essen war gut, die Finger zu lecken.	[[33,6]]	tatoeba	2185895	Esperantostern
+lecken@1	lecken	Das Essen war so gut, man hätte sich die Finger lecken können.	[[48,6]]	tatoeba	2185895	Esperantostern
 beiseite@1	beiseite	Bitte geht beiseite.	[[11,8]]	tatoeba	1314893	Pfirsichbaeumchen
 ausschließen@1	ausschließen	In der Geschichte ist nichts ausgeschlossen.	[[29,14]]	tatoeba	12390848	Rovo
 faszinierend@1	faszinierend	Diese Biographie ist faszinierend.	[[21,12]]	tatoeba	11796691	Pfirsichbaeumchen
@@ -1341,7 +1341,7 @@ der Hinweis@1	der Hinweis	Bitte diesen Hinweis nicht beachten.	[[13,7]]	tatoeba	
 der Hinweis@2	der Hinweis	Vielen Dank für Ihre Hinweise!	[[21,8]]	tatoeba	2052911	Tamy
 der Hass@1	der Hass	Warum so viel Hass?	[[14,4]]	tatoeba	796914	Esperantostern
 der Schwanz@1	der Schwanz	Diese Katze hat einen kleinen Schwanz.	[[30,7]]	tatoeba	13257550	Rovo
-auftreten@1	auftreten	Ich trete nicht gerne vor anderen Leute auf.	[[4,5],[40,3]]	tatoeba	759237	Pfirsichbaeumchen
+auftreten@1	auftreten	Ich trete nicht gerne vor anderen Leuten auf.	[[4,5],[41,3]]	tatoeba	759237	Pfirsichbaeumchen
 auftreten@2	auftreten	Es ist ein Fehler aufgetreten.	[[18,11]]	tatoeba	13240041	Waldelfe
 wetten@1	wetten	Ich würde nicht darauf wetten.	[[23,6]]	tatoeba	7466875	Yorwba
 die Katastrophe@1	die Katastrophe	Durch reines Glück wurde eine Katastrophe vermieden.	[[30,11]]	tatoeba	3285842	freddy1
@@ -1431,7 +1431,7 @@ die Zitrone@1	die Zitrone	Ich trinke niemals Tee mit Zitrone.	[[27,7]]	tatoeba	9
 einmischen@1	einmischen	Ich will mich da nicht einmischen.	[[23,10]]	tatoeba	1910934	Zaghawa
 vorbeikommen@1	vorbeikommen	Kommt doch mal vorbei!	[[0,5],[15,6]]	tatoeba	1084552	Pfirsichbaeumchen
 die Literatur@1	die Literatur	Deutsche Literatur ist sehr reich.	[[9,9]]	tatoeba	13857458	Ioan_Cristian
-die Geburt@1	die Geburt	Er ist von Geburt aus Russe.	[[11,6]]	tatoeba	642270	virgil
+die Geburt@1	die Geburt	Er ist von Geburt Russe.	[[11,6]]	tatoeba	642270	virgil
 die Geburt@2	die Geburt	Sie hatte eine einfache Geburt.	[[24,6]]	tatoeba	1602586	human600
 die Niederlage@1	die Niederlage	Tom hat seine Niederlage anerkannt.	[[14,10]]	tatoeba	959953	Sudajaengi
 der Koch@1	der Koch	Dieses Restaurant hat einen schlechten Koch.	[[39,4]]	tatoeba	8709789	felix63
@@ -1630,7 +1630,7 @@ elf@1	elf	Sei genau um elf am Bahnhof.	[[13,3]]	tatoeba	661812	kolonjano
 die Stärke@1	die Stärke	Wissen ist Stärke.	[[11,6]]	tatoeba	520754	tokyomews
 die Prinzessin@1	die Prinzessin	Guten Morgen, Prinzessin!	[[14,10]]	tatoeba	10208700	Pfirsichbaeumchen
 verbrennen@1	verbrennen	Nach dem Lesen verbrennen.	[[15,10]]	tatoeba	7843583	brauchinet
-kritisieren@1	kritisieren	Nichts ist so einfach, als andere zu kritisieren.	[[37,11]]	tatoeba	798510	Esperantostern
+kritisieren@1	kritisieren	Nichts ist so einfach, wie andere zu kritisieren.	[[37,11]]	tatoeba	798510	Esperantostern
 der Aufzug@1	der Aufzug	Dieser Aufzug fasst acht Personen.	[[7,6]]	tatoeba	979633	Sudajaengi
 absagen@1	absagen	Wer hat abgesagt?	[[8,8]]	tatoeba	7091835	Luiaard
 die Unschuld@1	die Unschuld	Zuerst waren alle von seiner Unschuld überzeugt.	[[29,8]]	tatoeba	358316	MUIRIEL
@@ -1740,7 +1740,7 @@ irgendein@1	irgendein	Ich lese nicht irgendeine Zeitung.	[[15,10]]	tatoeba	84272
 der Wolf@1	der Wolf	Gibt es in Deutschland noch Wölfe?	[[28,5]]	tatoeba	1986219	Pfirsichbaeumchen
 der Schatten@1	der Schatten	Sorgen lassen kleine Dinge große Schatten werfen.	[[33,8]]	tatoeba	1349753	Esperantostern
 das Schicksal@1	das Schicksal	Jeder ist seines Schicksals Schmied.	[[17,10]]	tatoeba	9828784	Adelpa
-irgendetwas@1	irgendetwas	Hör auf irgendetwas zu erzählen.	[[8,11]]	tatoeba	582295	cost
+irgendetwas@1	irgendetwas	Hör auf, irgendetwas zu erzählen.	[[9,11]]	tatoeba	582295	cost
 irgendetwas@2	irgendetwas	Ist irgendetwas davon wahr?	[[4,11]]	tatoeba	4286984	Tamy
 der Lügner@1	der Lügner	Lügner haben gewöhnlich mehr Charme.	[[0,6]]	tatoeba	1079159	Esperantostern
 der Tourist@1	der Tourist	Alle Touristen haben die gleichen Fotos gemacht.	[[5,9]]	tatoeba	6609280	manese
@@ -2052,7 +2052,7 @@ das Licht@1	das Licht	Morgens braucht man schon wieder Licht.	[[33,5]]	tatoeba	1
 interessiert@1	interessiert	Niemand war interessiert.	[[12,12]]	tatoeba	5329180	Pfirsichbaeumchen
 tanzen@1	tanzen	Alle wollten tanzen.	[[13,6]]	tatoeba	6818867	manese
 waschen@1	waschen	Sein Beruf ist Autos waschen.	[[21,7]]	tatoeba	614191	virgil
-der Regen@1	der Regen	Wie hatten letzte Nacht starken Regen.	[[32,5]]	tatoeba	519174	MUIRIEL
+der Regen@1	der Regen	Wir hatten letzte Nacht starken Regen.	[[32,5]]	tatoeba	519174	MUIRIEL
 der Wert@1	der Wert	Diese Uhr ist von großem Wert.	[[25,4]]	tatoeba	341024	tinacalysto
 der Wert@2	der Wert	Wert und Preis sind nicht dasselbe.	[[0,4]]	tatoeba	12950039	mhr
 wert@1	wert	Seine Meinung ist nichts wert.	[[25,4]]	tatoeba	7866454	Pfirsichbaeumchen
@@ -2089,7 +2089,7 @@ los@1	los	Wir müssen in fünf Minuten los.	[[27,3]]	tatoeba	4142869	Pfirsichbae
 folgen@1	folgen	Ich werde seinem Rat folgen.	[[21,6]]	tatoeba	1653817	al_ex_an_der
 folgen@2	folgen	Es folgte eine Pause von zehn Minuten.	[[3,6]]	tatoeba	1634409	al_ex_an_der
 frei@1	frei	Ist hier noch frei?	[[14,4]]	tatoeba	465461	Pfirsichbaeumchen
-wünschen@1	wünschen	Ich wünsche einige Stunden allein zu sein.	[[4,7]]	tatoeba	7352803	Pfirsichbaeumchen
+wünschen@1	wünschen	Ich wünsche mir, einige Stunden allein zu sein.	[[4,7]]	tatoeba	7352803	Pfirsichbaeumchen
 wünschen@2	wünschen	Bitte schön, Sie wünschen?	[[17,8]]	tatoeba	4526116	ruth_tatoeba
 die Sorge@1	die Sorge	Sorge dich nicht um morgen.	[[0,5]]	tatoeba	1834840	Aldain
 der Tee@1	der Tee	Kaffee oder Tee?	[[12,3]]	tatoeba	1080150	Espi
@@ -2113,7 +2113,7 @@ kurz@1	kurz	Alle seine Sätze sind kurz.	[[22,4]]	tatoeba	8841354	carlosalberto
 kurz@2	kurz	Kurz gesagt, er ist gefeuert worden.	[[0,4]]	tatoeba	1422043	Alois
 müde@1	müde	Tom scheint müde zu sein.	[[12,4]]	tatoeba	6615047	Felixjp
 sondern@1	sondern	Man wird nicht älter, sondern besser!	[[22,7]]	tatoeba	1934198	Esperantostern
-die Minute@1	die Minute	Warte kurz drei Minuten.	[[16,7]]	tatoeba	10073687	Pfirsichbaeumchen
+die Minute@1	die Minute	Warte kurz, drei Minuten.	[[17,7]]	tatoeba	10073687	Pfirsichbaeumchen
 daran@1	daran	Daran ist nichts falsch.	[[0,5]]	tatoeba	362698	Wolf
 der Gefallen@1	der Gefallen	Wer mit seinen Fingern ständig ins Gesicht greift, tut seinem Immunsystem keinen Gefallen.	[[81,8]]	tatoeba	9635499	felix63
 der Gefallen@2	der Gefallen	Tom hat ihm einen Gefallen getan.	[[18,8]]	tatoeba	8918584	felix63
@@ -2233,7 +2233,7 @@ gehen@1	gehen	Tom will nicht nach Hause gehen.	[[26,5]]	tatoeba	1517699	Pfirsich
 gehen@2	gehen	Maria geht langsam.	[[6,4]]	tatoeba	2328270	Pfirsichbaeumchen
 kein@1	kein	Tom hat viel Geld, doch keine Freunde.	[[24,5]]	tatoeba	6149793	Pfirsichbaeumchen
 wie@1	wie	Wie spricht man mit Frauen?	[[0,3]]	tatoeba	8603511	Pfirsichbaeumchen
-wie@2	wie	Wie sagt man XXX auf Englisch?	[[0,3]]	tatoeba	13072437	Vortarulo
+wie@2	wie	Wie sagt man „Danke“ auf Englisch?	[[0,3]]	tatoeba	13072437	Vortarulo
 werden@1	werden	Sein Ziel ist, Anwalt zu werden.	[[25,6]]	tatoeba	383307	MUIRIEL
 zu@1	zu	Maria spricht zu Hause kein Englisch.	[[14,2]]	tatoeba	2340462	Pfirsichbaeumchen
 zu@2	zu	Geld kommt immer zu Geld.	[[17,2]]	tatoeba	1229463	Esperantostern
@@ -2255,7 +2255,7 @@ warum@1	warum	Warum sind alle so traurig?	[[0,5]]	tatoeba	9081446	Pfirsichbaeumc
 lassen@1	lassen	Tom wird Mary nicht gewinnen lassen.	[[29,6]]	tatoeba	12354175	Naina
 besser@1	besser	Größer heißt nicht immer auch besser.	[[30,6]]	tatoeba	2217161	Pfirsichbaeumchen
 tun@1	tun	Man kann nicht tun, was man will.	[[15,3]]	tatoeba	8964736	manese
-klar@1	klar	Tom hatte Probleme klar zu denken.	[[19,4]]	tatoeba	2800914	freddy1
+klar@1	klar	Tom hatte Probleme, klar zu denken.	[[20,4]]	tatoeba	2800914	freddy1
 geben@1	geben	Haltung gibt Halt.	[[8,4]]	tatoeba	6884441	Esperantostern
 zusammen@1	zusammen	Zusammen spielen macht Spaß.	[[0,8]]	tatoeba	9703578	felix63
 oft@1	oft	Tom geht oft zu Fuß zur Schule.	[[9,3]]	tatoeba	5708437	Pfirsichbaeumchen
@@ -2451,11 +2451,11 @@ tätig@1	tätig	Warum wollen Sie hier tätig sein?	[[22,5]]	tatoeba	8034665	list
 der Anlass@1	der Anlass	Zu welchem Anlass trägst du den Anzug?	[[11,6]]	mx		
 die Brücke@1	die Brücke	Diese Brücke ist aus Holz.	[[6,6]]	tatoeba	761996	Pfirsichbaeumchen
 dienen@1	dienen	Niemand kann zwei Herren dienen.	[[25,6]]	tatoeba	801835	Manfredo
-der Gewinn@1	der Gewinn	Wieviel Gewinn erwartet ihr?	[[8,6]]	tatoeba	12720797	Waldelfe
+der Gewinn@1	der Gewinn	Wie viel Gewinn erwartet ihr?	[[9,6]]	tatoeba	12720797	Waldelfe
 jemals@1	jemals	Niemand hat jemals Gott gesehen.	[[12,6]]	tatoeba	507869	MUIRIEL
 nahezu@1	nahezu	Nahezu alle Japaner haben schwarzes Haar.	[[0,6]]	tatoeba	1718236	Pfirsichbaeumchen
 das Niveau@1	das Niveau	Das Niveau ist relativ hoch.	[[4,6]]	tatoeba	13171311	felix63
-voraus@1	voraus	Danke im voraus für eure Hilfe!	[[9,6]]	tatoeba	13294236	Waldelfe
+voraus@1	voraus	Danke im Voraus für eure Hilfe!	[[9,6]]	tatoeba	13294236	Waldelfe
 der Zugang@1	der Zugang	Die Schüler haben Zugang zu diesen Computern.	[[18,6]]	tatoeba	3289478	pne
 öffnen@1	öffnen	Bitte diese Tür nicht öffnen.	[[22,6]]	tatoeba	532250	samueldora
 die Adresse@1	die Adresse	Niemand außer Tom kennt seine Adresse.	[[30,7]]	tatoeba	7064826	quicksanddiver
@@ -2731,7 +2731,7 @@ unnötig@1	unnötig	Das ist alles unnötig.	[[14,7]]	tatoeba	3407410	Pfirsichbae
 der Zugriff@1	der Zugriff	Nur die Chefin hat Zugriff auf diese Daten.	[[19,7]]	mx		
 zumeist@1	zumeist	Er arbeitet zumeist von zu Hause.	[[12,7]]	mx		
 anziehen@1	anziehen	Welche Schuhe werden Sie anziehen?	[[25,8]]	tatoeba	427536	MUIRIEL
-bedienen@1	bedienen	Besser ist, bedient zu werden als dienen.	[[12,7]]	tatoeba	2025206	Esperantostern
+bedienen@1	bedienen	Es ist besser, bedient zu werden, als zu dienen.	[[15,7]]	tatoeba	2025206	Esperantostern
 begegnen@1	begegnen	Ist diesem Tom Hansen überhaupt schon einmal jemand begegnet?	[[52,8]]	tatoeba	10003206	Pfirsichbaeumchen
 betreten@1	betreten	Tom beschloss, das Zimmer zu betreten.	[[29,8]]	tatoeba	824693	Pfirsichbaeumchen
 das Erlebnis@1	das Erlebnis	Es war ein tolles Erlebnis!	[[18,8]]	tatoeba	6024205	christian63
@@ -3071,7 +3071,7 @@ genügen@1	genügen	Diese Ausrede wird nicht genügen.	[[25,7]]	tatoeba	1976368	
 das Getränk@1	das Getränk	Dieses Getränk ist kalt.	[[7,7]]	tatoeba	8345705	felix63
 die Haftung@1	die Haftung	Für Garderobe wird keine Haftung übernommen.	[[25,7]]	mx		
 die Lektüre@1	die Lektüre	Tom liebt die Lektüre.	[[14,7]]	tatoeba	10565698	Adelpa
-leugnen@1	leugnen	Es hat keinen Zweck es zu leugnen.	[[26,7]]	tatoeba	363297	Wolf
+leugnen@1	leugnen	Es hat keinen Zweck, es zu leugnen.	[[27,7]]	tatoeba	363297	Wolf
 das Meeting@1	das Meeting	Ich werde beim Meeting anwesend sein.	[[15,7]]	tatoeba	1106797	Haehnchenpaella
 pfeifen@1	pfeifen	Ich kann nicht pfeifen.	[[15,7]]	tatoeba	1729371	Pfirsichbaeumchen
 die Spezies@1	die Spezies	Diese Spezies ist vom Aussterben bedroht.	[[6,7]]	mx		
@@ -3085,7 +3085,7 @@ aufheben@1	aufheben	Ich hob eine Münze auf.	[[4,3],[19,3]]	tatoeba	9542505	Pfir
 der Ausstieg@1	der Ausstieg	Der Ausstieg ist hinten.	[[4,8]]	mx		
 der Bergmann@1	der Bergmann	Sein Großvater war Bergmann.	[[19,8]]	mx		
 einmalig@1	einmalig	Es war einmalig!	[[7,8]]	tatoeba	3942148	raggione
-erlernen@1	erlernen	Man braucht viel Zeit, um eine neu Sprache zu erlernen.	[[46,8]]	tatoeba	10151983	manese
+erlernen@1	erlernen	Man braucht viel Zeit, um eine neue Sprache zu erlernen.	[[47,8]]	tatoeba	10151983	manese
 erteilen@1	erteilen	Tom erteilt der Dame das Wort.	[[4,7]]	tatoeba	8855817	felix63
 faktisch@1	faktisch	Es ist faktisch unmöglich, alle zu kontrollieren.	[[7,8]]	tatoeba	6582332	brauchinet
 die Frequenz@1	die Frequenz	Der Sender hat eine neue Frequenz.	[[25,8]]	mx		
@@ -3130,7 +3130,7 @@ die Verhaftung@1	die Verhaftung	Die Hansens gerieten mit Toms Verhaftung in Verr
 die Verpackung@1	die Verpackung	Die Verpackung ist aus Plastik.	[[4,10]]	mx		
 absolvieren@1	absolvieren	Er hat sein Studium erfolgreich absolviert.	[[32,10]]	mx		
 ausschalten@1	ausschalten	Kann ich den Fernseher ausschalten?	[[23,11]]	tatoeba	1307308	Hans_Adler
-beibehalten@1	beibehalten	Russland versucht weiterhin seinen ursprünglichen Einfluss in dem eigenen Hinterhof beizubehalten.	[[84,13]]	tatoeba	1403392	Esperantostern
+beibehalten@1	beibehalten	Russland versucht weiterhin, seinen ursprünglichen Einfluss im eigenen Hinterhof beizubehalten.	[[81,13]]	tatoeba	1403392	Esperantostern
 beschließen@1	beschließen	Tom hat beschlossen, sein Haus zu verkaufen.	[[8,11]]	tatoeba	1494471	Zaghawa
 die Besprechung@1	die Besprechung	Unsere Besprechungen fangen selten pünktlich an.	[[7,13]]	tatoeba	8840037	brauchinet
 einschalten@1	einschalten	Bill schaltete den Fernseher ein.	[[5,9],[29,3]]	tatoeba	362601	Wolf
@@ -3201,7 +3201,7 @@ der Sekretär@1	der Sekretär	Sein Sekretär scheint die Wahrheit zu kennen.	[[5
 die Signatur@1	die Signatur	Die E-Mail hat eine elektronische Signatur.	[[34,8]]	mx		
 die Skulptur@1	die Skulptur	Diese Skulptur ist unglaublich wertvoll.	[[6,8]]	tatoeba	369384	xtofu80
 die Strömung@1	die Strömung	Die Strömung war ziemlich schnell.	[[4,8]]	tatoeba	11127755	felix63
-vorlegen@1	vorlegen	Dieser Gesetzentwurf wurde dem Senat zu seinem Einverständnis vorgelegt.	[[62,9]]	tatoeba	1567113	Espi
+vorlegen@1	vorlegen	Dieser Gesetzentwurf wurde dem Senat zur Zustimmung vorgelegt.	[[52,9]]	tatoeba	1567113	Espi
 der Weltraum@1	der Weltraum	Es waren erst 514 Personen im Weltraum.	[[30,8]]	tatoeba	8578118	manese
 zunehmen@1	zunehmen	Der Druck von außen hat zugenommen.	[[24,10]]	tatoeba	1601826	Esperantostern
 aufsuchen@1	aufsuchen	Ich hätte Tom nicht aufsuchen sollen.	[[20,9]]	tatoeba	2035529	Tamy
@@ -3333,7 +3333,7 @@ der Gesprächspartner@1	der Gesprächspartner	Nach zehn Monaten sind die Gesprä
 die Selbstständigkeit@1	die Selbstständigkeit	Kinder sollen Selbstständigkeit lernen.	[[14,17]]	mx		
 die Generalversammlung@1	die Generalversammlung	Die Generalversammlung ist eines der sechs Hauptorgane der Vereinten Nationen.	[[4,18]]	tatoeba	13618141	Rovo
 rar@1	rar	Die Kunden machen sich rar - man merkt die Krise.	[[23,3]]	tatoeba	746827	Manfredo
-der Coup@1	der Coup	Der Mörder war wieder der Gärtner Und der plant schon den nächsten Coup.	[[67,4]]	tatoeba	13747276	Rovo
+der Coup@1	der Coup	Der Mörder war wieder der Gärtner, und der plant schon den nächsten Coup.	[[68,4]]	tatoeba	13747276	Rovo
 das Foul@1	das Foul	Der Schiedsrichter pfiff ein Foul.	[[29,4]]	mx		
 das Idol@1	das Idol	Er war ein Idol.	[[11,4]]	tatoeba	1464071	al_ex_an_der
 der Keil@1	der Keil	Er schlägt einen Keil in das Holz.	[[17,4]]	mx		
@@ -3412,7 +3412,7 @@ verkürzen@1	verkürzen	Ich wähle absichtlich die kleinsten Kartoffeln aus. Das
 ausgebucht@1	ausgebucht	Das Hotel ist leider ausgebucht.	[[21,10]]	mx		
 bürgerlich@1	bürgerlich	Die Französische Revolution war eine bürgerliche Revolte.	[[37,11]]	tatoeba	1554806	Esperantostern
 das Fachgebiet@1	das Fachgebiet	Das ist nicht mein Fachgebiet.	[[19,10]]	mx		
-die Innenseite@1	die Innenseite	Die Türe verriegelt die Innenseite.	[[24,10]]	tatoeba	700664	Esperantostern
+die Innenseite@1	die Innenseite	Die Tür lässt sich nur von der Innenseite verriegeln.	[[31,10]]	tatoeba	700664	Esperantostern
 der Kommandeur@1	der Kommandeur	Der Kommandeur gibt den Befehl.	[[4,10]]	mx		
 lateinisch@1	lateinisch	Viele englische Wörter sind lateinischen Ursprungs.	[[28,12]]	tatoeba	9019906	Adelpa
 mechanisch@1	mechanisch	Es ist schwer, einen komplett mechanischen Flipper zu finden. Heutzutage sind alle elektronisch.	[[30,12]]	tatoeba	1734684	Pfirsichbaeumchen
@@ -3427,10 +3427,10 @@ das Äquivalent@1	das Äquivalent	Jupiter ist das römische Äquivalent des grie
 die Anforderung@1	die Anforderung	Die Anforderungen an die Bewerber sind hoch.	[[4,13]]	mx		
 gewalttätig@1	gewalttätig	Der Mann war oft gewalttätig.	[[17,11]]	mx		
 die Himmelfahrt@1	die Himmelfahrt	An Himmelfahrt haben wir frei.	[[3,11]]	mx		
-das Kaiserreich@1	das Kaiserreich	Der Kaiser Qin Shi Huang gründetete 221 v. Chr. das chinesische Kaiserreich.	[[64,11]]	tatoeba	13931967	Ioan_Cristian
+das Kaiserreich@1	das Kaiserreich	Der Kaiser Qin Shi Huang gründete 221 v. Chr. das chinesische Kaiserreich.	[[62,11]]	tatoeba	13931967	Ioan_Cristian
 der Reiseführer@1	der Reiseführer	Wir treffen den Reiseführer vor dem Bahnhof um sieben Uhr.	[[16,11]]	tatoeba	13856264	Ioan_Cristian
 die Schlagzeile@1	die Schlagzeile	Die Schlagzeile fiel mir heute Morgen auf.	[[4,11]]	tatoeba	1012	MUIRIEL
-der Zeigefinger@1	der Zeigefinger	Er nahm den Schmetterling mit dem Daumen und Zeigefinger.	[[45,11]]	tatoeba	913628	Sudajaengi
+der Zeigefinger@1	der Zeigefinger	Er nahm den Schmetterling zwischen Daumen und Zeigefinger.	[[46,11]]	tatoeba	913628	Sudajaengi
 die Zubereitung@1	die Zubereitung	Die Zubereitung dauert zwanzig Minuten.	[[4,11]]	mx		
 das Einvernehmen@1	das Einvernehmen	Sie trennten sich in gutem Einvernehmen.	[[27,12]]	mx		
 elektronisch@1	elektronisch	Elektronische Bauteile können unter Verwendung reinen Isopropylalkohols gereinigt werden.	[[0,13]]	tatoeba	2933053	Pfirsichbaeumchen
@@ -3555,7 +3555,7 @@ der Bürger@1	der Bürger	Mario ist Bürger Italiens.	[[10,6]]	tatoeba	1307582	a
 die Region@1	die Region	Diese Region ist schön.	[[6,6]]	tatoeba	9268553	felix63
 die Stimme@1	die Stimme	Ich kann seine Stimme nicht leiden.	[[15,6]]	tatoeba	4639074	Tamy
 tragen@1	tragen	Diese Tasche ist wirklich schwer zu tragen.	[[36,6]]	tatoeba	13850993	felix63
-die Antwort@1	die Antwort	Alle zwei Antworten sind falsch.	[[10,9]]	tatoeba	688296	Manfredo
+die Antwort@1	die Antwort	Beide Antworten sind falsch.	[[6,9]]	tatoeba	688296	Manfredo
 niemals@1	niemals	Niemals etwas ändern.	[[0,7]]	tatoeba	1495398	Esperantostern
 das Projekt@1	das Projekt	Tom hat Mary das Projekt erklärt.	[[17,7]]	tatoeba	9845655	pne
 der Sonntag@1	der Sonntag	Tom arbeitet jeden Tag außer Sonntag.	[[29,7]]	tatoeba	3541112	JWeighardt
@@ -3665,7 +3665,7 @@ die Republik@1	die Republik	Frankreich ist eine Republik.	[[20,8]]	tatoeba	91063
 ansonsten@1	ansonsten	Ansonsten braucht man nichts mehr zu tun.	[[0,9]]	tatoeba	6486392	raggione
 der Charakter@1	der Charakter	Jeder hat seinen eigenen Charakter.	[[25,9]]	tatoeba	2303236	Zaghawa
 großartig@1	großartig	Ist das nicht großartig?	[[14,9]]	tatoeba	2720362	Pfirsichbaeumchen
-das Parlament@1	das Parlament	Sie ist Mitglied vom Parlament.	[[21,9]]	tatoeba	12893320	felix63
+das Parlament@1	das Parlament	Sie ist Mitglied des Parlaments.	[[21,9]]	tatoeba	12893320	felix63
 verlangen@1	verlangen	Ihr verlangt viel.	[[4,8]]	tatoeba	6208668	Pfirsichbaeumchen
 übertragen@1	übertragen	Ihre Hochzeit wurde im Fernsehen übertragen.	[[33,10]]	tatoeba	7611030	manese
 die Information@1	die Information	Wir haben auch nicht mehr Informationen.	[[26,13]]	tatoeba	8100550	manese
@@ -3697,7 +3697,7 @@ die Menschheit@1	die Menschheit	Ihr seid der Menschheit letzte Hoffnung.	[[13,10
 informieren@1	informieren	Thomas wurde informiert.	[[13,10]]	tatoeba	12614089	Rovo
 verheiratet@1	verheiratet	Ich bin jetzt eine verheiratete Frau.	[[19,12]]	tatoeba	6446451	Pfirsichbaeumchen
 funktionieren@1	funktionieren	Nichts schien zu funktionieren.	[[17,13]]	tatoeba	4562025	Pfirsichbaeumchen
-normalerweise@1	normalerweise	Normalerweise ist Himmel blau.	[[0,13]]	tatoeba	8483968	felix63
+normalerweise@1	normalerweise	Normalerweise ist der Himmel blau.	[[0,13]]	tatoeba	8483968	felix63
 das Loch@1	das Loch	Im Socken ist ein Loch.	[[18,4]]	mx		
 der Sand@1	der Sand	Einige Kinder spielen im Sand.	[[25,4]]	tatoeba	757301	Dejo
 das Übel@1	das Übel	Das ist ein notwendiges Übel.	[[24,4]]	tatoeba	6164669	Pfirsichbaeumchen
@@ -3916,9 +3916,9 @@ die Bedingung@1	die Bedingung	Wir können unter diesen Bedingungen nicht arbeite
 die Eisenbahn@1	die Eisenbahn	Sein Vater arbeitete bei der Eisenbahn.	[[29,9]]	tatoeba	4271112	raggione
 die Ideologie@1	die Ideologie	Alle Ideologien, inklusive der Religionen, sind manipulativ.	[[5,10]]	tatoeba	10778349	maaster
 die Priorität@1	die Priorität	Tom wählt seine Prioritäten schlecht.	[[16,11]]	tatoeba	12837584	Rovo
-der Techniker@1	der Techniker	Kunden sollen die Anweisungen von Technikern folgen.	[[34,10]]	tatoeba	14047345	Ioan_Cristian
+der Techniker@1	der Techniker	Kunden sollen den Anweisungen von Technikern folgen.	[[34,10]]	tatoeba	14047345	Ioan_Cristian
 der Verlierer@1	der Verlierer	Es gibt keine Verlierer.	[[14,9]]	tatoeba	8101584	manese
-bearbeiten@1	bearbeiten	Klicken Sie um zu bearbeiten!	[[18,10]]	tatoeba	939499	jakov
+bearbeiten@1	bearbeiten	Klicken Sie, um zu bearbeiten!	[[19,10]]	tatoeba	939499	jakov
 befürchten@1	befürchten	Du hast absolut nichts zu befürchten.	[[26,10]]	tatoeba	774167	Esperantostern
 definieren@1	definieren	Ein Wörterbuch definiert Wörter.	[[15,9]]	tatoeba	1193510	Vortarulo
 entspannen@1	entspannen	Fahren entspannt mich.	[[7,9]]	tatoeba	1898654	Pfirsichbaeumchen
@@ -4067,7 +4067,7 @@ aufrufen@1	aufrufen	Er hat nicht gehört, wie sein Name aufgerufen wurde.	[[35,1
 belassen@1	belassen	Die Sätze wurden im Originalstil belassen, lediglich die Rechtschreibung wurde korrigiert.	[[33,8]]	tatoeba	9637777	felix63
 das Desaster@1	das Desaster	Wir steuern auf ein Desaster zu.	[[20,8]]	tatoeba	1521378	Pfirsichbaeumchen
 ersparen@1	ersparen	Nichts wird Ihnen erspart bleiben.	[[18,7]]	tatoeba	2741681	jr
-erziehen@1	erziehen	Ihre Art ihre Kinder zu erziehen ist extrem ungewöhnlich.	[[24,8]]	tatoeba	1492334	MariChally
+erziehen@1	erziehen	Ihre Art, ihre Kinder zu erziehen, ist extrem ungewöhnlich.	[[25,8]]	tatoeba	1492334	MariChally
 die Schwelle@1	die Schwelle	Ich werde nicht noch einmal über die Schwelle dieses Hauses treten.	[[37,8]]	tatoeba	457887	xtofu80
 anständig@1	anständig	Es gibt genug Gründe, ihn für anständig zu halten.	[[30,9]]	tatoeba	8577037	manese
 das Apartment@1	das Apartment	Tom sucht nach einem größeren Apartment.	[[30,9]]	tatoeba	3421361	a_coder
@@ -4171,7 +4171,7 @@ respektlos@1	respektlos	Sie war mir gegenüber nie respektlos.	[[26,10]]	tatoeba
 zeitweilig@1	zeitweilig	Heute früh war es zeitweilig sonnig.	[[18,10]]	tatoeba	12326062	Yorwba
 die Spezialität@1	die Spezialität	Das ist eine französische Spezialität.	[[26,11]]	tatoeba	10112100	manese
 die Traurigkeit@1	die Traurigkeit	Ihr war die Traurigkeit ins Gesicht geschrieben.	[[12,11]]	tatoeba	1811382	Tamy
-die Konversation@1	die Konversation	Der Professor unterrichtet Englische Konversation.	[[37,12]]	tatoeba	396648	xtofu80
+die Konversation@1	die Konversation	Der Professor unterrichtet englische Konversation.	[[37,12]]	tatoeba	396648	xtofu80
 das Portemonnaie@1	das Portemonnaie	Dieses Portemonnaie ist aus Papier.	[[7,12]]	tatoeba	960279	Esperantostern
 unterstreichen@1	unterstreichen	Dieser Rahmen unterstreicht den Wert des Gemäldes.	[[14,13]]	tatoeba	917153	Sudajaengi
 das Aroma@1	das Aroma	Das Aroma seines Essens machte allen Appetit.	[[4,5]]	tatoeba	601626	kroko
@@ -4255,7 +4255,7 @@ die Art@1	die Art	Welche Arten von Büchern liest Tom?	[[7,5]]	tatoeba	1179861	E
 die Art@2	die Art	Welche Art Vater wollen Sie eigentlich werden?	[[7,3]]	tatoeba	8034531	manese
 der Fall@1	der Fall	Auf diesen Fall trifft diese Regel nicht zu.	[[11,4]]	tatoeba	1593890	Pfirsichbaeumchen
 der Fall@2	der Fall	Im Falle eines Falles ist richtig fallen alles.	[[3,5]]	tatoeba	587757	MUIRIEL
-wenig@1	wenig	Das ist zu wenig zu spät.	[[11,5]]	tatoeba	2461686	Zaghawa
+wenig@1	wenig	Das ist zu wenig und zu spät.	[[11,5]]	tatoeba	2461686	Zaghawa
 wenig@2	wenig	Höre viel und rede wenig.	[[19,5]]	tatoeba	1950393	Esperantostern
 einige@1	einige	Sie besuchte dieses Haus einige Male.	[[25,6]]	tatoeba	455743	tokyomews
 jemand@1	jemand	Geht da noch jemand fort?	[[13,6]]	tatoeba	1090256	Esperantostern
@@ -4323,7 +4323,7 @@ laut@1	laut	Laut Radio wird es morgen schneien.	[[0,4]]	tatoeba	842370	Espi
 laut@2	laut	Laut PIV sollte dieses Wort vermieden werden.	[[0,4]]	tatoeba	13167611	Rovo
 rein@1	rein	Eheglück ist reiner Zufall.	[[13,6]]	tatoeba	916041	Fingerhut
 das Ziel@1	das Ziel	Sein Ziel ist es, Arzt zu werden.	[[5,4]]	tatoeba	529409	samueldora
-das Ziel@2	das Ziel	Sein wichtigstes Ziel im Leben war reich zu werden.	[[17,4]]	tatoeba	444868	landano
+das Ziel@2	das Ziel	Sein wichtigstes Ziel im Leben war, reich zu werden.	[[17,4]]	tatoeba	444868	landano
 die Angst@1	die Angst	Mit Angst kann man nicht lernen.	[[4,5]]	tatoeba	1933541	Esperantostern
 die Angst@2	die Angst	Tom ist mit großer Angst zum ersten Mal geflogen.	[[19,5]]	tatoeba	9826387	Pfirsichbaeumchen
 darum@1	darum	Kümmere dich gleich darum!	[[20,5]]	tatoeba	2379646	Pfirsichbaeumchen
@@ -4599,7 +4599,7 @@ entsprechend@1	entsprechend	Benimm dich deinem Alter entsprechend.	[[25,12]]	tat
 grundsätzlich@1	grundsätzlich	Ich gehe grundsätzlich nicht vor Mitternacht schlafen.	[[9,13]]	tatoeba	8450018	manese
 der Bus@1	der Bus	Tom hat im Bus geschlafen.	[[11,3]]	tatoeba	6462791	Pfirsichbaeumchen
 der Bus@2	der Bus	Wir sind mit dem Bus von Aachen nach Lüttich gefahren.	[[17,3]]	tatoeba	8431710	Luiaard
-der Rat@1	der Rat	Guter Rat Kommt nie zu spat.	[[6,3]]	tatoeba	3143824	Esperantostern
+der Rat@1	der Rat	Guter Rat kommt nie zu spät.	[[6,3]]	tatoeba	3143824	Esperantostern
 der Rat@2	der Rat	Sie brauchen nur seinem Rat zu folgen.	[[24,3]]	tatoeba	1856409	Zaghawa
 die Arme@1	die Arme	Die Armen werden noch ärmer.	[[4,5]]	tatoeba	3428719	Pfirsichbaeumchen
 der Lauf@1	der Lauf	Laufe nicht so schnell.	[[0,5]]	tatoeba	878262	Esperantostern
@@ -4631,7 +4631,7 @@ ansehen@1	ansehen	Tom sieht seinen kleinen Bruder an.	[[4,5],[32,2]]	tatoeba	726
 die Ausgabe@1	die Ausgabe	Seine Ausgaben liegen bei Weitem höher als seine Einnahmen.	[[6,8]]	tatoeba	604873	virgil
 der Bahnhof@1	der Bahnhof	Man braucht 10 Minuten zum Bahnhof.	[[27,7]]	tatoeba	1269	MUIRIEL
 das Fleisch@1	das Fleisch	Das ist weder Fisch noch Fleisch!	[[25,7]]	tatoeba	1711314	Esperantostern
-das Fleisch@2	das Fleisch	Dieses Fleisch ist selten.	[[7,7]]	tatoeba	8898792	felix63
+das Fleisch@2	das Fleisch	Dieses Fleisch ist noch blutig.	[[7,7]]	tatoeba	8898792	felix63
 handeln@1	handeln	Jemand Vernünftiges würde so nicht handeln.	[[35,7]]	tatoeba	8687912	manese
 kämpfen@1	kämpfen	Leben heißt kämpfen.	[[12,7]]	tatoeba	5318862	Esperantostern
 seitdem@1	seitdem	Seitdem sind drei Jahre vergangen.	[[0,7]]	tatoeba	851113	Esperantostern
@@ -4649,7 +4649,7 @@ ungefähr@2	ungefähr	Sagt mir bitte, wie viel das ungefähr wert ist.	[[29,8]]	
 verdammt@1	verdammt	Mach diese verdammte Tür zu!	[[11,9]]	tatoeba	1023023	Manfredo
 empfehlen@1	empfehlen	Diese Bücher hat Tom mir empfohlen.	[[25,9]]	tatoeba	6558946	Pfirsichbaeumchen
 empfehlen@2	empfehlen	Das würde ich nicht empfehlen.	[[20,9]]	tatoeba	8059256	Luiaard
-die Erklärung@1	die Erklärung	Diese Erklärung gibt keinen Sinn!	[[6,9]]	tatoeba	688323	MUIRIEL
+die Erklärung@1	die Erklärung	Diese Erklärung ergibt keinen Sinn!	[[6,9]]	tatoeba	688323	MUIRIEL
 fernsehen@1	fernsehen	Tom will zu Hause bleiben, um fernzusehen.	[[30,11]]	tatoeba	7261375	felix63
 die Forschung@1	die Forschung	Seine schlechte Gesundheit behinderte seine Forschung.	[[44,9]]	tatoeba	595636	cost
 schwierig@1	schwierig	Zuerst sah alles schwierig aus.	[[17,9]]	tatoeba	1589640	Zaghawa
@@ -4847,7 +4847,7 @@ beobachten@2	beobachten	Vögel zu beobachten ist ein schöner Zeitvertreib.	[[9,
 beobachten@3	beobachten	Wir werden das genau beobachten.	[[21,10]]	tatoeba	9034274	brauchinet
 ordentlich@1	ordentlich	Der Motor funktioniert ordentlich.	[[23,10]]	tatoeba	788354	jakov
 das Restaurant@1	das Restaurant	Dieses Restaurant ist zu teuer.	[[7,10]]	tatoeba	1561519	al_ex_an_der
-verbessern@1	verbessern	Hör auf mich zu verbessern!	[[16,10]]	tatoeba	3689419	dressguard
+verbessern@1	verbessern	Hör auf, mich zu verbessern!	[[17,10]]	tatoeba	3689419	dressguard
 das Verbrechen@1	das Verbrechen	Liebe ist kein Verbrechen.	[[15,10]]	tatoeba	1944063	Tamy
 die Verfassung@1	die Verfassung	Er ist in guter körperlicher Verfassung.	[[29,10]]	tatoeba	1219416	PeterR
 verzichten@1	verzichten	Wählen heißt verzichten.	[[13,10]]	tatoeba	437484	MUIRIEL
@@ -5072,7 +5072,7 @@ der Bogen@1	der Bogen	Ich habe von einem Bogen geträumt.	[[19,5]]	tatoeba	18234
 der Fuchs@1	der Fuchs	Der Jäger hat einen Fuchs geschossen.	[[20,5]]	tatoeba	1087057	Esperantostern
 glatt@1	glatt	Tom hat natürlich glattes Haar.	[[18,7]]	tatoeba	11750333	Pfirsichbaeumchen
 das Haupt@1	das Haupt	Das Haupt dieser Bewegung ist Tom.	[[4,5]]	tatoeba	7367992	felix63
-die Hütte@1	die Hütte	Früher war hier ungefähr eine Hütte.	[[30,5]]	tatoeba	1511707	Esperantostern
+die Hütte@1	die Hütte	Früher stand ungefähr hier eine Hütte.	[[32,5]]	tatoeba	1511707	Esperantostern
 das Lokal@1	das Lokal	Mary strippt in einem Lokal.	[[22,5]]	tatoeba	6150815	mraz
 das Model@1	das Model	Sie arbeitet als Model in Paris.	[[17,5]]	mx		
 das Pfund@1	das Pfund	Hier wird Fisch im Pfund verkauft.	[[19,5]]	tatoeba	10161784	Yorwba
@@ -5158,7 +5158,7 @@ womöglich@1	womöglich	Womöglich regnet es morgen.	[[0,9]]	mx
 der Autofahrer@1	der Autofahrer	Er ist ein schlechter Autofahrer.	[[22,10]]	tatoeba	1513307	Pfirsichbaeumchen
 der Basketball@1	der Basketball	Sie spielte Basketball.	[[12,10]]	tatoeba	1241546	Esperantostern
 die Behauptung@1	die Behauptung	Eine Behauptung ist kein Beweis.	[[5,10]]	tatoeba	795010	Esperantostern
-beurteilen@1	beurteilen	Man soll Tom nicht nach seine Erscheinung beurteilen.	[[42,10]]	tatoeba	9286435	felix63
+beurteilen@1	beurteilen	Man soll Tom nicht nach seiner Erscheinung beurteilen.	[[43,10]]	tatoeba	9286435	felix63
 gebrauchen@1	gebrauchen	Ist diese Maschine noch zu gebrauchen?	[[27,10]]	tatoeba	1307143	Pfirsichbaeumchen
 der Gegenstand@1	der Gegenstand	Dieser Gegenstand ist nützlich.	[[7,10]]	tatoeba	12382329	felix63
 das Wohnzimmer@1	das Wohnzimmer	Unsere Besucher sitzen im Wohnzimmer.	[[26,10]]	tatoeba	712490	Esperantostern
@@ -5247,13 +5247,13 @@ fleißig@3	fleißig	Tom studiert fleißig.	[[13,7]]	tatoeba	5458627	raggione
 fliehen@1	fliehen	Sie versuchten zu fliehen.	[[18,7]]	tatoeba	523543	xtofu80
 das Gedicht@1	das Gedicht	Wer hat dieses Gedicht geschrieben?	[[15,7]]	tatoeba	2935918	Tamy
 geistig@1	geistig	Tom ist geistig behindert.	[[8,7]]	tatoeba	6900538	felix63
-der Hintern@1	der Hintern	So hoch man auch sitzt, man sitzt immer auf nur seinem Hintern.	[[55,7]]	tatoeba	8379713	manese
+der Hintern@1	der Hintern	So hoch man auch sitzt, man sitzt immer nur auf seinem Hintern.	[[55,7]]	tatoeba	8379713	manese
 der Hintern@2	der Hintern	Mein Hintern tut weh.	[[5,7]]	tatoeba	470151	Espi
 das Mitleid@1	das Mitleid	Tom hatte Mitleid.	[[10,7]]	tatoeba	2204026	Pfirsichbaeumchen
 das Mitleid@2	das Mitleid	Verwechsle nie Mitleid mit Liebe.	[[15,7]]	tatoeba	139114	MUIRIEL
 pflegen@1	pflegen	Sie pflegte ihren kranken Ehemann.	[[4,7]]	tatoeba	355950	lilygilder
 der Podcast@1	der Podcast	Sie hört Podcasts, um ihr Deutsch zu verbessern.	[[9,8]]	tatoeba	14007848	Ioan_Cristian
-das Schwert@1	das Schwert	Dieses Schwert ist schwer un scharf.	[[7,7]]	tatoeba	13081125	felix63
+das Schwert@1	das Schwert	Dieses Schwert ist schwer und scharf.	[[7,7]]	tatoeba	13081125	felix63
 die Urkunde@1	die Urkunde	Diese Urkunde ist unverständlich.	[[6,7]]	tatoeba	9399965	felix63
 anstelle@1	anstelle	Er ging anstelle seines Vaters.	[[8,8]]	tatoeba	591849	cost
 erwerben@1	erwerben	Vertrauen wird erworben.	[[15,8]]	tatoeba	13867246	Adelpa
@@ -5266,7 +5266,7 @@ nirgends@1	nirgends	Sicherheit ist nirgends sicher.	[[15,8]]	tatoeba	3396516	Esp
 nördlich@1	nördlich	Freiburg liegt nördlich von Basel.	[[15,8]]	tatoeba	6817233	felix63
 das Russisch@1	das Russisch	Peter versteht kein Russisch.	[[20,8]]	tatoeba	12564488	Waldelfe
 die Schlange@1	die Schlange	Tom hat große Angst vor Schlangen.	[[24,9]]	tatoeba	6774713	Adelpa
-steigern@1	steigern	Die Hitze steigert Waldbrandgefahr.	[[10,8]]	tatoeba	13015117	felix63
+steigern@1	steigern	Die Hitze steigert die Waldbrandgefahr.	[[10,8]]	tatoeba	13015117	felix63
 das Tagebuch@1	das Tagebuch	Tom führt Tagebuch.	[[10,8]]	tatoeba	1938148	Pfirsichbaeumchen
 die Toilette@1	die Toilette	Schüler dürfen diese Toilette nicht benutzen.	[[21,8]]	tatoeba	372769	xtofu80
 versagen@1	versagen	Tom wird versagen.	[[9,8]]	tatoeba	2204257	Pfirsichbaeumchen
@@ -5363,7 +5363,7 @@ kehren@1	kehren	Du hast den Hof gekehrt.	[[16,7]]	tatoeba	4704453	Manfredo
 kotzen@1	kotzen	Ich muss kotzen.	[[9,6]]	tatoeba	2212536	Hastrica
 küssen@1	küssen	Tom hatte noch nie jemanden geküsst.	[[28,7]]	tatoeba	7285863	Pfirsichbaeumchen
 lauten@1	lauten	Wie lautet Toms Adresse?	[[4,6]]	tatoeba	3691682	Pfirsichbaeumchen
-locken@1	locken	Alles was süß ist, lockt mich.	[[19,5]]	tatoeba	1322461	al_ex_an_der
+locken@1	locken	Alles, was süß ist, lockt mich.	[[20,5]]	tatoeba	1322461	al_ex_an_der
 parken@1	parken	Auf dieser Straße darf man nicht parken.	[[33,6]]	tatoeba	1255029	PeterR
 parken@2	parken	Mein Auto ist hier in der Nähe geparkt.	[[31,7]]	tatoeba	443559	MUIRIEL
 riesig@1	riesig	Algerien ist riesig.	[[13,6]]	tatoeba	8237444	manese
@@ -5434,7 +5434,7 @@ beherrschen@1	beherrschen	Englisch zu beherrschen ist schwierig.	[[12,11]]	tatoe
 die Beleidigung@1	die Beleidigung	Ich kann mir diese Beleidigungen nicht gefallen lassen.	[[19,13]]	tatoeba	784095	al_ex_an_der
 die Beleidigung@2	die Beleidigung	Was für eine Beleidigung!	[[13,11]]	tatoeba	2168469	freddy1
 die Flüssigkeit@1	die Flüssigkeit	Diese durchsichtige Flüssigkeit enthält Gift.	[[20,11]]	tatoeba	379938	xtofu80
-die Haltestelle@1	die Haltestelle	Wie viel Haltestellen noch?	[[9,12]]	tatoeba	8986056	Luiaard
+die Haltestelle@1	die Haltestelle	Wie viele Haltestellen noch?	[[10,12]]	tatoeba	8986056	Luiaard
 keinesfalls@1	keinesfalls	Tom ist keinesfalls dumm. Er ist nur faul.	[[8,11]]	tatoeba	3032951	Pfirsichbaeumchen
 die Formulierung@1	die Formulierung	Hat jemand eine bessere Formulierung?	[[24,12]]	tatoeba	10862646	felix63
 die Gewerkschaft@1	die Gewerkschaft	Die Arbeiter gründeten eine Gewerkschaft.	[[28,12]]	tatoeba	883098	Espi
@@ -5451,7 +5451,7 @@ widersprechen@1	widersprechen	Ich habe dem Lehrer widersprochen.	[[20,13]]	tatoe
 arg@1	arg	Ich fürchtete mich arg im Flugzeug.	[[19,3]]	tatoeba	884591	Esperantostern
 der Esel@1	der Esel	Esel sind grau.	[[0,4]]	tatoeba	5245912	Sudajaengi
 der Herd@1	der Herd	Wir haben einen neuen, ziemlich teuren Herd gekauft.	[[39,4]]	tatoeba	13759180	Ioan_Cristian
-der Ruhm@1	der Ruhm	Der Ruhm Ciceronis begann zu wachsen.	[[4,4]]	tatoeba	10040724	Pfirsichbaeumchen
+der Ruhm@1	der Ruhm	Der Ruhm Ciceros begann zu wachsen.	[[4,4]]	tatoeba	10040724	Pfirsichbaeumchen
 der Yoga@1	der Yoga	Maria unterrichtet Yoga.	[[19,4]]	tatoeba	1527651	Pfirsichbaeumchen
 die Feder@1	die Feder	Vögel sind mit Federn bedeckt.	[[15,6]]	tatoeba	11034858	carlosalberto
 der Frost@1	der Frost	Die Apfelblüte wurde vom Frost berührt.	[[25,5]]	tatoeba	1127292	Espi
@@ -5463,7 +5463,7 @@ das Regal@2	das Regal	Es sind keine Bücher im Regal.	[[24,5]]	tatoeba	6086713	n
 der Trost@1	der Trost	Das ist ein schwacher Trost.	[[22,5]]	tatoeba	6479466	raggione
 der Abfall@1	der Abfall	Sind Schlachtnebenprodukte Abfall oder Wertstoff?	[[27,6]]	tatoeba	1261075	Esperantostern
 der Abfall@2	der Abfall	Vorsicht! Das ist radioaktiver Abfall.	[[31,6]]	tatoeba	10229091	manese
-der Abfall@3	der Abfall	Schaue nach dem ganzen Abfall in diesem Haus!	[[23,6]]	tatoeba	1302714	Esperantostern
+der Abfall@3	der Abfall	Schau dir den ganzen Abfall in diesem Haus an!	[[21,6]]	tatoeba	1302714	Esperantostern
 die Blonde@1	die Blonde	Ziehst du Blonde oder Brünette vor?	[[10,6]]	tatoeba	1851624	Pfirsichbaeumchen
 deuten@1	deuten	Bitte deute meine seltsamen Träume.	[[6,5]]	tatoeba	804855	Manfredo
 die Furcht@1	die Furcht	Seine Augen ließen seine Furcht erkennen.	[[25,6]]	tatoeba	353299	MUIRIEL
@@ -5732,7 +5732,7 @@ betreffend@1	betreffend	Ich richtete an Tom eine Frage, sein neues Buch betreffe
 durchgehen@1	durchgehen	Gehen wir noch mal Lektion 5 durch!	[[0,5],[29,5]]	tatoeba	905041	Pfirsichbaeumchen
 der Einbrecher@1	der Einbrecher	Er verfolgte den Einbrecher.	[[17,10]]	tatoeba	405667	xtofu80
 fortsetzen@1	fortsetzen	Maria hat die Arbeit fortgesetzt.	[[21,11]]	tatoeba	10630267	felix63
-fortsetzen@2	fortsetzen	Der Feind setzte seine Angriffe nachts über fort.	[[10,6],[44,4]]	tatoeba	399052	xtofu80
+fortsetzen@2	fortsetzen	Der Feind setzte seine Angriffe die Nacht über fort.	[[10,6],[47,4]]	tatoeba	399052	xtofu80
 das Griechisch@1	das Griechisch	Emilie will Griechisch lernen.	[[12,10]]	tatoeba	2617276	Pfirsichbaeumchen
 griechisch@1	griechisch	Griechisch ist keine leichte Sprache.	[[0,10]]	tatoeba	3012981	Pfirsichbaeumchen
 die Handtasche@1	die Handtasche	Diese Handtasche ist aus Papier.	[[6,10]]	tatoeba	960280	Esperantostern
@@ -5860,7 +5860,7 @@ befördern@1	befördern	Dieses Flugzeug ist in der Lage, 40 Personen auf einmal 
 der Buchstabe@1	der Buchstabe	Der Buchstabe wurde geschrieben.	[[4,9]]	tatoeba	2135998	Vortarulo
 der Busfahrer@1	der Busfahrer	Tom ist Busfahrer.	[[8,9]]	tatoeba	1695195	Pfirsichbaeumchen
 erbringen@1	erbringen	Er erbrachte beim Leichtathletikwettbewerb hervorragende Leistungen.	[[3,9]]	tatoeba	461729	xtofu80
-die Frechheit@1	die Frechheit	Ich würde nicht die Frechheit haben so etwas zu sagen.	[[20,9]]	tatoeba	742416	Esperantostern
+die Frechheit@1	die Frechheit	Ich würde nicht die Frechheit haben, so etwas zu sagen.	[[20,9]]	tatoeba	742416	Esperantostern
 die Frechheit@2	die Frechheit	Ich kann seine Frechheit nicht ertragen.	[[15,9]]	tatoeba	368740	xtofu80
 hochladen@1	hochladen	Dieses Programm hat beide Möglichkeiten, herunterladen und hochladen.	[[59,9]]	tatoeba	659804	Esperantostern
 klatschen@1	klatschen	Tom hat geklatscht.	[[8,10]]	tatoeba	2205432	Pfirsichbaeumchen
@@ -6020,7 +6020,7 @@ die Hautfarbe@1	die Hautfarbe	Beurteilt andere nicht nach ihrer Hautfarbe.	[[34,
 der Holländer@1	der Holländer	Tom ist Holländer.	[[8,9]]	tatoeba	10167158	Pfirsichbaeumchen
 das Kleinkind@1	das Kleinkind	Ich war 1989, als die Mauer fiel, noch ein Kleinkind.	[[43,9]]	tatoeba	1073363	MUIRIEL
 loslassen@1	loslassen	Ich lasse den Luftballon los.	[[4,5],[25,3]]	tatoeba	9114697	felix63
-nachsehen@1	nachsehen	Der Beamter wird die Informationen im Formular nachsehen.	[[47,9]]	tatoeba	13853393	Ioan_Cristian
+nachsehen@1	nachsehen	Der Beamte wird die Informationen im Formular nachsehen.	[[46,9]]	tatoeba	13853393	Ioan_Cristian
 nachsehen@2	nachsehen	Ich werde im Wörterbuch nachsehen.	[[24,9]]	tatoeba	10593262	Adelpa
 die Richterin@1	die Richterin	Die Richterin verkündet das Urteil.	[[4,9]]	mx		
 die Spaghetti@1	die Spaghetti	Das sind Spaghetti.	[[9,9]]	tatoeba	1562816	Pfirsichbaeumchen
@@ -6060,7 +6060,7 @@ durchsuchen@2	durchsuchen	Tom durchsucht seine Taschen nach einem Feuerzeug.	[[4
 einschlagen@1	einschlagen	In den Baum hat der Blitz eingeschlagen.	[[26,13]]	tatoeba	924919	Sudajaengi
 erschrecken@1	erschrecken	Der Mann hat die kleinen Kinder erschreckt.	[[32,10]]	tatoeba	533344	Espi
 meinerseits@1	meinerseits	Das Vergnügen ist ganz meinerseits.	[[23,11]]	tatoeba	5714309	Pfirsichbaeumchen
-das Meisterwerk@1	das Meisterwerk	Das Bühnenbild dieses Theaterstücks ist Meisterwerk der Genauigkeit.	[[40,11]]	tatoeba	8628240	manese
+das Meisterwerk@1	das Meisterwerk	Das Bühnenbild dieses Theaterstücks ist ein Meisterwerk der Genauigkeit.	[[44,11]]	tatoeba	8628240	manese
 der Pfannkuchen@1	der Pfannkuchen	Ich habe heute Pfannkuchen gebacken.	[[15,11]]	tatoeba	7092031	felix63
 das Sonnenlicht@1	das Sonnenlicht	Das Sonnenlicht drang durch die dicken Blätter der Bäume.	[[4,11]]	tatoeba	1906877	Zaghawa
 der Staubsauger@1	der Staubsauger	Hast du dir schon einen Staubsauger gekauft oder noch nicht?	[[24,11]]	tatoeba	13697380	Rovo
@@ -6082,7 +6082,7 @@ die Sonnenbrille@1	die Sonnenbrille	Die Sonnenbrille verbirgt die Augen.	[[4,12]
 das Stadtzentrum@1	das Stadtzentrum	Der Flughafen ist recht weit vom Stadtzentrum entfernt.	[[33,12]]	tatoeba	3460318	Pfirsichbaeumchen
 unterstellen@1	unterstellen	Man unterstellte ihm unlautere Absichten.	[[4,12]]	tatoeba	1354431	PeterR
 verständigen@1	verständigen	Ich kann mich auf Französisch nicht verständigen.	[[36,12]]	tatoeba	381139	MUIRIEL
-vorenthalten@1	vorenthalten	Worum sollte man den anderen ein so unterhaltsames Schauspiel vorenthalten?	[[62,12]]	tatoeba	1037366	Sudajaengi
+vorenthalten@1	vorenthalten	Warum sollte man den anderen ein so unterhaltsames Schauspiel vorenthalten?	[[62,12]]	tatoeba	1037366	Sudajaengi
 das Wahlergebnis@1	das Wahlergebnis	Die Wahlergebnisse werden in der Abendausgabe stehen.	[[4,14]]	tatoeba	403822	xtofu80
 die Fernbedienung@1	die Fernbedienung	Wie funktionieren Fernbedienungen?	[[18,15]]	tatoeba	12271953	Yorwba
 der Fernsehsender@1	der Fernsehsender	Welcher Fernsehsender zeigt das Spiel?	[[8,13]]	mx		
@@ -6196,7 +6196,7 @@ der Regenwald@1	der Regenwald	Wir müssen den Regenwald schützen.	[[15,9]]	tato
 der Sanitäter@1	der Sanitäter	Weißt du noch, wie der Sanitäter hieß, der mir das Leben rettete?	[[23,9]]	tatoeba	3252766	Pfirsichbaeumchen
 schimpfen@1	schimpfen	Ständig schimpft er auf die Regierung.	[[8,8]]	tatoeba	957593	Sudajaengi
 sprachlos@1	sprachlos	Ich bin einfach sprachlos.	[[16,9]]	tatoeba	1312033	PeterR
-die Steckdose@1	die Steckdose	Zieh die Gabel aus der Steckdose.	[[23,9]]	tatoeba	1055658	MUIRIEL
+die Steckdose@1	die Steckdose	Zieh den Stecker aus der Steckdose.	[[25,9]]	tatoeba	1055658	MUIRIEL
 die Steinzeit@1	die Steinzeit	Meine Musikvorlieben stammen aus der Zeit der Stones, anders gesagt aus der Steinzeit.	[[76,9]]	tatoeba	10273273	manese
 das Städtchen@1	das Städtchen	Ich bin in einem kleinen Städtchen aufgewachsen.	[[25,9]]	tatoeba	1699260	Pfirsichbaeumchen
 unhöflich@1	unhöflich	Man kann höflich ablehnen, ohne unhöflich zu sein.	[[32,9]]	tatoeba	13726277	felix63

@@ -233,7 +233,7 @@ die Dienstleistung@2	Tous les services nécessaires sont sur place.	service	1242
 der Gin@1	Tom a du gin.	~	13164895	Rovo
 die Hymne@1	L'Estonie a son propre hymne.	~	2758439	bleton
 der Sumpf@1	Je n'aime pas nager dans les marais.	~	9563584	felix63
-der Troll@1	Troller est une art.	~	655113	Snout
+der Troll@1	Troller est un art.	~	655113	Snout
 der Marmor@1	Ses mains étaient froides comme le marbre.	~	133769	sacredceltic
 der Putsch@1	Le putsch a été soigneusement exécuté.	~	465065	sacredceltic
 unweit@1	Tom possède une petite ferme non loin de Boston.	~	6741184	GB3
@@ -1178,7 +1178,7 @@ die Melodie@1	J'aime cette mélodie.	~	8089552	Serge55
 verkehrt@1	Il portait ses chaussettes à l'envers.	~	2069844	Amastan
 unheimlich@1	Cet endroit est sinistre.	~	8630138	Julien_PDC
 wöchentlich@1	Le magazine paraît de manière hebdomadaire.	~	818956	sacredceltic
-die Verdächtige@1	Le suspect n'a pas encore été arrêté.	~	12815026	Rovo
+die Verdächtige@1	La suspecte n'a pas encore été arrêtée.	~	12815026	Rovo
 zuverlässig@1	Même celui qui échoue régulièrement est fiable.	~	8641485	Rovo
 der Pilz@1	Ce champignon est gigantesque.	~	12890272	Rovo
 die Wurzel@1	Deux est la racine quatrième de seize.	~	119900	sacredceltic
@@ -2233,7 +2233,7 @@ gehen@1	Tom ne veut pas aller à la maison.	aller	1605685	Petrus
 gehen@2	Marie marche lentement.	marcher	2285009	Amastan
 kein@1	Tom a beaucoup d'argent, mais aucun ami.	~	11336828	felix63
 wie@1	Comment parler aux femmes ?	comment	3973955	sacredceltic
-wie@2	Comment dit-on XXX en anglais ?	comment	13072679	Rovo
+wie@2	Comment dit-on « merci » en anglais ?	comment	13072679	Rovo
 werden@1	Son objectif est de devenir avocat.	~	130460	Micsmithel
 zu@1	Marie ne parle pas anglais chez elle.	chez	2338493	Amastan
 zu@2	L'argent vient à l'argent.	à	1366939	sacredceltic
@@ -3412,7 +3412,7 @@ verkürzen@1	Je choisis exprès les plus petites pommes-de-terre. Ça réduit le
 ausgebucht@1	L'hôtel est malheureusement complet.			
 bürgerlich@1	La Révolution française était une révolte bourgeoise.		960775	alexmarcelo
 das Fachgebiet@1	Ce n'est pas ma discipline.			
-die Innenseite@1	La porte ferme de l'intérieur.		4223566	Porcorosso
+die Innenseite@1	La porte ne se verrouille que de l'intérieur.		4223566	Porcorosso
 der Kommandeur@1	Le commandant donne l'ordre.			
 lateinisch@1	Beaucoup de mots anglais sont d'origine latine.		373612	zmoo
 mechanisch@1	Il est difficile de trouver un flipper entièrement mécanique. De nos jours, ils sont tous électroniques.		1735965	sacredceltic
@@ -4631,7 +4631,7 @@ ansehen@1	Tom regarde son petit frère.		7264633	felix63
 die Ausgabe@1	Ses dépenses surpassent son revenu de beaucoup.		130298	Aiji
 der Bahnhof@1	Il faut 10 minutes pour aller à la gare.		4336	TRANG
 das Fleisch@1	Ce n'est ni chair ni poisson !	chair	1711809	sacredceltic
-das Fleisch@2	Cette viande est rare.	viande	8898784	felix63
+das Fleisch@2	Cette viande est encore saignante.	viande	8898784	felix63
 handeln@1	Un homme sage n'agirait pas de cette manière.		8750	nimfeo
 kämpfen@1	Vivre, c'est lutter.	lutter	6684749	Adelpa
 seitdem@1	Trois ans se sont écoulés depuis.	depuis	458676	sacredceltic
@@ -6196,7 +6196,7 @@ der Regenwald@1	Nous devons protéger la forêt tropicale.		6636238	lapinhibou
 der Sanitäter@1	Te souviens-tu comment s'appelle le secouriste qui m'a sauvé la vie ?		3253687	sacredceltic
 schimpfen@1	Il jure toujours après le gouvernement.		960183	sacredceltic
 sprachlos@1	Je reste simplement sans voix.		1312615	sacredceltic
-die Steckdose@1	Retire la fourchette de la prise électrique.		1055652	sacredceltic
+die Steckdose@1	Retire la fiche de la prise.		1055652	sacredceltic
 die Steinzeit@1	Mes goûts musicaux datent des Stones, autant dire de l'âge de pierre...		8757362	sacredceltic
 das Städtchen@1	J'ai grandi dans une bourgade.		1704208	sacredceltic
 unhöflich@1	On peut refuser poliment sans être impoli.		13726276	felix63
