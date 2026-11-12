@@ -1,4 +1,4 @@
-const V="memolex-2.0.2",SHELL=["./","index.html","manifest.webmanifest","icon-192.png","icon-512.png","lists-de-fr.json","examples-de-fr.json","chunks-de-fr.json","lists-it-fr.json","examples-it-fr.json","chunks-it-fr.json"];
+const V="memolex-2.1.0",SHELL=["./","index.html","manifest.webmanifest","icon-192.png","icon-512.png","lists-de-fr.json","examples-de-fr.json","chunks-de-fr.json","lists-it-fr.json","examples-it-fr.json","chunks-it-fr.json"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL.map(u=>new Request(u,{cache:"reload"})))));self.skipWaiting();});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))));self.clients.claim();});
 self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(e.request.method!=="GET"||u.hostname.endsWith(".supabase.co"))return;
@@ -12,7 +12,8 @@ self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(e.request.me
 // Le bouton « Ajouter » range le mot dans IndexedDB (mx / inbox) : l'appli l'ajoute à son prochain lancement, sans avoir à l'ouvrir.
 // textes de la notification selon la langue de l'utilisateur (champ ul envoyé par le serveur, français par défaut)
 const SWT={fr:{add:"Ajouter à l’apprentissage",added:"Ajouté à tes mots",next:w=>"« "+w+" » arrive dans ta prochaine session."},
-  en:{add:"Add to my words",added:"Added to your words",next:w=>"“"+w+"” will be in your next session."}};
+  en:{add:"Add to my words",added:"Added to your words",next:w=>"“"+w+"” will be in your next session."},
+  it:{add:"Aggiungi alle mie parole",added:"Aggiunta alle tue parole",next:w=>"«"+w+"» arriva nella tua prossima sessione."}};
 const swt=d=>SWT[d&&d.ul]||SWT.fr;
 function inboxAdd(item){return new Promise(res=>{const r=indexedDB.open("mx",1);r.onupgradeneeded=()=>r.result.createObjectStore("inbox",{autoIncrement:true});
   r.onerror=()=>res(false);r.onsuccess=()=>{const db=r.result,tx=db.transaction("inbox","readwrite");tx.objectStore("inbox").add(item);tx.oncomplete=()=>{db.close();res(true);};tx.onerror=()=>{db.close();res(false);};};});}

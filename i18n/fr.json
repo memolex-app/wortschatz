@@ -339,7 +339,7 @@
  "parsed.aucune_ligne_reconnue_format_der": "Aucune ligne reconnue. Format : der Hund ; le chien",
  "room.deja_mots_en_cours_d_2": "Déjà {0} mots en cours d'apprentissage (limite {1}) : un mot à la fois reste possible",
  "fresh.limite_mots_seulement_seront_importes": "Limite : {0} mots seulement seront importés ({1} mots en cours au plus)",
- "dups.mot_la_meme_traduction_qu": "<b>{0} mot{1} la même traduction qu'un autre mot.</b> {2}",
+ "dups.mot_la_meme_traduction_qu": "<b>{0} {0:one=mot a|other=mots ont} la même traduction qu'un autre mot.</b> {2}",
  "dups.appuie_a_nouveau_sur_importer": "Appuie à nouveau sur « Importer » pour ajouter la liste, avec ou sans nuances.",
  "finishBulk.mot_importe": "{0} {0:one=mot|other=mots} {0:one=importé|other=importés}{1}{2}",
  "finishBulk.deja_present": "· {0} déjà {0:one=présent|other=présents}",
@@ -596,5 +596,6 @@
  "rows.n_cartes": "{0} {1:one=carte|other=cartes}",
  "gramLine.pluriel": "pluriel : {0}",
  "gramLine.genre_singulier": "{0} singulier",
- "shell.carte_deja_vue": "MEMOLEX · DÉJÀ VUE"
+ "shell.carte_deja_vue": "MEMOLEX · DÉJÀ VUE",
+ "stats.auj": "auj."
 }

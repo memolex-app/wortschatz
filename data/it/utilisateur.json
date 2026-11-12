@@ -1,0 +1,36 @@
+{
+ "order": 3,
+ "code": "IT",
+ "name": "Italiano",
+ "locale": "it-IT",
+ "dir": "ltr",
+ "articles": [
+  {"a": "il", "kind": "def"},
+  {"a": "lo", "kind": "def"},
+  {"a": "la", "kind": "def"},
+  {"a": "i", "kind": "def"},
+  {"a": "gli", "kind": "def"},
+  {"a": "le", "kind": "def"},
+  {"a": "un", "kind": "indef"},
+  {"a": "uno", "kind": "indef"},
+  {"a": "una", "kind": "indef"},
+  {"a": "dei", "kind": "part"},
+  {"a": "degli", "kind": "part"},
+  {"a": "delle", "kind": "part"}
+ ],
+ "elided": ["l", "un"],
+ "gramNoteWords": [
+  "singolare",
+  "plurale",
+  "collettivo",
+  "dativo",
+  "accusativo",
+  "genitivo",
+  "nominativo",
+  "\\bacc",
+  "\\bdat",
+  "\\+",
+  "="
+ ],
+ "selfFrom": "italiano"
+}

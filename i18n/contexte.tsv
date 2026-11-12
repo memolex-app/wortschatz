@@ -535,3 +535,4 @@ rows.n_cartes	{0} {1:one=carte|other=cartes}	Stats > Réglages > Minimum par jou
 gramLine.pluriel	pluriel : {0}	Verso d'un nom : pluriel avec son article
 gramLine.genre_singulier	{0} singulier	Verso d'un nom : genre au singulier ({0} = masculin, féminin, neutre)
 shell.carte_deja_vue	MEMOLEX · DÉJÀ VUE	Bandeau en haut d'une carte déjà vue (retour en arrière dans une session), en capitales
+stats.auj	auj.	Stats, graphique des révisions des 7 prochains jours : étiquette abrégée du jour même (aujourd'hui)

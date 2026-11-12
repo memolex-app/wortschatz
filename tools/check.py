@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 # contrôles selon la langue de l'utilisateur : check_dups et chunks_check lisent les articles dans data/<U>/utilisateur.json
 # (le contrôle de sens des chunks, --sens, reste écrit pour le français) ; register et ex_gloss sont propres au français
-FOR_USER = {'fr': ['check_dups', 'chunks_check', 'register'], 'en': ['check_dups', 'chunks_check']}
+FOR_USER = {'fr': ['check_dups', 'chunks_check', 'register'], 'en': ['check_dups', 'chunks_check'], 'it': ['check_dups', 'chunks_check']}
 FOR_USER_FULL = {'fr': ['ex_gloss']}
 # contrôles propres à la langue apprise
 FOR_LANG = {'it': ['plural_check'], 'de': ['prep_case']}

@@ -58,6 +58,14 @@ const TXT = {
     morning: "Good morning! Time for your words", midday: "A vocabulary break?", evening: "Your words for today are waiting",
     test: "Notifications work on this device.",
   },
+  it: {
+    wotd: "Parola del giorno",
+    due: (n, m) => `${n} ${pl(n, "parola", "parole")} da rivedere, circa ${m} min.`,
+    fresh: (m) => `Qualche parola nuova, circa ${m} min?`,
+    left: (n) => ` Ancora ${n} ${pl(n, "carta", "carte")} perché oggi conti.`,
+    morning: "Buongiorno! È l'ora delle tue parole", midday: "Una pausa di vocabolario?", evening: "Le tue parole di oggi ti aspettano",
+    test: "Le notifiche funzionano su questo dispositivo.",
+  },
 };
 export const txt = (ul) => TXT[ul] || TXT.fr;
 export function message(item, due, ul = "fr") {
