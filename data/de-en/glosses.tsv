@@ -182,7 +182,7 @@ die Art#1	kind
 die Art#1	sort
 die Art#2	way (manner)
 oft#1	often (common word)
-der Fall#1	case
+der Fall#1	case (instance, matter)
 das Nein#1	no (the word no)
 zwar#1	admittedly (zwar…, aber…)
 gerne#1	gladly
@@ -465,7 +465,7 @@ das Deutsch#1	German (the language)
 deutsch#1	German
 gestern#1	yesterday
 mehrere#1	several (a number of distinct ones)
-das Mädchen#1	girl
+das Mädchen#1	girl (common)
 niemand#1	nobody (no person)
 niemand#1	no one
 die Politik#1	politics
@@ -495,7 +495,7 @@ insgesamt#1	altogether
 irgendwie#1	somehow
 die Regierung#1	government
 das Schreiben#1	letter (official letter)
-schreiben#1	to write
+schreiben#1	to write (common)
 vergessen#1	to forget
 verstehen#1	to understand (common)
 die Entwicklung#1	development
@@ -587,7 +587,7 @@ schaffen#2	to create
 schlecht#1	bad
 schlecht#1	badly (common)
 sprechen#1	to speak (a language, to someone)
-übrigens#1	by the way
+übrigens#1	by the way (common)
 gemeinsam#1	common (shared)
 gemeinsam#1	together
 zumindest#1	at least (in any case)
@@ -655,7 +655,7 @@ die Reihe#1	line (queue)
 die Schau#1	show (presentation)
 somit#1	thus
 somit#1	therefore
-der Sport#1	sport
+der Sport#1	sport (common)
 der Staat#1	state (country, nation)
 die Sucht#1	addiction
 die Sucht#1	dependence
@@ -686,7 +686,7 @@ die Kritik#1	review
 die Kultur#1	culture (arts, civilisation)
 der Körper#1	body (physical; also: solid, maths)
 laufen#1	to run (also: to walk, to work)
-die Lösung#1	solution
+die Lösung#1	solution (common)
 der Nutzen#1	use
 der Nutzen#1	benefit
 nutzen#1	to use (make use of)
@@ -763,7 +763,7 @@ lediglich#1	merely
 lediglich#1	only
 plötzlich#1	sudden
 plötzlich#1	suddenly
-der Politiker#1	politician
+der Politiker#1	politician (man)
 der Präsident#1	president (of a state, an institution)
 die Situation#1	situation (general word)
 teilweise#1	partly
@@ -782,7 +782,7 @@ weiterhin#1	still (to continue to)
 weiterhin#1	in future
 die Ausbildung#1	training (vocational, apprenticeship)
 die Ausbildung#1	education
-die Verbindung#1	link
+die Verbindung#1	link (common)
 die Verbindung#1	connection
 wenigstens#1	at least (that's something)
 die Wirtschaft#1	economy (also: pub, inn)
@@ -991,7 +991,7 @@ das Netz#1	net
 das Netz#2	network
 die Sage#1	legend (folk tale)
 die Show#1	show (entertainment)
-spät#1	late
+spät#1	late (not early)
 das Tief#1	low (weather; mood: slump)
 tief#1	deep
 das Volk#1	people (a nation)
@@ -1123,7 +1123,7 @@ das Gericht#1	court (of law)
 das Gericht#2	dish (food)
 gesucht#1	wanted (in demand; also: contrived)
 gesucht#1	sought-after
-der Kontakt#1	contact
+der Kontakt#1	contact (common)
 leisten#1	to achieve
 leisten#1	to accomplish
 leisten#2	to afford (sich etwas leisten)
@@ -1250,9 +1250,9 @@ die Diskussion#1	discussion
 der Geburtstag#1	birthday
 persönlich#1	personal
 persönlich#1	personally
-der Teilnehmer#1	participant
-verhindern#1	to prevent
-willkommen#1	welcome
+der Teilnehmer#1	participant (common)
+verhindern#1	to prevent (common)
+willkommen#1	welcome (common)
 zusätzlich#1	additional
 zusätzlich#1	extra
 beschäftigt#1	busy (person)
@@ -1277,7 +1277,7 @@ die Vergangenheit#1	past
 ausschließlich#1	exclusively
 ausschließlich#1	solely
 verantwortlich#1	responsible (accountable)
-die Zusammenarbeit#1	cooperation
+die Zusammenarbeit#1	cooperation (common)
 die Zusammenarbeit#1	collaboration
 arm#1	poor
 der Bus#1	bus
@@ -1296,7 +1296,7 @@ das Blut#1	blood
 böse#1	bad (evil; angry)
 böse#1	angry
 das Büro#1	office (room, workplace)
-das Dorf#1	village
+das Dorf#1	village (common)
 die Ecke#1	corner (common word)
 geil#1	awesome (informal)
 geil#2	horny (vulgar)
@@ -1353,7 +1353,7 @@ die Masse#1	crowd
 mögen#1	to like
 das Radio#1	radio (set, station)
 der Roman#1	novel
-die Seele#1	soul
+die Seele#1	soul (spirit)
 der Stein#1	stone (rock)
 der Strom#1	electricity (current; large river)
 der Strom#1	current
@@ -1459,7 +1459,7 @@ befinden#1	to be located (sich befinden)
 beginnen#1	to begin (more formal)
 die Bekannte#1	acquaintance (woman)
 benutzen#1	to use (an object)
-besuchen#1	to visit
+besuchen#1	to visit (common)
 der Computer#1	computer (common word)
 entgegen#1	contrary to
 entgegen#2	towards
@@ -1468,10 +1468,10 @@ erzählen#1	to narrate
 das Geschäft#1	business (deal; shop)
 das Geschäft#1	shop
 das Gewissen#1	conscience
-die Karriere#1	career
+die Karriere#1	career (common)
 das Material#1	material
 das Material#2	equipment
-die Mehrheit#1	majority
+die Mehrheit#1	majority (common)
 der Mittwoch#1	Wednesday
 die Religion#1	religion
 schicken#1	to send (common word)
@@ -1482,7 +1482,7 @@ verdammt#1	damn (informal)
 verdammt#1	damned
 der Anschluss#1	connection (link-up; train connection)
 empfehlen#1	to recommend
-enthalten#1	to contain
+enthalten#1	to contain (common)
 die Erklärung#1	explanation
 die Erklärung#2	declaration
 fernsehen#1	to watch TV
@@ -1507,11 +1507,11 @@ der Vertreter#1	representative
 der Vertreter#2	substitute (stand-in)
 die Behandlung#1	treatment (medical; way of treating)
 die Einführung#1	introduction (launch; presentation)
-die Generation#1	generation
+die Generation#1	generation (age group)
 die Produktion#1	production (industrial)
 sicherlich#1	surely
 sicherlich#1	certainly
-unabhängig#1	independent
+unabhängig#1	independent (common)
 das Verhältnis#1	relationship
 das Verhältnis#2	ratio (proportion)
 die Verwaltung#1	administration (management, administrative services)
@@ -1731,7 +1731,7 @@ komisch#1	funny
 das Konzert#1	concert
 kriegen#1	to get (informal)
 der Manager#1	manager (business)
-die Medizin#1	medicine
+die Medizin#1	medicine (science; also: medication)
 mittels#1	by means of (formal, written)
 morgens#1	in the morning
 das Münster#1	minster (large church of monastic origin, esp. in the south)
@@ -1806,7 +1806,7 @@ die Realität#1	reality (common)
 die Rechnung#1	bill
 die Rechnung#1	invoice
 die Republik#1	republic
-die Sammlung#1	collection
+die Sammlung#1	collection (common)
 scheinen#1	to shine (sun; also: to seem)
 scheinen#1	to seem
 schlagen#1	to hit
@@ -1861,14 +1861,14 @@ die Tätigkeit#1	activity (work, occupation)
 die Tätigkeit#1	job
 verlangen#1	to demand
 verlangen#1	to ask for
-vermeiden#1	to avoid
+vermeiden#1	to avoid (common)
 verwenden#1	to use (employ; rather formal)
 der Vorschlag#1	proposal
 der Vorschlag#1	suggestion
 der Zuschauer#1	spectator
 der Zuschauer#1	viewer
 der Donnerstag#1	Thursday
-entwickeln#1	to develop
+entwickeln#1	to develop (common)
 die Erinnerung#1	memory (recollection)
 die Erinnerung#1	souvenir
 die Erinnerung#2	memory (ability to remember)
@@ -1923,7 +1923,7 @@ die Kommunikation#1	communication
 die Veranstaltung#1	event (organised)
 die Aufmerksamkeit#1	attention (common word)
 die Bundesregierung#1	federal government (the German cabinet)
-au#1	ouch
+au#1	ouch (common)
 elf#1	eleven
 das Gas#1	gas
 das Maß#1	measure
@@ -1990,7 +1990,7 @@ der Humor#1	humour
 der Kanal#1	canal
 der Kanal#1	channel
 die Katze#1	cat
-das Kreuz#1	cross
+das Kreuz#1	cross (symbol)
 die Krise#1	crisis
 die Lehre#1	apprenticeship (vocational training)
 die Lehre#2	doctrine
@@ -2063,7 +2063,7 @@ der Server#1	server (computing)
 der Sieger#1	winner
 der Sieger#1	victor
 das Silber#1	silver
-der Status#1	status
+der Status#1	status (common)
 die Strafe#1	punishment
 die Strafe#1	penalty
 der Stress#1	stress
@@ -2227,7 +2227,7 @@ der Geschmack#1	taste
 keinerlei#1	no … whatsoever
 letztlich#1	ultimately (common)
 letztlich#1	in the end
-das Marketing#1	marketing
+das Marketing#1	marketing (common)
 die Operation#1	operation (surgical, military)
 scheinbar#1	seemingly (only in appearance)
 scheinbar#1	apparently
@@ -2283,7 +2283,7 @@ die Verfassung#1	constitution
 die Verfassung#2	condition (shape)
 verzichten#1	to do without
 verzichten#1	to give up (auf)
-die Zustimmung#1	consent
+die Zustimmung#1	consent (common)
 die Zustimmung#1	approval
 überzeugen#1	to convince
 der Arbeitgeber#1	employer
@@ -2308,7 +2308,7 @@ erforderlich#1	required
 erforderlich#1	necessary (formal)
 die Gemeinschaft#1	community (group with shared bonds)
 verschwinden#1	to disappear
-die Vorbereitung#1	preparation
+die Vorbereitung#1	preparation (common)
 der Vorsitzende#1	chairman (of a meeting, party, association)
 der Vorsitzende#1	chair
 ausgezeichnet#1	excellent (also: award-winning)
@@ -2362,7 +2362,7 @@ das Loch#1	hole
 mini#1	mini
 die Mode#1	fashion
 der Mond#1	moon
-der Müll#1	rubbish
+der Müll#1	rubbish (common)
 der Müll#1	waste
 rosa#1	pink (common)
 die Rose#1	rose (flower)
@@ -2436,7 +2436,7 @@ die Stufe#1	step (stairs; level)
 die Stufe#1	stage
 die Summe#1	sum
 die Summe#1	total
-töten#1	to kill
+töten#1	to kill (common)
 der Vogel#1	bird
 die Waffe#1	weapon
 die Weile#1	while (a period of time)
@@ -2505,7 +2505,7 @@ spüren#1	to feel
 spüren#1	to sense
 die Steuer#1	tax (common)
 der Strand#1	beach
-das Studio#1	studio
+das Studio#1	studio (recording, TV)
 die Stärke#1	strength
 die Stärke#1	power
 der Sänger#1	singer (man)
@@ -2532,7 +2532,7 @@ der Aufwand#1	expense
 beenden#1	to end
 beenden#1	to finish
 beinahe#1	almost (with a verb: nearly)
-beliebt#1	popular
+beliebt#1	popular (common)
 berufen#1	to appoint (sich berufen auf: to refer to)
 der Bischof#1	bishop
 dankbar#1	grateful
@@ -2593,7 +2593,7 @@ spenden#1	to donate
 spenden#1	to give
 stammen#1	to come from
 stammen#1	to originate
-stärken#1	to strengthen
+stärken#1	to strengthen (common)
 die Tabelle#1	table (chart)
 die Tabelle#2	league table
 treiben#1	to drive (push)
@@ -2739,11 +2739,11 @@ jederzeit#1	at any time
 jederzeit#1	any time
 die Koalition#1	coalition
 die Nachfrage#1	demand (economics)
-die Plattform#1	platform
+die Plattform#1	platform (common)
 der Rassismus#1	racism
 reagieren#1	to react
 reagieren#1	to respond
-der Schlüssel#1	key
+der Schlüssel#1	key (for a lock)
 der Schneider#1	tailor
 das Schweigen#1	silence (keeping quiet)
 schweigen#1	to be silent
@@ -2764,7 +2764,7 @@ zuständig#1	competent (authority)
 der Überblick#1	overview (general picture)
 übergeben#1	to hand over
 übergeben#2	to vomit (sich übergeben)
-überleben#1	to survive
+überleben#1	to survive (common)
 angebracht#1	appropriate
 angebracht#1	fitting
 die Atmosphäre#1	atmosphere (also: the air around the earth)
@@ -2947,14 +2947,14 @@ der Block#1	block (pad of paper; block of houses)
 das Drama#1	drama
 der Dreck#1	dirt (informal)
 der Dreck#1	muck
-ehren#1	to honour
+ehren#1	to honour (common)
 einig#1	agreed (in agreement)
 einig#2	united
 der Fisch#1	fish
 die Hitze#1	heat (intense, heatwave)
 der House#1	house (music)
 der Index#1	index (list; indicator)
-das Kabel#1	cable
+das Kabel#1	cable (electric)
 die Kasse#1	checkout (till)
 die Kasse#1	till
 die Kette#1	chain (metal; of shops)
@@ -3108,7 +3108,7 @@ bestens#1	excellently
 bestens#1	perfectly
 die Branche#1	industry (sector)
 die Branche#1	sector
-brechen#1	to break
+brechen#1	to break (common)
 digital#1	digital
 dorthin#1	there (to that place)
 dreimal#1	three times
@@ -3199,7 +3199,7 @@ der Polizist#1	police officer
 der Polizist#1	policeman
 die Premiere#1	premiere (show; first time)
 der Priester#1	priest (common)
-die Schlacht#1	battle
+die Schlacht#1	battle (common)
 die Schulter#1	shoulder
 springen#1	to jump (leap)
 springen#1	to leap
@@ -3218,11 +3218,11 @@ anerkannt#1	recognised (renowned)
 anerkannt#1	acknowledged
 angezeigt#1	advisable (called for)
 der Ausländer#1	foreigner
-der Austausch#1	exchange
+der Austausch#1	exchange (common)
 begleiten#1	to accompany
 begleiten#1	to escort
 begründet#1	justified (well-founded)
-der Beschluss#1	decision
+der Beschluss#1	decision (official)
 der Beschluss#1	resolution
 dauerhaft#1	lasting
 dauerhaft#1	permanently
@@ -3265,7 +3265,7 @@ verbinden#1	to connect (link)
 verbinden#1	to join
 verbinden#2	to put through (on the phone)
 der Wahlkampf#1	election campaign
-zerstören#1	to destroy
+zerstören#1	to destroy (common)
 die Übernahme#1	takeover
 die Übernahme#1	acquisition
 die Abstimmung#1	vote
@@ -3348,7 +3348,7 @@ der Kindergarten#1	kindergarten
 das Lebensmittel#1	food (common)
 das Lebensmittel#1	groceries
 präsentieren#1	to present (show in public)
-verständlich#1	understandable
+verständlich#1	understandable (common)
 verständlich#1	comprehensible
 einverstanden#1	agreed (consenting)
 einverstanden#1	in agreement
@@ -3400,7 +3400,7 @@ matt#1	checkmate (in chess)
 das Maul#1	mouth (animal; vulgar: gob)
 das Maul#1	gob (vulgar)
 die Maus#1	mouse
-das Obst#1	fruit
+das Obst#1	fruit (collective)
 die Oper#1	opera
 das Pech#1	bad luck (also: pitch)
 der Saal#1	hall (large, for events)
@@ -3468,7 +3468,7 @@ der Rauch#1	smoke
 die Regie#1	direction (film, theatre)
 die Route#1	route (itinerary)
 der Schoß#1	lap
-selbe#1	same
+selbe#1	same (adjective)
 der Senat#1	senate
 der Sound#1	sound (musical style)
 die Tafel#1	blackboard
@@ -3650,16 +3650,16 @@ der Konzern#1	corporation
 kräftig#1	strong
 kräftig#1	powerful
 der Kämpfer#1	fighter
-das Monster#1	monster
+das Monster#1	monster (common)
 mächtig#1	powerful (having power)
 mächtig#1	mighty
 das Märchen#1	fairy tale
 die Nahrung#1	food (nourishment)
-neulich#1	the other day
+neulich#1	the other day (common)
 neulich#1	recently
 niedrig#1	low (common)
 nunmehr#1	now (formal: henceforth)
-der Patient#1	patient
+der Patient#1	patient (man)
 preisen#1	to praise
 preisen#1	to glorify
 die Rettung#1	rescue
@@ -3815,8 +3815,8 @@ aufstehen#1	to get up
 aufstehen#1	to stand up
 der Ausgleich#1	compensation (balance; equaliser)
 der Ausgleich#1	balance
-der Ausschuss#1	committee
-die Bedrohung#1	threat
+der Ausschuss#1	committee (parliamentary, board)
+die Bedrohung#1	threat (danger)
 die Begegnung#1	encounter
 die Begegnung#1	meeting
 beitragen#1	to contribute
@@ -3949,7 +3949,7 @@ wahnsinnig#1	incredibly
 das Wohnzimmer#1	living room
 das Wohnzimmer#1	lounge
 der Zentimeter#1	centimetre
-die Zerstörung#1	destruction
+die Zerstörung#1	destruction (common)
 die Abgeordnete#1	member of parliament (woman)
 die Abgeordnete#1	delegate
 ausführlich#1	detailed (thorough)
@@ -3994,7 +3994,7 @@ die Auszeichnung#1	award (prize)
 die Auszeichnung#1	distinction
 beeinflussen#1	to influence
 die Beschäftigte#1	employee (woman)
-die Einschätzung#1	assessment
+die Einschätzung#1	assessment (common)
 die Einschätzung#1	estimate
 entschlossen#1	determined
 entschlossen#1	resolute
@@ -4012,7 +4012,7 @@ das Schlafzimmer#1	bedroom (common)
 der Schreibtisch#1	desk
 traditionell#1	traditional
 traditionell#1	traditionally
-ungewöhnlich#1	unusual
+ungewöhnlich#1	unusual (common)
 die Vereinbarung#1	agreement (arrangement made)
 die Verlängerung#1	extension
 die Verlängerung#1	extra time (sport)
@@ -4174,16 +4174,16 @@ die Tasse#1	cup (for drinking)
 die Treue#1	loyalty
 die Treue#1	faithfulness
 der Trick#1	trick (common)
-die Wiese#1	meadow
+die Wiese#1	meadow (common)
 der Wille#1	will (willpower)
 der Wuchs#1	growth (plants; also: stature)
-die Wurst#1	sausage
+die Wurst#1	sausage (common)
 die Wüste#1	desert
 die Zelle#1	cell
 der Zwang#1	compulsion
 der Zwang#1	constraint
 die Abwehr#1	defence (repelling; sport; immune)
-die Agenda#1	agenda
+die Agenda#1	agenda (common)
 der Aufruf#1	call (announcement: flight; appeal)
 der Aufruf#1	appeal
 das Ausmaß#1	extent
@@ -4227,7 +4227,7 @@ nervös#1	nervous (common)
 die Ostsee#1	Baltic Sea
 primär#1	primary (first, main)
 primär#1	primarily
-der Rabatt#1	discount
+der Rabatt#1	discount (common)
 reiten#1	to ride (a horse)
 reißen#1	to tear
 reißen#1	to rip
@@ -4321,7 +4321,7 @@ logisch#1	of course (informal)
 die Malerei#1	painting (art)
 das Mitleid#1	pity
 das Mitleid#1	compassion
-der Nachbar#1	neighbour
+der Nachbar#1	neighbour (man)
 der Notfall#1	emergency
 nötigen#1	to force (coerce; urge)
 nötigen#1	to compel
@@ -4453,7 +4453,7 @@ vielfach#1	many times (repeatedly)
 vielfach#1	multiple
 vorwärts#1	forward (direction)
 vorwärts#1	forwards
-das Werkzeug#1	tool
+das Werkzeug#1	tool (common)
 zeitlich#1	in time (temporal)
 zeitlich#1	temporal
 zulassen#1	to allow (permit; to register)
@@ -4628,7 +4628,7 @@ die Steigerung#1	increase (rise; grammar: comparison of adjectives)
 unangenehm#1	unpleasant
 vernünftig#1	sensible
 vernünftig#1	reasonable
-überwinden#1	to overcome
+überwinden#1	to overcome (common)
 anschließen#1	to join (sich anschließen; to connect)
 anschließen#1	to connect
 anstrengend#1	tiring
@@ -4660,7 +4660,7 @@ die Reihenfolge#1	order (sequence)
 die Reihenfolge#1	sequence
 schriftlich#1	written
 schriftlich#1	in writing
-die Solidarität#1	solidarity
+die Solidarität#1	solidarity (common)
 der Sozialismus#1	socialism
 verschaffen#1	to get (provide, formal: sich etwas verschaffen)
 verschaffen#1	to procure
@@ -4787,7 +4787,7 @@ achte#1	eighth
 die Ampel#1	traffic lights
 der Anbau#1	cultivation (growing crops)
 der Anime#1	anime
-der Anzug#1	suit
+der Anzug#1	suit (man's)
 der Apfel#1	apple
 die Asche#1	ash
 die Asche#1	ashes
@@ -4828,7 +4828,7 @@ hauen#1	to bash
 die Heide#1	heath (heather landscape)
 die Heide#1	moor
 der Honig#1	honey
-der Idiot#1	idiot
+der Idiot#1	idiot (common)
 indes#1	however (formal)
 irren#1	to be mistaken (sich irren)
 jagen#1	to hunt
@@ -4837,7 +4837,7 @@ der Kater#1	tomcat (informal: hangover)
 der Kater#1	hangover
 die Kiste#1	crate (wooden box)
 die Kiste#1	box
-der Knopf#1	button
+der Knopf#1	button (on clothes, a device)
 der Krimi#1	crime novel (thriller)
 der Krimi#1	whodunnit
 die Lampe#1	lamp
@@ -4933,7 +4933,7 @@ kotzen#1	to puke (informal)
 küssen#1	to kiss
 die Ladung#1	load
 die Ladung#1	cargo
-lagern#1	to store
+lagern#1	to store (goods)
 lauten#1	to read (be worded)
 locken#1	to lure
 locken#1	to entice
@@ -4944,7 +4944,7 @@ der Mythos#1	myth
 der Nacken#1	neck (back of the neck)
 der Oberst#1	colonel
 der Palast#1	palace (common word)
-parken#1	to park
+parken#1	to park (common)
 der Planet#1	planet
 putzen#1	to clean (common word: scrub)
 der Rapper#1	rapper
@@ -4956,7 +4956,7 @@ das Ringen#1	struggle
 die Satire#1	satire
 das Schach#1	chess
 der Sektor#1	sector (economic; zone)
-das Siegel#1	seal
+das Siegel#1	seal (stamp)
 die Spende#1	donation
 der Thread#1	thread (discussion)
 der Trikot#1	jersey (sports)
@@ -5139,7 +5139,7 @@ gerissen#1	cunning
 gerissen#1	crafty
 gewaltig#1	huge
 gewaltig#1	enormous
-gewähren#1	to grant
+gewähren#1	to grant (common)
 die Hardware#1	hardware (computing)
 der Horizont#1	horizon
 hässlich#1	ugly
@@ -5215,7 +5215,7 @@ die Abbildung#1	illustration
 die Abbildung#1	figure (diagram)
 aggressiv#1	aggressive
 die Aktivität#1	activity (being active, leisure)
-die Akzeptanz#1	acceptance
+die Akzeptanz#1	acceptance (common)
 der Angreifer#1	attacker (aggressor)
 der Angreifer#1	assailant
 anstellen#1	to employ (hire; to switch on)
@@ -5282,7 +5282,7 @@ permanent#1	constantly
 das Potenzial#1	potential
 das Praktikum#1	internship
 das Praktikum#1	work placement
-die Priorität#1	priority
+die Priorität#1	priority (common)
 die Recherche#1	research (journalistic, investigative)
 die Reinigung#1	cleaning
 die Reinigung#1	dry cleaner's
@@ -5509,7 +5509,7 @@ die Tageszeitung#1	daily newspaper
 die Tageszeitung#1	daily
 telefonieren#1	to phone (make a call)
 telefonieren#1	to be on the phone
-die Unterschrift#1	signature
+die Unterschrift#1	signature (handwritten)
 verdächtigen#1	to suspect (of a crime)
 weitermachen#1	to carry on (informal: continue)
 weitermachen#1	to keep going
@@ -5527,7 +5527,7 @@ gleichermaßen#1	alike
 die Internetseite#1	internet page (website)
 kommunizieren#1	to communicate
 problematisch#1	problematic
-rechtfertigen#1	to justify
+rechtfertigen#1	to justify (defend oneself)
 selbstständig#1	self-employed (independent, autonomous)
 selbstständig#1	autonomous
 unentschieden#1	undecided (match: drawn)
@@ -5559,7 +5559,7 @@ die Diskriminierung#1	discrimination
 die Pressekonferenz#1	press conference
 voraussichtlich#1	expected (adverb: probably)
 voraussichtlich#1	probably
-die Zusammensetzung#1	composition
+die Zusammensetzung#1	composition (common)
 die Meinungsfreiheit#1	freedom of expression
 die Meinungsfreiheit#1	freedom of speech
 der Oberbürgermeister#1	lord mayor (mayor of a large city)
@@ -5678,3 +5678,2811 @@ der Grill#1	grill
 die Grube#1	pit
 der Hauch#1	breath (light; touch of)
 der Hauch#1	hint
+die Hetze#1	rush (hurry)
+die Hetze#2	hate campaign (agitation)
+heuer#1	this year (southern German, Austrian)
+human#1	humane
+die Hülle#1	cover (case, sleeve)
+die Hülle#1	case
+der Laser#1	laser
+die Lippe#1	lip
+mäßig#1	moderate
+mäßig#1	mediocre
+die Mühle#1	mill
+die Münze#1	coin
+die Mütze#1	cap (hat)
+die Mütze#1	beanie
+nebst#1	together with (formal: in addition to)
+netto#1	net (salary, weight)
+das Organ#1	organ (body)
+der Ozean#1	ocean
+die Plane#1	tarpaulin
+das Platt#1	Low German
+platt#1	flat (flattened; informal: exhausted)
+das Regal#1	shelf (shelving)
+das Regal#1	shelves
+ruhen#1	to rest (also: to be suspended)
+die Sahne#1	cream (dairy)
+der Salon#1	salon (hairdresser's, tea room; elegant room)
+die Skala#1	scale (graduated)
+der Stall#1	stable (cowshed)
+der Stall#1	cowshed
+die Suite#1	suite
+die Sünde#1	sin
+die Taufe#1	baptism
+die Taufe#1	christening
+traut#1	cosy (dated: dear, intimate)
+der Trost#1	consolation
+der Trost#1	comfort
+der Ultra#1	ultra (extremist supporter)
+vegan#1	vegan
+die Wache#1	guard (watch)
+die Wache#2	police station
+der Abfall#1	waste (common)
+der Abfall#1	rubbish
+der Akzent#1	accent (pronunciation)
+der Anhang#1	appendix (annex)
+der Anhang#1	attachment (email)
+das Banner#1	banner (common)
+der Becher#1	cup (beaker, mug)
+der Becher#1	mug
+die Blonde#1	blonde (woman)
+der Bäcker#1	baker
+der Charme#1	charm
+der Deckel#1	lid
+der Defekt#1	defect (technical fault)
+der Defekt#1	fault
+defekt#1	faulty (broken down)
+defekt#1	out of order
+deuten#1	to interpret
+deuten#2	to point (at)
+drüben#1	over there (on the other side)
+eigens#1	specially (expressly)
+eigens#1	expressly
+die Erotik#1	eroticism
+der Export#1	export
+federn#1	to be springy (cushion)
+die Finanz#1	finance
+die Folter#1	torture
+fortan#1	henceforth (formal)
+die Furcht#1	fear (formal)
+der Fächer#1	fan (hand-held)
+die Gebühr#1	fee
+die Gebühr#1	charge
+geheim#1	secret (confidential)
+gesamt#1	whole (entire, total)
+gesamt#1	total
+das Gewebe#1	tissue (biology; woven fabric)
+die Glocke#1	bell (church)
+golden#1	golden
+gönnen#1	not to begrudge (be glad for someone)
+gönnen#2	to treat oneself (sich etwas gönnen)
+der Gürtel#1	belt
+der Hacker#1	hacker
+halber#1	for the sake of (placed after the noun)
+heilen#1	to heal
+heilen#1	to cure
+heilig#1	holy
+heilig#1	sacred
+herein#1	come in
+heulen#1	to howl (wolf, siren)
+heulen#2	to blubber (informal: to cry)
+intern#1	internal
+der Irrtum#1	mistake (misconception)
+der Irrtum#1	error
+der Jersey#1	jersey (fabric)
+der Kicker#1	table football (also: footballer)
+der Killer#1	killer
+der Kläger#1	plaintiff
+das Kostüm#1	costume (fancy dress)
+das Kostüm#2	suit (woman's skirt suit)
+das Kupfer#1	copper
+lasten#1	to weigh (on)
+das Latein#1	Latin
+lecken#1	to lick
+lenken#1	to steer
+lenken#1	to direct
+die Lesung#1	reading (public, by an author)
+die Madame#1	madame (ironic)
+das Mandat#1	mandate (political; a lawyer's brief)
+narren#1	to fool (dated)
+nervig#1	annoying (informal)
+das Outfit#1	outfit
+der Pastor#1	pastor (Protestant)
+das Plakat#1	poster (advertising, political)
+das Plakat#1	placard
+das Poster#1	poster (decorative)
+der Radweg#1	cycle path
+die Rakete#1	rocket
+der Roller#1	scooter (motor scooter)
+der Roller#2	scooter (kick scooter)
+der Räuber#1	robber
+der Räuber#1	bandit
+der Schrei#1	scream
+der Schrei#1	cry
+schräg#1	slanting (diagonal)
+schräg#2	weird (informal)
+der Senior#1	senior citizen
+senior#1	senior (after a person's name)
+solide#1	solid (sturdy, sound)
+der Streik#1	strike (stoppage)
+summen#1	to hum (a tune)
+summen#2	to buzz
+die Tagung#1	conference (symposium)
+ungern#1	reluctantly
+der Zauber#1	magic (charm, spell)
+der Zauber#1	spell
+die Zensur#1	censorship
+die Zensur#2	mark (school)
+der Zirkus#1	circus
+der Zusatz#1	addition (additive)
+der Zusatz#1	additive
+ärgern#1	to annoy
+ärgern#2	to get annoyed (sich ärgern)
+die Ärztin#1	doctor (woman)
+der Abbruch#1	breaking off (interruption)
+der Abbruch#2	demolition
+der Absturz#1	crash (plane, computer)
+der Absturz#1	fall
+agieren#1	to act (formal: operate, play a role)
+die Anstalt#1	institution (public)
+das Anwesen#1	estate (property)
+die Attacke#1	attack (violent; also: fit)
+der Ausfall#1	failure (breakdown)
+der Ausfall#2	cancellation
+die Auszeit#1	time out
+die Auszeit#1	break
+die Balance#1	balance (physical)
+basteln#1	to make things (crafts, DIY)
+basteln#1	to tinker
+der Beifall#1	applause (approval)
+die Chronik#1	chronicle
+der Country#1	country music
+der Dialekt#1	dialect
+der Diskurs#1	discourse (public debate, philosophy)
+der Drachen#1	kite (also: dragon)
+das Ehepaar#1	married couple
+erobern#1	to conquer
+fischen#1	to fish (with nets; generally)
+das Gebirge#1	mountains (mountain range)
+das Gefecht#1	battle (skirmish)
+das Gefecht#1	engagement
+das Gerücht#1	rumour
+grillen#1	to grill (to barbecue)
+grillen#1	to barbecue
+der Gärtner#1	gardener
+harmlos#1	harmless
+die Heilung#1	healing (recovery)
+die Heilung#1	cure
+höflich#1	polite
+höflich#1	courteous
+die Kanzlei#1	law firm (office)
+die Kanzlei#2	chancellery
+die Klassik#1	classicism
+die Klassik#2	classical music
+die Kommune#1	commune (shared household; municipality)
+mischen#1	to mix
+mischen#2	to shuffle (cards)
+mittags#1	at midday
+mittags#1	at lunchtime
+der Monitor#1	monitor
+der Monitor#1	screen
+neutral#1	neutral
+die Nordsee#1	North Sea
+optisch#1	optical
+optisch#1	visual
+die Packung#1	packet (pack, box of a product)
+die Packung#1	pack
+die Periode#1	period (also: menstruation)
+die Pistole#1	pistol
+die Pistole#1	gun
+die Portion#1	portion
+das Porträt#1	portrait (painting, article)
+das Präsent#1	present (formal)
+radikal#1	radical
+riechen#1	to smell
+der Sammler#1	collector
+der Schrott#1	scrap metal
+der Schrott#1	junk
+der Schwung#1	momentum (energy, verve)
+der Schwung#1	verve
+die Sektion#1	section (department; autopsy)
+sexuell#1	sexual
+speisen#1	to dine (formal)
+speisen#2	to feed (power, supply)
+das Stadium#1	stage (phase)
+der Stiefel#1	boot (footwear)
+stützen#1	to support (prop up)
+stützen#1	to prop up
+das Syndrom#1	syndrome
+die Uniform#1	uniform
+der Vorsitz#1	chairmanship (presidency)
+der Vorsitz#1	chair
+die Wertung#1	rating (sports standings; judgement)
+die Wertung#1	scoring
+das Zeugnis#1	school report
+das Zeugnis#2	certificate (reference)
+das Zubehör#1	accessories
+östlich#1	eastern
+östlich#1	east of
+abhalten#1	to keep from (prevent)
+abhalten#2	to hold (a meeting)
+ablehnen#1	to refuse (decline, reject)
+ablehnen#1	to reject
+absetzen#1	to drop off
+absetzen#2	to take off (hat, glasses)
+allerlei#1	all sorts of
+anderswo#1	elsewhere (slightly formal)
+anhalten#1	to stop
+anhalten#3	to last (continue)
+aufregen#1	to upset (excite; sich aufregen: get worked up)
+die Aufsicht#1	supervision
+die Aufsicht#1	surveillance
+auslösen#1	to trigger (set off: alarm, crisis)
+auslösen#1	to set off
+der Austritt#1	withdrawal (from an organisation)
+der Austritt#1	exit
+die Ausübung#1	exercise (of a profession, a right)
+die Batterie#1	battery (common)
+beiseite#1	aside
+belasten#1	to burden (weigh on)
+belasten#2	to pollute
+beliebig#1	any (whatever you like)
+beliebig#1	arbitrary
+bemerken#1	to notice (also: to remark)
+derselbe#1	the same (pronoun)
+der Diabetes#1	diabetes
+der Einklang#1	harmony (agreement)
+der Einklang#1	accord
+einsehen#1	to see (admit, accept; consult)
+einsehen#1	to accept
+die Einsicht#1	insight (understanding)
+die Einsicht#2	inspection (of a file)
+die Empörung#1	indignation
+die Empörung#1	outrage
+erlassen#1	to issue (a law, a decree)
+erlassen#1	to enact
+erlassen#2	to exempt (from)
+ernähren#1	to feed (sich ernähren: to eat)
+ernähren#1	to nourish
+der Feiertag#1	public holiday
+der Feiertag#1	bank holiday
+flüchten#1	to flee (take refuge)
+das Fräulein#1	Miss (dated)
+die Geliebte#1	mistress (lover)
+die Geliebte#2	beloved
+das Geräusch#1	noise (a sound, not necessarily loud)
+das Geräusch#1	sound
+gewöhnen#1	to get used to (sich gewöhnen an)
+halbwegs#1	more or less (reasonably)
+halbwegs#1	reasonably
+die Harmonie#1	harmony (general, music)
+hingehen#1	to go (there)
+die Illusion#1	illusion
+das Jahrbuch#1	yearbook
+der Kardinal#1	cardinal
+der Karneval#1	carnival (Rhineland)
+die Klarheit#1	clarity
+die Laufzeit#1	term (duration: of a contract, validity, film)
+die Laufzeit#1	running time
+letztens#1	recently (informal)
+letztens#1	the other day
+leuchten#1	to shine
+leuchten#1	to glow
+die Logistik#1	logistics
+die Majestät#1	majesty
+die Munition#1	ammunition
+nüchtern#1	sober (with an empty stomach; matter-of-fact)
+der Ortsteil#1	district (of a municipality)
+das Quartier#1	accommodation (lodging)
+das Quartier#2	quarters (military)
+der Ratgeber#1	adviser (guidebook; person)
+der Ratgeber#1	guide
+regieren#1	to govern
+regieren#1	to rule
+das Register#1	register (index; organ stop)
+das Register#1	index
+die Relevanz#1	relevance
+die Revision#1	appeal on points of law (also: audit)
+die Revision#1	audit
+die Romantik#1	romanticism (also: romance)
+sachlich#1	objective (factual, impartial)
+sachlich#1	matter-of-fact
+scheiden#1	to separate
+scheiden#2	to divorce (sich scheiden lassen)
+die Schnauze#1	snout (muzzle)
+die Schnauze#2	gob (informal: mouth)
+seitlich#1	at the side of (lateral)
+die Siedlung#1	housing estate (settlement)
+die Siedlung#1	settlement
+der Souverän#1	sovereign (monarch; the people)
+souverän#1	sovereign (also: assured, confident)
+die Spaltung#1	split (division of a party; fission)
+spritzen#1	to splash (spray, squirt)
+spritzen#1	to spray
+strahlen#1	to beam (shine, radiate)
+strahlen#1	to radiate
+die Stärkung#1	strengthening (also: snack)
+die Terrasse#1	terrace
+die Terrasse#1	patio
+der Thriller#1	thriller
+der Transfer#1	transfer
+türkisch#1	Turkish
+umfassen#1	to comprise (include)
+umfassen#1	to include
+urteilen#1	to judge (pass judgement)
+wahrlich#1	truly (literary: verily)
+die Wellness#1	wellness (spa treatments)
+das Weltbild#1	world view (personal conception)
+das Wohnhaus#1	residential building (house)
+der Wohnsitz#1	place of residence (official)
+der Wohnsitz#1	domicile
+wörtlich#1	literal (word for word)
+wörtlich#1	literally
+der Zahnarzt#1	dentist
+zweifeln#1	to doubt
+der Überfall#1	raid (hold-up, mugging)
+der Überfall#1	hold-up
+abstimmen#1	to vote (on a question)
+das Aluminium#1	aluminium
+angreifen#1	to attack (common)
+die Anmerkung#1	remark (note, annotation)
+die Anmerkung#1	annotation
+der Assistent#1	assistant (man)
+aufmachen#1	to open (informal)
+aushalten#1	to bear (endure, hold out)
+aushalten#1	to stand
+die Auslegung#1	interpretation (of a legal text)
+die Autorität#1	authority (influence, prestige)
+die Beachtung#1	attention (consideration)
+die Beachtung#1	notice
+die Befragung#1	questioning (interrogation)
+die Befragung#2	survey (poll)
+begründen#1	to justify (give reasons for)
+bemerkbar#1	noticeable (common)
+berechnen#1	to calculate (a price, a cost)
+berechnen#1	to charge
+beruhigen#1	to calm (reassure)
+beruhigen#1	to reassure
+die Besatzung#1	crew (also: military occupation)
+die Bewährung#1	probation (suspended sentence)
+der Container#1	container (shipping, skip)
+die Effizienz#1	efficiency
+einführen#1	to introduce
+einführen#2	to import
+einseitig#1	one-sided (unilateral)
+einseitig#1	unilateral
+einseitig#2	biased
+entkommen#1	to escape (common)
+entziehen#1	to withdraw (take away; deprive of)
+entziehen#1	to deprive of
+ergreifen#1	to seize (grab; an opportunity)
+ergreifen#1	to grab
+der Ermittler#1	investigator
+die Erwähnung#1	mention
+erwünscht#1	desired (welcome)
+erwünscht#1	welcome
+das Feuerwerk#1	fireworks
+der Fußgänger#1	pedestrian
+die Großstadt#1	city (large city)
+die Großstadt#1	big city
+großzügig#1	generous
+großzügig#2	spacious
+die Halbinsel#1	peninsula
+das Heimspiel#1	home game
+herrschen#1	to reign (rule; a mood prevails)
+herrschen#1	to prevail
+die Inflation#1	inflation
+das Jahrzehnt#1	decade
+jedermann#1	everyone (each person)
+jedermann#1	everybody
+jeglicher#1	any (whatsoever)
+das Kaninchen#1	rabbit
+das Kilogramm#1	kilogram
+der Kontinent#1	continent
+der Kopfhörer#1	headphones (earphones)
+der Kopfhörer#1	earphones
+der Kreislauf#1	circulation (blood; cycle)
+der Kreislauf#1	cycle
+künstlich#1	artificial
+das Lebewesen#1	living being (creature)
+das Lebewesen#1	creature
+liebevoll#1	loving (affectionate)
+liebevoll#1	affectionate
+die Mitarbeit#1	cooperation (participation)
+die Mitarbeit#1	collaboration
+der Nachdruck#1	emphasis (insistence)
+der Nachdruck#2	reprint
+psychisch#1	psychological (mental)
+psychisch#1	mental
+der Redakteur#1	editor (journalist)
+der Reichstag#1	Reichstag (imperial parliament; building in Berlin)
+die Rezeption#1	reception (hotel desk; reception of a work)
+der Rückblick#1	retrospective (look back)
+der Rückblick#1	review
+das Schnitzel#1	escalope (breaded)
+das Schnitzel#1	schnitzel
+die Schublade#1	drawer
+der Silvester#1	New Year's Eve
+speichern#1	to save (store)
+speichern#1	to store
+die Strahlung#1	radiation
+umbringen#1	to kill (informal: murder)
+umfassend#1	comprehensive (exhaustive)
+umfassend#1	extensive
+der Verfasser#1	author (writer of a text)
+vergangen#1	past (last, gone by)
+vergangen#1	last
+vorläufig#1	provisional (for the time being)
+vorläufig#1	temporary
+vorzeitig#1	early (premature)
+vorzeitig#1	premature
+das Wahlrecht#1	right to vote
+die Wanderung#1	hike
+der Wettkampf#1	competition (sports event)
+der Wettkampf#1	contest
+widerlich#1	disgusting
+widerlich#1	revolting
+die Zigarette#1	cigarette
+die Abgrenzung#1	demarcation (delimitation)
+die Abgrenzung#1	distinction
+abschalten#1	to switch off
+abschalten#2	to unwind (relax)
+der Aufschwung#1	upturn (economic recovery)
+der Aufschwung#1	boom
+ausrichten#1	to align (orient; also: to pass on a message)
+ausrichten#1	to pass on
+der Ausschluss#1	exclusion
+der Ausschnitt#1	excerpt (cut-out; neckline)
+der Ausschnitt#1	extract
+die Aussprache#1	pronunciation
+aussteigen#1	to get off (a vehicle)
+aussteigen#1	to get out
+aussteigen#2	to drop out (quit)
+das Badezimmer#1	bathroom (common)
+die Beendigung#1	ending (completion)
+die Beendigung#1	termination
+befreundet#1	friends (with) (be friends with)
+begeistern#1	to inspire (fill with enthusiasm)
+begeistern#1	to enthuse
+beleidigen#1	to insult
+beleidigen#1	to offend
+bescheuert#1	stupid (informal: daft)
+bescheuert#1	daft
+bestreiten#1	to deny (dispute)
+bestreiten#1	to dispute
+bewältigen#1	to cope with (overcome)
+bewältigen#1	to overcome
+christlich#1	Christian
+der Darsteller#1	actor (performer of a role)
+der Darsteller#1	performer
+dramatisch#1	dramatic
+dramatisch#1	dramatically
+einbringen#1	to bring in (money; contribute, table)
+einbringen#1	to yield
+einrichten#1	to furnish (fit out)
+einrichten#1	to set up
+die Elektronik#1	electronics
+die Entlassung#1	dismissal (also: release from prison)
+die Entlassung#1	release
+die Ermittlung#1	investigation (inquiry; determination)
+die Erneuerung#1	renewal (renovation)
+die Erneuerung#1	renovation
+erschaffen#1	to create (from nothing, formal)
+die Erstellung#1	preparation (of a document)
+die Erstellung#1	drawing up
+der Erzbischof#1	archbishop
+etablieren#1	to establish (sich etablieren: become established)
+der Feierabend#1	end of the working day
+der Feierabend#1	knocking-off time
+gleichwohl#1	nevertheless (formal)
+die Gliederung#1	structure (outline of a text)
+die Gliederung#1	outline
+der Gouverneur#1	governor
+hinzufügen#1	to add
+der Kompromiss#1	compromise
+die Landstraße#1	country road (B-road)
+die Landstraße#1	B-road
+der Lebensraum#1	habitat (living space)
+der Lebensraum#1	living space
+menschlich#1	human (also: humane)
+der Millimeter#1	millimetre
+neuerdings#1	recently (lately)
+neuerdings#1	lately
+der Newsletter#1	newsletter
+qualitativ#1	qualitative
+qualitativ#1	in terms of quality
+reparieren#1	to repair (common)
+reparieren#1	to fix
+das Schauspiel#1	play (drama; also: spectacle)
+das Schauspiel#1	spectacle
+die Schließung#1	closure
+schwäbisch#1	Swabian
+die Sexualität#1	sexuality
+die Soziologie#1	sociology
+der Spielplatz#1	playground
+die Tankstelle#1	petrol station
+die Tankstelle#1	filling station
+unerwartet#1	unexpected
+unerwartet#1	unexpectedly
+unschuldig#1	innocent
+vereinzelt#1	isolated (sporadic)
+vereinzelt#1	sporadic
+verlängern#1	to extend (prolong, lengthen)
+verlängern#1	to prolong
+vernichten#1	to destroy (annihilate, exterminate)
+vernichten#1	to annihilate
+verringern#1	to reduce (lessen)
+verringern#1	to lessen
+versichern#1	to assure (also: to insure)
+versichern#1	to insure
+verstorben#1	deceased
+verstorben#1	late
+verstärken#1	to strengthen (reinforce, intensify)
+verstärken#1	to intensify
+vertreiben#1	to drive out (expel; also: to sell, distribute)
+vertreiben#1	to expel
+verweigern#1	to refuse (deny something to someone)
+das Wörterbuch#1	dictionary (common)
+übersetzen#1	to translate (also: to ferry across)
+überwachen#1	to monitor (keep under surveillance)
+überwachen#1	to supervise
+abschneiden#1	to cut off
+abschneiden#2	to do (gut abschneiden: to do well)
+analysieren#1	to analyse
+austauschen#1	to exchange
+austauschen#1	to replace
+die Beförderung#1	promotion
+die Beförderung#2	transport (conveyance)
+beschränken#1	to limit (restrict)
+beschränken#1	to restrict
+die Beurteilung#1	assessment (evaluation, appraisal)
+die Beurteilung#1	appraisal
+der Bundesstaat#1	federal state (federation)
+der Bundesstaat#2	state (of a federation: Texas)
+einzigartig#1	unique (exceptional)
+die Entspannung#1	relaxation
+die Entspannung#1	easing
+die Erforschung#1	exploration (study, research)
+fantastisch#1	fantastic (common)
+garantieren#1	to guarantee (common)
+die Gastronomie#1	catering (restaurant trade)
+die Gastronomie#1	gastronomy
+gegenwärtig#1	current (present; formal)
+gegenwärtig#1	at present
+der Gerichtshof#1	court of justice
+grundlegend#1	fundamental (thorough)
+grundlegend#1	fundamentally
+die Handschrift#1	handwriting
+die Handschrift#2	manuscript (old)
+die Hauptstraße#1	main road
+die Hauptstraße#1	main street
+die Heimatstadt#1	home town
+homosexuell#1	homosexual (neutral term)
+intelligent#1	intelligent (common)
+intelligent#1	clever
+korrigieren#1	to correct (a paper, a mistake)
+korrigieren#1	to mark
+die Kreditkarte#1	credit card
+musikalisch#1	musical
+der Naturschutz#1	nature conservation
+die Präsidentin#1	president (woman)
+die Psychiatrie#1	psychiatry (psychiatric ward)
+die Publikation#1	publication (scientific)
+realisieren#1	to carry out (realise a project; to realise, notice)
+realisieren#1	to implement
+die Renaissance#1	Renaissance
+die Renaissance#2	revival
+statistisch#1	statistical
+statistisch#1	statistically
+die Straßenbahn#1	tram
+stundenlang#1	for hours
+stundenlang#1	hours-long
+sympathisch#1	likeable (nice)
+sympathisch#1	nice
+der Terrorismus#1	terrorism
+die Todesstrafe#1	death penalty
+die Todesstrafe#1	capital punishment
+unterliegen#1	to be subject to
+unterliegen#2	to be defeated
+unzufrieden#1	dissatisfied
+unzufrieden#1	unhappy
+verarbeiten#1	to process (transform; come to terms with an emotion)
+die Verdächtige#1	suspect (woman)
+verwechseln#1	to confuse
+verwechseln#1	to mix up
+verzeichnen#1	to record (register)
+verzeichnen#1	to register
+vornehmlich#1	mainly (formal: principally)
+vornehmlich#1	principally
+vorschlagen#1	to suggest
+vorschlagen#1	to propose
+die Wirksamkeit#1	effectiveness (efficacy)
+die Wirksamkeit#1	efficacy
+zuverlässig#1	reliable
+die Überschrift#1	heading (title of an article, chapter)
+die Überschrift#1	headline
+überzeugend#1	convincing
+überzeugend#1	convincingly
+der Abgeordnete#1	member of parliament (MP)
+der Abgeordnete#1	deputy
+die Aufforderung#1	request (to do; summons)
+die Aufforderung#1	call
+ausschließen#1	to exclude
+ausschließen#1	to rule out
+die Ausstrahlung#1	broadcast (of a programme; also: charisma)
+die Ausstrahlung#1	charisma
+die Außenpolitik#1	foreign policy
+die Besonderheit#1	special feature (peculiarity, speciality)
+die Besonderheit#1	peculiarity
+die Bundesstraße#1	federal road (A-road)
+der Einzelhandel#1	retail trade
+der Einzelhandel#1	retail
+faszinierend#1	fascinating
+die Feststellung#1	observation (finding)
+die Feststellung#1	finding
+der Geheimdienst#1	secret service (intelligence)
+die Installation#1	installation (software, artwork)
+installieren#1	to install (software, device)
+die Inszenierung#1	production (staging of a play, an event)
+die Inszenierung#1	staging
+kommentieren#1	to comment on
+die Krankenkasse#1	health insurance fund
+der Lautsprecher#1	loudspeaker
+der Lautsprecher#1	speaker
+mehrheitlich#1	by a majority (mostly)
+mehrheitlich#1	majority
+der Niederschlag#1	precipitation (rain, snow)
+der Niederschlag#1	rainfall
+der Republikaner#1	republican
+der Umweltschutz#1	environmental protection
+die Unsicherheit#1	uncertainty
+die Unsicherheit#2	insecurity (lack of safety)
+unterrichten#1	to teach (give lessons; also: to inform)
+vermeintlich#1	supposed (wrongly)
+vermeintlich#1	alleged
+verschlossen#1	locked
+verschlossen#2	reserved (character)
+die Verschwörung#1	conspiracy
+die Verschwörung#1	plot
+die Verurteilung#1	conviction (sentencing; also: condemnation)
+die Verurteilung#1	condemnation
+die Verzweiflung#1	despair
+die Verzweiflung#1	desperation
+die Zivilisation#1	civilisation
+zwangsläufig#1	inevitable (forced)
+zwangsläufig#1	inevitably
+die Zwischenzeit#1	meantime (interval)
+die Zwischenzeit#1	interim
+die Argumentation#1	argumentation (line of reasoning)
+die Argumentation#1	reasoning
+ausnahmsweise#1	exceptionally (for once)
+ausnahmsweise#1	for once
+diesbezüglich#1	in this regard (regarding this)
+diesbezüglich#1	in this respect
+die Entschädigung#1	compensation (damages)
+fotografieren#1	to photograph
+fotografieren#1	to take a picture
+das Gleichgewicht#1	balance (common)
+das Gleichgewicht#1	equilibrium
+nebeneinander#1	side by side (next to each other)
+nebeneinander#1	next to each other
+die Unterdrückung#1	oppression (repression)
+die Unterdrückung#1	repression
+der Vizepräsident#1	vice-president
+die Fertigstellung#1	completion (of a construction)
+die Homosexualität#1	homosexuality
+die Lebensqualität#1	quality of life
+die Nachhaltigkeit#1	sustainability
+der Straßenverkehr#1	road traffic
+die Unterscheidung#1	distinction (differentiation)
+die Unterscheidung#1	differentiation
+der Generalsekretär#1	secretary general
+nachvollziehbar#1	understandable (easy to follow)
+nachvollziehbar#1	comprehensible
+der Sonnenuntergang#1	sunset
+verhältnismäßig#1	proportionate
+verhältnismäßig#1	relatively
+die Wahlbeteiligung#1	turnout (voter turnout)
+die Körperverletzung#1	bodily harm (assault)
+die Körperverletzung#1	assault
+zusammenarbeiten#1	to work together (collaborate)
+zusammenarbeiten#1	to cooperate
+das Selbstbewusstsein#1	self-confidence (self-assurance)
+der Migrationshintergrund#1	migrant background
+das Aa#1	poo (children's language)
+das Abc#1	ABC (alphabet)
+das Abc#1	alphabet
+das Abi#1	A levels (informal: school-leaving exam)
+aua#1	ouch (children's language)
+der Bon#1	receipt (ticket, voucher)
+der Bon#1	voucher
+der Bug#1	bug (software)
+das Dur#1	major (key)
+das Eck#1	corner (southern German, Austrian)
+das Kit#1	kit
+die Kur#1	cure (spa treatment)
+die Kur#1	health cure
+puh#1	phew (relief)
+der Ruß#1	soot
+der Adel#1	nobility
+der Adel#1	aristocracy
+das Atom#1	atom
+bang#1	anxious (afraid)
+bang#1	scared
+die Base#1	base (chemistry; dated: female cousin)
+der Biss#1	bite
+der Body#1	bodysuit (leotard, babygrow)
+der Boom#1	boom (common)
+die Bude#1	pad (informal: room)
+die Bude#2	stall (booth)
+der Damm#1	dyke (embankment)
+der Damm#1	embankment
+der Damm#2	dam
+das Deck#1	deck (of a ship)
+der Dieb#1	thief (common)
+die Ente#1	duck (also: hoax)
+das Exil#1	exile
+die Flut#1	high tide
+die Flut#2	flood (deluge)
+der Hase#1	hare
+die Hexe#1	witch
+das Huhn#1	chicken (general term)
+das Huhn#1	hen
+der Korn#1	schnapps (grain spirit)
+die Luke#1	hatch (trapdoor; skylight)
+die Luke#1	skylight
+die Lupe#1	magnifying glass
+der Mais#1	maize (sweetcorn)
+der Mais#1	corn
+das Mehl#1	flour
+die Mine#1	mine (explosive; pencil lead)
+das Moll#1	minor (key)
+der Neid#1	envy
+der Neid#1	jealousy
+der Pfad#1	path (narrow; computing: file path)
+der Pilz#1	mushroom
+der Pilz#1	fungus
+das Polo#1	polo
+die Qual#1	torment
+die Qual#1	agony
+der Raub#1	robbery (with violence)
+rauf#1	up (informal)
+der Reiz#1	appeal (attraction, charm)
+der Reiz#1	attraction
+der Reiz#2	stimulus
+das Seil#1	rope (thick; cable)
+das Seil#1	cable
+der Soul#1	soul (music)
+das Spam#1	spam
+der Spot#1	spot (advert; spotlight)
+das Tabu#1	taboo
+das Tuch#1	cloth (fabric; scarf, tea towel)
+die Tüte#1	bag (paper, plastic)
+die Tüte#1	packet
+das Vieh#1	livestock (cattle)
+das Vieh#1	cattle
+der Vogt#1	bailiff (reeve)
+das Watt#1	mudflats (also: watt, unit)
+die Wehr#1	defence (formal)
+der Wurf#1	throw
+der Wurf#2	litter (of animals)
+der Acker#1	field (ploughed)
+alias#1	alias
+die Allee#1	avenue (tree-lined)
+der Anker#1	anchor
+antun#1	to do (harm) to (inflict)
+die Blüte#1	blossom (bloom; flowering)
+die Blüte#1	flower
+der Dampf#1	steam
+das Depot#1	depot
+der Draht#1	wire
+die Droge#1	drug (narcotic)
+der Durst#1	thirst
+der Döner#1	kebab (doner)
+die Eiche#1	oak
+eiern#1	to wobble (wheel; informal: dither)
+der Eimer#1	bucket
+der Essay#1	essay (literary)
+die Etage#1	floor (storey)
+die Etage#1	storey
+das Flair#1	flair (atmosphere of a place)
+das Flair#1	atmosphere
+der Flyer#1	flyer (leaflet)
+der Flyer#1	leaflet
+frech#1	cheeky
+frech#1	impudent
+der Frust#1	frustration
+die Fähre#1	ferry
+fügen#1	to join (fit together)
+das Gleis#1	track (railway; platform number)
+das Gleis#1	platform
+der Guide#1	guide (anglicism: book, person)
+der Götze#1	idol (false god)
+der Hebel#1	lever
+der Hesse#1	Hessian (from Hesse)
+die Härte#1	hardness
+die Härte#1	severity
+der Hörer#1	listener (also: telephone receiver)
+der Hörer#1	receiver
+die Hürde#1	hurdle (sport; obstacle)
+die Hürde#1	obstacle
+jeher#1	always (seit jeher: since time immemorial)
+der Joint#1	joint (spliff)
+der Jubel#1	rejoicing (cheering)
+der Jubel#1	cheering
+die Kante#1	edge (sharp edge)
+das Karma#1	karma
+die Kehle#1	throat (gullet)
+der Knall#1	bang
+kraus#1	frizzy (curly)
+kraus#1	curly
+der Käfer#1	beetle
+die Leine#1	lead (leash)
+die Leine#2	washing line
+das Limit#1	limit (anglicism)
+die Lobby#1	lobby (interest group)
+loben#1	to praise (common)
+das Lotto#1	lottery
+die Lunge#1	lung
+die Lyrik#1	poetry (lyric)
+das Manga#1	manga
+die Milde#1	leniency (clemency)
+die Milde#1	clemency
+das Mädel#1	girl (lass, informal)
+das Mädel#1	lass
+die Nadel#1	needle
+die Nadel#2	pin
+die Optik#1	optics (science; look)
+die Optik#1	appearance
+parat#1	ready (at hand)
+der Penny#1	penny
+der Pfeil#1	arrow
+die Pille#1	pill
+das Poker#1	poker
+prost#1	cheers
+die Puppe#1	doll
+die Revue#1	revue (variety show)
+das Ruder#1	oar (rudder, helm)
+das Ruder#1	rudder
+rügen#1	to reprimand
+rügen#1	to rebuke
+solar#1	solar
+steil#1	steep
+der Syrer#1	Syrian
+die Säule#1	column (pillar)
+die Säule#1	pillar
+der Tarif#1	tariff (rate; collective wage agreement)
+der Tarif#1	rate
+der Teich#1	pond
+der Tenor#1	tenor
+die Tonne#1	barrel (also: tonne; bin)
+die Tonne#1	tonne
+trans#1	trans
+der Trieb#1	drive (instinct, urge)
+der Trieb#1	instinct
+der Trieb#2	shoot (plant)
+die Waage#1	scales
+die Werft#1	shipyard
+die Wolke#1	cloud (in the sky)
+der Zweig#1	branch (twig)
+der Zweig#1	twig
+der Abgang#1	exit (departure)
+der Abgang#1	departure
+der Abriss#1	demolition (common)
+die Absage#1	cancellation (refusal)
+die Absage#1	rejection
+der Anstoß#1	kick-off (football; also: impetus)
+der Anstoß#1	impetus
+der Aufzug#1	lift (elevator)
+der Aufzug#1	elevator
+der Ausweg#1	way out (escape)
+der Ausweg#1	solution
+der Balken#1	beam (wooden)
+der Beutel#1	bag (pouch)
+der Beutel#1	pouch
+clever#1	clever (smart, resourceful)
+clever#1	smart
+der Cousin#1	cousin (man)
+die Domain#1	domain (internet)
+ebenda#1	ibid. (in the same place)
+empört#1	indignant
+empört#1	outraged
+die Epoche#1	epoch (historical period)
+die Epoche#1	era
+die Etappe#1	stage (leg)
+die Etappe#1	leg
+falten#1	to fold (common)
+die Fliege#1	fly (insect)
+formal#1	formal (procedural)
+die Frisur#1	hairstyle
+die Frisur#1	haircut
+der Frosch#1	frog
+die Frucht#1	fruit (a fruit; result)
+die Gattin#1	wife (formal)
+die Geisel#1	hostage
+das Gender#1	gender (social)
+das Gitter#1	bars (grille, grating)
+das Gitter#1	grating
+die Gräfin#1	countess
+die Göttin#1	goddess
+hacken#1	to chop (hack, split)
+hallen#1	to echo (resound)
+hallen#1	to resound
+die Heirat#1	marriage (getting married)
+der Henkel#1	handle (of a cup, a basket)
+der Hirsch#1	stag (deer)
+der Hirsch#1	deer
+der Husten#1	cough
+husten#1	to cough
+der Jurist#1	lawyer (legal expert)
+der Jurist#1	jurist
+der Kessel#1	boiler
+der Kessel#2	cauldron (kettle)
+die Kiefer#1	pine
+kippen#1	to tip (tilt, topple)
+kippen#1	to tilt
+kleben#1	to stick
+kleben#1	to glue
+die Klinge#1	blade
+der Knappe#1	squire
+die Kneipe#1	pub (bar)
+die Kneipe#1	bar
+der Kragen#1	collar
+der Kummer#1	grief (sorrow, worry)
+der Kummer#1	sorrow
+kühlen#1	to cool (chill)
+kühlen#1	to chill
+der Lappen#1	cloth (rag)
+der Lappen#1	rag
+lehnen#1	to lean
+leihen#1	to lend (also: to borrow)
+leihen#1	to borrow
+lohnen#1	to be worth it (sich lohnen)
+lohnen#2	to reward
+der Löffel#1	spoon
+die Matrix#1	matrix
+der Maurer#1	bricklayer
+der Maurer#1	mason
+munter#1	lively (cheerful, wide awake)
+munter#1	cheerful
+mühsam#1	laborious (tedious)
+mühsam#1	tedious
+nimmer#1	never (regional: no longer)
+der Notruf#1	emergency call
+der Ordner#1	binder (file)
+der Ordner#2	folder (computing)
+das Passiv#1	passive (grammar)
+das Patent#1	patent
+perlen#1	to sparkle (bubble; form beads)
+perlen#1	to bubble
+die Pfanne#1	frying pan
+die Pfanne#1	pan
+die Poesie#1	poetry (also figurative)
+das Pulver#1	powder
+der Rausch#1	intoxication (high; frenzy)
+der Rausch#1	frenzy
+der Redner#1	speaker (orator)
+der Redner#1	orator
+der Rektor#1	head teacher
+der Rektor#2	rector (university)
+das Revier#1	territory (of an animal; police station)
+das Revier#1	district
+der Router#1	router
+rühren#1	to stir
+rühren#2	to move (emotionally)
+der Sattel#1	saddle
+saufen#1	to drink (animals; vulgar: to booze)
+saufen#1	to booze
+das Schema#1	scheme (diagram, pattern)
+das Schema#1	pattern
+die Schere#1	scissors
+der Schirm#1	umbrella
+segeln#1	to sail
+der Sessel#1	armchair
+die Spalte#1	column (of text)
+die Spalte#2	crack (crevice)
+das Sperma#1	sperm (semen)
+das Sperma#1	semen
+die Sperre#1	barrier (block)
+die Sperre#2	ban (suspension, sport)
+die Stange#1	pole (rod, bar)
+die Stange#1	rod
+die Statue#1	statue
+der Suizid#1	suicide (medical, recommended term)
+tafeln#1	to feast (formal)
+der Tausch#1	exchange (swap)
+der Tausch#1	swap
+tippen#1	to type
+tippen#2	to bet on (predict)
+das Trauma#1	trauma
+der Turner#1	gymnast
+der Tänzer#1	dancer
+die Tötung#1	killing (homicide)
+das Umland#1	surrounding area (of a city)
+unfair#1	unfair (common)
+die Unruhe#1	unrest (agitation)
+die Unruhe#2	anxiety (worry)
+das Visier#1	visor
+wachen#1	to keep watch (stay awake, watch over)
+das Wappen#1	coat of arms
+der Wecker#1	alarm clock
+die Weiche#1	points (railway switch)
+weiden#1	to graze (animals)
+der Weizen#1	wheat
+die Wurzel#1	root
+zögern#1	to hesitate
+der Abgrund#1	abyss
+ablegen#1	to put down (take off, file)
+ablegen#2	to take (an exam)
+absagen#1	to cancel (call off)
+absagen#1	to call off
+der Admiral#1	admiral
+allemal#1	easily (in any case)
+allemal#1	any day
+der Anstand#1	decency (manners)
+der Anstand#1	propriety
+der Appetit#1	appetite
+das Atelier#1	studio (artist's)
+die Ausrede#1	excuse (pretext)
+der Beamte#1	civil servant
+der Beamte#1	official
+checken#1	to check (informal; also: to get it)
+die Cousine#1	cousin (woman)
+derweil#1	meanwhile (informal)
+das Dilemma#1	dilemma
+das Dreieck#1	triangle
+dreißig#1	thirty
+die Drohung#1	threat (threatening words)
+dämlich#1	stupid (informal: dumb)
+dämlich#1	dumb
+eiskalt#1	ice-cold
+eiskalt#1	freezing
+elegant#1	elegant
+erholen#1	to recover (sich erholen)
+erholen#1	to rest
+die Feuchte#1	moisture (technical: air, soil)
+der Friseur#1	hairdresser
+der Friseur#1	barber
+füttern#1	to feed (animal, baby)
+gelehrt#1	learned (scholarly)
+genügen#1	to suffice (be enough)
+genügen#1	to be enough
+das Getränk#1	drink
+das Getränk#1	beverage
+grausam#1	cruel
+die Haftung#1	liability (legal)
+hindern#1	to prevent (hinder)
+hindern#1	to stop
+hungrig#1	hungry
+die Hygiene#1	hygiene
+die Impfung#1	vaccination
+der Insider#1	insider
+der Kellner#1	waiter (common)
+knacken#1	to crack (break; a code)
+die Kolonie#1	colony
+der Konsens#1	consensus
+die Landung#1	landing
+die Landung#2	landing (troops: amphibious)
+die Lektüre#1	reading (reading matter)
+die Lektüre#1	reading matter
+leugnen#1	to deny (the obvious, a wrongdoing)
+das Lexikon#1	encyclopedia
+das Lexikon#2	dictionary (lexicon)
+machbar#1	feasible
+machbar#1	doable
+die Massage#1	massage
+das Meeting#1	meeting (anglicism, business)
+das Merkmal#1	feature (characteristic, trait)
+das Merkmal#1	trait
+das Minimum#1	minimum
+die Montage#1	assembly (installation; editing)
+die Montage#1	installation
+montags#1	on Mondays
+die Neigung#1	inclination (tendency)
+die Neigung#2	slope (incline)
+die Neugier#1	curiosity
+die Neuzeit#1	modern era (modern times)
+die Neuzeit#1	modern times
+die Passage#1	passage (text)
+die Passage#2	arcade (shopping)
+der Pfeffer#1	pepper
+pfeifen#1	to whistle
+platzen#1	to burst
+populär#1	popular (well-liked)
+die Predigt#1	sermon
+präzise#1	precise
+präzise#1	precisely
+die Rendite#1	return (yield)
+die Rendite#1	yield
+die Routine#1	routine
+die Satzung#1	statutes (articles of association)
+die Satzung#1	constitution
+die Schiene#1	rail
+schlank#1	slim (slender)
+schlank#1	slender
+der Schluck#1	sip (gulp)
+der Schluck#1	mouthful
+der Schnaps#1	schnapps (spirits)
+der Schweiß#1	sweat
+der Schütze#1	marksman (shooter)
+der Schütze#1	shooter
+sechste#1	sixth
+das Segment#1	segment
+spalten#1	to split
+die Spezies#1	species
+spinnen#1	to spin (wool; informal: to be crazy)
+spürbar#1	noticeable (perceptible, marked)
+spürbar#1	perceptible
+staunen#1	to be amazed
+staunen#1	to marvel
+stechen#1	to sting (bite; stab)
+stechen#1	to stab
+stehlen#1	to steal (common)
+der Stempel#1	stamp (rubber stamp)
+der Streich#1	prank (trick)
+der Streich#1	trick
+die Teilung#1	division (partition of a country)
+die Teilung#1	partition
+der Triumph#1	triumph
+der Trottel#1	idiot (moron)
+der Trottel#1	moron
+unfähig#1	incapable (incompetent)
+unfähig#1	incompetent
+versaut#1	dirty (informal: smutty)
+versaut#1	smutty
+der Verstoß#1	violation (infringement)
+der Verstoß#1	infringement
+der Verweis#1	reference (cross-reference; also: reprimand)
+der Verweis#1	reprimand
+viermal#1	four times
+der Vierte#1	fourth (person)
+der Vorhang#1	curtain
+der Vorname#1	first name
+das Vorwort#1	preface (foreword)
+das Vorwort#1	foreword
+vorüber#1	over (formal: past)
+der Western#1	western
+der Wohnort#1	place of residence (where one lives)
+zimmern#1	to build (in wood)
+zittern#1	to tremble (shiver)
+zittern#1	to shiver
+der Zuhörer#1	listener (common)
+die Zunahme#1	increase (growth)
+der Zuwachs#1	growth (increase; addition to the family)
+abermals#1	once again (rather formal)
+abhängen#1	to depend
+abziehen#1	to remove (withdraw; pull off)
+abziehen#1	to withdraw
+abziehen#2	to deduct
+anfassen#1	to touch (with the hand)
+der Anwohner#1	resident (local)
+das Arabisch#1	Arabic (the language)
+arabisch#1	Arab (Arabic)
+arabisch#1	Arabic
+das Attentat#1	assassination attempt (political attack)
+aufheben#1	to pick up (also: to keep, to lift)
+auflösen#1	to dissolve
+auflösen#2	to solve (resolve)
+aufsehen#1	to look up (raise one's eyes)
+ausbauen#1	to extend (expand)
+ausbauen#2	to remove (dismantle)
+der Auslöser#1	trigger (cause)
+ausreden#1	to finish speaking
+ausreden#2	to talk out of (dissuade)
+der Ausstieg#1	exit (getting off; phasing out)
+der Ausstieg#1	phase-out
+auswärts#1	away (from home; sport)
+auswärts#1	out
+basieren#1	to be based on
+bedauern#1	to regret
+bedauern#2	to feel sorry for (pity)
+der Beitritt#1	accession (joining)
+der Beitritt#1	joining
+beklagen#1	to deplore (sich beklagen: to complain)
+beklagen#1	to lament
+benennen#1	to name (give a name to)
+der Bergmann#1	miner (mineworker)
+besiegen#1	to defeat
+besiegen#1	to beat
+der Betreuer#1	carer (supervisor, tutor)
+der Betreuer#1	supervisor
+der Betrüger#1	fraudster (con man)
+der Betrüger#1	con man
+billigen#1	to approve (endorse)
+billigen#1	to sanction
+blättern#1	to leaf through
+die Brauerei#1	brewery
+die Bäckerei#1	bakery
+das Darlehen#1	loan (common)
+dermaßen#1	so (to such an extent)
+dermaßen#1	to such an extent
+die Dichtung#1	poetry (literature)
+die Dichtung#2	seal (gasket)
+durchweg#1	without exception (throughout)
+durchweg#1	consistently
+einmalig#1	unique (one-off)
+einmalig#1	one-off
+die Einnahme#1	income (receipts; taking medication)
+die Einnahme#1	receipts
+ekelhaft#1	disgusting (repulsive)
+ekelhaft#1	repulsive
+erfinden#1	to invent
+erfinden#1	to make up
+der Erfinder#1	inventor
+erfreuen#1	to delight (please)
+erfreuen#1	to please
+erlernen#1	to learn (acquire fully: a trade, a language)
+erteilen#1	to give (grant: the floor, permission, lessons)
+erteilen#1	to grant
+erweisen#1	to do (a favour)
+erweisen#2	to prove (sich erweisen als: to turn out to be)
+der Erzieher#1	educator (nursery teacher)
+der Erzähler#1	narrator
+die Fahrbahn#1	carriageway (roadway)
+faktisch#1	actual (in fact)
+faktisch#1	de facto
+fertigen#1	to manufacture (produce in a workshop)
+flexibel#1	flexible
+freitags#1	on Fridays
+die Frequenz#1	frequency (physics, radio)
+geachtet#1	respected (esteemed)
+geachtet#1	esteemed
+gestehen#1	to confess
+das Getreide#1	cereals (grain)
+das Getreide#1	grain
+das Gewitter#1	thunderstorm
+das Gewässer#1	body of water (waters)
+das Gewässer#1	waters
+gruselig#1	creepy (spooky)
+gruselig#1	spooky
+das Halbjahr#1	half-year (school term)
+das Handtuch#1	towel
+die Historie#1	history (formal)
+die Invasion#1	invasion
+der Investor#1	investor (financing a project)
+ironisch#1	ironic
+klammern#1	to staple (clip)
+klammern#2	to cling (sich klammern an)
+der Kontrast#1	contrast (common)
+das Kopftuch#1	headscarf
+kopieren#1	to copy
+die Laufbahn#1	career
+die Laufbahn#2	track (running track; trajectory)
+das Lehrbuch#1	textbook
+der Leutnant#1	lieutenant
+der Liebling#1	darling
+der Liebling#2	favourite
+losgehen#1	to set off (leave)
+losgehen#2	to start (informal)
+das Massaker#1	massacre
+die Mehrzahl#1	plural (grammar)
+die Mehrzahl#2	majority
+meistern#1	to master (cope with)
+das Männchen#1	male (animal)
+das Männchen#2	little man (figure)
+der Nachlass#1	estate (of a deceased person)
+der Nachlass#2	discount (reduction)
+neidisch#1	envious
+neidisch#1	jealous
+notfalls#1	if need be
+der Orgasmus#1	orgasm
+der Prediger#1	preacher
+das Regiment#1	regiment
+reinigen#1	to clean (formal, professional)
+reinigen#1	to cleanse
+religiös#1	religious
+die Resonanz#1	resonance (response)
+die Resonanz#1	response
+die Rhetorik#1	rhetoric
+samstags#1	on Saturdays
+der Schalter#1	counter (ticket office)
+der Schalter#2	switch
+der Schlager#1	hit (popular song, Schlager)
+der Schlager#1	pop song
+der Schuppen#1	shed
+der Schuster#1	shoemaker (cobbler)
+der Schuster#1	cobbler
+die Schüssel#1	bowl
+strafbar#1	punishable (criminal offence)
+die Straftat#1	criminal offence
+die Teilzeit#1	part-time
+der Terminal#1	terminal
+trocknen#1	to dry
+täuschen#1	to deceive (sich täuschen: to be mistaken)
+umziehen#1	to move (house; also: to get changed)
+die Unschuld#1	innocence
+der Verleger#1	publisher (the person)
+die Vorrunde#1	first round (group stage)
+die Vorrunde#1	group stage
+der Wanderer#1	hiker
+das Weibchen#1	female (animal)
+zutiefst#1	deeply (profoundly)
+zutiefst#1	profoundly
+die Ästhetik#1	aesthetics
+die Äußerung#1	statement (remark)
+die Äußerung#1	comment
+die Ökonomie#1	economics (economic science)
+überdies#1	moreover (formal)
+überdies#1	furthermore
+abbrechen#1	to break off (interrupt)
+abbrechen#2	to break (snap off)
+die Abkürzung#1	abbreviation
+die Abkürzung#2	shortcut
+die Anbindung#1	connection (transport link)
+die Anbindung#1	link
+andauernd#1	constant (continual, ongoing)
+andauernd#1	constantly
+die Anweisung#1	instruction (order)
+die Anweisung#1	direction
+der Apotheker#1	pharmacist (chemist)
+der Aufkleber#1	sticker
+aufklären#1	to clear up (solve)
+aufklären#2	to inform (enlighten)
+aufräumen#1	to tidy up
+aufwendig#1	elaborate
+aufwendig#2	costly (expensive)
+ausfüllen#1	to fill in (a form)
+auswendig#1	by heart
+auswirken#1	to have an effect (on)
+auswählen#1	to select (choose from)
+ausziehen#1	to take off (clothes)
+ausziehen#2	to move out
+die Badewanne#1	bathtub (common)
+die Badewanne#1	bath
+der Bauernhof#1	farm
+bedeutend#1	important (significant, eminent)
+bedeutend#1	significant
+die Bedienung#1	service
+die Bedienung#2	waitress
+die Begrüßung#1	greeting (welcome)
+die Begrüßung#1	welcome
+die Berührung#1	touch (physical contact)
+die Berührung#1	contact
+bestrafen#1	to punish (common)
+bewaffnet#1	armed
+bewundern#1	to admire
+bisweilen#1	at times (literary)
+der Blutdruck#1	blood pressure
+die Chirurgie#1	surgery
+die Differenz#1	difference (in figures; disagreement)
+drastisch#1	drastic
+der Durchgang#1	passage (way through; round of voting)
+effizient#1	efficient
+effizient#1	efficiently
+einhalten#1	to comply with (rule, deadline)
+einhalten#1	to meet
+eintragen#1	to enter (in a list)
+eintragen#1	to register
+einziehen#1	to move in (also: to collect)
+entfallen#1	to be dropped (cancelled)
+entfallen#2	to slip one's mind
+entfalten#1	to unfold (develop; sich entfalten: flourish)
+entfalten#1	to develop
+die Erfassung#1	recording (data entry; census)
+die Erfassung#1	registration
+erfordern#1	to require (call for)
+erfordern#1	to call for
+erläutern#1	to explain (in detail; formal)
+die Ermordung#1	assassination (murder of a public figure)
+die Erwartung#1	expectation
+festlegen#1	to set (fix, determine)
+festlegen#1	to fix
+die Festnahme#1	arrest (detention)
+der Freistaat#1	Free State (title: Bavaria, Saxony)
+das Fundament#1	foundation (of a building)
+der Gläubiger#1	creditor
+der Gläubiger#2	believer
+herkommen#1	to come from (originate)
+das Hindernis#1	obstacle (common)
+hinnehmen#1	to accept (put up with)
+hinnehmen#1	to put up with
+die Immobilie#1	property (real estate)
+die Inklusion#1	inclusion
+die Inschrift#1	inscription (engraved)
+die Insolvenz#1	insolvency (bankruptcy)
+die Insolvenz#1	bankruptcy
+inwiefern#1	to what extent
+der Jahrestag#1	anniversary (of an event)
+das Japanisch#1	Japanese (the language)
+japanisch#1	Japanese
+der Knoblauch#1	garlic
+der Komponist#1	composer
+das Kraftwerk#1	power station
+das Kraftwerk#1	power plant
+das Kriterium#1	criterion
+das Kunstwerk#1	work of art
+die Luftwaffe#1	air force
+markieren#1	to mark (highlight)
+markieren#1	to highlight
+das Mitgefühl#1	sympathy (compassion)
+das Mitgefühl#1	compassion
+mithalten#1	to keep up
+moralisch#1	moral
+moralisch#1	morally
+die Nachbarin#1	neighbour (woman)
+die Offenheit#1	openness (open-mindedness; frankness)
+die Offenheit#1	frankness
+der Parameter#1	parameter
+der Parteitag#1	party conference
+die Patientin#1	patient (woman)
+der Philosoph#1	philosopher
+der Produzent#1	producer (film, music; agriculture)
+die Promotion#1	doctorate (PhD)
+die Pädagogik#1	education (pedagogy)
+die Pädagogik#1	pedagogy
+die Reduktion#1	reduction (technical, chemistry)
+die Reparatur#1	repair
+riskieren#1	to risk (common)
+der Rollstuhl#1	wheelchair
+der Schilling#1	shilling
+schlucken#1	to swallow
+schmeißen#1	to chuck (informal: throw)
+schmeißen#1	to fling
+schrauben#1	to screw
+schwitzen#1	to sweat
+schwitzen#1	to perspire
+die Schülerin#1	pupil (girl)
+die Schülerin#1	schoolgirl
+schütteln#1	to shake
+das Sortiment#1	range (assortment)
+das Sortiment#1	assortment
+der Spielraum#1	room for manoeuvre (leeway)
+der Spielraum#1	leeway
+die Studentin#1	student (woman)
+die Sympathie#1	sympathy (liking)
+die Sympathie#1	liking
+der Südwesten#1	south-west
+ungerecht#1	unjust
+ungerecht#1	unfair
+das Vaterland#1	fatherland (patriotic connotation)
+verborgen#1	hidden (concealed)
+verborgen#1	concealed
+verderben#1	to spoil (ruin)
+verderben#1	to ruin
+verderben#2	to go off (food)
+verfallen#1	to decay (fall into disrepair)
+verfallen#2	to expire (ticket, deadline)
+versetzen#1	to move (transfer; stand someone up)
+versetzen#1	to transfer
+vertragen#1	to tolerate (food: be able to take)
+vertragen#1	to stand
+die Vorlesung#1	lecture (university)
+vorrangig#1	priority (first and foremost)
+vorrangig#1	as a priority
+der Wahlkreis#1	constituency
+wegnehmen#1	to take away (from someone)
+zuschauen#1	to watch (be a spectator)
+ärgerlich#1	annoying (irritating)
+ärgerlich#2	annoyed (cross)
+abgelaufen#1	expired
+abschaffen#1	to abolish
+abschaffen#1	to do away with
+anderthalb#1	one and a half (slightly dated)
+anerkennen#1	to recognise (officially)
+anerkennen#2	to acknowledge (appreciate)
+die Angeklagte#1	defendant (woman)
+die Annäherung#1	rapprochement (coming together)
+die Annäherung#1	approach
+arbeitslos#1	unemployed
+die Aufteilung#1	division (sharing out)
+die Aufteilung#1	distribution
+die Ausbeutung#1	exploitation (of people)
+ausdrucken#1	to print out
+ausgeprägt#1	pronounced (marked)
+ausgeprägt#1	marked
+ausreichen#1	to be sufficient (in quantity)
+ausweichen#1	to avoid (dodge, evade)
+ausweichen#1	to dodge
+beibringen#1	to teach (someone; also: to provide)
+das Bekenntnis#1	confession (admission)
+das Bekenntnis#2	profession of faith (commitment)
+beschaffen#1	to obtain (procure)
+beschaffen#1	to get hold of
+bescheiden#1	modest
+bescheiden#1	humble
+beschissen#1	shitty (vulgar)
+der Bestseller#1	bestseller
+betreffend#1	concerned (in question)
+betreffend#1	relevant
+bevorzugen#1	to prefer
+das Chinesisch#1	Chinese (the language)
+chinesisch#1	Chinese
+die Delegation#1	delegation
+durchgehen#1	to go through (review)
+durchgehen#2	to get through (pass)
+der Einbrecher#1	burglar
+eindringen#1	to penetrate (break in, intrude)
+eindringen#1	to break into
+die Einsamkeit#1	loneliness (solitude)
+die Einsamkeit#1	solitude
+einstimmig#1	unanimous
+einstimmig#1	unanimously
+eintreffen#1	to arrive (formal: official, announcements)
+die Entlastung#1	relief (easing a burden)
+der Entschluss#1	decision (personal resolution)
+der Entschluss#1	resolution
+erschießen#1	to shoot dead
+die Expedition#1	expedition
+der Feminismus#1	feminism
+die Festplatte#1	hard disk (hard drive)
+die Festplatte#1	hard drive
+fortsetzen#1	to continue (carry on)
+fortsetzen#1	to resume
+die Gefährdung#1	endangering (threat, risk)
+die Gefährdung#1	threat
+die Geldstrafe#1	fine (court penalty)
+das Griechisch#1	Greek (the language)
+griechisch#1	Greek
+die Gültigkeit#1	validity (common)
+der Haftbefehl#1	arrest warrant
+die Handtasche#1	handbag
+das Individuum#1	individual
+die Intensität#1	intensity
+die Kleinstadt#1	small town
+die Kollektion#1	collection (fashion)
+das Kompliment#1	compliment
+die Komponente#1	component (technical)
+die Konzeption#1	conception (design of a project)
+die Konzeption#1	design
+die Kundgebung#1	rally (political)
+der Kunststoff#1	plastic (synthetic material)
+die Langeweile#1	boredom
+das Medikament#1	medicine (common)
+das Medikament#1	medication
+misstrauen#1	to distrust
+misstrauen#1	to mistrust
+mitspielen#1	to join in (play along)
+mitspielen#1	to play along
+das Mittelfeld#1	midfield
+nachfragen#1	to enquire (ask)
+nachfragen#2	to ask again
+die Prävention#1	prevention (medical, social)
+der Psychiater#1	psychiatrist
+die Realschule#1	secondary school (intermediate, in Germany)
+das Referendum#1	referendum
+regelrecht#1	real (proper; downright)
+regelrecht#1	downright
+das Repertoire#1	repertoire (of an artist)
+reserviert#1	reserved (seat; character)
+die Resolution#1	resolution (motion adopted)
+romantisch#1	romantic
+schlachten#1	to slaughter (livestock)
+die Schwangere#1	pregnant woman
+das Schwimmbad#1	swimming pool (public)
+das Schwimmbad#1	pool
+schüchtern#1	shy
+die Sichtweise#1	way of seeing (perspective)
+die Sichtweise#1	perspective
+der Stillstand#1	standstill (stagnation)
+der Stillstand#1	stagnation
+die Umwandlung#1	conversion (transformation)
+die Umwandlung#1	transformation
+unsichtbar#1	invisible
+der Untertitel#1	subtitle
+verarschen#1	to take the piss (vulgar)
+verdächtig#1	suspicious
+vergrößern#1	to enlarge (photo, shop)
+vergrößern#1	to expand
+die Verhaftung#1	arrest (on a warrant, into custody)
+die Verpackung#1	packaging
+die Verwirrung#1	confusion
+vielfältig#1	varied (diverse, many)
+vielfältig#1	diverse
+der Volleyball#1	volleyball
+die Vorschrift#1	regulation (rule, instruction)
+die Vorschrift#1	rule
+zweifellos#1	undoubtedly
+zweifellos#1	without a doubt
+die Abschiebung#1	deportation
+absolvieren#1	to complete (studies, training)
+andernfalls#1	otherwise (formal)
+aufgebracht#1	worked up (furious)
+aufgebracht#1	incensed
+ausschalten#1	to switch off (a device)
+ausschalten#1	to turn off
+ausscheiden#1	to be eliminated
+ausscheiden#2	to leave (a company)
+die Beauftragte#1	representative (woman: commissioner, delegate)
+die Beauftragte#1	commissioner
+beibehalten#1	to keep (maintain a habit, a rule)
+beibehalten#1	to retain
+die Beliebtheit#1	popularity
+beschließen#1	to decide (make a formal decision)
+beschließen#1	to resolve
+die Beseitigung#1	removal (elimination)
+die Beseitigung#1	elimination
+die Besprechung#1	meeting (work, discussion)
+der Briefkasten#1	letter box
+der Briefkasten#1	postbox
+die Dankbarkeit#1	gratitude
+einschalten#1	to switch on (a device)
+einschalten#1	to turn on
+einschlafen#1	to fall asleep
+der Einwanderer#1	immigrant
+empfindlich#1	sensitive (delicate, touchy)
+empfindlich#1	delicate
+ersichtlich#1	apparent (evident)
+ersichtlich#1	evident
+der Fachbereich#1	department (university)
+der Fachbereich#2	field (area of expertise)
+formulieren#1	to formulate (put into words)
+formulieren#1	to word
+gleichfalls#1	likewise (same to you)
+gleichfalls#1	the same to you
+gleichmäßig#1	even (regular)
+gleichmäßig#1	evenly
+gratulieren#1	to congratulate
+der Herzinfarkt#1	heart attack
+das Hilfsmittel#1	aid (tool, means)
+das Hilfsmittel#1	tool
+die Homöopathie#1	homeopathy
+die Inspiration#1	inspiration (creative)
+die Interaktion#1	interaction
+die Klimaanlage#1	air conditioning
+der Kommunismus#1	communism
+die Komplexität#1	complexity
+die Lebensweise#1	way of life (lifestyle)
+die Lebensweise#1	lifestyle
+militärisch#1	military
+der Mittelstand#1	SMEs (small and medium-sized businesses)
+der Mittelstand#2	middle class
+die Nominierung#1	nomination
+das Oktoberfest#1	Oktoberfest (Munich beer festival)
+die Politikerin#1	politician (woman)
+der Preisträger#1	prizewinner (laureate)
+der Preisträger#1	laureate
+das Privatleben#1	private life
+rassistisch#1	racist
+die Regulierung#1	regulation (state control)
+die Richtigkeit#1	correctness (accuracy)
+die Richtigkeit#1	accuracy
+der Sachverhalt#1	facts (of the case)
+der Sachverhalt#1	situation
+schmerzhaft#1	painful
+der Stellenwert#1	importance (relative value, status)
+der Stellenwert#1	status
+telefonisch#1	by telephone
+telefonisch#1	telephone
+das Territorium#1	territory (of a state)
+das Transparent#1	banner (placard)
+transparent#1	transparent
+das Trinkwasser#1	drinking water
+unterdessen#1	meanwhile (formal)
+die Unterwäsche#1	underwear
+die Vernichtung#1	destruction (annihilation)
+die Vernichtung#1	annihilation
+verurteilen#1	to sentence (convict; condemn)
+verurteilen#1	to condemn
+die Verzögerung#1	delay (common)
+der Wasserstoff#1	hydrogen
+zurückgehen#1	to go back (return)
+zurückgehen#2	to decline (go down)
+die Zuwanderung#1	immigration (neutral, administrative term)
+die Ähnlichkeit#1	similarity (resemblance)
+die Ähnlichkeit#1	resemblance
+das Achtelfinale#1	last sixteen (round of 16)
+der Aufsichtsrat#1	supervisory board
+der Auftraggeber#1	client (customer commissioning work)
+die Aufzeichnung#1	notes (written record; recording)
+die Aufzeichnung#1	recording
+ausgeglichen#1	balanced (even-tempered)
+ausgeglichen#1	even
+beeindrucken#1	to impress
+die Bereicherung#1	enrichment
+die Buchhandlung#1	bookshop
+die Buchhandlung#1	bookstore
+buchstäblich#1	literally (in the true sense)
+buchstäblich#1	literal
+demokratisch#1	democratic
+demokratisch#1	democratically
+die Einwanderung#1	immigration (settling permanently)
+erschreckend#1	frightening (alarming)
+erschreckend#1	alarming
+die Feuchtigkeit#1	humidity (moisture; common)
+die Feuchtigkeit#1	damp
+die Flexibilität#1	flexibility
+die Gesetzgebung#1	legislation
+die Intervention#1	intervention (military, political)
+kontaktieren#1	to contact
+die Manipulation#1	manipulation (influence; tampering)
+der Maschinenbau#1	mechanical engineering
+nacheinander#1	one after another (in succession)
+nacheinander#1	in succession
+nachweislich#1	demonstrably (provably)
+nachweislich#1	provably
+der Nationalpark#1	national park
+optimistisch#1	optimistic
+protestieren#1	to protest
+der Quadratmeter#1	square metre
+registrieren#1	to register
+registrieren#2	to notice (take note)
+respektieren#1	to respect (a person, a rule)
+der Schlaganfall#1	stroke (medical)
+die Souveränität#1	sovereignty
+der Staatsbürger#1	citizen (nationality)
+die Tagesordnung#1	agenda (of a meeting)
+unerträglich#1	unbearable
+unerträglich#1	intolerable
+unterhaltsam#1	entertaining
+unverzüglich#1	immediately (without delay)
+unverzüglich#1	without delay
+veranstalten#1	to organise (a public event)
+veranstalten#1	to hold
+verpflichten#1	to oblige (bind)
+verpflichten#2	to commit (sich verpflichten: undertake)
+der Wiederaufbau#1	reconstruction (rebuilding)
+der Wiederaufbau#1	rebuilding
+zurücktreten#1	to resign
+zurücktreten#2	to step back
+zurückziehen#1	to withdraw (retract; sich zurückziehen: retire)
+zurückziehen#1	to retract
+die Allgemeinheit#1	general public (community)
+die Allgemeinheit#1	community
+die Ausschreibung#1	invitation to tender (call for bids)
+die Ausschreibung#1	tender
+die Bekanntschaft#1	acquaintance (getting to know)
+beschleunigen#1	to accelerate
+beschleunigen#1	to speed up
+der Chefredakteur#1	editor-in-chief
+die Erleichterung#1	relief
+die Erleichterung#2	easing (alleviation)
+der Freundeskreis#1	circle of friends
+das Hauptquartier#1	headquarters (military, of an organisation)
+die Mitarbeiterin#1	employee (woman: colleague, staff member)
+die Muttersprache#1	mother tongue (native language)
+die Muttersprache#1	native language
+die Registrierung#1	registration (official)
+sicherstellen#1	to ensure (guarantee)
+sicherstellen#2	to seize (confiscate)
+die Unterbrechung#1	interruption (break)
+die Unterbringung#1	accommodation (housing of people)
+unterschätzen#1	to underestimate
+versehentlich#1	by mistake (inadvertently)
+versehentlich#1	inadvertently
+verwirklichen#1	to realise (a dream, a project)
+verwirklichen#1	to fulfil
+die Vorgeschichte#1	history (medical: background)
+die Vorgeschichte#1	background
+die Vorgeschichte#2	prehistory
+die Waschmaschine#1	washing machine
+weitestgehend#1	largely (to a very great extent)
+weitestgehend#1	almost entirely
+die Wertschätzung#1	esteem (appreciation)
+die Wertschätzung#1	appreciation
+die Zufriedenheit#1	satisfaction
+zurückgreifen#1	to fall back on (resort to)
+zurückgreifen#1	to resort to
+der Zusammenbruch#1	collapse
+der Zusammenbruch#2	breakdown (failure)
+zusammenleben#1	to live together
+überschreiten#1	to exceed (cross)
+überschreiten#1	to cross
+die Administration#1	administration (government, IT)
+das Betriebssystem#1	operating system
+die Dienstleistung#1	service (provision of a service)
+empfehlenswert#1	recommendable (advisable)
+empfehlenswert#1	worth recommending
+der Finanzminister#1	finance minister
+die Globalisierung#1	globalisation
+interpretieren#1	to interpret (a text, a role)
+die Leichtathletik#1	athletics
+die Menschlichkeit#1	humanity (kindness)
+die Modernisierung#1	modernisation
+das Nahrungsmittel#1	foodstuff (technical term)
+das Nahrungsmittel#1	food
+die Rechtfertigung#1	justification (defence of an act)
+der Regierungschef#1	head of government
+transportieren#1	to transport (common)
+unverständlich#1	incomprehensible (common)
+die Vorgehensweise#1	procedure (way of proceeding, approach)
+die Vorgehensweise#1	approach
+der Ansprechpartner#1	contact person
+ausschlaggebend#1	decisive (tipping the balance)
+außergewöhnlich#1	exceptional
+außergewöhnlich#1	unusual
+außerordentlich#1	extraordinary
+das Einkaufszentrum#1	shopping centre
+die Glaubwürdigkeit#1	credibility
+die Stadtverwaltung#1	city council (municipal administration)
+der Zusammenschluss#1	merger (union, amalgamation)
+der Zusammenschluss#1	union
+die Übereinstimmung#1	agreement (accordance)
+die Übereinstimmung#1	accordance
+die Geschäftsführung#1	management (of a company)
+das Gesundheitswesen#1	health service (healthcare system)
+die Krankenschwester#1	nurse (woman)
+das Bundesministerium#1	federal ministry
+die Wiederherstellung#1	restoration (re-establishment)
+die Wiederherstellung#1	recovery
+die Wiedervereinigung#1	reunification (common)
+die Gleichberechtigung#1	equal rights (equality)
+die Gleichberechtigung#1	equality
+die Staatsbürgerschaft#1	citizenship (nationality)
+die Arbeitsgemeinschaft#1	working group
+der Ast#1	branch (of a tree)
+die Aue#1	meadow (by a river)
+die Axt#1	axe
+der Eid#1	oath
+das Fax#1	fax
+der Gin#1	gin
+die Lok#1	locomotive (engine)
+die Lok#1	engine
+der Affe#1	monkey (ape)
+der Affe#1	ape
+das Blei#1	lead (metal)
+der Depp#1	idiot (southern German, informal)
+der Dorn#1	thorn
+die Eile#1	hurry (haste)
+die Eile#1	haste
+ergo#1	ergo (Latin, formal)
+der Fels#1	rock (stone)
+der Fink#1	finch
+der Floh#1	flea
+das Floß#1	raft
+das Gate#1	gate (airport)
+die Gier#1	greed
+der Kick#1	thrill (kick)
+der Kick#2	kick
+der Koks#1	coke (cocaine; also: coal coke)
+das Koma#1	coma
+der Krug#1	jug (pitcher)
+der Krug#1	pitcher
+kühn#1	bold (daring)
+kühn#1	daring
+der Lack#1	varnish (paint of a car; lacquer)
+der Lack#1	paint
+das Leck#1	leak
+der Lenz#1	spring (poetic)
+der Most#1	must (unfermented juice)
+die Naht#1	seam
+die Naht#2	suture (stitches)
+der Nerv#1	nerve (anatomy)
+die Rast#1	rest (break, stop)
+rege#1	lively (brisk)
+rege#1	active
+der Sekt#1	sparkling wine
+der Senf#1	mustard
+die Soße#1	sauce (gravy)
+die Soße#1	gravy
+der Teig#1	dough (batter, pastry)
+der Teig#1	pastry
+das Thai#1	Thai (the language)
+die Type#1	character (informal: odd person; printing type)
+der Urin#1	urine
+das Verb#1	verb
+der Vers#1	verse (line)
+das Volt#1	volt
+der Wurm#1	worm
+zart#1	tender (delicate)
+zart#1	delicate
+aalen#1	to laze (sich aalen: bask)
+aalen#1	to bask
+der Atlas#1	atlas
+blank#1	shiny (polished; informal: broke)
+blank#1	broke
+blond#1	blond
+der Boxer#1	boxer
+der Chili#1	chilli
+der Clown#1	clown
+die Creme#1	cream (cosmetic; dessert)
+der Dekan#1	dean
+eilig#1	urgent (in a hurry)
+eilig#1	hurried
+eklig#1	disgusting (informal: gross)
+eklig#1	gross
+die Feige#1	fig
+feige#1	cowardly
+die Garde#1	guard (elite troops)
+die Gasse#1	alley (lane)
+die Gasse#1	lane
+der Gummi#1	rubber
+der Gummi#2	rubber band (eraser)
+die Herde#1	herd (flock)
+die Herde#1	flock
+hurra#1	hooray
+die Hymne#1	anthem (hymn)
+die Hymne#1	hymn
+die Hüfte#1	hip
+der Joker#1	joker
+der Kakao#1	cocoa
+der Kakao#2	hot chocolate
+der Kamin#1	fireplace (chimney)
+der Kamin#1	chimney
+die Kerze#1	candle
+der Kiosk#1	kiosk (newsagent's)
+der Mönch#1	monk
+der Neffe#1	nephew
+der Neger#1	negro (racist term)
+das Piano#1	piano (dated)
+der Promi#1	celeb (informal)
+der Promi#1	VIP
+das Radar#1	radar
+der Schal#1	scarf
+die Scham#1	shame
+die Scham#2	modesty
+das Segel#1	sail
+die Seife#1	soap
+der Speck#1	bacon (lard)
+der Speck#2	flab (informal)
+das Stroh#1	straw
+stumm#1	mute (dumb, silent)
+stumm#1	silent
+der Sumpf#1	swamp (marsh)
+der Sumpf#1	marsh
+die Säure#1	acid
+die Taste#1	key (button)
+die Taste#1	button
+die Taube#1	pigeon (dove)
+die Taube#1	dove
+der Titan#1	titanium
+der Titan#2	titan
+die Torte#1	gateau (layered cream cake)
+die Torte#1	cake
+der Trank#1	potion (drink; formal)
+der Trank#1	draught
+der Treff#1	meeting place (informal: hangout)
+der Treff#1	hangout
+der Troll#1	troll
+die Wanne#1	bath (tub)
+die Wanne#2	tank (vat)
+wehen#1	to blow (wind)
+wehen#2	to flutter (flag)
+die Weste#1	waistcoat (vest)
+die Weste#1	vest
+worin#1	in what (wherein)
+die Zucht#1	breeding (rearing)
+die Zucht#2	discipline
+zügig#1	speedy (brisk, without dawdling)
+zügig#1	swiftly
+albern#1	silly (childish)
+albern#1	childish
+angeln#1	to fish (with a rod)
+der Anhieb#1	first go (auf Anhieb: straight away)
+die Ansage#1	announcement (over a microphone)
+der Appell#1	appeal (solemn call; military: roll call)
+der Appell#1	roll call
+die Avenue#1	avenue (wide street)
+die Banane#1	banana
+die Banane#2	banana tree
+beißen#1	to bite
+der Braten#1	roast
+braten#1	to fry (roast)
+braten#1	to roast
+die Bremse#1	brake
+brutto#1	gross (before deductions: pay, weight)
+der Bunker#1	bunker (shelter)
+der Butler#1	butler
+der Client#1	client (computing: program)
+das County#1	county (English-speaking)
+der Dealer#1	dealer (drugs)
+die Demenz#1	dementia
+die Drohne#1	drone (also: male bee)
+der Dynamo#1	dynamo
+das Erdgas#1	natural gas
+der Erlass#1	decree (ministerial; also: remission)
+ernten#1	to harvest
+ernten#1	to reap
+der Ertrag#1	yield (return, income)
+der Ertrag#1	return
+die Flamme#1	flame
+die Flanke#1	flank (side; football: cross)
+die Flanke#1	cross
+das Gewehr#1	rifle (gun)
+das Gewehr#1	gun
+die Grippe#1	flu (influenza)
+die Grippe#1	influenza
+der Gulden#1	guilder (florin)
+haften#1	to stick (adhere; also: to be liable)
+haften#1	to be liable
+das Heroin#1	heroin
+das Hockey#1	hockey
+hybrid#1	hybrid
+der Import#1	import
+der Impuls#1	impulse (stimulus)
+der Impuls#1	stimulus
+jawohl#1	yes (certainly; sir!)
+jawohl#1	certainly
+jüngst#1	recently (formal)
+der Kanten#1	crust (end of a loaf)
+der Karton#1	cardboard box (carton)
+der Karton#1	box
+das Kokain#1	cocaine (common)
+der Kosmos#1	cosmos
+der Kühler#1	radiator (car)
+der Laster#1	lorry (informal: truck)
+der Laster#1	truck
+der Lügner#1	liar
+der Makler#1	broker (estate agent)
+der Makler#1	estate agent
+der Marmor#1	marble
+meiden#1	to avoid (a person, a place)
+meiden#1	to shun
+mental#1	mental (psychological)
+mental#1	mentally
+das Milieu#1	milieu (social background; underworld)
+das Milieu#1	background
+morden#1	to murder (kill)
+der Muskel#1	muscle
+neigen#1	to tilt (lean)
+neigen#2	to tend (zu: to)
+die Nichte#1	niece
+nützen#1	to be of use
+nützen#1	to help
+die Parade#1	parade (march-past)
+die Parade#2	save (sport)
+die Police#1	insurance policy
+prompt#1	prompt
+prompt#1	promptly
+prägen#1	to shape (mark, influence)
+prägen#2	to mint (coins)
+die Psyche#1	psyche
+pumpen#1	to pump
+der Putsch#1	coup (putsch)
+der Putsch#1	putsch
+die Rallye#1	rally (motor)
+der Retter#1	rescuer (saviour)
+der Retter#1	saviour
+robben#1	to crawl (on elbows)
+die Rubrik#1	section (column, heading)
+die Rubrik#1	column
+saugen#1	to suck
+saugen#2	to vacuum (hoover)
+schmal#1	narrow (slim)
+schmal#1	slim
+seriös#1	respectable (reliable, honest)
+seriös#1	reputable
+der Simpel#1	simpleton (nitwit)
+simpel#1	simple (simplistic)
+der Sklave#1	slave
+der Stapel#1	pile (stack)
+der Stapel#1	stack
+der Storch#1	stork
+der Stumpf#1	stump (tree)
+der Stumpf#2	stump (limb)
+stumpf#1	blunt
+stumpf#2	dull
+der Sultan#1	sultan
+surfen#1	to surf
+der Switch#1	network switch
+tanken#1	to fill up (refuel)
+tanken#1	to refuel
+der Umlauf#1	circulation (money, documents)
+unweit#1	not far from (near)
+die Vagina#1	vagina
+der Verrat#1	betrayal (treason)
+der Verrat#1	treason
+der Vetter#1	cousin (dated)
+der Vulkan#1	volcano
+die Webcam#1	webcam
+der Whisky#1	whisky
+wiegen#1	to weigh (common)
+der Wirbel#1	whirl (whirlpool; fuss)
+der Wirbel#1	fuss
+würdig#1	worthy (dignified)
+würdig#1	dignified
+der Würfel#1	dice (die)
+der Würfel#2	cube
+der Zombie#1	zombie
+der Zyklus#1	cycle (common)
+abheben#1	to withdraw (money)
+abheben#2	to answer (the phone: pick up)
+abheben#3	to take off (plane)
+die Abnahme#1	decrease (decline)
+die Abnahme#2	acceptance (of work)
+die Abreise#1	departure (on a trip)
+der Apparat#1	device (telephone; apparatus)
+der Apparat#1	apparatus
+apropos#1	by the way (apropos)
+die Auktion#1	auction
+das Ballett#1	ballet
+der Bastard#1	bastard (common)
+begehrt#1	sought-after (coveted)
+begehrt#1	coveted
+beheben#1	to fix (remedy)
+beheben#1	to remedy
+das Beileid#1	condolences (sympathy)
+der Bergbau#1	mining (common)
+der Blogger#1	blogger
+der Brenner#1	burner
+dichten#1	to write poetry
+dichten#2	to seal (make watertight)
+dreckig#1	dirty (informal: filthy)
+dreckig#1	filthy
+der Ehrgeiz#1	ambition
+fesseln#1	to tie up (bind, chain)
+fesseln#1	to bind
+flirten#1	to flirt
+flüssig#1	liquid
+flüssig#2	fluently
+folgend#1	following
+das Freibad#1	open-air pool (lido)
+fünfzig#1	fifty
+gehoben#1	formal (language: elevated)
+gehoben#2	upmarket (high-level)
+die Geltung#1	validity
+die Geltung#2	effect (importance: zur Geltung kommen)
+der Genosse#1	comrade (political)
+die Hotline#1	hotline (helpline)
+die Hotline#1	helpline
+infrage#1	in question (into consideration)
+jammern#1	to moan (complain, wail)
+jammern#1	to whine
+der Joghurt#1	yoghurt
+die Kaserne#1	barracks
+die Klausur#1	written exam
+klopfen#1	to knock (at the door)
+die Klärung#1	clarification (common)
+die Kolumne#1	column (newspaper)
+das Komitee#1	committee (organising)
+kommend#1	coming (next)
+kommend#1	next
+kompakt#1	compact
+die Konsole#1	console (games; furniture)
+laufend#1	current (ongoing, continuous)
+laufend#1	ongoing
+liberal#1	liberal
+das Maximum#1	maximum
+meckern#1	to grumble (moan)
+meckern#1	to moan
+das Mobbing#1	bullying (harassment at work)
+der Neonazi#1	neo-Nazi
+die Novelle#1	novella (literary genre)
+nutzbar#1	usable (exploitable)
+der Pfleger#1	nurse (man: care worker)
+das Protein#1	protein
+das Pärchen#1	couple (of lovers)
+das Referat#1	presentation (talk, paper)
+das Referat#2	department (administrative)
+die Rüstung#1	armour
+die Rüstung#2	armament (arms)
+der Schacht#1	shaft (mine, lift)
+die Scheune#1	barn
+der Schlamm#1	mud
+der Schmutz#1	dirt (grime)
+schonen#1	to spare (go easy on, protect)
+schonen#1	to go easy on
+der Schreck#1	fright (sudden scare)
+die Senkung#1	reduction (of a rate, a price; lowering)
+die Senkung#1	lowering
+shoppen#1	to go shopping (informal)
+die Skepsis#1	scepticism
+der Spender#1	donor
+der Spender#2	dispenser (soap)
+starren#1	to stare
+stürmen#1	to storm
+stürmen#2	to rush (charge)
+das Synonym#1	synonym
+synonym#1	synonymous
+der Torwart#1	goalkeeper (common)
+der Torwart#1	goalie
+die Tournee#1	tour (artists)
+der Urheber#1	originator (author; copyright holder)
+der Urheber#1	author
+der Veganer#1	vegan (person)
+der Verfall#1	decline (decay)
+der Verfall#1	decay
+der Verfall#2	expiry
+vierzig#1	forty
+der Vorrang#1	priority (precedence)
+der Vorrang#1	precedence
+der Vorsatz#1	resolution (intention; law: premeditation)
+der Vorsatz#1	intent
+der Vorwand#1	pretext (excuse)
+die Wartung#1	maintenance (servicing)
+die Wartung#1	servicing
+weiters#1	furthermore (Austrian)
+das Wolfram#1	tungsten
+der Wächter#1	guard (watchman)
+der Wächter#1	watchman
+zulegen#1	to increase (put on)
+zulegen#2	to get oneself (sich etwas zulegen)
+der Zutritt#1	access (right of entry)
+der Zutritt#1	admission
+ablenken#1	to distract (divert)
+ablenken#1	to divert
+der Abschaum#1	scum (dregs)
+die Anatomie#1	anatomy
+das Andenken#1	souvenir (keepsake; memory of the deceased)
+das Andenken#1	memory
+die Anhörung#1	hearing (official)
+die Anregung#1	suggestion (idea, stimulus)
+die Anregung#1	stimulus
+der Aufbruch#1	departure (setting off; new beginning)
+der Aufbruch#1	new start
+aufrufen#1	to call (a name; open a page)
+aufrufen#1	to call up
+aufwärts#1	upwards
+die Ausdauer#1	stamina (endurance)
+die Ausdauer#1	endurance
+die Ausfahrt#1	exit (motorway, garage)
+befragen#1	to question (survey, interview)
+befragen#1	to interview
+der Behälter#1	container (receptacle)
+belassen#1	to leave (as it is)
+besoffen#1	pissed (informal: drunk)
+besoffen#1	plastered
+betreuen#1	to look after (supervise)
+betreuen#1	to care for
+das Biathlon#1	biathlon
+das Desaster#1	disaster (total failure)
+der Diktator#1	dictator
+der Dirigent#1	conductor (orchestra)
+die Dominanz#1	dominance
+einbauen#1	to install (fit)
+einbauen#1	to build in
+einfügen#1	to insert (paste, integrate)
+einfügen#1	to paste
+einlegen#1	to insert (put in)
+einlegen#2	to take (a break)
+einlegen#3	to pickle (marinate)
+die Einreise#1	entry (into a country)
+erkunden#1	to explore (reconnoitre)
+ersparen#1	to spare (save someone something)
+erwachen#1	to wake up (awaken)
+erwachen#1	to awaken
+erziehen#1	to bring up (raise a child; educate)
+erziehen#1	to educate
+der Fachmann#1	expert (specialist)
+der Fachmann#1	specialist
+das Formular#1	form (document)
+fünfzehn#1	fifteen
+das Gasthaus#1	inn (traditional restaurant)
+das Gasthaus#1	guesthouse
+geduldig#1	patient
+geduldig#1	patiently
+geordnet#1	orderly (organised)
+das Geschick#1	skill (dexterity)
+das Geschick#2	fate (destiny)
+das Geschirr#1	dishes (crockery)
+das Geschirr#1	crockery
+das Getriebe#1	gearbox (transmission)
+das Getriebe#2	gears (works)
+glänzend#1	brilliant (shining)
+glänzend#1	shining
+das Graffiti#1	graffiti
+das Guthaben#1	credit (balance)
+das Guthaben#1	balance
+die Handvoll#1	handful
+die Hausfrau#1	housewife
+das Häuschen#1	cottage (little house)
+das Judentum#1	Judaism
+die Kaiserin#1	empress
+klingeln#1	to ring (doorbell, phone)
+das Klinikum#1	hospital (university medical centre)
+köstlich#1	delicious
+köstlich#2	hilarious (very amusing)
+die Lagerung#1	storage (common)
+der Landwirt#1	farmer (common)
+die Mechanik#1	mechanics
+der Mehrwert#1	added value (surplus value)
+das Mikrofon#1	microphone (mic)
+der Nachtrag#1	addendum (supplement)
+der Nachtrag#1	supplement
+niedlich#1	cute (sweet)
+niedlich#1	sweet
+pauschal#1	flat-rate (all-inclusive)
+pauschal#2	sweeping (generalised)
+das Pflaster#1	plaster (sticking plaster)
+das Pflaster#2	paving (cobbles)
+der Physiker#1	physicist
+der Pullover#1	jumper (pullover, sweater)
+der Pullover#1	sweater
+das Päckchen#1	small parcel (packet)
+das Päckchen#1	packet
+das Quartett#1	quartet
+die Relation#1	relation (ratio, proportion)
+die Relation#1	proportion
+der Schinken#1	ham
+der Schlauch#1	hose
+der Schlauch#2	inner tube
+die Schleife#1	bow (ribbon; loop)
+die Schleife#1	loop
+der Schläger#1	racket (bat, club)
+der Schläger#2	thug
+die Schulung#1	training (course at work)
+der Schwager#1	brother-in-law
+die Schwelle#1	threshold (doorstep; limit)
+der Schöpfer#1	creator (author; God)
+der Sekretär#1	secretary (man; writing desk)
+die Signatur#1	signature (digital; library shelf mark)
+die Skulptur#1	sculpture (common)
+sogleich#1	at once (immediately)
+sogleich#1	immediately
+die Sorgfalt#1	care (meticulousness)
+spiegeln#1	to reflect (mirror)
+spiegeln#1	to mirror
+die Sportart#1	sport (discipline)
+sprengen#1	to blow up (blast)
+die Strömung#1	current (water; movement of thought)
+die Synagoge#1	synagogue
+der Tierarzt#1	vet (veterinary surgeon)
+der Tierarzt#1	veterinarian
+das Tierheim#1	animal shelter
+der Torhüter#1	goalkeeper (official term)
+tragisch#1	tragic
+der Umschlag#1	envelope
+der Umschlag#2	cover (jacket of a book)
+ungleich#1	unequal (uneven)
+ungleich#2	dissimilar
+ungültig#1	invalid
+das Unwetter#1	storm (severe weather)
+der Urlauber#1	holidaymaker
+der Verräter#1	traitor
+vierzehn#1	fourteen
+vorlegen#1	to present (a document, a plan)
+vorlegen#1	to submit
+vorlesen#1	to read aloud
+vorlesen#1	to read out
+die Vorliebe#1	preference (predilection)
+die Vorliebe#1	fondness
+der Weltraum#1	space (outer space)
+der Weltraum#1	outer space
+der Wortlaut#1	wording (exact text)
+würdigen#1	to acknowledge (appreciate, pay tribute to)
+würdigen#1	to honour
+der YouTuber#1	YouTuber
+der Zauberer#1	magician (wizard)
+der Zauberer#1	wizard
+der Zeitplan#1	schedule (timetable)
+der Zeitplan#1	timetable
+zitieren#1	to quote (cite)
+zitieren#1	to cite
+zunehmen#1	to increase (grow; also: to put on weight)
+der Zylinder#1	cylinder (also: top hat)
+der Zylinder#1	top hat
+die Ablenkung#1	distraction (diversion)
+die Ablenkung#1	diversion
+die Absprache#1	agreement (arrangement)
+die Absprache#1	arrangement
+abstellen#1	to park
+abstellen#2	to put down (leave)
+abstellen#3	to turn off (water, engine)
+das Angesicht#1	countenance (formal: face)
+anständig#1	decent (proper, respectable)
+anständig#1	properly
+das Apartment#1	flat (small, studio)
+das Apartment#1	apartment
+auffallen#1	to be noticed (stand out; strike someone)
+auffallen#1	to stand out
+aufhängen#1	to hang up (washing; hang)
+aufhängen#1	to hang
+aufhängen#3	to hang up (the phone)
+aufsuchen#1	to go and see (consult: a doctor, a place)
+aufsuchen#1	to visit
+aufzeigen#1	to show (highlight)
+aufzeigen#1	to highlight
+die Augenhöhe#1	eye level (auf Augenhöhe: as equals)
+ausbilden#1	to train (educate)
+ausbilden#1	to educate
+ausdenken#1	to think up (imagine, invent)
+ausdenken#1	to come up with
+ausgiebig#1	extensive (lavish, at length)
+ausgiebig#1	at length
+auskommen#1	to manage (get by)
+auskommen#2	to get on (mit: with)
+ausnutzen#1	to take advantage of (exploit)
+ausnutzen#1	to exploit
+aussetzen#1	to expose (to)
+aussetzen#2	to abandon (a child, an animal)
+aussetzen#3	to stop (cut out)
+die Autonomie#1	autonomy
+befördern#1	to transport (carry)
+befördern#2	to promote
+die Bemerkung#1	remark (spoken comment)
+die Bemerkung#1	comment
+die Biografie#1	biography
+der Boulevard#1	boulevard
+die Broschüre#1	brochure (leaflet)
+die Broschüre#1	leaflet
+der Buchstabe#1	letter (of the alphabet)
+der Busfahrer#1	bus driver
+die Defensive#1	defensive
+einlassen#1	to let in (admit)
+einlassen#2	to get involved (sich einlassen auf)
+der Einspruch#1	objection (legal appeal)
+der Einspruch#1	appeal
+entlasten#1	to relieve (take the burden off)
+entlasten#1	to ease the burden on
+erbringen#1	to provide (proof, a service)
+erbringen#2	to yield (bring in)
+die Erkältung#1	cold (illness)
+die Eroberung#1	conquest
+erstatten#1	to reimburse (costs)
+erstatten#1	to refund
+die Erzeugung#1	generation (technical: production)
+die Erzeugung#1	production
+die Fertigung#1	manufacturing (mass production)
+die Fertigung#1	production
+die Frechheit#1	cheek (insolence, nerve)
+die Frechheit#1	nerve
+die Gesinnung#1	convictions (attitude, mindset)
+die Gesinnung#1	mindset
+gewaltsam#1	violent (by force)
+gewaltsam#1	by force
+der Grundriss#1	floor plan (of a building)
+der Gutachter#1	expert (official assessor, surveyor)
+der Gutachter#1	assessor
+hochladen#1	to upload
+der Innenraum#1	interior (inside space)
+die Kartoffel#1	potato
+kassieren#1	to collect (money; to pocket)
+kassieren#1	to pocket
+klatschen#1	to clap (applaud)
+klatschen#1	to applaud
+klatschen#2	to slap (smack)
+das Kollektiv#1	collective
+kompetent#1	competent (common)
+kulturell#1	cultural
+der Leitfaden#1	guide (handbook, guiding principle)
+der Leitfaden#1	handbook
+der Lifestyle#1	lifestyle (anglicism)
+die Limousine#1	saloon car (limousine)
+die Limousine#1	limousine
+die Metropole#1	metropolis
+der Millionär#1	millionaire
+der Mitbürger#1	fellow citizen
+nachgehen#1	to pursue (a lead; watch: to be slow)
+nachgehen#1	to follow up
+der Nordosten#1	north-east
+die Ortschaft#1	village (locality)
+das Portfolio#1	portfolio (of securities)
+das Portfolio#2	portfolio (of work)
+die Reportage#1	report (documentary feature)
+das Rückspiel#1	return match (second leg)
+das Rückspiel#1	second leg
+schildern#1	to describe (recount)
+schildern#1	to recount
+schmutzig#1	dirty (common)
+schwingen#1	to swing (wave)
+schwingen#1	to wave
+schädlich#1	harmful (damaging)
+schädlich#1	damaging
+die Schätzung#1	estimate (assessment)
+die Schätzung#1	assessment
+sichtlich#1	visibly
+die Sklaverei#1	slavery
+das Stückchen#1	little piece (bit)
+das Stückchen#1	bit
+der Terrorist#1	terrorist
+unbemerkt#1	unnoticed
+das Ungeheuer#1	monster (fairy-tale; formal)
+vereinigt#1	united (joined)
+verfassen#1	to write (compose a text)
+verfassen#1	to draft
+die Vergütung#1	remuneration (pay)
+die Vergütung#1	pay
+verkünden#1	to announce (officially proclaim)
+verkünden#1	to proclaim
+verlieben#1	to fall in love (sich verlieben)
+vermieten#1	to rent out (let)
+vermieten#1	to let
+verwundet#1	wounded (by a weapon, in combat)
+verzeihen#1	to forgive (common)
+verzeihen#1	to pardon
+verärgert#1	angry (annoyed)
+verärgert#1	annoyed
+die Vorfreude#1	anticipation (looking forward)
+die Wartezeit#1	waiting time (wait)
+der Wohnwagen#1	caravan
+das Würstchen#1	sausage (small: frankfurter)
+das Würstchen#1	frankfurter
+zahlreich#1	numerous (many)
+die Zeremonie#1	ceremony (common)
+zugreifen#1	to help oneself
+zugreifen#2	to access (data)
+überholen#1	to overtake (pass; overhaul an engine)
+überholen#1	to pass
+die Abrechnung#1	statement (settlement of accounts)
+die Abrechnung#2	reckoning (settling of scores)
+die Abstammung#1	descent (ancestry, origin)
+die Abstammung#1	ancestry
+anfänglich#1	initial (early)
+die Anspielung#1	allusion (insinuation)
+die Anspielung#1	hint
+die Anstellung#1	employment (job, hiring)
+der Arbeitstag#1	working day
+die Artillerie#1	artillery
+der Attentäter#1	assassin (attacker)
+der Attentäter#1	attacker
+aufbringen#1	to raise (funds)
+aufbringen#2	to summon up (courage)
+die Aufschrift#1	inscription (label)
+die Aufschrift#1	label
+aufsteigen#1	to get on (a bike; to rise, be promoted)
+aufsteigen#1	to rise
+die Ausdehnung#1	expansion (extent)
+die Ausdehnung#1	extent
+aussterben#1	to die out (species: become extinct)
+aussterben#1	to become extinct
+die Ausweitung#1	expansion (extension)
+die Ausweitung#1	extension
+bedenklich#1	worrying (questionable)
+bedenklich#1	questionable
+die Beerdigung#1	funeral (burial)
+die Beerdigung#1	burial
+die Begrenzung#1	limitation (restriction; boundary)
+die Begrenzung#1	limit
+beinhalten#1	to contain (include)
+beinhalten#1	to include
+die Bestrafung#1	punishment (penalty)
+die Beteiligte#1	participant (woman; person involved)
+biologisch#1	biological
+biologisch#1	organic
+die Bürokratie#1	bureaucracy
+die Diagnostik#1	diagnostics (medical discipline)
+die Eifersucht#1	jealousy (in love)
+einreichen#1	to submit (file, hand in)
+einreichen#1	to hand in
+die Einteilung#1	classification (division)
+die Einteilung#1	division
+die Einweihung#1	inauguration (opening)
+die Einweihung#1	opening
+elektrisch#1	electric
+elektrisch#1	electrical
+die Entführung#1	kidnapping (abduction)
+die Entführung#2	hijacking
+erbärmlich#1	pitiful (wretched)
+erbärmlich#1	wretched
+erforschen#1	to research (explore scientifically)
+erforschen#1	to explore
+erschlagen#1	to beat to death (strike dead)
+die Eskalation#1	escalation
+die Föderation#1	federation (common)
+der Geldbeutel#1	purse (wallet, southern German)
+der Geldbeutel#1	wallet
+die Geographie#1	geography
+geschieden#1	divorced
+das Geständnis#1	confession (of a crime)
+die Gewissheit#1	certainty
+die Gleichheit#1	equality (sameness)
+der Grundstein#1	foundation stone
+haushalten#1	to manage (economise)
+haushalten#1	to economise
+das Heimatland#1	home country (native country)
+das Heimatland#1	homeland
+das Hochwasser#1	flood (high water)
+die Häufigkeit#1	frequency (how often)
+die Infanterie#1	infantry
+das Jahresende#1	end of the year
+juristisch#1	legal (of the law)
+der Kofferraum#1	boot (of a car)
+der Kofferraum#1	trunk
+die Konvention#1	convention
+kostenfrei#1	free of charge (administrative)
+der Lebensstil#1	lifestyle (style of living)
+die Lebenszeit#1	lifetime
+das Manuskript#1	manuscript (common)
+die Mentalität#1	mentality
+die Ministerin#1	minister (woman)
+mittendrin#1	right in the middle
+motivieren#1	to motivate
+das Musikvideo#1	music video
+der Organismus#1	organism
+platzieren#1	to place (position)
+platzieren#1	to position
+die Prominente#1	celebrity (woman)
+rückgängig#1	undone (rückgängig machen: to cancel, undo)
+scheißegal#1	I don't give a shit (vulgar)
+das Schlagzeug#1	drums
+der Screenshot#1	screenshot
+sehenswert#1	worth seeing
+der Soundtrack#1	soundtrack
+der Spezialist#1	specialist (expert in a field)
+spezifisch#1	specific (common)
+die Sprecherin#1	spokeswoman (spokesperson)
+der Stammtisch#1	regulars' table
+das Strafrecht#1	criminal law
+das Tageslicht#1	daylight
+der Taxifahrer#1	taxi driver
+die Unterseite#1	underside (bottom)
+die Unterseite#1	bottom
+verbleiben#1	to remain (formal: stay)
+die Vermeidung#1	avoidance (prevention)
+die Vermeidung#1	prevention
+die Versuchung#1	temptation
+der Völkermord#1	genocide
+wochenlang#1	for weeks
+wundervoll#1	wonderful (formal)
+die Zuversicht#1	confidence (optimism about the future)
+die Zuversicht#1	optimism
+überdenken#1	to reconsider
+überdenken#1	to rethink
+überfahren#1	to run over (with a vehicle)
+überfahren#2	to go through (a red light)
+die Überlegung#1	consideration (reflection, thought)
+die Überlegung#1	reflection
+überqueren#1	to cross (common)
+überstehen#1	to get through (survive, overcome)
+überstehen#1	to survive
+der Algorithmus#1	algorithm
+alljährlich#1	annual (every year, formal)
+anderweitig#1	otherwise (elsewhere, for other purposes)
+anderweitig#1	elsewhere
+die Anschaffung#1	purchase (acquisition of a durable item)
+die Anschaffung#1	acquisition
+das Anschreiben#1	cover letter (covering letter)
+die Arbeitslose#1	unemployed woman
+die Ausbreitung#1	spread (propagation)
+die Ausbreitung#1	expansion
+ausgelassen#1	exuberant (high-spirited)
+ausgelassen#1	boisterous
+ausnahmslos#1	without exception
+authentisch#1	authentic
+der Befürworter#1	advocate (supporter of an idea)
+der Befürworter#1	supporter
+die Beschaffung#1	procurement (acquisition, supply)
+besichtigen#1	to visit (a place, a monument)
+besichtigen#1	to tour
+die Besteuerung#1	taxation
+detailliert#1	detailed (common)
+detailliert#1	in detail
+die Ehrlichkeit#1	honesty
+einheitlich#1	uniform (consistent)
+einheitlich#1	standard
+einschätzen#1	to assess (estimate, judge)
+einschätzen#1	to gauge
+einwandfrei#1	flawless (impeccable)
+einwandfrei#1	impeccable
+die Faszination#1	fascination
+die Freilassung#1	release (of a prisoner)
+die Genauigkeit#1	accuracy (precision)
+die Genauigkeit#1	precision
+der Hausmeister#1	caretaker (janitor)
+der Hausmeister#1	janitor
+hinbekommen#1	to manage (informal: pull off)
+hinreichend#1	sufficient (formal)
+hinreichend#1	sufficiently
+die Hinrichtung#1	execution (death penalty)
+das Hotelzimmer#1	hotel room
+der Kinderwagen#1	pram (pushchair)
+der Kinderwagen#1	pushchair
+die Kleinigkeit#1	trifle (a little something)
+die Kleinigkeit#1	little something
+konservativ#1	conservative
+die Kontroverse#1	controversy
+marschieren#1	to march
+der Mechanismus#1	mechanism
+medizinisch#1	medical
+meinetwegen#1	if you like (fine by me)
+meinetwegen#2	because of me (for my sake)
+der Mitbewohner#1	flatmate (housemate)
+der Mitbewohner#1	housemate
+nachweisbar#1	detectable (demonstrable)
+nachweisbar#1	demonstrable
+die Optimierung#1	optimisation
+provozieren#1	to provoke
+schlichtweg#1	simply (quite simply)
+schlichtweg#1	downright
+das Schnäppchen#1	bargain
+seinerseits#1	for his part (on his side)
+signifikant#1	significant (statistically notable)
+signifikant#1	significantly
+strategisch#1	strategic
+strategisch#1	strategically
+das Taschenbuch#1	paperback
+das Tischtennis#1	table tennis
+der Transporter#1	van (light commercial vehicle)
+unauffällig#1	inconspicuous (unobtrusive)
+unauffällig#1	discreet
+veranlassen#1	to arrange (see to it; prompt)
+veranlassen#1	to prompt
+die Verknüpfung#1	link (connection)
+die Verknüpfung#2	shortcut (computing)
+die Vermarktung#1	marketing (commercialisation)
+die Verpflegung#1	catering (meals provided, food)
+die Verpflegung#1	board
+verschicken#1	to send out (dispatch)
+verschicken#1	to dispatch
+weitergeben#1	to pass on (hand on to someone else)
+widerstehen#1	to resist (common)
+willkürlich#1	arbitrary
+willkürlich#1	arbitrarily
+zurückgeben#1	to give back (return)
+das Übergewicht#1	excess weight (being overweight)
+übernachten#1	to stay the night (at someone's, in a hotel)
+übernachten#1	to spend the night
+übertreiben#1	to exaggerate (overdo)
+übertreiben#1	to overdo it
+der Angestellte#1	employee (man, salaried office worker)
+das Arzneimittel#1	medicine (official, pharmaceutical)
+das Arzneimittel#1	drug
+die Auslieferung#1	extradition
+die Auslieferung#2	delivery
+die Besichtigung#1	visit (tour of a place, a monument)
+die Besichtigung#1	tour
+ehrenamtlich#1	voluntary (unpaid)
+ehrenamtlich#1	as a volunteer
+eigenständig#1	independent (autonomous, in its own right)
+hinterfragen#1	to question (challenge)
+die Koordination#1	coordination (organisation)
+künstlerisch#1	artistic
+die Leichtigkeit#1	ease
+die Leichtigkeit#2	lightness
+manipulieren#1	to manipulate (rig, tamper with)
+manipulieren#1	to rig
+die Mittagspause#1	lunch break
+die Nationalität#1	nationality
+der Oberschenkel#1	thigh
+die Prostitution#1	prostitution
+schrittweise#1	step by step (gradually)
+schrittweise#1	gradually
+der Seitensprung#1	affair (infidelity, fling)
+der Seitensprung#1	fling
+stellenweise#1	in places
+die Ungleichheit#1	inequality
+unterdrücken#1	to suppress (hold back an emotion; oppress)
+unterdrücken#1	to oppress
+unzureichend#1	insufficient (inadequate)
+unzureichend#1	inadequate
+das Urheberrecht#1	copyright
+die Verschiebung#1	postponement (shift)
+die Verschiebung#1	shift
+verschwenden#1	to waste
+verschwiegen#1	discreet (able to keep a secret)
+weiterhelfen#1	to help (out)
+der Zusammenhalt#1	cohesion (solidarity)
+der Zusammenhalt#1	solidarity
+argumentieren#1	to argue (put forward arguments)
+die Bundespolizei#1	Federal Police
+der Dienstleister#1	service provider
+eindrucksvoll#1	impressive (striking; formal)
+eindrucksvoll#1	impressively
+die Gegenleistung#1	consideration (something in return)
+der Geschäftsmann#1	businessman (common)
+gewissermaßen#1	so to speak (in a way)
+gewissermaßen#1	in a way
+die Größenordnung#1	order of magnitude (scale)
+die Größenordnung#1	scale
+die Kennzeichnung#1	labelling (marking)
+die Kennzeichnung#1	marking
+die Konfrontation#1	confrontation
+der Nationalismus#1	nationalism
+die Niederlassung#1	branch (office, establishment)
+die Niederlassung#1	office
+oberflächlich#1	superficial
+die Produktivität#1	productivity
+programmieren#1	to program (computing)
+die Prostituierte#1	prostitute (neutral term)
+qualifizieren#1	to qualify (sich qualifizieren: competition, training)
+der Schmetterling#1	butterfly
+der Sonnenaufgang#1	sunrise
+die Verfügbarkeit#1	availability
+wünschenswert#1	desirable
+die Zuständigkeit#1	responsibility (remit, jurisdiction)
+die Zuständigkeit#1	jurisdiction
+die Überlegenheit#1	superiority
+die Beschaffenheit#1	nature (composition, condition)
+die Beschaffenheit#1	composition
+das Einverständnis#1	consent (agreement given)
+das Einverständnis#1	approval
+die Elektrotechnik#1	electrical engineering
+die Gefangenschaft#1	captivity (imprisonment)
+die Genossenschaft#1	cooperative
+die Intellektuelle#1	intellectual (woman)
+der Justizminister#1	justice minister
+die Psychotherapie#1	psychotherapy
+repräsentieren#1	to represent (be the representative of)
+der Sprachgebrauch#1	usage (linguistic)
+das Verkehrsmittel#1	means of transport
+die Verwandtschaft#1	relatives (kinship)
+die Verwandtschaft#1	relations
+der Weihnachtsmann#1	Father Christmas (Santa Claus)
+der Weihnachtsmann#1	Santa Claus
+die Freiheitsstrafe#1	prison sentence (custodial sentence)
+die Geschäftsstelle#1	office (branch, agency)
+der Lebensunterhalt#1	living (subsistence)
+der Lebensunterhalt#1	livelihood
+die Marktwirtschaft#1	market economy
+das Missverständnis#1	misunderstanding
+die Rechtschreibung#1	spelling (orthography)
+das Selbstvertrauen#1	self-confidence (common)
+die Verschlüsselung#1	encryption
+die Volkswirtschaft#1	national economy (economics)
+die Vollständigkeit#1	completeness
+der Weihnachtsmarkt#1	Christmas market
+das Erscheinungsbild#1	appearance (image)
+das Erscheinungsbild#1	image
+leidenschaftlich#1	passionate
+leidenschaftlich#1	passionately
+die Selbstbestimmung#1	self-determination
