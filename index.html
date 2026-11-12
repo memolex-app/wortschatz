@@ -575,12 +575,24 @@ nav.tabs button:active{transform:translateY(1px)}
 const DAY = 86400000;
 /* ---------- langues : une seule appli, une langue apprise à la fois, toujours depuis le français ----------
    Chaque carte porte sa langue (lang) ; les anciennes cartes, sans lang, sont allemandes.
-   Les fichiers de données suivent le motif lists-<langue>-fr.json, examples-…, chunks-…, credits-…, dict-…. */
+   Les fichiers de données suivent le motif lists-<langue apprise>-<langue de l'utilisateur>.json, examples-…, chunks-…, credits-…, dict-…. */
 /* LANG_DATA:BEGIN (généré par tools/build_app.py, ne pas éditer) */
 const LANG_DATA = {"de":{"code":"DE","name":"Allemand","adj":"allemand","adjf":"allemande","adjs":"allemands","the":"l'allemand","of":"de l'allemand","bravo":"Perfekt!","chars":["ä","ö","ü","ß"],"charsUp":["ä","ö","ü","ß","Ä","Ö","Ü"],"charsLabel":"Lettres allemandes","sample":"Schmetterling","sampleEx":"Ein Schmetterling sitzt auf der Blume.","samplePl":"-e, ¨-er, -n…","sampleQ":"Hund, gehen… ou en français : papillon","bulkEx":"die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen","bulkFmt":"der Hund, -e ; le chien","order":1,"tts":{"tag":"de-DE","rate":0.95},"articles":[{"a":"der","g":"m"},{"a":"die","g":"f"},{"a":"das","g":"n"}],"plural":"suffix","pluralArticle":"die","storeGender":false,"dictArticle":"gender","searchFolds":[["ae","ä"],["oe","ö"],["ue","ü"]],"artOptions":[[null,"der"],[null,"die"],[null,"das"]],"legend":"<span><i class=\"dot d-der\"></i>der · masculin</span><span><i class=\"dot d-die\"></i>die · féminin</span><span><i class=\"dot d-das\"></i>das · neutre</span><span><i class=\"dot d-none\"></i>sans article</span>","cases":{"names":[["Akk","Accusatif"],["Dat","Datif"],["Gen","Génitif"]],"prep":{"mit":"Dat.","von":"Dat.","zu":"Dat.","aus":"Dat.","bei":"Dat.","nach":"Dat.","seit":"Dat.","ab":"Dat.","außer":"Dat.","gegenüber":"Dat.","entgegen":"Dat.","gemäß":"Dat.","zufolge":"Dat., placé après le nom","samt":"Dat.","nebst":"Dat.","mitsamt":"Dat.","binnen":"Dat. ou Gén.","dank":"Dat. ou Gén.","laut":"Gén. ou Dat.","für":"Akk.","um":"Akk.","durch":"Akk.","gegen":"Akk.","ohne":"Akk.","wider":"Akk.","gen":"Akk.","bis":"Akk.","pro":"Akk., souvent sans article","per":"Akk., souvent sans article","via":"Akk., souvent sans article","entlang":"Akk. placé après le nom ; Gén. ou Dat. placé avant","in":"Dat. ou Akk.","an":"Dat. ou Akk.","auf":"Dat. ou Akk.","über":"Dat. ou Akk.","unter":"Dat. ou Akk.","vor":"Dat. ou Akk.","hinter":"Dat. ou Akk.","neben":"Dat. ou Akk.","zwischen":"Dat. ou Akk.","wegen":"Gén. ; familier : Dat.","während":"Gén. ; familier : Dat.","trotz":"Gén. ; familier : Dat.","statt":"Gén.","anstatt":"Gén.","anstelle":"Gén.","aufgrund":"Gén.","innerhalb":"Gén.","außerhalb":"Gén.","kraft":"Gén.","ausschließlich":"Gén.","namens":"Gén.","willen":"Gén. ; um … willen","mittels":"Gén.","anhand":"Gén.","bezüglich":"Gén.","angesichts":"Gén.","inklusive":"Gén.","einschließlich":"Gén.","seitens":"Gén.","jenseits":"Gén.","anlässlich":"Gén.","hinsichtlich":"Gén.","abseits":"Gén.","infolge":"Gén.","mithilfe":"Gén.","unterhalb":"Gén.","oberhalb":"Gén.","zugunsten":"Gén.","mangels":"Gén.","inmitten":"Gén.","unweit":"Gén.","eingangs":"Gén.","längs":"Gén. ou Dat.","seitlich":"Gén.","halber":"Gén., placé après le nom","zwecks":"Gén.","voller":"nom sans article : voller Wasser"},"wechselNotes":{"in":["im Park sein","in den Park gehen","temps (im Mai) : toujours datif"],"an":["an der Wand hängen","das Bild an die Wand hängen","date (am Montag) : toujours datif"],"auf":["auf dem Tisch liegen","auf den Tisch legen","« auf Deutsch », « warten auf » : toujours accusatif"],"über":["die Lampe hängt über dem Tisch","über die Straße gehen","« au sujet de » (über Autos) et « au-delà de » (über seine Verhältnisse) : toujours accusatif"],"unter":["unter dem Tisch liegen","unter den Tisch fallen","« parmi » (unter Freunden) : toujours datif"],"vor":["vor dem Haus stehen","vor das Haus fahren","temps « il y a », « avant » (vor einem Jahr) : toujours datif"],"hinter":["hinter dem Haus spielen","hinter das Haus gehen",""],"neben":["neben dem Bett stehen","den Stuhl neben das Bett stellen",""],"zwischen":["zwischen den Stühlen sitzen","sich zwischen die Stühle setzen",""]},"verbFixed":{"mit":"Dat.","von":"Dat.","zu":"Dat.","aus":"Dat.","bei":"Dat.","nach":"Dat.","seit":"Dat.","gegenüber":"Dat.","für":"Akk.","um":"Akk.","durch":"Akk.","gegen":"Akk.","ohne":"Akk."},"verbs":{"warten auf":"Akk.","sich freuen auf":"Akk.","sich freuen über":"Akk.","sich erinnern an":"Akk.","sich beschweren über":"Akk.","verzichten auf":"Akk.","sich auswirken auf":"Akk.","nachdenken über":"Akk.","sich konzentrieren auf":"Akk.","warnen vor":"Dat.","denken an":"Akk.","glauben an":"Akk.","achten auf":"Akk.","aufpassen auf":"Akk.","sich kümmern um":"Akk.","sich interessieren für":"Akk.","sich ärgern über":"Akk.","sprechen über":"Akk.","teilnehmen an":"Dat.","Angst haben vor":"Dat.","sich fürchten vor":"Dat.","sich gewöhnen an":"Akk.","sich verlassen auf":"Akk.","reagieren auf":"Akk.","hoffen auf":"Akk.","sich vorbereiten auf":"Akk."}}},"it":{"code":"IT","name":"Italien","adj":"italien","adjf":"italienne","adjs":"italiens","the":"l'italien","of":"de l'italien","bravo":"Perfetto!","chars":["à","è","é","ì","ò","ù"],"charsUp":["à","è","é","ì","ò","ù","È"],"charsLabel":"Lettres accentuées","sample":"farfalla","sampleEx":"Una farfalla si posa sul fiore.","samplePl":"le farfalle, gli amici…","sampleQ":"cane, andare… ou en français : papillon","bulkEx":"la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami","bulkFmt":"il cane, i cani ; le chien","order":2,"tts":{"tag":"it-IT","rate":1},"articles":[{"a":"il","g":"m"},{"a":"lo","g":"m"},{"a":"l'","g":"","elided":true},{"a":"la","g":"f"},{"a":"i","g":"m","pl":true},{"a":"gli","g":"m","pl":true},{"a":"le","g":"f","pl":true}],"plural":"full","storeGender":true,"dictArticle":"explicit","searchFolds":[],"artOptions":[["il|m","il"],["lo|m","lo"],["l'|m","l' (masc.)"],["la|f","la"],["l'|f","l' (fém.)"],["i|m","i (pluriel)"],["gli|m","gli (pluriel)"],["le|f","le (pluriel)"]],"legend":"<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>"}};
 /* LANG_DATA:END */
 // description de chaque langue apprise (data/<langue>/langue.json) : articles, genres, pluriel, cas, lettres, voix…
 const LANGS = LANG_DATA;
+/* USER_DATA:BEGIN (généré par tools/build_app.py, ne pas éditer) */
+const USER_DATA = {"fr":{"order":1,"code":"FR","name":"Français","locale":"fr-FR","dir":"ltr","articles":[{"a":"le","kind":"def"},{"a":"la","kind":"def"},{"a":"les","kind":"def"},{"a":"un","kind":"indef"},{"a":"une","kind":"indef"},{"a":"des","kind":"part"}],"elided":["l"],"gramNoteWords":["allemand","italien","singulier","pluriel","collectif","datif","accusatif","génitif","nominatif","\\bakk","\\bdat","\\+","="]}};
+/* USER_DATA:END */
+// langue de l'utilisateur (langue des traductions et de l'interface) : data/<langue>/utilisateur.json
+const ULANGS = USER_DATA;
+let UL = (()=>{ try{ const u=localStorage.getItem('mx-ul'); return ULANGS[u] ? u : 'fr'; }catch(e){ return 'fr'; } })();
+const U_ = () => ULANGS[UL] || ULANGS.fr;
+const ulOf = c => c.ul || 'fr';                 // cartes sans « ul » : traduites en français (toutes les cartes jusqu'à la 1.8.7)
+const LOC = () => U_().locale;                  // format des dates et des nombres
+// article en tête d'une traduction, à ignorer pour trier et comparer (kinds : def, indef, part ; sep : ' +' ou '\\s+')
+const uArtRe = (kinds, sep, flags) => { const U=U_(), k=kinds.join(',')+sep+(flags||''); U._re=U._re||{};
+  return U._re[k] = U._re[k] || new RegExp(`^(?:(?:${U.articles.filter(x=>kinds.includes(x.kind)).map(x=>x.a).join('|')})${sep}|(?:${U.elided.join('|')})['’]\\s*)`, flags||''); };
 const LG = l => LANGS[l] || LANGS.de;
 // article → {a, g (m, f, n ou vide si élidé), pl (article du pluriel), elided}
 const ARTS = l => (LG(l)._arts = LG(l)._arts || Object.fromEntries(LG(l).articles.map(x=>[x.a, x])));
@@ -594,8 +606,8 @@ let langPicking = false;
 const L_ = () => LANGS[LANG] || LANGS.de;
 const langOf = c => c.lang || 'de';
 // les mots de la langue choisie ; les autres langues restent dans le stockage, intactes
-const deck = () => [...cards.values()].filter(c=>langOf(c)===LANG);
-const dataFile = k => `${k}-${LANG}-fr.json`;
+const deck = () => [...cards.values()].filter(c=>langOf(c)===LANG && ulOf(c)===UL);
+const dataFile = k => `${k}-${LANG}-${UL}.json`;
 // genre d'un nom : enregistré sur la carte (article élidé : l'amico / l'amica), sinon donné par l'article
 const genderOf = c => (LG(langOf(c)).storeGender && c.g) || artGender(langOf(c), c.art||'');
 // couleur du genre : bleu masculin, rouge féminin, vert neutre
@@ -608,7 +620,7 @@ const ART_RE = () => { const L=LG(LANG); if(L._re) return L._re;
   // groupes : 1 article complet, 2 article élidé (jamais trouvé si la langue n'en a pas), 3 le mot
   return L._re = new RegExp(`^(?:(${full.join('|')})\\s+|(${eli.length?eli.join('|'):'(?!)'})['’]\\s*)(.+)$`, 'i'); };
 function splitArt(s){ const m=String(s||'').trim().match(ART_RE()); if(!m) return null; return {art: m[1] ? m[1].toLowerCase() : m[2].toLowerCase()+"'", de: m[3]}; }
-function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · Français` : 'Choisir une langue'; }
+function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · ${U_().name}` : 'Choisir une langue'; }
 /* listes par niveau : les mots les plus fréquents, chargés depuis lists-de-fr.json */
 const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Autonome', C2:'Maîtrise'};
 const PACK = 100, BATCH = 50;
@@ -688,7 +700,7 @@ function loadCredits(box){
   box.innerHTML='<p class="hint">Chargement…</p>';
   fetch(dataFile('credits')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(({u,c})=>{
     const who=i=>u[i]?esc(u[i]):'anonyme';
-    box.innerHTML=`<p class="hint">${c.length.toLocaleString('fr-FR')} phrases, ${u.length.toLocaleString('fr-FR')} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase ${L_().adjf} et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
+    box.innerHTML=`<p class="hint">${c.length.toLocaleString(LOC())} phrases, ${u.length.toLocaleString(LOC())} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase ${L_().adjf} et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
       <div class="credits">${c.map(([d,du,f,fu])=>`<div>n° ${d} · ${who(du)} — n° ${f} · ${who(fu)}</div>`).join('')}</div>`;
   }).catch(()=>{ box.innerHTML='<p class="hint">La liste n\'a pas pu se charger.</p>'; });
 }
@@ -707,8 +719,8 @@ const STATUS = c => isNew(c) ? 'new' : isLearning(c) ? 'learn' : (c.ivl||0)>=21 
 const STATUS_LABEL = {new:'À découvrir', learn:'En apprentissage', rev:'En révision', known:'Acquis'};
 let statFilter='';
 let listSort=(()=>{ try{ return localStorage.getItem('mx-sort')||'new'; }catch(e){ return 'new'; } })();
-const frSortKey = t => (t||'').toLowerCase().replace(/^(le|la|les|un|une|des) +|^l['’]/,'').replace(/^\(.*?\) */,'');
-const SORTS = { new:(a,b)=>b.created-a.created, de:(a,b)=>a.de.localeCompare(b.de,LANG,{sensitivity:'base'}), fr:(a,b)=>frSortKey(a.fr).localeCompare(frSortKey(b.fr),'fr',{sensitivity:'base'}) };
+const frSortKey = t => (t||'').toLowerCase().replace(uArtRe(['def','indef','part'],' +'),'').replace(/^\(.*?\) */,'');
+const SORTS = { new:(a,b)=>b.created-a.created, de:(a,b)=>a.de.localeCompare(b.de,LANG,{sensitivity:'base'}), fr:(a,b)=>frSortKey(a.fr).localeCompare(frSortKey(b.fr),UL,{sensitivity:'base'}) };
 const srcLabel = k => k==='lists' ? 'Listes par niveau' : k==='manual' ? 'Mes ajouts' : k==='dict' ? 'Dictionnaire' : k==='starter' ? 'Pack de départ' : (LESSONS[k]?LESSONS[k].title:k);
 const lvlOf = c => c.lvl || (c.est ? '~'+c.est : 'none');
 const EST_LABEL = {A:'≈ A1-A2', B:'≈ B1-B2', C:'≈ C1+'};
@@ -881,7 +893,7 @@ function parseLine(line){
   if(c > -1){ pl = de.slice(c+1).trim(); de = de.slice(0,c).trim(); }
   return { de, art, pl, fr, ex };
 }
-function newCard(f, batch){ const now=Date.now(); return { id:uid(), lang:LANG||'de', batch:batch||'', de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ex:f.ex||'', ...(f.pos?{pos:f.pos}:{}), ...(f.g?{g:f.g}:{}), ease:2.5, ivl:0, reps:0, lapses:0, due:now, created:now }; }
+function newCard(f, batch){ const now=Date.now(); return { id:uid(), lang:LANG||'de', ...(UL!=='fr'?{ul:UL}:{}), batch:batch||'', de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ex:f.ex||'', ...(f.pos?{pos:f.pos}:{}), ...(f.g?{g:f.g}:{}), ease:2.5, ivl:0, reps:0, lapses:0, due:now, created:now }; }
 
 /* ---------- storage ---------- */
 function saveLocal(){ if(mode!=='local') return; try{ localStorage.setItem('mx-cards', JSON.stringify([...cards.values()])); }catch(e){} }
@@ -1002,10 +1014,10 @@ function whenText(t){
   if(diff<=60000) return 'dans un instant';
   if(diff<3600000) return `dans ${Math.ceil(diff/60000)} min`;
   const days=Math.round((startOfDay(t)-startOfDay(now))/DAY);
-  if(days===0) return `aujourd'hui à ${new Date(t).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}`;
+  if(days===0) return `aujourd'hui à ${new Date(t).toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'})}`;
   if(days===1) return 'demain';
-  if(days<7) return new Date(t).toLocaleDateString('fr-FR',{weekday:'long'});
-  return new Date(t).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+  if(days<7) return new Date(t).toLocaleDateString(LOC(),{weekday:'long'});
+  return new Date(t).toLocaleDateString(LOC(),{weekday:'long',day:'numeric',month:'long'});
 }
 let wakeTimer=null;
 let synced=false;
@@ -1200,7 +1212,7 @@ function streakHTML(compact){
   const s=streakInfo();
   const dots=['L','M','M','J','V','S','D'].map((l,i)=>{ const t=addDays(weekStart(Date.now()),i), today=startOfDay(Date.now());
     const n=((actOf()[dayKey(t)]||{}).n||0), st = n>=s.dayMin ? 'on' : t<today ? 'off' : t===today ? 'now' : 'next';
-    return `<i class="sd sd-${st}" title="${new Date(t).toLocaleDateString('fr-FR',{weekday:'long'})} : ${n} carte${n>1?'s':''}">${l}</i>`; }).join('');
+    return `<i class="sd sd-${st}" title="${new Date(t).toLocaleDateString(LOC(),{weekday:'long'})} : ${n} carte${n>1?'s':''}">${l}</i>`; }).join('');
   const msg = s.todayDone ? 'Objectif du jour atteint.'
     : s.todayN ? `Encore ${s.dayMin-s.todayN} carte${s.dayMin-s.todayN>1?'s':''} pour compter aujourd'hui.`
     : `${s.dayMin} cartes aujourd'hui pour compter la journée.`;
@@ -1230,7 +1242,7 @@ function statsHTML(){
   }
   if(show.includes('load')){
     const L=loadDays(), max=Math.max(1,...L.map(x=>x.n));
-    out.push(`<section class="panel"><h2>Révisions des 7 prochains jours</h2><div class="load">${L.map((x,i)=>`<div class="ld"><b>${x.n}</b><i style="height:${Math.max(2,70*x.n/max)}px"></i><span>${i===0?'auj.':new Date(x.t).toLocaleDateString('fr-FR',{weekday:'short'}).replace('.','')}</span></div>`).join('')}</div>
+    out.push(`<section class="panel"><h2>Révisions des 7 prochains jours</h2><div class="load">${L.map((x,i)=>`<div class="ld"><b>${x.n}</b><i style="height:${Math.max(2,70*x.n/max)}px"></i><span>${i===0?'auj.':new Date(x.t).toLocaleDateString(LOC(),{weekday:'short'}).replace('.','')}</span></div>`).join('')}</div>
       <p class="hint">Mots déjà vus qui reviennent chaque jour, sans compter les nouveaux. Aujourd'hui inclut le retard.</p></section>`);
   }
   const s30=sumAct(addDays(Date.now(),-29), Date.now());
@@ -1244,7 +1256,7 @@ function statsHTML(){
     for(let i=0;i<pad;i++) cells.push('<i class="cd cd-pad"></i>');
     for(let d=1; d<=nd; d++){ const t=addDays(first,d-1), n=((a[dayKey(t)]||{}).n||0); if(n) act++; if(n>=dayMin) hit++;
       cells.push(`<i class="cd ${n>=dayMin?'cd-hit':n?'cd-act':t>startOfDay(Date.now())?'cd-next':''}" title="${d} : ${n} carte${n>1?'s':''}">${d}</i>`); }
-    out.push(`<section class="panel"><h2>Jours actifs · ${now.toLocaleDateString('fr-FR',{month:'long'})}</h2><div class="big"><b>${act}</b><span>jour${act>1?'s':''} actif${act>1?'s':''}, dont ${hit} avec au moins ${dayMin} cartes</span></div>
+    out.push(`<section class="panel"><h2>Jours actifs · ${now.toLocaleDateString(LOC(),{month:'long'})}</h2><div class="big"><b>${act}</b><span>jour${act>1?'s':''} actif${act>1?'s':''}, dont ${hit} avec au moins ${dayMin} cartes</span></div>
       <div class="cal">${['L','M','M','J','V','S','D'].map(x=>`<i class="cd cd-h">${x}</i>`).join('')}${cells.join('')}</div></section>`);
   }
   if(show.includes('err')){
@@ -1465,7 +1477,7 @@ function deWord(c){
   return (c.art?`<span class="art ${gc}">${esc(c.art)}</span>${sp}`:'')+`<span class="${gc}">${esc(c.de)}</span>`+(pc?` <span class="pcase">(+ ${pc})</span>`:'');
 }
 // notes entre parenthèses : celles qui donnent un indice grammatical vont au verso, celles qui précisent le sens restent au recto (en petit)
-const GRAM_NOTE = /allemand|italien|singulier|pluriel|collectif|datif|accusatif|génitif|nominatif|\bakk|\bdat|\+|=/i;
+const GRAM_NOTE = new RegExp(U_().gramNoteWords.join('|'), 'i');
 // une note qui contient le mot allemand (« gar nicht », « zur Verfügung ») donnerait la réponse : elle va au verso
 function splitFr(fr, de){
   const sense=[], gram=[]; const w=String(de||'').toLowerCase();
@@ -1485,7 +1497,7 @@ function splitFr(fr, de){
   return { main: plain||String(fr||''), html: html||esc(String(fr||'')), sense, gram };
 }
 /* mots qui partagent une traduction (là → da, dort) : un indice au recto, la liste au verso */
-const frItems = c => splitFr(c.fr, c.de).main.toLowerCase().split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l['’]\s*)/,'').trim()).filter(Boolean);
+const frItems = c => splitFr(c.fr, c.de).main.toLowerCase().split(/\s*[,;]\s*/).map(t=>t.replace(uArtRe(['def','indef'],'\\s+'),'').trim()).filter(Boolean);
 let sibIndex=null, sibStamp='';
 function siblingsOf(c){
   const stamp=LANG+':'+cards.size+':'+[...cards.keys()].slice(-3).join();
@@ -1502,7 +1514,7 @@ function siblingsOf(c){
 const noteKey = c => splitFr(c.fr, c.de).sense.join(' · ').toLowerCase();
 /* contrôle à l'ajout : même traduction française qu'un autre mot.
    La clé d'un mot reste l'article + le mot allemand (keyOf) ; la traduction ne sert qu'à prévenir. */
-const frDupKey = fr => String(fr||'').toLowerCase().replace(/[’]/g,"'").split(/\s*[,;]\s*/).map(t=>t.replace(/^(?:(?:le|la|les|un|une)\s+|l'\s*)/,'').replace(/\s+/g,' ').trim()).filter(Boolean).join(', ');
+const frDupKey = fr => String(fr||'').toLowerCase().replace(/[’]/g,"'").split(/\s*[,;]\s*/).map(t=>t.replace(uArtRe(['def','indef'],'\\s+'),'').replace(/\s+/g,' ').trim()).filter(Boolean).join(', ');
 function sameFr(items){
   const byFr=new Map(); const add=(k,x)=>{ if(!k) return; if(!byFr.has(k)) byFr.set(k,[]); byFr.get(k).push(x); };
   for(const c of deck()) add(frDupKey(c.fr), c);
@@ -1511,7 +1523,7 @@ function sameFr(items){
 }
 function dupItemsHTML(list, attr){
   return list.map(r=>`<div class="dupitem"><span class="de">${deWord(r.f)}</span>
-    <label>Français<input ${attr}="${r.i}" value="${esc(r.f.fr)}" autocomplete="off"></label>
+    <label>${U_().name}<input ${attr}="${r.i}" value="${esc(r.f.fr)}" autocomplete="off"></label>
     <small>Même traduction que : ${r.others.slice(0,4).map(x=>deWord(x)).join(', ')}</small></div>`).join('');
 }
 const DUP_TIP = `Précise la nuance entre parenthèses, par exemple <b>alliance (politique)</b> : elle s'affiche au recto, en petit, et dit quel mot est attendu.`;
@@ -1625,8 +1637,8 @@ function _renderReview(){
   const v=$('#view');
   if(mode==='loading'){ v.innerHTML='<div class="card"><p class="prompt-label">Chargement de tes mots…</p></div>'; return; }
   const dirBar=`<div class="dir"><span>Sens de révision</span><div class="seg" role="group" aria-label="Sens">
-    <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">FR → ${L_().code}</button>
-    <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">${L_().code} → FR</button></div></div>`;
+    <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">${U_().code} → ${L_().code}</button>
+    <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">${L_().code} → ${U_().code}</button></div></div>`;
   if(!deck().length){
     v.innerHTML=`<div class="card empty"><h2>Ton vocabulaire ${L_().of.replace(/^de l'/,"d'")} commence ici</h2>
       <p>Choisis une liste selon ton niveau, ou ajoute tes propres mots avec le dictionnaire.</p>
@@ -1680,7 +1692,7 @@ function batchesHTML(){
   return `<details class="panel batches"><summary><b>Retirer un ajout groupé</b><span class="hint">${gs.length} ajout${gs.length>1?'s':''} récent${gs.length>1?'s':''}</span></summary>
     <p class="hint">Seuls les mots jamais révisés sont retirés. Ceux que tu as déjà commencés gardent leur progression.</p>
     ${gs.map(x=>{ const un=x.ids.filter(id=>isNew(cards.get(id))).length;
-      return `<div class="batch"><div><b>${esc(x.label)}</b><small>${new Date(x.created).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · ${x.ids.length} mots</small></div>
+      return `<div class="batch"><div><b>${esc(x.label)}</b><small>${new Date(x.created).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · ${x.ids.length} mots</small></div>
       <button class="btn ghost small" data-rmbatch="${x.key}" ${un?'':'disabled'}>${un?`Retirer ${un}`:'Tout commencé'}</button></div>`; }).join('')}</details>`;
 }
 function renderList(){
@@ -1696,7 +1708,7 @@ function renderList(){
   const chips=`<div class="filters">
     ${lvlOpts.length?`<div class="frow"><span class="flabel">Niveau</span><div class="row">${chip('lvl','','Tous',inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
     <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
-    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',L_().name+' A→Z'],['fr','Français A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
+    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',L_().name+' A→Z'],['fr',U_().name+' A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
     ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
   </div>
   <div class="legend" aria-label="Code couleur">${L_().legend}</div>`;
@@ -1716,7 +1728,7 @@ function renderList(){
 function lessonItems(id){ return LESSONS[id].text.split('\n').map(l=>{ const i=l.indexOf('|'); const f=parseLine(l.slice(i+1)); return f?{...f,lvl:l.slice(0,i)}:null; }).filter(Boolean); }
 // clé d'un mot dans les fichiers de sa langue (« derhund », « l'amico ») ; clé d'identité : la même, préfixée par la langue sauf pour l'allemand
 const dkey = f => ((f.art||'')+f.de).toLowerCase();
-const keyOf = f => { const l = f.id ? langOf(f) : (f.lang||LANG); return (l==='de'?'':l+':')+dkey(f); };
+const keyOf = f => { const l = f.id ? langOf(f) : (f.lang||LANG), u = f.id ? ulOf(f) : (f.ul||UL); return (u==='fr'?'':u+'>')+(l==='de'?'':l+':')+dkey(f); };
 const newBatch = label => ({ id:'b'+uid(), label });
 function lessonsHTML(){
   const have=new Set(deck().map(keyOf));
@@ -1735,7 +1747,7 @@ function levelsHTML(){
   const have=new Set(deck().map(keyOf));
   const stat=L=>{ const items=LISTDATA[L]||[]; return {items, got:items.filter(f=>have.has(keyOf(f))).length}; };
   const grid=`<div class="levels">${Object.entries(LEVELS).map(([L,label])=>{ const {items,got}=stat(L); const done=got===items.length;
-    return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?'Tout ajouté':got?`${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots`:`${items.length.toLocaleString('fr-FR')} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
+    return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?'Tout ajouté':got?`${got.toLocaleString(LOC())} / ${items.length.toLocaleString(LOC())} mots`:`${items.length.toLocaleString(LOC())} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
   let packs='';
   if(openLvl && LISTDATA[openLvl]){
     const items=LISTDATA[openLvl]; const {got}=stat(openLvl); const nxt=nextBatch(openLvl); const busy=importing;
@@ -1746,7 +1758,7 @@ function levelsHTML(){
     else if(confirmLvl===openLvl){ action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
         <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':'Oui, ajouter'}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>Annuler</button></div></div>`; }
     else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':`Ajouter ${nxt.length} mots`}</button>`;
-    packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString('fr-FR')} / ${items.length.toLocaleString('fr-FR')} mots ajoutés</small></div>
+    packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString(LOC())} / ${items.length.toLocaleString(LOC())} mots ajoutés</small></div>
       <div class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></div>
       ${action}
       <p class="hint">Les mots s'ajoutent par 50 au plus, du plus fréquent au moins fréquent, et jamais au-delà de ${NEW_CAP} mots en cours d'apprentissage.</p></div>`;
@@ -1758,7 +1770,7 @@ function renderLangPick(){
   const n=k=>[...cards.values()].filter(c=>langOf(c)===k).length;
   $('#view').innerHTML=`<div class="card empty"><h2>Quelle langue veux-tu apprendre ?</h2>
     <p>Depuis le français. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.</p>
-    <div class="langs" role="group" aria-label="Langue apprise">${Object.entries(LANGS).map(([k,o])=>`<button type="button" class="level" data-lang="${k}" aria-pressed="${LANG===k}"><b>${o.code}</b><span>${o.name}</span><small>${n(k)?n(k).toLocaleString('fr-FR')+' mot'+(n(k)>1?'s':''):'8 000 mots, A1 à C2'}</small></button>`).join('')}</div>
+    <div class="langs" role="group" aria-label="Langue apprise">${Object.entries(LANGS).map(([k,o])=>`<button type="button" class="level" data-lang="${k}" aria-pressed="${LANG===k}"><b>${o.code}</b><span>${o.name}</span><small>${n(k)?n(k).toLocaleString(LOC())+' mot'+(n(k)>1?'s':''):'8 000 mots, A1 à C2'}</small></button>`).join('')}</div>
     ${LANG?`<button class="btn ghost" data-langcancel>Garder ${esc(L_().the)}</button>`:''}</div>`;
 }
 function setLang(k){
@@ -1772,7 +1784,7 @@ function setLang(k){
   }
   tab='review'; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b.dataset.tab==='review'?'page':'false'));
   $('#view').innerHTML=''; refresh(); loadLists(); loadExamples();
-  if(changed) toast(`${L_().name} : ${deck().length ? deck().length.toLocaleString('fr-FR')+' mots' : 'choisis un niveau pour commencer'}`);
+  if(changed) toast(`${L_().name} : ${deck().length ? deck().length.toLocaleString(LOC())+' mots' : 'choisis un niveau pour commencer'}`);
 }
 function renderGuide(){
   $('#view').innerHTML=`<article class="guide" id="guide">
@@ -1933,7 +1945,7 @@ function renderAdd(){
     <p class="hint" id="fEst" aria-live="polite"></p>
     <label for="fPl">Pluriel (facultatif)<input id="fPl" autocomplete="off" placeholder="${L_().samplePl}"></label>
     <p class="hint plprev" id="fPlPrev" aria-live="polite"></p>
-    <label for="fFr">Français<input id="fFr" required autocomplete="off" placeholder="le papillon"></label>
+    <label for="fFr">${U_().name}<input id="fFr" required autocomplete="off" placeholder="le papillon"></label>
     <div id="fDup" class="dupbox" hidden aria-live="polite"></div>
     <label for="fEx">Exemple (facultatif)<input id="fEx" autocomplete="off" placeholder="${L_().sampleEx}"></label>
     <button class="btn" type="submit">Ajouter le mot</button></form>
@@ -1959,14 +1971,14 @@ function loadDict(){
   fetch(dataFile('dict')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(d=>{
     if(lang!==LANG) return;
     // italien : 7e colonne = article (il, lo, la, l')
-    DICT_BY=new Map(); DICT=d.map(e=>({w:e[0], p:e[1], g:e[2], pl:e[3], s:e[4], z:(e[5]||0)/10, a:e[6]||'', k:fold(e[0]), f:e[4].map(x=>x[0].split(',').map(t=>fold(t.trim().replace(/^(?:(?:le|la|les)\s+|l['’]\s*)/i,''))))}));
+    DICT_BY=new Map(); DICT=d.map(e=>({w:e[0], p:e[1], g:e[2], pl:e[3], s:e[4], z:(e[5]||0)/10, a:e[6]||'', k:fold(e[0]), f:e[4].map(x=>x[0].split(',').map(t=>fold(t.trim().replace(uArtRe(['def'],'\\s+','i'),''))))}));
     DICT.forEach(e=>{ if(e.p==='n' && e.g && !DICT_BY.has(e.w)) DICT_BY.set(e.w,e); });
     dictState='ready'; dictStatus(); dictSearch();
   }).catch(()=>{ if(lang!==LANG) return; dictState='error'; dictStatus(); });
 }
 function dictStatus(){
   const el=$('#dStatus'); if(!el) return;
-  el.textContent = dictState==='ready' ? `${DICT.length.toLocaleString('fr-FR')} mots · hors ligne` : dictState==='error' ? 'Indisponible' : 'Chargement…';
+  el.textContent = dictState==='ready' ? `${DICT.length.toLocaleString(LOC())} mots · hors ligne` : dictState==='error' ? 'Indisponible' : 'Chargement…';
   if(dictState==='error') $('#dRes') && ($('#dRes').innerHTML=`<p class="hint">Le dictionnaire n'a pas pu se charger. <button type="button" class="link" data-dretry>Réessayer</button></p>`);
 }
 const posRank = p => p==='n'||p==='v'||p==='adj' ? 0 : 1;
@@ -2255,7 +2267,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="1.8.7";
+const APP_VER="1.8.8";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
@@ -2425,7 +2437,7 @@ async function authHash(){
 }
 
 /* --- interface : l'état en haut, le panneau du compte dans le Guide --- */
-function syWhen(t){ const m=Math.round((Date.now()-t)/60000); return m<1?'à l’instant':m<60?`il y a ${m} min`:new Date(t).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
+function syWhen(t){ const m=Math.round((Date.now()-t)/60000); return m<1?'à l’instant':m<60?`il y a ${m} min`:new Date(t).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
 function syUi(msg){
   const top=$('#sync');
   if(top){ const pend=Object.keys(SY.dirty).length;

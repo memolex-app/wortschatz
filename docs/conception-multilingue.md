@@ -139,6 +139,18 @@ Volume pour l'allemand : ~2 200 traductions à rédiger vers l'anglais, ~4 400 v
 - **`tools/regress_app.py capture|compare`** : test de non-régression. Pour chaque mot des listes (de et it) : couleur, mot affiché, ligne de grammaire, cas, quiz ; analyse de mots tapés et de lignes collées ; verdicts du quiz des cas ; dictionnaire ; recto et verso d'un échantillon de cartes dans les deux sens ; écrans Mots, Ajouter, Guide, Statistiques, choix de la langue, recherche ; voix ; ajout d'un mot tapé à la main. Horloge et hasard figés. Référence capturée sur la 1.8.6, comparée à la 1.8.7 : **0 différence**, 0 erreur JavaScript. À relancer avant chaque modification de l'appli.
 - Ajouter une langue apprise = écrire son `langue.json`. Points à prévoir au moment voulu : une langue **sans article ni genre** (anglais : `articles: []`, pas de quiz d'article ni de couleur), une langue à **trois genres et cas** autre que l'allemand (russe : le quiz des cas porte aujourd'hui sur les prépositions), une écriture **de droite à gauche** (étape 5).
 
+## Étape 5 : langue de l'utilisateur et interface (en cours)
+
+Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'interface dans un fichier de traduction ; 5.3 guide ; 5.4 traductions (en, es, it, de) et choix de la langue de l'utilisateur. Chaque morceau : test de non-régression à 0 différence en français.
+
+### 5.1 (faite, 12/11/2026, version 1.8.8)
+- **`data/<U>/utilisateur.json`** décrit la langue de l'utilisateur : nom et code (« Français », « FR »), `locale` (dates, nombres, tri : `fr-FR`), `dir` (sens de l'écriture), **articles** classés par nature (`def`, `indef`, `part`) et articles élidés (`l`), `gramNoteWords` (mots qui signalent une note grammaticale, envoyée au verso).
+- Les articles à ignorer dépendent de l'usage, comme avant : tri par la traduction = toutes les natures ; comparaison des traductions (doublons, cartes ambiguës) = définis et indéfinis ; recherche dans le dictionnaire = définis.
+- `build_app.py` injecte aussi ces descriptions (bloc `USER_DATA`).
+- Dans l'appli : variable `UL` (langue de l'utilisateur, `localStorage` `mx-ul`, défaut `fr`) ; fichiers `<type>-<langue apprise>-<UL>.json` ; une carte porte `ul` seulement si elle n'est pas en français (`ulOf` : absent = `fr`, toutes les cartes existantes) ; le paquet de mots ne montre que les cartes de la paire choisie ; identité d'une carte préfixée par la langue de l'utilisateur sauf pour le français (`keyOf` : les clés existantes ne changent pas).
+- Test de non-régression étendu (tri par la traduction et par le mot, clés de comparaison, doublons à l'ajout) : 1.8.7 → 1.8.8, **0 différence**.
+- Restent à adapter pour une autre langue d'utilisateur : les contrôles Python (`tools/*.py`, écrits pour le français : articles, registre, racines Snowball, spaCy fr).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).

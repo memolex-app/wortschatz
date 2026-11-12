@@ -1,0 +1,51 @@
+{
+ "order": 1,
+ "code": "FR",
+ "name": "Français",
+ "locale": "fr-FR",
+ "dir": "ltr",
+ "articles": [
+  {
+   "a": "le",
+   "kind": "def"
+  },
+  {
+   "a": "la",
+   "kind": "def"
+  },
+  {
+   "a": "les",
+   "kind": "def"
+  },
+  {
+   "a": "un",
+   "kind": "indef"
+  },
+  {
+   "a": "une",
+   "kind": "indef"
+  },
+  {
+   "a": "des",
+   "kind": "part"
+  }
+ ],
+ "elided": [
+  "l"
+ ],
+ "gramNoteWords": [
+  "allemand",
+  "italien",
+  "singulier",
+  "pluriel",
+  "collectif",
+  "datif",
+  "accusatif",
+  "génitif",
+  "nominatif",
+  "\\bakk",
+  "\\bdat",
+  "\\+",
+  "="
+ ]
+}

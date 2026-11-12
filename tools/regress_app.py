@@ -80,6 +80,12 @@ async (lang) => {
   const said=[]; try{ speechSynthesis.speak=u=>said.push([u.lang, +u.rate.toFixed(3)]); SAY.speak('Test', lang); }catch(e){ said.push('ERREUR '+e.message); }
   out.tts = {said};
   renderStats(); await new Promise(r=>setTimeout(r,50)); out.views.stats = $('#view').innerHTML;
+  // tri par la traduction, clés de comparaison des traductions, mots de même traduction
+  const pool = words.slice(0, 3000).map((c,i)=>({...c, created:i}));
+  out.sortFr = [...pool].sort(SORTS.fr).map(c=>c.de);
+  out.sortDe = [...pool].sort(SORTS.de).map(c=>c.de);
+  out.dupKeys = pool.map(c=>[c.fr, frDupKey(c.fr), frSortKey(c.fr)]);
+  out.sameFr = sameFr(pool.slice(0,400).map(c=>({de:c.de+'x', art:c.art, fr:c.fr}))).length;
   renderGuide(); out.views.guide = $('#view').innerHTML;
   renderLangPick(); out.views.langpick = $('#view').innerHTML;
   out.meta = {code: L_().code, name: L_().name, adj: L_().adj, chars: L_().chars, pair: (document.getElementById('pair')||{}).textContent};
