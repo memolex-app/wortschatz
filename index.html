@@ -1327,7 +1327,7 @@ function statsHTML(){
 }
 function renderStats(){ if(listState==='idle') loadLists(); $('#view').innerHTML=statsHTML(); notifState(); }
 /* ---------- mot du jour et notifications ----------
-   settings.wotd = {lang, days:{"AAAA-MM-JJ": {de, art, pl, fr, pos, g, lvl}}} : les 14 prochains mots du jour, tirés au hasard
+   settings.wotd = {lang, ul, days:{"AAAA-MM-JJ": {de, art, pl, fr, pos, g, lvl}}} : les 14 prochains mots du jour, tirés au hasard
    (niveau A1-C2 au hasard, puis un mot de ce niveau pas encore dans tes mots). Le serveur lit cette ligne pour envoyer la notification.
    settings.notif = {on, times:["08:00","19:30"], wotd:true, wotdAt:"10:00"} ; settings.tz = fuseau de l'appareil.
    Le bouton « Ajouter » d'une notification range le mot dans IndexedDB (mx-inbox) ; l'appli l'ajoute à son prochain lancement. */
@@ -1339,8 +1339,9 @@ const wotdOn = () => NF().wotd!==false;
 function wotdFill(){
   if(!LISTDATA || mode==='loading' || !LANG) return;
   const have=new Set(deck().map(keyOf)), today=dayKey(Date.now());
-  const old=settings.wotd && settings.wotd.lang===LANG ? settings.wotd.days||{} : {};
-  const days={}, used=new Set(); let changed=!settings.wotd || settings.wotd.lang!==LANG;
+  const same=settings.wotd && settings.wotd.lang===LANG && (settings.wotd.ul||'fr')===UL; // traductions dans la langue de l'utilisateur
+  const old=same ? settings.wotd.days||{} : {};
+  const days={}, used=new Set(); let changed=!same;
   for(const k in old){ const f=old[k]; if(k===today || (k>today && !have.has(keyOf({...f,lang:LANG})))){ days[k]=f; used.add(keyOf({...f,lang:LANG})); } else changed=true; }
   const tk=wotdTakenToday(); if(tk && (!days[today] || keyOf({...days[today],lang:LANG})!==keyOf(tk))){ days[today]=wotdRaw(); changed=true; }
   const lv=Object.keys(LEVELS).filter(L=>(LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))));
@@ -1349,14 +1350,14 @@ function wotdFill(){
       if(have.has(key)||used.has(key)) continue; days[k]={de:f.de, art:f.art||'', pl:f.pl||'', fr:f.fr, ...(f.pos?{pos:f.pos}:{}), ...(f.g?{g:f.g}:{}), lvl:L}; used.add(key); changed=true; break; } }
   let tz=''; try{ tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''; }catch(e){}
   if(tz && settings.tz!==tz){ settings.tz=tz; changed=true; }
-  if(changed){ settings.wotd={lang:LANG, days}; saveSettings(); }
+  if(changed){ settings.wotd={lang:LANG, ul:UL, days}; saveSettings(); }
 }
 const wordLine = f => (f.art ? f.art+(/'$/.test(f.art)?'':' ') : '')+f.de;
 // le mot du jour ajouté aujourd'hui (bouton de l'écran ou de la notification) fait foi : le serveur et l'appareil
 // peuvent avoir tiré des mots différents, ou une ancienne version avoir remplacé l'entrée du jour
 function wotdTakenToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.batchLabel===T('wotdTakenToday.mot_du_jour') && c.created>=sod).sort((a,b)=>a.created-b.created)[0]||null; }
 function wotdRaw(){ const t=wotdTakenToday(); if(t) return {de:t.de, art:t.art||'', pl:t.pl||'', fr:t.fr, ...(t.pos?{pos:t.pos}:{}), lvl:t.lvl||''};
-  const w=settings.wotd; if(!w || w.lang!==LANG) return null; return (w.days||{})[dayKey(Date.now())]||null; }
+  const w=settings.wotd; if(!w || w.lang!==LANG || (w.ul||'fr')!==UL) return null; return (w.days||{})[dayKey(Date.now())]||null; }
 const wotdAdded = f => deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG}));
 function wotdToday(){ const f=wotdRaw(); return f && !wotdAdded(f) ? f : null; }
 function wotdHTML(){
@@ -2300,7 +2301,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="2.0.1";
+const APP_VER="2.0.2";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();

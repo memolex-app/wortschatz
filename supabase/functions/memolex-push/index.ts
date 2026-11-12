@@ -39,15 +39,36 @@ export function plan(s, now, sent) {
   }
   return out;
 }
-const LANG_NAME = { de: "allemand", it: "italien" };
-export function message(item, due) {
-  if (item.kind === "wotd") return { kind: "wotd", title: `Mot du jour · ${item.f.lvl || ""}`.trim(), body: `${wordLine(item.f)} — ${item.f.fr}`, word: { f: item.f, lang: item.lang } };
+// textes des notifications, dans la langue de l'utilisateur (settings.wotd.ul, français par défaut)
+const pl = (n, one, other) => (n > 1 ? other : one);
+const TXT = {
+  fr: {
+    wotd: "Mot du jour",
+    due: (n, m) => `${n} ${pl(n, "mot", "mots")} à revoir, environ ${m} min.`,
+    fresh: (m) => `Quelques nouveaux mots, environ ${m} min ?`,
+    left: (n) => ` Encore ${n} ${pl(n, "carte", "cartes")} pour compter la journée.`,
+    morning: "Bonjour ! C'est l'heure de tes mots", midday: "Une pause vocabulaire ?", evening: "Tes mots du jour t'attendent",
+    test: "Les notifications fonctionnent sur cet appareil.",
+  },
+  en: {
+    wotd: "Word of the day",
+    due: (n, m) => `${n} ${n === 1 ? "word" : "words"} to review, about ${m} min.`,
+    fresh: (m) => `A few new words, about ${m} min?`,
+    left: (n) => ` ${n} more ${n === 1 ? "card" : "cards"} to make today count.`,
+    morning: "Good morning! Time for your words", midday: "A vocabulary break?", evening: "Your words for today are waiting",
+    test: "Notifications work on this device.",
+  },
+};
+export const txt = (ul) => TXT[ul] || TXT.fr;
+export function message(item, due, ul = "fr") {
+  const t = txt(ul);
+  if (item.kind === "wotd") return { kind: "wotd", ul, title: `${t.wotd} · ${item.f.lvl || ""}`.trim().replace(/ ·$/, ""), body: `${wordLine(item.f)} — ${item.f.fr}`, word: { f: item.f, lang: item.lang } };
   const left = item.dayMin - item.done;
   const mins = Math.max(1, Math.round(Math.max(due, left) * 10 / 60));
-  const head = due > 0 ? `${due} mot${due > 1 ? "s" : ""} à revoir, environ ${mins} min.` : `Quelques nouveaux mots, environ ${mins} min ?`;
-  const tail = item.done > 0 ? ` Encore ${left} carte${left > 1 ? "s" : ""} pour compter la journée.` : "";
-  const title = item.slot < "11:00" ? "Bonjour ! C'est l'heure de tes mots" : item.slot < "16:00" ? "Une pause vocabulaire ?" : "Tes mots du jour t'attendent";
-  return { kind: "rem", title, body: head + tail };
+  const head = due > 0 ? t.due(due, mins) : t.fresh(mins);
+  const tail = item.done > 0 ? t.left(left) : "";
+  const title = item.slot < "11:00" ? t.morning : item.slot < "16:00" ? t.midday : t.evening;
+  return { kind: "rem", ul, title, body: head + tail };
 }
 // mots déjà vus et dus maintenant, dans la langue apprise
 export function countDue(rows, lang, nowMs) {
@@ -97,10 +118,11 @@ if (typeof Deno !== "undefined") Deno.serve(async (req) => {
   const dueCache = new Map();
   for (const s of subs) {
     const st = S.get(s.user_id) || {};
+    const ul = (st.wotd && st.wotd.ul) || "fr";
     if (testUser) {
-      if (await send(s, { kind: "test", title: "Memolex", body: "Les notifications fonctionnent sur cet appareil." })) sent++;
+      if (await send(s, { kind: "test", ul, title: "Memolex", body: txt(ul).test })) sent++;
       const f = st.wotd && st.wotd.days && st.wotd.days[localNow(st.tz || "Europe/Paris", now).date];
-      if (f) await send(s, message({ kind: "wotd", f, lang: st.wotd.lang || "de" }, 0));
+      if (f) await send(s, message({ kind: "wotd", f, lang: st.wotd.lang || "de" }, 0, ul));
       continue;
     }
     const todo = plan(st, now, s.sent || {});
@@ -116,7 +138,7 @@ if (typeof Deno !== "undefined") Deno.serve(async (req) => {
         }
         due = dueCache.get(s.user_id);
       }
-      if (await send(s, message(it, due))) sent++;
+      if (await send(s, message(it, due, ul))) sent++;
       mark[it.key] = now.toISOString();
     }
     await db.from("memolex_push").update({ sent: prune(mark, now) }).eq("endpoint", s.endpoint);
