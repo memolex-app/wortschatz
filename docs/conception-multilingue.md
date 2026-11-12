@@ -160,6 +160,12 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - **Pluriels** : ~40 pluriels « à la française » (`mot${n>1?'s':''}`) sont pour l'instant des valeurs insérées (`{1}` vaut « s » ou rien). À convertir en vrais pluriels au moment des traductions (5.4) : l'italien et l'espagnol ne forment pas leur pluriel avec « s ».
 - Restent en français, hors de l'appli : textes des notifications envoyées par le serveur (`supabase/functions`), `sw.js`.
 
+### 5.3 (faite, 12/11/2026, version 1.9.0)
+- **Guide** extrait : 88 nouveaux messages (paragraphes entiers, avec liens et mise en forme). `i18n/fr.json` : 527 clés au total.
+- Les 10 passages propres à une langue apprise (code couleur, quiz des articles, format d'une liste collée, lettres spéciales, dictionnaire, exemple de mot souligné, exemple « une phrase par sens », exemple de mots de même traduction, sources des listes, mots utiles peu fréquents) + l'exemple de nom lu avec son article sont des messages **`guide.<langue apprise>.<nom>`**. Une nouvelle langue apprise ajoute les siens ; le code n'a plus aucun test « allemand / italien ».
+- `dictDefinitions` (description de la langue) : le dictionnaire contient des définitions dans la langue apprise (allemand : oui ; italien : non).
+- Seule différence voulue avec la 1.8.9 : le guide italien donnait l'exemple allemand « die Geduld » pour la lecture du nom avec son article ; il donne maintenant « la pazienza ». Preuve : 95/95 ; test d'écrans : cette seule différence.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).

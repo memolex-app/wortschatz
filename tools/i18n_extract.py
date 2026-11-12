@@ -26,7 +26,7 @@ REGEX_PREV = set('(,=:[!&|?{};+-*%<>~^') | {''}
 REGEX_KW = {'return', 'typeof', 'case', 'in', 'of', 'delete', 'void', 'throw', 'new', 'else', 'do'}
 INLINE = {'b', 'i', 'em', 'strong', 'small', 'span', 'code', 'a', 'u', 'sup', 'sub', 'br', 'mark', 'kbd', 'abbr', 'q'}
 READABLE_ATTR = {'placeholder', 'aria-label', 'title', 'alt'}
-SKIP_FUNCS = {'renderGuide'}
+SKIP_FUNCS = set(os.environ.get('I18N_SKIP', '').split(',')) - {''}   # guide extrait à l'étape 5.3
 # tables d'étiquettes dont les valeurs sont des mots isolés en minuscules (« nom », « masculin ») : extraites quand même
 FORCE_CONSTS = {'GENRE', 'POS_LABEL'}
 
@@ -297,7 +297,11 @@ def main():
             if ok:
                 edits.append(dict(s=s0, e=e0, kind='msg', raw='`' + ''.join(pieces) + '`', args=args))
     edits.sort(key=lambda d: (d['s'], -d['e']))
-    fr, ctx, by_val, used = {}, [], {}, set()
+    # complète le fichier existant : mêmes clés pour les mêmes textes, nouveaux noms sans collision
+    old_path = os.path.join(ROOT, 'i18n', 'fr.json')
+    old = json.load(open(old_path, encoding='utf-8')) if os.path.exists(old_path) else {}
+    fr, ctx, used = {}, [], set(old)
+    by_val = {v: k for k, v in old.items() if v is not None}
     for d in edits:
         v = d['raw'][1:-1] if '\\' not in d['raw'] else None
         if v is not None and v in by_val:
@@ -334,9 +338,11 @@ def main():
             print(f'{k} = {v!r}')
         return
     os.makedirs(os.path.join(ROOT, 'i18n'), exist_ok=True)
-    json.dump(fr, open(os.path.join(ROOT, 'i18n', 'fr.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    with open(os.path.join(ROOT, 'i18n', 'contexte.tsv'), 'w', encoding='utf-8') as f:
-        f.write('clé\tmessage\tcode\n')
+    json.dump({**old, **fr}, open(old_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    cpath = os.path.join(ROOT, 'i18n', 'contexte.tsv')
+    new_file = not os.path.exists(cpath)
+    with open(cpath, 'a', encoding='utf-8') as f:
+        if new_file: f.write('clé\tmessage\tcode\n')
         for k, v, c in ctx:
             f.write(f'{k}\t{v}\t{c}\n'.replace('\r', ' '))
     open(path, 'w', encoding='utf-8').write(html[:a] + new + html[b:])

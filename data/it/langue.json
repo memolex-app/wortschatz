@@ -108,5 +108,6 @@
    "le (pluriel)"
   ]
  ],
- "legend": "<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>"
+ "legend": "<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>",
+ "dictDefinitions": false
 }

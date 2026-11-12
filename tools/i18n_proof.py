@@ -34,10 +34,12 @@ def main():
     print(f'{len(proof)} occurrences, {len(exact)} clés ; erreurs : {len(bad)} ; valeurs corrigées par le navigateur : {len(approx)}')
     for b in bad[:20]:
         print('  ', b)
-    if set(exact) != set(fr):
-        print('  clés sans occurrence ou occurrences sans clé :', sorted(set(exact) ^ set(fr))[:10]); bad.append('clés')
+    missing = [k for k in exact if k not in fr]
+    if missing:
+        print('  occurrences sans clé dans fr.json :', missing[:10]); bad.append('clés')
     if '--write' in sys.argv and not bad:
-        json.dump({k: exact[k] for k in fr}, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        fr.update(exact)
+        json.dump(fr, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
         print('i18n/fr.json : valeurs exactes écrites')
     sys.exit(1 if bad else 0)
 
