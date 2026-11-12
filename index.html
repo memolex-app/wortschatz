@@ -549,29 +549,40 @@ nav.tabs button:active{transform:translateY(1px)}
 </head>
 <body>
 <div class="app">
-  <div class="appver" id="appVer" aria-label="Version de l'appli"></div>
+  <div class="appver" id="appVer" aria-label="Version de l'appli" data-ta="shell.version_de_l_appli"></div>
   <header>
-    <h1>Memolex <button type="button" class="pair" id="pair" data-langpick aria-label="Changer de langue">Langue</button></h1>
-    <button type="button" class="sync" id="sync" data-acct>Chargement…</button>
+    <h1>Memolex <button type="button" class="pair" id="pair" data-langpick aria-label="Changer de langue" data-ta="shell.changer_de_langue" data-t="shell.langue">Langue</button></h1>
+    <button type="button" class="sync" id="sync" data-acct data-t="dictStatus.chargement">Chargement…</button>
   </header>
   <div class="stats">
-    <div class="stat"><b id="sDue">–</b><span>À revoir</span></div>
-    <div class="stat"><b id="sTotal">–</b><span>Mots</span></div>
-    <div class="stat"><b id="sKnown">–</b><span>Acquis</span></div>
+    <div class="stat"><b id="sDue">–</b><span data-t="shell.a_revoir">À revoir</span></div>
+    <div class="stat"><b id="sTotal">–</b><span data-t="shell.mots">Mots</span></div>
+    <div class="stat"><b id="sKnown">–</b><span data-t="STATUS_LABEL.acquis">Acquis</span></div>
   </div>
-  <div class="progress" id="progress" aria-label="Où en sont tes mots"></div>
+  <div class="progress" id="progress" aria-label="Où en sont tes mots" data-ta="shell.ou_en_sont_tes_mots"></div>
   <main id="view"></main>
 </div>
 <nav class="tabs"><div class="in">
-  <button data-tab="review" aria-current="page">Réviser</button>
-  <button data-tab="list">Mes mots</button>
-  <button data-tab="add">Ajouter</button>
-  <button data-tab="stats">Stats</button>
-  <button data-tab="guide">Guide</button>
+  <button data-tab="review" aria-current="page" data-t="shell.tab_review">Réviser</button>
+  <button data-tab="list" data-t="shell.tab_list">Mes mots</button>
+  <button data-tab="add" data-t="shell.tab_add">Ajouter</button>
+  <button data-tab="stats" data-t="shell.tab_stats">Stats</button>
+  <button data-tab="guide" data-t="shell.tab_guide">Guide</button>
 </div></nav>
 <div class="toast" id="toast" hidden></div>
 
 <script>
+/* I18N_DATA:BEGIN (généré par tools/build_app.py, ne pas éditer) */
+const I18N = {"fr":{"updatePair.choisir_une_langue":"Choisir une langue","LEVELS.decouverte":"Découverte","LEVELS.survie":"Survie","LEVELS.seuil":"Seuil","LEVELS.avance":"Avancé","LEVELS.autonome":"Autonome","LEVELS.maitrise":"Maîtrise","capHTML.mots_en_cours_d_apprentissage":"<b>{0} mots en cours d'apprentissage</b> (à découvrir, en apprentissage ou en révision). On n'ajoute plus de paquet au-delà de {1} : un mot libère sa place quand il est acquis (revu avec succès jusqu'à 3 semaines d'intervalle) ou trié « Je connais déjà ». Tu peux toujours ajouter un mot à la fois (formulaire, dictionnaire, mot du jour).","capHTML.trier_mes_nouveaux_mots":"Trier mes {0} nouveaux mots","gone.des_listes_lors_de_la":"{0} : {1} des listes lors de la relecture","gone.retire":"« {0} » retiré","gone.mots_retires":"{0} mots retirés","gone.il_a_ete_ecarte":"il a été écarté","gone.ils_ont_ete_ecartes":"ils ont été écartés","chunkHTML.a_retenir":"<span class=\"tsense\">À retenir</span>","chunkHTML.ecouter_l_expression":"Écouter l’expression","ownExHTML.definition":"<span class=\"tsense\">Définition</span>","ownExHTML.ecouter_la_definition":"Écouter la définition","ownExHTML.ton_exemple":"<span class=\"tsense\">Ton exemple</span>","ownExHTML.ecouter_la_phrase":"Écouter la phrase","exampleHTML.afficher_les_phrases_d_exemple":"Afficher les phrases d'exemple","loadCredits.phrases_contributeurs_pour_chaque_phrase":"{0} phrases, {1} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase {2} et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.","srcOf.liste_collee":"Liste collée","STATUS_LABEL.a_decouvrir":"À découvrir","STATUS_LABEL.en_apprentissage":"En apprentissage","STATUS_LABEL.en_revision":"En révision","STATUS_LABEL.acquis":"Acquis","srcLabel.listes_par_niveau":"Listes par niveau","srcLabel.mes_ajouts":"Mes ajouts","srcLabel.dictionnaire":"Dictionnaire","srcLabel.pack_de_depart":"Pack de départ","sayBtn.ecouter":"Écouter","handleErr.stockage_plein_supprime_quelques_mots":"Stockage plein : supprime quelques mots.","handleErr.enregistrement_impossible_pour_l_instant":"Enregistrement impossible pour l'instant. Réessaie.","next.synchronise_sur_tous_tes_appareils":"Synchronisé sur tous tes appareils","next.synchronisation_interrompue":"Synchronisation interrompue","preview.en_fin_de_session":"en fin de session","preview.tout_de_suite":"tout de suite","whenText.dans_un_instant":"dans un instant","whenText.dans_min":"dans {0} min","days.aujourd_hui_a":"aujourd'hui à {0}","GRADE_LABEL.encore":"Encore","GRADE_LABEL.difficile":"Difficile","GRADE_LABEL.bien":"Bien","GRADE_LABEL.facile":"Facile","GRADE_LABEL.je_connais_deja":"Je connais déjà","STAT_KEYS.mots_acquis_par_niveau":"Mots acquis par niveau","STAT_KEYS.revisions_des_7_prochains_jours":"Révisions des 7 prochains jours","STAT_KEYS.reussite_sur_les_mots_murs":"Réussite sur les mots mûrs","STAT_KEYS.jours_actifs_du_mois":"Jours actifs du mois","STAT_KEYS.erreurs_d_article_et_de":"Erreurs d'article et de cas","dots.objectif_du_jour_atteint":"Objectif du jour atteint.","dots.encore_carte_pour_compter_aujourd":"Encore {0} carte{1} pour compter aujourd'hui.","dots.cartes_aujourd_hui_pour_compter":"{0} cartes aujourd'hui pour compter la journée.","week.semaine_validee":"semaine validée ({0}/{1})","week.semaine_joker_restant":"semaine {0}/{1} · {2} joker{3} restant{4}","week.jour_de_serie":"<b>{0}</b><span>jour{1} de série{2}</span>","week.cette_semaine":"Cette semaine","statsHTML.serie":"Série","size.dans_tes_mots":"{0} dans tes mots","size.mots_ajoutes_hors_listes":"<span class=\"pill lvl\">+</span><span class=\"hint\" style=\"flex:1\">Mots ajoutés hors listes</span><span class=\"lv-n\"><b>{0}</b> / {1}</span>","size.acquis_revu_avec_succes_jusqu":"Acquis = revu avec succès jusqu'à un intervalle de 21 jours ou plus. Barre claire : mots du niveau déjà dans tes cartes.","size.mots_deja_vus_qui_reviennent":"Mots déjà vus qui reviennent chaque jour, sans compter les nouveaux. Aujourd'hui inclut le retard.","size.revision_sur_30_jours":"<b>{0}</b><span>{1} révision{2} sur 30 jours</span>","size.repere_autour_de_85_90":"{0}Repère : autour de 85-90 %, ton rythme est bon. Nettement en dessous, ralentis les nouveaux mots ; au-dessus de 95 %, tu peux en ajouter plus.","size.pas_encore_assez_de_mots":"Pas encore assez de mots mûrs (intervalle de 21 jours ou plus) pour un chiffre fiable : il en faut au moins 10. ","cells.jours_actifs":"Jours actifs · {0}","cells.jour_actif_dont_avec_au":"<b>{0}</b><span>jour{1} actif{2}, dont {3} avec au moins {4} cartes</span>","rows.article_faux_sur":"<span>Article</span><b>{0}</b><small>{1} faux sur {2}</small>","rows.cas_des_prepositions_faux_sur":"<span>Cas des prépositions</span><b>{0}</b><small>{1} faux sur {2}</small>","rows.taux_d_erreur_30_jours":"Taux d'erreur · 30 jours","rows.premiere_reponse_de_chaque_carte":"Première réponse de chaque carte en session. Un chiffre s'affiche à partir de 10 articles{0}.","rows.et_5_cas":" et 5 cas","rows.ajoute_des_mots_et_fais":"Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.","rows.reglages":"Réglages","rows.sons":"<span>Sons</span>{0}","rows.actives":"Activés","rows.coupes":"Coupés","rows.prononciation":"<span>Prononciation 🔊</span>{0}","rows.activee":"Activée","rows.coupee":"Coupée","rows.lecture_automatique":"<span>Lecture automatique</span>{0}","rows.oui":"Oui","rows.non":"Non","rows.vitesse_de_la_voix":"<span>Vitesse de la voix</span>{0}","rows.normale":"Normale","rows.lente":"Lente","rows.aucune_voix_trouvee_sur_cet":"Aucune voix {0} trouvée sur cet appareil : la lecture utilisera la voix par défaut. Sur Android : Paramètres → Accessibilité → Synthèse vocale → moteur Google → installer la langue {1}.","rows.prononciation_ce_navigateur_n_a":"Prononciation : ce navigateur n'a pas de synthèse vocale.","rows.serie":"<span>Série</span>{0}","rows.desactivee":"Désactivée","rows.nouveaux_mots_par_jour":"<span>Nouveaux mots par jour</span>{0}","rows.minimum_par_jour":"<span>Minimum par jour</span>{0}","rows.objectif_par_semaine":"<span>Objectif par semaine</span>{0}","rows.objectif_jours_sur_7_joker":"Objectif {0} jours sur 7 : {1} joker{2} par semaine, la série ne casse pas un jour sans révision.","rows.7_jours_sur_7_aucun":"7 jours sur 7 : aucun joker, chaque jour manqué casse la série.","rows.statistiques_affichees":"<span>Statistiques affichées</span>","NOTIF_TIMES.matin_8_h":"Matin · 8 h","NOTIF_TIMES.midi_12_h_30":"Midi · 12 h 30","NOTIF_TIMES.soir_19_h_30":"Soir · 19 h 30","wotdTakenToday.mot_du_jour":"Mot du jour","wotdHTML.mot_du_jour":"<span>Mot du jour</span>{0}","wotdHTML.ajoute_a_ton_apprentissage_prochain":"✓ Ajouté à ton apprentissage. Prochain mot demain.","wotdHTML.mot_du_jour_2":"<span>Mot du jour</span><span class=\"pill lvl\">{0}</span>","wotdHTML.ajouter_a_l_apprentissage":"Ajouter à l'apprentissage","items.ajoute_il_arrive_dans_ta":"« {0} » ajouté : il arrive dans ta prochaine session","items.mots_du_jour_ajoutes":"{0} mots du jour ajoutés","pushOK.notification":"Notification","swReady.service_worker_absent":"service worker absent","notifEnable.sur_iphone_ajoute_d_abord":"Sur iPhone, ajoute d'abord l'appli à l'écran d'accueil (Partager → Sur l'écran d'accueil), puis ouvre-la depuis l'icône.","notifEnable.ce_navigateur_ne_gere_pas":"Ce navigateur ne gère pas les notifications.","notifEnable.connecte_toi_d_abord_a":"Connecte-toi d’abord à la synchronisation (onglet Guide) : le serveur en a besoin pour savoir quand t’écrire.","notifEnable.notifications_refusees_autorise_les_dans":"Notifications refusées. Autorise-les dans les réglages du téléphone (Applis → Memolex → Notifications).","notifEnable.notifications_activees_sur_cet_appareil":"Notifications activées sur cet appareil.","notifEnable.le_serveur_des_notifications_n":"Le serveur des notifications n’est pas encore installé (étape Supabase).","notifEnable.activation_impossible":"Activation impossible : ","notifDisable.notifications_coupees_sur_cet_appareil":"Notifications coupées sur cet appareil.","notifTest.envoi":"Envoi…","notifTest.envoye_la_notification_arrive_dans":"Envoyé : la notification arrive dans quelques secondes.","notifTest.aucun_appareil_abonne_active_d":"Aucun appareil abonné : active d’abord les notifications.","notifTest.test_impossible":"Test impossible : ","notifTest.la_fonction_memolex_push_n":"la fonction memolex-push n’est pas encore déployée.","notifHTML.rappels_et_mot_du_jour":"Rappels et mot du jour","notifHTML.sur_cet_appareil":"<span>Sur cet appareil</span><span class=\"nf-state\" id=\"nfState\">…</span>","notifHTML.un_rappel_n_arrive_que":"Un rappel n'arrive que si tu n'as pas encore fait ton minimum du jour ({0} cartes). Dès que c'est fait, les rappels suivants de la journée sautent.","notifHTML.active":"Activé","notifHTML.coupe":"Coupé","notifHTML.heure_du_mot_du_jour":"<span>Heure du mot du jour</span>{0}","notifHTML.un_mot_de_a1_a":"Un mot de A1 à C2 que tu n'as pas encore, avec sa traduction. Le bouton « Ajouter » de la notification le met dans tes mots ; il passe avant les autres nouveaux mots. Il s'affiche aussi sur l'écran Réviser.","notifState.non_disponible":"non disponible","notifState.activees":"activées","notifState.bloquees":"bloquées","notifState.desactivees":"désactivées","prepLine.sens_figure":"Sens figuré, {0}.","GENRE.masculin":"masculin","GENRE.feminin":"féminin","GENRE.neutre":"neutre","famUsed.bons_cas":"Bons cas","famUsed.bon_cas":"Bon cas","famUsed.le_est_familier":"(le {0} est familier)","famUsed.pas":"Pas {0} : {1}","famUsed.il_fallait":"il fallait ","guessWrong.verdict_ok":"verdict ok","gramLineFull.pas_de_pluriel":"pas de pluriel","gramLineFull.pluriel_invariable":"pluriel invariable : {0}","gramLine.pluriel_identique":"pluriel identique : {0} {1}","dupItemsHTML.meme_traduction_que":"<small>Même traduction que : {0}</small>","DUP_TIP.precise_la_nuance_entre_parentheses":"Précise la nuance entre parenthèses, par exemple <b>alliance (politique)</b> : elle s'affiche au recto, en petit, et dit quel mot est attendu.","cueFor.mots_possibles_indice_lettres":"{0} mots possibles · indice : <b>{1}…</b> ({2} lettres)","front.en":"En {0} ?","front.en_francais":"En français ?","front.ecouter_le_mot":"Écouter le mot","verdict.bon_article":"Bon article","verdict.pas_mais":"Pas « {0} » mais « {1} »","verdict.meme_traduction":"Même traduction : {0}","reveal.cas_de_la_preposition":"Cas de la préposition","reveal.quel_cas_un_ou_plusieurs":"Quel cas ? (un ou plusieurs)","reveal.valider":"Valider","reveal.afficher_sans_choisir":"Afficher sans choisir","reveal.afficher_la_reponse":"Afficher la réponse","left.entrainement_interrompu":"Entraînement interrompu","left.session_interrompue":"Session interrompue","left.tu_en_etais_a_carte":"Tu en étais à <b>{0}/{1}</b> · {2} carte{3} restante{4}. Tes réponses déjà données sont enregistrées.","left.reprendre_ou_j_en_etais":"Reprendre où j'en étais","left.abandonner_cette_session":"Abandonner cette session","next.trier_mes_nouveaux_mots_a":"Trier mes nouveaux mots<small>{0} à passer en revue : écarte ceux que tu connais déjà</small>","when.rien_a_reviser_pour_l":"Rien à réviser pour l'instant","when.tous_tes_mots_sont_a":"Tous tes mots sont à jour.{0}","when.prochaine_revision":"Prochaine révision : {0}.","when.pourquoi_attendre_un_mot_revu":"Pourquoi attendre : un mot revu juste avant d'être oublié se fixe bien mieux qu'un mot répété tout de suite. C'est pour ça qu'un mot nouveau revient 15 min, puis 3 h après.","when.ajouter_des_mots":"Ajouter des mots","when.reviser_quand_meme_entrainement_libre":"Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small>","parts.revision":"{0} révision{1}","parts.en_apprentissage":"{0} en apprentissage","parts.nouvelle_session":"Nouvelle session","parts.mot_a_revoir":"{0} mot{1} à revoir","parts.aucun_mot_a_revoir":"Aucun mot à revoir","parts.nouveau_possible_aujourd_hui":"{0} nouveau{1} possible{2} aujourd'hui","parts.nouveaux_mots_quota_du_jour":"nouveaux mots : quota du jour atteint ({0})","parts.aucun_nouveau_en_attente":"aucun nouveau en attente","parts.taille_de_la_session":"Taille de la session","parts.pas_assez_de_mots":"pas assez de mots","parts.session_raccourcie_a_cartes_mots":"Session raccourcie à {0} cartes : {1} mots en apprentissage attendent, mais il n'y a pas assez de révisions faciles pour les entourer. Refais une petite session dans 15 à 30 minutes.","parts.commencer_carte":"Commencer<small>{0} carte{1} : {2}</small>","parts.reviser_quand_meme_entrainement_libre":"Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small>","parts.au_plus_nouveaux_mots_par":"Au plus {0} nouveaux mots par jour (réglable dans Stats → Réglages). Dans une session, les mots difficiles (en apprentissage ou nouveaux) ne dépassent pas {1} % des cartes et sont mêlés à des révisions plus faciles, tant qu'il y en a. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.","renderTriage.tri_termine":"Tri terminé","renderTriage.mot_ecarte_dans_un_mois":"{0} mot{1} écarté{2} : {3} dans un mois pour vérifier. Les autres t'attendent dans tes sessions.","renderTriage.ils_reviendront":"ils reviendront","renderTriage.il_reviendra":"il reviendra","renderTriage.retour_aux_sessions":"Retour aux sessions","renderTriage.tri_des_nouveaux_mots_restant":"<span><b>Tri des nouveaux mots</b> · {0} restant{1}</span>","renderTriage.terminer":"Terminer","renderTriage.je_connais_deja_revient_dans":"Je connais déjà<small>revient dans un mois</small>","renderTriage.a_apprendre_garde_le_mot":"À apprendre<small>garde le mot</small>","maybeReinf.renforcement_mot_a_consolider_chaque":"<b>Renforcement</b><span>{0} mot{1} à consolider</span><small>Chaque mot revient au plus {2} fois. Au-delà, il attend ta prochaine session.</small>","dirBar.sens_de_revision":"<span>Sens de révision</span>","dirBar.sens":"Sens","dirBar.ton_vocabulaire_commence_ici":"Ton vocabulaire {0} commence ici","dirBar.choisis_une_liste_selon_ton":"Choisis une liste selon ton niveau, ou ajoute tes propres mots avec le dictionnaire.","dirBar.ajouter_mes_propres_mots":"Ajouter mes propres mots","done.entrainement_termine":"Entraînement terminé","done.mot_revu_dont_juste_du":"{0} mot{1} revu{2}, dont {3} juste{4} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.","done.session_terminee":"Session terminée","done.reponse_dont_juste_du_premier":"{0} réponse{1}, dont {2} juste{3} du premier coup.","done.mot_encore_difficile_apres_essais":"{0} mot{1} encore difficile{2} après {3} essais : {4} dans 15 minutes. C'est normal, l'espacement fera le travail.","done.ils_reviennent":"ils reviennent","done.il_revient":"il revient","stop.entrainement_arrete":"Entraînement arrêté","stop.session_arretee":"Session arrêtée","stop.entrainement_libre_rien_n_a":"Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.","stop.tes_reponse_chaque_note_est":"Tes {0} réponse{1} : chaque note est sauvegardée dès que tu la donnes.","stop.s_sont_enregistrees":"s sont enregistrées","stop.est_enregistree":" est enregistrée","stop.aucune_reponse_donnee_rien_n":"Aucune réponse donnée, rien n’a changé.","controls.cas_faux":"cas faux","controls.article_faux":"article faux","controls.ta_reponse":"ta réponse","controls.renforcement_a_consolider":"<b>Renforcement</b> · {0} à consolider","controls.carte_deja_vue":"Carte déjà vue","controls.entrainement_libre":"Entraînement libre","controls.session":"Session","controls.non_enregistre":" (non enregistré)","controls.tes_reponses_sont_deja_enregistrees":"Tes réponses sont déjà enregistrées","controls.arreter":"Arrêter","controls.carte_precedente":"Carte précédente","controls.carte_suivante":"Carte suivante","controls.tu_avais_repondu_je_connais":"Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.","controls.choisis_une_autre_note_pour":"Choisis une autre note pour changer ta réponse, ou avance avec ›.","controls.nouveau_mot":"Nouveau mot","controls.en_apprentissage_passage":"En apprentissage · passage {0}/{1}","controls.revision":"Révision","controls.choisis_l_article":" · choisis l’article","controls.choisis_le_cas":" · choisis le cas","groups.import":"Import","groups.liste":"Liste ","groups.ajout":"Ajout","batchesHTML.retirer_un_ajout_groupe_ajout":"<b>Retirer un ajout groupé</b><span class=\"hint\">{0} ajout{1} récent{2}</span>","batchesHTML.seuls_les_mots_jamais_revises":"Seuls les mots jamais révisés sont retirés. Ceux que tu as déjà commencés gardent leur progression.","batchesHTML.retirer":"Retirer {0}","batchesHTML.tout_commence":"Tout commencé","lvlName.sans_niveau":"Sans niveau","chips.niveau":"<span class=\"flabel\">Niveau</span>","chips.tous":"Tous","chips.statut":"<span class=\"flabel\">Statut</span>","chips.trier":"<span class=\"flabel\">Trier</span>","chips.recents":"Récents","chips.source":"<span class=\"flabel\">Source</span>","chips.toutes":"Toutes","chips.code_couleur":"Code couleur","when.a_revoir":"À revoir","status.statut_de":"Statut de {0}","status.niveau_estime_d_apres_la":"Niveau estimé d'après la fréquence d'usage","status.supprimer":"Supprimer","status.chercher_un_mot":"Chercher un mot…","status.chercher":"Chercher","status.retirer_les_mots_non_revises":"Retirer les {0} mots non révisés de ce filtre","status.aucun_mot_ne_correspond":"Aucun mot ne correspond.","status.aucun_mot_pour_l_instant":"Aucun mot pour l’instant.","items.mots_ajoutes":"<b>{0}</b><small>{1}/{2} mots ajoutés</small>","items.tout_ajouter":"Tout ajouter","levelsHTML.les_listes_n_ont_pas":"Les listes n'ont pas pu se charger.","levelsHTML.reessayer":"Réessayer","levelsHTML.chargement_des_listes":"Chargement des listes…","done.tout_ajoute":"Tout ajouté","first.tout_le_niveau_est_dans":"<b>Tout le niveau {0} est dans tes mots.</b>","first.ajouter_mots_n_a_par":"Ajouter <b>{0} mots {1}</b> (n° {2} à {3} par fréquence) ?","first.ajout_en_cours":"Ajout en cours…","first.oui_ajouter":"Oui, ajouter","first.annuler":"Annuler","first.ajouter_mots":"Ajouter {0} mots","first.mots_ajoutes":"<b>{0} · {1}</b><small>{2} / {3} mots ajoutés</small>","first.les_mots_s_ajoutent_par":"Les mots s'ajoutent par 50 au plus, du plus fréquent au moins fréquent, et jamais au-delà de {0} mots en cours d'apprentissage.","renderLangPick.quelle_langue_veux_tu_apprendre":"Quelle langue veux-tu apprendre ?","renderLangPick.depuis_le_francais_chaque_langue":"Depuis le français. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.","renderLangPick.langue_apprise":"Langue apprise","renderLangPick.8_000_mots_a1_a":"8 000 mots, A1 à C2","renderLangPick.garder":"Garder {0}","changed.choisis_un_niveau_pour_commencer":"choisis un niveau pour commencer","renderAdd.les_8_000_mots_les":"Les 8 000 mots les plus fréquents {0}, répartis de A1 à C2. Choisis un niveau, puis ajoute ses mots 50 par 50. Les mots déjà présents ne sont pas dupliqués.","renderAdd.chercher_un_mot_en_ou":"Chercher un mot en {0} ou en français","renderAdd.un_mot":"Un mot","renderAdd.choisis_un_mot_dans_le":"Choisis un mot dans le dictionnaire ci-dessus pour remplir les champs, puis ajuste si besoin.","renderAdd.article":"Article","renderAdd.niveau_facultatif":"Niveau (facultatif)","renderAdd.pluriel_facultatif":"Pluriel (facultatif)","renderAdd.le_papillon":"le papillon","renderAdd.exemple_facultatif":"Exemple (facultatif)","renderAdd.ajouter_le_mot":"Ajouter le mot","renderAdd.coller_une_liste":"Coller une liste","renderAdd.une_ligne_par_mot_l":"Une ligne par mot : <code>{0}</code>. L'article et le pluriel sont reconnus automatiquement. Tu peux ajouter un exemple après un second <code>;</code>.","renderAdd.liste":"Liste","renderAdd.importer":"Importer","POS_LABEL.nom":"nom","POS_LABEL.verbe":"verbe","POS_LABEL.adjectif":"adjectif","POS_LABEL.adverbe":"adverbe","POS_LABEL.adjectif_adverbe":"adjectif / adverbe","POS_LABEL.adjectif_preposition":"adjectif / préposition","POS_LABEL.preposition":"préposition","POS_LABEL.postposition":"postposition","POS_LABEL.pronom":"pronom","POS_LABEL.conjonction":"conjonction","POS_LABEL.nombre":"nombre","POS_LABEL.interjection":"interjection","POS_LABEL.particule":"particule","POS_LABEL.abreviation":"abréviation","POS_LABEL.expression":"expression","dictStatus.mots_hors_ligne":"{0} mots · hors ligne","dictStatus.chargement":"Chargement…","dictStatus.le_dictionnaire_n_a_pas":"Le dictionnaire n'a pas pu se charger.","take.aucun_resultat_pour":"Aucun résultat pour « {0} ».","head.mots":"Mots {0}","head.mots_qui_se_traduisent_par":"Mots {0} qui se traduisent par « {1} »","head.ce_sont_des_synonymes_ou":"Ce sont des synonymes ou des sens voisins.{0}","head.la_definition_en_allemand_en":"La définition en allemand, en italique, t'aide à choisir le bon.","plPreview.pluriel":"Pluriel : <b>{0}</b>","plPreview.mot_qui_n_existe_qu":"Mot qui n'existe qu'au pluriel","plPreview.pluriel_2":"Pluriel : <b>{0} {1}</b>{2}","plPreview.identique_au_singulier":" (identique au singulier)","done.completes_par_le_dictionnaire":" complétés par le dictionnaire","dictPick.niveau_estime_d_apres_la":"Niveau estimé : <b>{0}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.","dictPick.ce_mot_est_dans_la":"Ce mot est dans la liste <b>{0}</b> de Memolex : traduction relue, expression « À retenir » et phrases d'exemple incluses.","dictPick.a_plusieurs_sens_touche_celui":"a plusieurs sens : touche celui de ton cours","dictPick.son_sens":": son sens","dictPick.en_italique_la_definition_du":"En italique, la <b>définition</b> du mot en {0} (ce n'est pas une phrase d'exemple). Elle est copiée dans le champ « Exemple » : garde-la, ou remplace-la par ta propre phrase.","umlautBar.inserer":"Insérer {0}","curK.ecarte_revient_dans_un_mois":"« {0} » écarté : revient dans un mois","prac.mot_supprime":"Mot supprimé","prac.confirmer":"Confirmer ?","list.deja_dans_tes_mots":"Déjà dans tes mots","room.deja_mots_en_cours_d":"Déjà {0} mots en cours d'apprentissage (limite {1}) : trie ou consolide d'abord","room.mots_ajoutes_limite_de_mots":"{0} mots ajoutés (limite de {1} mots en cours). Le reste viendra plus tard.","room.mots_de_la_ajoutes":"{0} mots de la {1} ajoutés","room.confirmer":"Confirmer ({0})","edits.tout_le_niveau_est_deja":"Tout le niveau est déjà dans tes mots","list.mots_ajoutes":"{0} mots {1} ajoutés","list.est_deja_la_traduction_de":"<b>« {0} » est déjà la traduction de {1}.</b> {2}","list.pour_ajouter_quand_meme_appuie":"Pour ajouter quand même, appuie à nouveau sur « Ajouter le mot ».","fromDict.ajoute":"« {0} » ajouté","parsed.aucune_ligne_reconnue_format_der":"Aucune ligne reconnue. Format : der Hund ; le chien","room.deja_mots_en_cours_d_2":"Déjà {0} mots en cours d'apprentissage (limite {1}) : un mot à la fois reste possible","fresh.limite_mots_seulement_seront_importes":"Limite : {0} mots seulement seront importés ({1} mots en cours au plus)","dups.mot_la_meme_traduction_qu":"<b>{0} mot{1} la même traduction qu'un autre mot.</b> {2}","dups.appuie_a_nouveau_sur_importer":"Appuie à nouveau sur « Importer » pour ajouter la liste, avec ou sans nuances.","finishBulk.mot_importe":"{0} mot{1} importé{2}{3}{4}","finishBulk.deja_present":"· {0} déjà présent{1}","finishBulk.ligne_ignoree":"· {0} ligne{1} ignorée{2}","sbReq.non_connecte":"Non connecté","sbReq.hors_ligne":"Hors ligne","sbReq.erreur":"Erreur ","sbRefresh.session_expiree":"Session expirée","sbRefresh.session_expiree_reconnecte_toi":"Session expirée : reconnecte-toi","REPORT_REASONS.traduction_incorrecte":"Traduction incorrecte","REPORT_REASONS.phrase_d_exemple_douteuse":"Phrase d’exemple douteuse","REPORT_REASONS.expression_a_retenir_fausse":"Expression « À retenir » fausse","REPORT_REASONS.article_pluriel_nature_ou_cas":"Article, pluriel, nature ou cas faux","REPORT_REASONS.contenu_choquant_ou_offensant":"Contenu choquant ou offensant","REPORT_REASONS.autre":"Autre","done.signale_merci":"⚑ Signalé, merci","done.signaler_une_erreur_sur_cette":"Signaler une erreur sur cette carte","done.signaler_une_erreur":"⚑ Signaler une erreur","openReport.signaler_une_erreur":"Signaler une erreur","openReport.precise_si_tu_veux_facultatif":"Précise si tu veux (facultatif, sauf pour « Autre ») : la bonne traduction, ce qui ne va pas…","openReport.envoyer":"Envoyer","openReport.le_signalement_contient_la_carte":"Le signalement contient la carte telle qu'elle est affichée et ton commentaire. Il nous sert à corriger les listes pour tout le monde.","comment.merci_signalement_enregistre":"Merci ! Signalement enregistré.","flushReports.signalement_refuse":"signalement refusé","sent.synchronise":"Synchronisé{0}","sent.envoye_recu":"· {0} envoyé{1}, {2} reçu{3}","sent.hors_ligne_la_synchro_reprendra":"Hors ligne : la synchro reprendra au retour du réseau","sent.la_synchro_a_echoue":"La synchro a échoué","authHash.ce_lien_a_expire_ou":"Ce lien a expiré ou a déjà servi : demande un nouveau lien.","authHash.la_connexion_a_echoue_demande":"La connexion a échoué : demande un nouveau lien.","authHash.connecte":"Connecté : ","authHash.hors_ligne_rouvre_le_lien":"Hors ligne : rouvre le lien une fois connecté","authHash.la_connexion_a_echoue_demande_2":"La connexion a échoué : demande un nouveau lien","syWhen.a_l_instant":"à l’instant","syWhen.il_y_a_min":"il y a {0} min","pend.sur_cet_appareil_synchroniser":"Sur cet appareil · synchroniser…","pend.changement_a_envoyer":"{0} changement{1} à envoyer","pend.synchronise":"Synchronisé ","pend.synchronisation_prete":"Synchronisation prête","pend.connecte":"Connecté : <b>{0}</b>","pend.derniere_synchro":"Dernière synchro ","pend.pas_encore_synchronise":"Pas encore synchronisé","pend.synchroniser_maintenant":"Synchroniser maintenant","pend.se_deconnecter":"Se déconnecter","pend.tes_mots_ta_progression_et":"Tes mots, ta progression et tes réglages vont sur tous les appareils connectés avec cette adresse. La synchro se fait seule après chaque réponse et à l'ouverture de l'appli.","pend.connecte_toi_pour_retrouver_tes":"Connecte-toi pour retrouver tes mots et ta progression sur ton téléphone et ton ordinateur. Pas de mot de passe : tu reçois un lien par e-mail, à ouvrir sur l'appareil à connecter.","pend.adresse_e_mail":"Adresse e-mail","pend.m_envoyer_le_lien_de":"M'envoyer le lien de connexion","pend.saisis_une_adresse_e_mail":"Saisis une adresse e-mail valide","pend.lien_envoye_a_ouvre_l":"Lien envoyé à {0}. Ouvre l'e-mail sur cet appareil et touche le lien.","pend.hors_ligne_reessaie_une_fois":"Hors ligne : réessaie une fois connecté","pend.le_lien_n_a_pas":"Le lien n'a pas pu être envoyé","pend.deconnecte_tes_mots_restent_sur":"Déconnecté. Tes mots restent sur cet appareil.","shell.version_de_l_appli":"Version de l'appli","shell.changer_de_langue":"Changer de langue","shell.langue":"Langue","shell.a_revoir":"À revoir","shell.mots":"Mots","shell.ou_en_sont_tes_mots":"Où en sont tes mots","shell.tab_review":"Réviser","shell.tab_list":"Mes mots","shell.tab_add":"Ajouter","shell.tab_stats":"Stats","shell.tab_guide":"Guide","notifState.envoyer_un_test":"Envoyer un test","notifState.couper":"Couper","notifState.activer_les_notifications":"Activer les notifications","_renderReview.chargement_de_tes_mots":"Chargement de tes mots…","dictSearch.deja_dans_tes_mots":"déjà dans tes mots","dictPick.definition":"Définition :","prepLine.datif_si_l_on_reste":"<b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang=\"{0}\">{1}</span>.","prepLine.accusatif_si_l_on_va":"<b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang=\"{0}\">{1}</span>."}};
+/* I18N_DATA:END */
+// textes de l'interface (i18n/<langue>.json) : T('clé') ou T('clé', [valeurs]) remplace {0}, {1}… dans l'ordre ;
+// langue de l'interface = langue de l'utilisateur (mx-ul), français par défaut et pour toute clé absente
+const UIL = (()=>{ try{ const u=localStorage.getItem('mx-ul'); return I18N[u] ? u : 'fr'; }catch(e){ return 'fr'; } })();
+function T(k, a){
+  const m = (I18N[UIL] && I18N[UIL][k] != null) ? I18N[UIL][k] : I18N.fr[k];
+  if(m == null) return k;
+  return a ? m.replace(/\{(\d+)\}/g, (x, i) => String(a[+i])) : m;
+}
 const DAY = 86400000;
 /* ---------- langues : une seule appli, une langue apprise à la fois, toujours depuis le français ----------
    Chaque carte porte sa langue (lang) ; les anciennes cartes, sans lang, sont allemandes.
@@ -590,6 +601,13 @@ let UL = (()=>{ try{ const u=localStorage.getItem('mx-ul'); return ULANGS[u] ? u
 const U_ = () => ULANGS[UL] || ULANGS.fr;
 const ulOf = c => c.ul || 'fr';                 // cartes sans « ul » : traduites en français (toutes les cartes jusqu'à la 1.8.7)
 const LOC = () => U_().locale;                  // format des dates et des nombres
+// cadre fixe de la page (en-tête, compteurs, onglets) : textes et langue de la page
+(function shellText(){
+  document.documentElement.lang = UIL;
+  document.documentElement.dir = (ULANGS[UIL]||ULANGS.fr).dir || 'ltr';
+  document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent = T(el.dataset.t); });
+  document.querySelectorAll('[data-ta]').forEach(el=>{ el.setAttribute('aria-label', T(el.dataset.ta)); });
+})();
 // article en tête d'une traduction, à ignorer pour trier et comparer (kinds : def, indef, part ; sep : ' +' ou '\\s+')
 const uArtRe = (kinds, sep, flags) => { const U=U_(), k=kinds.join(',')+sep+(flags||''); U._re=U._re||{};
   return U._re[k] = U._re[k] || new RegExp(`^(?:(?:${U.articles.filter(x=>kinds.includes(x.kind)).map(x=>x.a).join('|')})${sep}|(?:${U.elided.join('|')})['’]\\s*)`, flags||''); };
@@ -620,9 +638,9 @@ const ART_RE = () => { const L=LG(LANG); if(L._re) return L._re;
   // groupes : 1 article complet, 2 article élidé (jamais trouvé si la langue n'en a pas), 3 le mot
   return L._re = new RegExp(`^(?:(${full.join('|')})\\s+|(${eli.length?eli.join('|'):'(?!)'})['’]\\s*)(.+)$`, 'i'); };
 function splitArt(s){ const m=String(s||'').trim().match(ART_RE()); if(!m) return null; return {art: m[1] ? m[1].toLowerCase() : m[2].toLowerCase()+"'", de: m[3]}; }
-function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · ${U_().name}` : 'Choisir une langue'; }
+function updatePair(){ const b=document.getElementById('pair'); if(b) b.textContent = LANG ? `${L_().name} · ${U_().name}` : T('updatePair.choisir_une_langue'); }
 /* listes par niveau : les mots les plus fréquents, chargés depuis lists-de-fr.json */
-const LEVELS = {A1:'Découverte', A2:'Survie', B1:'Seuil', B2:'Avancé', C1:'Autonome', C2:'Maîtrise'};
+const LEVELS = {A1:T('LEVELS.decouverte'), A2:T('LEVELS.survie'), B1:T('LEVELS.seuil'), B2:T('LEVELS.avance'), C1:T('LEVELS.autonome'), C2:T('LEVELS.maitrise')};
 const PACK = 100, BATCH = 50;
 let confirmLvl='';
 // les 50 prochains mots du niveau qui ne sont pas encore dans tes mots, dans l'ordre de fréquence
@@ -632,7 +650,7 @@ const NEW_CAP = 50;
 const pendingNew = () => deck().filter(c=>STATUS(c)!=='known').length;
 const newRoom = () => Math.max(0, NEW_CAP - pendingNew());
 function capHTML(){ const n=pendingNew(), unsorted=deck().filter(c=>isNew(c)&&!c.sorted).length;
-  return `<div class="confirm"><p><b>${n} mots en cours d'apprentissage</b> (à découvrir, en apprentissage ou en révision). On n'ajoute plus de paquet au-delà de ${NEW_CAP} : un mot libère sa place quand il est acquis (revu avec succès jusqu'à 3 semaines d'intervalle) ou trié « Je connais déjà ». Tu peux toujours ajouter un mot à la fois (formulaire, dictionnaire, mot du jour).</p>${unsorted?`<div class="row"><button type="button" class="btn" data-triage>Trier mes ${unsorted} nouveaux mots</button></div>`:''}</div>`; }
+  return `<div class="confirm"><p>${T('capHTML.mots_en_cours_d_apprentissage',[n,NEW_CAP])}</p>${unsorted?`<div class="row"><button type="button" class="btn" data-triage>${T('capHTML.trier_mes_nouveaux_mots',[unsorted])}</button></div>`:''}</div>`; }
 function nextBatch(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).filter(f=>!have.has(keyOf(f))).slice(0,Math.min(BATCH,newRoom())); }
 function levelLeft(L){ const have=new Set(deck().map(keyOf)); return (LISTDATA[L]||[]).some(f=>!have.has(keyOf(f))); }
 let LISTPOS=new Map(); let dictDeck=null;
@@ -656,7 +674,7 @@ async function syncListCards(){
   // mot retiré des listes lors d'une relecture (traduction fausse, mot rare, forme erronée) : la carte est supprimée
   const gone=deck().filter(c=>c.src==='lists' && !c.frOwn && !by.has(keyOf(c)));
   if(fixes.length){ await putMany(fixes); }
-  if(gone.length){ await removeMany(gone.map(c=>c.id)); toast(`${gone.length===1?`« ${artWord(gone[0])} » retiré`:`${gone.length} mots retirés`} : ${gone.length===1?'il a été écarté':'ils ont été écartés'} des listes lors de la relecture`); }
+  if(gone.length){ await removeMany(gone.map(c=>c.id)); toast(`${T('gone.des_listes_lors_de_la',[gone.length===1?`${T('gone.retire',[artWord(gone[0])])}`:`${T('gone.mots_retires',[gone.length])}`,gone.length===1?T('gone.il_a_ete_ecarte'):T('gone.ils_ont_ete_ecartes')])}`); }
   if(fixes.length || gone.length) refresh();
 }
 /* phrases d'exemple Tatoeba (CC BY 2.0 FR), chargées depuis examples-de-fr.json */
@@ -675,16 +693,16 @@ let CHDATA=null;
 function chunkHTML(c){
   const ch=CHDATA && CHDATA[dkey(c)]; if(!ch) return '';
   const de=esc(ch[0]).replace(/\*([^*]+)\*/g,'<mark>$1</mark>');
-  return `<div class="tex chunk"><span class="tsense">À retenir</span><p class="tde" lang="${langOf(c)}">${de}${sayBtn(ch[0],langOf(c),'Écouter l’expression')}</p><p class="tfr">${esc(ch[1])}</p></div>`;
+  return `<div class="tex chunk">${T('chunkHTML.a_retenir')}<p class="tde" lang="${langOf(c)}">${de}${sayBtn(ch[0],langOf(c),T('chunkHTML.ecouter_l_expression'))}</p><p class="tfr">${esc(ch[1])}</p></div>`;
 }
 function ownExHTML(c){
-  if(c.def) return `<div class="tex own"><span class="tsense">Définition</span><p class="tde" lang="${langOf(c)}">${esc(c.def)}${sayBtn(c.def,langOf(c),'Écouter la définition')}</p></div>`;
-  return c.ex ? `<div class="tex own"><span class="tsense">Ton exemple</span><p class="tde" lang="${langOf(c)}">${esc(c.ex)}${sayBtn(c.ex,langOf(c),'Écouter la phrase')}</p></div>` : '';
+  if(c.def) return `<div class="tex own">${T('ownExHTML.definition')}<p class="tde" lang="${langOf(c)}">${esc(c.def)}${sayBtn(c.def,langOf(c),T('ownExHTML.ecouter_la_definition'))}</p></div>`;
+  return c.ex ? `<div class="tex own">${T('ownExHTML.ton_exemple')}<p class="tde" lang="${langOf(c)}">${esc(c.ex)}${sayBtn(c.ex,langOf(c),T('ownExHTML.ecouter_la_phrase'))}</p></div>` : '';
 }
 function exampleHTML(c){ const ch=chunkHTML(c)+ownExHTML(c), tx=tatoebaHTML(c);
   if(!ch || !tx) return ch+tx;   // sans chunk ni exemple à soi, les phrases restent visibles
   const n=(tx.match(/class="tex"/g)||[]).length;
-  return ch+`<details class="moreex"><summary aria-label="Afficher les phrases d'exemple"><span class="chev" aria-hidden="true">⌄</span>${n>1?n+' exemples':'1 exemple'}</summary>${tx}</details>`; }
+  return ch+`<details class="moreex"><summary aria-label="${T('exampleHTML.afficher_les_phrases_d_exemple')}"><span class="chev" aria-hidden="true">⌄</span>${n>1?n+' exemples':'1 exemple'}</summary>${tx}</details>`; }
 function tatoebaHTML(c){
   const list=(EXDATA && EXDATA[dkey(c)]) || []; if(!list.length) return '';
   // une phrase par sens du mot ; l'étiquette dit de quel sens il s'agit
@@ -692,7 +710,7 @@ function tatoebaHTML(c){
     let html='', pos=0;
     (spans||[]).forEach(([a,n])=>{ if(a<pos) return; html+=esc(de.slice(pos,a))+`<mark>${esc(de.slice(a,a+n))}</mark>`; pos=a+n; });
     html+=esc(de.slice(pos));
-    return `<div class="tex">${label?`<span class="tsense">${esc(label)}</span>`:''}<p class="tde" lang="${langOf(c)}">${html}${sayBtn(de,langOf(c),'Écouter la phrase')}</p><p class="tfr">${esc(fr)}</p></div>`;
+    return `<div class="tex">${label?`<span class="tsense">${esc(label)}</span>`:''}<p class="tde" lang="${langOf(c)}">${html}${sayBtn(de,langOf(c),T('ownExHTML.ecouter_la_phrase'))}</p><p class="tfr">${esc(fr)}</p></div>`;
   }).join('');
 }
 /* crédits des phrases d'exemple, chargés seulement quand on les ouvre dans le guide */
@@ -700,7 +718,7 @@ function loadCredits(box){
   box.innerHTML='<p class="hint">Chargement…</p>';
   fetch(dataFile('credits')).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }).then(({u,c})=>{
     const who=i=>u[i]?esc(u[i]):'anonyme';
-    box.innerHTML=`<p class="hint">${c.length.toLocaleString(LOC())} phrases, ${u.length.toLocaleString(LOC())} contributeurs. Pour chaque phrase : numéro Tatoeba de la phrase ${L_().adjf} et son auteur, puis de sa traduction française et son auteur. La page d'une phrase est tatoeba.org/fr/sentences/show/ suivi de son numéro.</p>
+    box.innerHTML=`<p class="hint">${T('loadCredits.phrases_contributeurs_pour_chaque_phrase',[c.length.toLocaleString(LOC()),u.length.toLocaleString(LOC()),L_().adjf])}</p>
       <div class="credits">${c.map(([d,du,f,fu])=>`<div>n° ${d} · ${who(du)} — n° ${f} · ${who(fu)}</div>`).join('')}</div>`;
   }).catch(()=>{ box.innerHTML='<p class="hint">La liste n\'a pas pu se charger.</p>'; });
 }
@@ -714,14 +732,14 @@ let tab = 'review';
 let dir = 'fr-de';
 let revealed = false, artGuess = null;
 let listQuery = '', listFilter = '', lvlFilter = '', srcFilter = '';
-const srcOf = c => c.src || (c.lvl && c.batchLabel!=='Liste collée' ? 'lists' : 'manual');
+const srcOf = c => c.src || (c.lvl && c.batchLabel!==T('srcOf.liste_collee') ? 'lists' : 'manual');
 const STATUS = c => isNew(c) ? 'new' : isLearning(c) ? 'learn' : (c.ivl||0)>=21 ? 'known' : 'rev';
-const STATUS_LABEL = {new:'À découvrir', learn:'En apprentissage', rev:'En révision', known:'Acquis'};
+const STATUS_LABEL = {new:T('STATUS_LABEL.a_decouvrir'), learn:T('STATUS_LABEL.en_apprentissage'), rev:T('STATUS_LABEL.en_revision'), known:T('STATUS_LABEL.acquis')};
 let statFilter='';
 let listSort=(()=>{ try{ return localStorage.getItem('mx-sort')||'new'; }catch(e){ return 'new'; } })();
 const frSortKey = t => (t||'').toLowerCase().replace(uArtRe(['def','indef','part'],' +'),'').replace(/^\(.*?\) */,'');
 const SORTS = { new:(a,b)=>b.created-a.created, de:(a,b)=>a.de.localeCompare(b.de,LANG,{sensitivity:'base'}), fr:(a,b)=>frSortKey(a.fr).localeCompare(frSortKey(b.fr),UL,{sensitivity:'base'}) };
-const srcLabel = k => k==='lists' ? 'Listes par niveau' : k==='manual' ? 'Mes ajouts' : k==='dict' ? 'Dictionnaire' : k==='starter' ? 'Pack de départ' : (LESSONS[k]?LESSONS[k].title:k);
+const srcLabel = k => k==='lists' ? T('srcLabel.listes_par_niveau') : k==='manual' ? T('srcLabel.mes_ajouts') : k==='dict' ? T('srcLabel.dictionnaire') : k==='starter' ? T('srcLabel.pack_de_depart') : (LESSONS[k]?LESSONS[k].title:k);
 const lvlOf = c => c.lvl || (c.est ? '~'+c.est : 'none');
 const EST_LABEL = {A:'≈ A1-A2', B:'≈ B1-B2', C:'≈ C1+'};
 const estOf = z => z>=4.7 ? 'A' : z>=3.8 ? 'B' : 'C';
@@ -833,7 +851,7 @@ const SAY = (()=>{
 })();
 const ttsOn = () => SAY.ok && settings.tts!==false;
 // bouton 🔊 : le texte à lire voyage dans data-say (échappé), la langue dans data-sl
-const sayBtn = (text, lang, label='Écouter') => ttsOn() && text ? `<button type="button" class="saybtn" data-say="${esc(String(text).replace(/\*/g,''))}" data-sl="${esc(lang)}" aria-label="${esc(label)}" title="${esc(label)}">🔊</button>` : '';
+const sayBtn = (text, lang, label=T('sayBtn.ecouter')) => ttsOn() && text ? `<button type="button" class="saybtn" data-say="${esc(String(text).replace(/\*/g,''))}" data-sl="${esc(lang)}" aria-label="${esc(label)}" title="${esc(label)}">🔊</button>` : '';
 // ce qu'on lit pour une carte : le mot avec son article (« die Geduld », « l'amico »)
 const sayText = c => artWord(c);
 // lecture automatique : une fois par affichage du mot (recto dans le sens langue → FR, verso dans le sens FR → langue)
@@ -924,8 +942,8 @@ async function saveSettings(){
   if(mode==='db'){ try{ await col.doc('_settings').set(settings); }catch(e){ handleErr(e); } }
 }
 function handleErr(e){
-  if(e && e.code==='quota_exceeded') toast('Stockage plein : supprime quelques mots.');
-  else toast("Enregistrement impossible pour l'instant. Réessaie.");
+  if(e && e.code==='quota_exceeded') toast(T('handleErr.stockage_plein_supprime_quelques_mots'));
+  else toast(T('handleErr.enregistrement_impossible_pour_l_instant'));
 }
 function useLocal(){
   mode='local';
@@ -947,9 +965,9 @@ async function init(){
   col.onSnapshot(snap=>{
     const next=new Map(); snap.docs.forEach(d=>{ const v=d.data(); if(!v) return; if(d.id==='_settings'){ settings={...settings,...v}; return; } next.set(d.id,{...v,id:d.id}); });
     cards=next;
-    $('#sync').textContent='Synchronisé sur tous tes appareils';
+    $('#sync').textContent=T('next.synchronise_sur_tous_tes_appareils');
     refresh(); syncFromSources(); if(!listSynced && listState==='ready'){ listSynced=true; syncListCards(); } else if(listState==='idle') loadLists();
-  }, ()=>{ $('#sync').textContent='Synchronisation interrompue'; });
+  }, ()=>{ $('#sync').textContent=T('next.synchronisation_interrompue'); });
 }
 
 /* ---------- scheduling (SM-2 simplifié) ---------- */
@@ -1003,7 +1021,7 @@ function schedule(c, g){
 }
 function startOfDay(t){ const d=new Date(t); d.setHours(0,0,0,0); return d.getTime(); }
 function preview(c,g){
-  if(g===1) return session && session.ids.length>1?'en fin de session':'tout de suite';
+  if(g===1) return session && session.ids.length>1?T('preview.en_fin_de_session'):T('preview.tout_de_suite');
   const {n}=gradeCard(c,g);
   if(!isLearning(n)) return daysLabel(n.ivl);
   const m=Math.round((n.due-Date.now())/60000); return m<60 ? `${m} min` : `${Math.round(m/60)} h`;
@@ -1011,10 +1029,10 @@ function preview(c,g){
 const isDue = c => (c.due||0) <= Date.now();
 function whenText(t){
   const now=Date.now(), diff=t-now;
-  if(diff<=60000) return 'dans un instant';
-  if(diff<3600000) return `dans ${Math.ceil(diff/60000)} min`;
+  if(diff<=60000) return T('whenText.dans_un_instant');
+  if(diff<3600000) return `${T('whenText.dans_min',[Math.ceil(diff/60000)])}`;
   const days=Math.round((startOfDay(t)-startOfDay(now))/DAY);
-  if(days===0) return `aujourd'hui à ${new Date(t).toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'})}`;
+  if(days===0) return `${T('days.aujourd_hui_a',[new Date(t).toLocaleTimeString(LOC(),{hour:'2-digit',minute:'2-digit'})])}`;
   if(days===1) return 'demain';
   if(days<7) return new Date(t).toLocaleDateString(LOC(),{weekday:'long'});
   return new Date(t).toLocaleDateString(LOC(),{weekday:'long',day:'numeric',month:'long'});
@@ -1066,7 +1084,7 @@ function todayPlan(){
 const minutesFor = n => Math.max(1, Math.round(n*10/60)); // ~10 s par carte, ratés compris
 // avant chaque réponse : copie de la carte et de la session, pour pouvoir revenir en arrière (pas d'avance possible)
 // historique de la session : chaque réponse donnée (carte avant/après). session.view = index de la carte revue, null = carte en cours
-const GRADE_LABEL={1:'Encore',2:'Difficile',3:'Bien',4:'Facile',known:'Je connais déjà'};
+const GRADE_LABEL={1:T('GRADE_LABEL.encore'),2:T('GRADE_LABEL.difficile'),3:T('GRADE_LABEL.bien'),4:T('GRADE_LABEL.facile'),known:T('GRADE_LABEL.je_connais_deja')};
 function answerOf(before, g, art){
   if(g==='known') return {after:markKnown(before), requeue:false, adj:'known'};
   let adj=g; if(guessWrong(before, art) && g>2) adj=2; // mauvais article ou mauvais cas : jamais mieux que « Difficile »
@@ -1149,7 +1167,7 @@ function startSession(size){
 const dayKey = t => { const d=new Date(t); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
 const addDays = (t,k) => { const d=new Date(t); d.setDate(d.getDate()+k); d.setHours(0,0,0,0); return d.getTime(); };
 const weekStart = t => { const d=new Date(t); d.setDate(d.getDate()-((d.getDay()+6)%7)); d.setHours(0,0,0,0); return d.getTime(); };
-const STAT_KEYS = {lvl:'Mots acquis par niveau', load:'Révisions des 7 prochains jours', mature:'Réussite sur les mots mûrs', month:'Jours actifs du mois', err:"Erreurs d'article et de cas"};
+const STAT_KEYS = {lvl:T('STAT_KEYS.mots_acquis_par_niveau'), load:T('STAT_KEYS.revisions_des_7_prochains_jours'), mature:T('STAT_KEYS.reussite_sur_les_mots_murs'), month:T('STAT_KEYS.jours_actifs_du_mois'), err:T('STAT_KEYS.erreurs_d_article_et_de')};
 const ST = () => ({ streakOn: settings.streakOn!==false, weekGoal: settings.weekGoal||5, dayMin: settings.dayMin||10, show: settings.statShow||Object.keys(STAT_KEYS) });
 function actOf(lang){ if(!settings.act) settings.act={}; const k=lang||LANG||'de'; if(!settings.act[k]) settings.act[k]={}; return settings.act[k]; }
 let ACT_T=null;
@@ -1213,12 +1231,12 @@ function streakHTML(compact){
   const dots=['L','M','M','J','V','S','D'].map((l,i)=>{ const t=addDays(weekStart(Date.now()),i), today=startOfDay(Date.now());
     const n=((actOf()[dayKey(t)]||{}).n||0), st = n>=s.dayMin ? 'on' : t<today ? 'off' : t===today ? 'now' : 'next';
     return `<i class="sd sd-${st}" title="${new Date(t).toLocaleDateString(LOC(),{weekday:'long'})} : ${n} carte${n>1?'s':''}">${l}</i>`; }).join('');
-  const msg = s.todayDone ? 'Objectif du jour atteint.'
-    : s.todayN ? `Encore ${s.dayMin-s.todayN} carte${s.dayMin-s.todayN>1?'s':''} pour compter aujourd'hui.`
-    : `${s.dayMin} cartes aujourd'hui pour compter la journée.`;
-  const week = s.weekDone>=s.weekGoal ? `semaine validée (${s.weekDone}/${s.weekGoal})` : `semaine ${s.weekDone}/${s.weekGoal} · ${s.left} joker${s.left>1?'s':''} restant${s.left>1?'s':''}`;
-  return `<div class="streak${compact?' compact':''}"><div class="sk-top"><b>${s.days}</b><span>jour${s.days>1?'s':''} de série${s.best>s.days?` · record ${s.best}`:''}</span></div>
-    <div class="sk-week" aria-label="Cette semaine">${dots}</div><p class="hint">${msg} · ${week}</p></div>`;
+  const msg = s.todayDone ? T('dots.objectif_du_jour_atteint')
+    : s.todayN ? `${T('dots.encore_carte_pour_compter_aujourd',[s.dayMin-s.todayN,s.dayMin-s.todayN>1?'s':''])}`
+    : `${T('dots.cartes_aujourd_hui_pour_compter',[s.dayMin])}`;
+  const week = s.weekDone>=s.weekGoal ? `${T('week.semaine_validee',[s.weekDone,s.weekGoal])}` : `${T('week.semaine_joker_restant',[s.weekDone,s.weekGoal,s.left,s.left>1?'s':'',s.left>1?'s':''])}`;
+  return `<div class="streak${compact?' compact':''}"><div class="sk-top">${T('week.jour_de_serie',[s.days,s.days>1?'s':'',s.best>s.days?` · record ${s.best}`:''])}</div>
+    <div class="sk-week" aria-label="${T('week.cette_semaine')}">${dots}</div><p class="hint">${msg} · ${week}</p></div>`;
 }
 function loadDays(){
   const today=startOfDay(Date.now()), out=[];
@@ -1230,25 +1248,25 @@ function loadDays(){
 const pct = (a,b) => b ? Math.round(100*a/b)+' %' : '–';
 function statsHTML(){
   const {show, streakOn, weekGoal, dayMin}=ST(); const all=deck(); const out=[];
-  if(streakOn) out.push(`<section class="panel"><h2>Série</h2>${streakHTML(false)}</section>`);
+  if(streakOn) out.push(`<section class="panel"><h2>${T('statsHTML.serie')}</h2>${streakHTML(false)}</section>`);
   if(show.includes('lvl')){
     const rows=Object.keys(LEVELS).map(L=>{ const mine=all.filter(c=>c.lvl===L); const known=mine.filter(c=>STATUS(c)==='known').length;
       const size=LISTDATA&&LISTDATA[L]?LISTDATA[L].length:0; if(!mine.length && !size) return '';
       const w=size?100*known/size:0, wm=size?100*mine.length/size:0;
-      return `<div class="lv-row"><span class="pill lvl">${L}</span><div class="lv-bar" title="${mine.length} dans tes mots"><i class="lv-mine" style="width:${wm}%"></i><i class="lv-known" style="width:${w}%"></i></div><span class="lv-n"><b>${known}</b>${size?` / ${size}`:''}</span></div>`; }).join('');
+      return `<div class="lv-row"><span class="pill lvl">${L}</span><div class="lv-bar" title="${T('size.dans_tes_mots',[mine.length])}"><i class="lv-mine" style="width:${wm}%"></i><i class="lv-known" style="width:${w}%"></i></div><span class="lv-n"><b>${known}</b>${size?` / ${size}`:''}</span></div>`; }).join('');
     const own=all.filter(c=>!c.lvl), ownK=own.filter(c=>STATUS(c)==='known').length;
-    out.push(`<section class="panel"><h2>Mots acquis par niveau</h2>${rows}${own.length?`<div class="lv-row"><span class="pill lvl">+</span><span class="hint" style="flex:1">Mots ajoutés hors listes</span><span class="lv-n"><b>${ownK}</b> / ${own.length}</span></div>`:''}
-      <p class="hint">Acquis = revu avec succès jusqu'à un intervalle de 21 jours ou plus. Barre claire : mots du niveau déjà dans tes cartes.</p></section>`);
+    out.push(`<section class="panel"><h2>${T('STAT_KEYS.mots_acquis_par_niveau')}</h2>${rows}${own.length?`<div class="lv-row">${T('size.mots_ajoutes_hors_listes',[ownK,own.length])}</div>`:''}
+      <p class="hint">${T('size.acquis_revu_avec_succes_jusqu')}</p></section>`);
   }
   if(show.includes('load')){
     const L=loadDays(), max=Math.max(1,...L.map(x=>x.n));
-    out.push(`<section class="panel"><h2>Révisions des 7 prochains jours</h2><div class="load">${L.map((x,i)=>`<div class="ld"><b>${x.n}</b><i style="height:${Math.max(2,70*x.n/max)}px"></i><span>${i===0?'auj.':new Date(x.t).toLocaleDateString(LOC(),{weekday:'short'}).replace('.','')}</span></div>`).join('')}</div>
-      <p class="hint">Mots déjà vus qui reviennent chaque jour, sans compter les nouveaux. Aujourd'hui inclut le retard.</p></section>`);
+    out.push(`<section class="panel"><h2>${T('STAT_KEYS.revisions_des_7_prochains_jours')}</h2><div class="load">${L.map((x,i)=>`<div class="ld"><b>${x.n}</b><i style="height:${Math.max(2,70*x.n/max)}px"></i><span>${i===0?'auj.':new Date(x.t).toLocaleDateString(LOC(),{weekday:'short'}).replace('.','')}</span></div>`).join('')}</div>
+      <p class="hint">${T('size.mots_deja_vus_qui_reviennent')}</p></section>`);
   }
   const s30=sumAct(addDays(Date.now(),-29), Date.now());
   if(show.includes('mature')){
-    out.push(`<section class="panel"><h2>Réussite sur les mots mûrs</h2><div class="big"><b>${s30.mn>=10?pct(s30.mok,s30.mn):'–'}</b><span>${s30.mn} révision${s30.mn>1?'s':''} sur 30 jours</span></div>
-      <p class="hint">${s30.mn<10?'Pas encore assez de mots mûrs (intervalle de 21 jours ou plus) pour un chiffre fiable : il en faut au moins 10. ':''}Repère : autour de 85-90 %, ton rythme est bon. Nettement en dessous, ralentis les nouveaux mots ; au-dessus de 95 %, tu peux en ajouter plus.</p></section>`);
+    out.push(`<section class="panel"><h2>${T('STAT_KEYS.reussite_sur_les_mots_murs')}</h2><div class="big">${T('size.revision_sur_30_jours',[s30.mn>=10?pct(s30.mok,s30.mn):'–',s30.mn,s30.mn>1?'s':''])}</div>
+      <p class="hint">${T('size.repere_autour_de_85_90',[s30.mn<10?T('size.pas_encore_assez_de_mots'):''])}</p></section>`);
   }
   if(show.includes('month')){
     const now=new Date(), y=now.getFullYear(), m=now.getMonth(), first=new Date(y,m,1).getTime(), nd=new Date(y,m+1,0).getDate(), a=actOf();
@@ -1256,29 +1274,29 @@ function statsHTML(){
     for(let i=0;i<pad;i++) cells.push('<i class="cd cd-pad"></i>');
     for(let d=1; d<=nd; d++){ const t=addDays(first,d-1), n=((a[dayKey(t)]||{}).n||0); if(n) act++; if(n>=dayMin) hit++;
       cells.push(`<i class="cd ${n>=dayMin?'cd-hit':n?'cd-act':t>startOfDay(Date.now())?'cd-next':''}" title="${d} : ${n} carte${n>1?'s':''}">${d}</i>`); }
-    out.push(`<section class="panel"><h2>Jours actifs · ${now.toLocaleDateString(LOC(),{month:'long'})}</h2><div class="big"><b>${act}</b><span>jour${act>1?'s':''} actif${act>1?'s':''}, dont ${hit} avec au moins ${dayMin} cartes</span></div>
+    out.push(`<section class="panel"><h2>${T('cells.jours_actifs',[now.toLocaleDateString(LOC(),{month:'long'})])}</h2><div class="big">${T('cells.jour_actif_dont_avec_au',[act,act>1?'s':'',act>1?'s':'',hit,dayMin])}</div>
       <div class="cal">${['L','M','M','J','V','S','D'].map(x=>`<i class="cd cd-h">${x}</i>`).join('')}${cells.join('')}</div></section>`);
   }
   if(show.includes('err')){
-    const rows=[`<div class="er"><span>Article</span><b>${s30.aq>=10?pct(s30.ae,s30.aq):'–'}</b><small>${s30.ae} faux sur ${s30.aq}</small></div>`];
-    if(LG(LANG).cases) rows.push(`<div class="er"><span>Cas des prépositions</span><b>${s30.cq>=5?pct(s30.ce,s30.cq):'–'}</b><small>${s30.ce} faux sur ${s30.cq}</small></div>`);
-    out.push(`<section class="panel"><h2>Taux d'erreur · 30 jours</h2>${rows.join('')}<p class="hint">Première réponse de chaque carte en session. Un chiffre s'affiche à partir de 10 articles${LG(LANG).cases?' et 5 cas':''}.</p></section>`);
+    const rows=[`<div class="er">${T('rows.article_faux_sur',[s30.aq>=10?pct(s30.ae,s30.aq):'–',s30.ae,s30.aq])}</div>`];
+    if(LG(LANG).cases) rows.push(`<div class="er">${T('rows.cas_des_prepositions_faux_sur',[s30.cq>=5?pct(s30.ce,s30.cq):'–',s30.ce,s30.cq])}</div>`);
+    out.push(`<section class="panel"><h2>${T('rows.taux_d_erreur_30_jours')}</h2>${rows.join('')}<p class="hint">${T('rows.premiere_reponse_de_chaque_carte',[LG(LANG).cases?T('rows.et_5_cas'):''])}</p></section>`);
   }
-  if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">Ajoute des mots et fais une première session : tes statistiques apparaîtront ici.</p></section>`);
+  if(!all.length && !streakOn) out.push(`<section class="panel"><p class="hint">${T('rows.ajoute_des_mots_et_fais')}</p></section>`);
   const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-stset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
   out.push(notifHTML());
-  out.push(`<section class="panel" id="statSet"><h2>Réglages</h2>
-    <div class="srow"><span>Sons</span>${seg('sound',['on','off'],settings.sound!==false?'on':'off',v=>v==='on'?'Activés':'Coupés')}</div>
-    ${SAY.ok?`<div class="srow"><span>Prononciation 🔊</span>${seg('tts',['on','off'],settings.tts!==false?'on':'off',v=>v==='on'?'Activée':'Coupée')}</div>
-    ${settings.tts!==false?`<div class="srow"><span>Lecture automatique</span>${seg('ttsAuto',['on','off'],settings.ttsAuto?'on':'off',v=>v==='on'?'Oui':'Non')}</div>
-    <div class="srow"><span>Vitesse de la voix</span>${seg('ttsRate',['1','0.7'],String(+settings.ttsRate===0.7?0.7:1),v=>v==='1'?'Normale':'Lente')}</div>
-    ${LANG&&!SAY.has(LANG)?`<p class="hint">Aucune voix ${L_().adjf} trouvée sur cet appareil : la lecture utilisera la voix par défaut. Sur Android : Paramètres → Accessibilité → Synthèse vocale → moteur Google → installer la langue ${L_().adjf}.</p>`:''}`:''}`:`<p class="hint">Prononciation : ce navigateur n'a pas de synthèse vocale.</p>`}
-    <div class="srow"><span>Série</span>${seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?'Activée':'Désactivée')}</div>
-    <div class="srow"><span>Nouveaux mots par jour</span>${seg('newPerDay',NEW_DAY_OPTS,newPerDay(),v=>String(v))}</div>
-    <div class="srow"><span>Minimum par jour</span>${seg('dayMin',[5,10,20,30],dayMin,v=>v+' cartes')}</div>
-    <div class="srow"><span>Objectif par semaine</span>${seg('weekGoal',[3,4,5,6,7],weekGoal,v=>v+' j')}</div>
-    <p class="hint">${weekGoal<7?`Objectif ${weekGoal} jours sur 7 : ${7-weekGoal} joker${7-weekGoal>1?'s':''} par semaine, la série ne casse pas un jour sans révision.`:'7 jours sur 7 : aucun joker, chaque jour manqué casse la série.'}</p>
-    <div class="srow col"><span>Statistiques affichées</span><div class="row">${Object.entries(STAT_KEYS).map(([k,l])=>`<button type="button" class="chip" data-stshow="${k}" aria-pressed="${show.includes(k)}">${esc(l)}</button>`).join('')}</div></div>
+  out.push(`<section class="panel" id="statSet"><h2>${T('rows.reglages')}</h2>
+    <div class="srow">${T('rows.sons',[seg('sound',['on','off'],settings.sound!==false?'on':'off',v=>v==='on'?T('rows.actives'):T('rows.coupes'))])}</div>
+    ${SAY.ok?`<div class="srow">${T('rows.prononciation',[seg('tts',['on','off'],settings.tts!==false?'on':'off',v=>v==='on'?T('rows.activee'):T('rows.coupee'))])}</div>
+    ${settings.tts!==false?`<div class="srow">${T('rows.lecture_automatique',[seg('ttsAuto',['on','off'],settings.ttsAuto?'on':'off',v=>v==='on'?T('rows.oui'):T('rows.non'))])}</div>
+    <div class="srow">${T('rows.vitesse_de_la_voix',[seg('ttsRate',['1','0.7'],String(+settings.ttsRate===0.7?0.7:1),v=>v==='1'?T('rows.normale'):T('rows.lente'))])}</div>
+    ${LANG&&!SAY.has(LANG)?`<p class="hint">${T('rows.aucune_voix_trouvee_sur_cet',[L_().adjf,L_().adjf])}</p>`:''}`:''}`:`<p class="hint">${T('rows.prononciation_ce_navigateur_n_a')}</p>`}
+    <div class="srow">${T('rows.serie',[seg('streakOn',['on','off'],streakOn?'on':'off',v=>v==='on'?T('rows.activee'):T('rows.desactivee'))])}</div>
+    <div class="srow">${T('rows.nouveaux_mots_par_jour',[seg('newPerDay',NEW_DAY_OPTS,newPerDay(),v=>String(v))])}</div>
+    <div class="srow">${T('rows.minimum_par_jour',[seg('dayMin',[5,10,20,30],dayMin,v=>v+' cartes')])}</div>
+    <div class="srow">${T('rows.objectif_par_semaine',[seg('weekGoal',[3,4,5,6,7],weekGoal,v=>v+' j')])}</div>
+    <p class="hint">${weekGoal<7?`${T('rows.objectif_jours_sur_7_joker',[weekGoal,7-weekGoal,7-weekGoal>1?'s':''])}`:T('rows.7_jours_sur_7_aucun')}</p>
+    <div class="srow col">${T('rows.statistiques_affichees')}<div class="row">${Object.entries(STAT_KEYS).map(([k,l])=>`<button type="button" class="chip" data-stshow="${k}" aria-pressed="${show.includes(k)}">${esc(l)}</button>`).join('')}</div></div>
   </section>`);
   return `<div class="statsview" id="statsView">${out.join('')}</div>`;
 }
@@ -1289,7 +1307,7 @@ function renderStats(){ if(listState==='idle') loadLists(); $('#view').innerHTML
    settings.notif = {on, times:["08:00","19:30"], wotd:true, wotdAt:"10:00"} ; settings.tz = fuseau de l'appareil.
    Le bouton « Ajouter » d'une notification range le mot dans IndexedDB (mx-inbox) ; l'appli l'ajoute à son prochain lancement. */
 const VAPID_PUB="BEoH21v0zIYPSfi7TOcZsGiUecddtE3-fTuuYipu2c7W85YQ1xlZLb2o5kTOdtmqRKB56jEIGSG7TpG5t2hxlXk";
-const NOTIF_TIMES={'08:00':'Matin · 8 h','12:30':'Midi · 12 h 30','19:30':'Soir · 19 h 30'};
+const NOTIF_TIMES={'08:00':T('NOTIF_TIMES.matin_8_h'),'12:30':T('NOTIF_TIMES.midi_12_h_30'),'19:30':T('NOTIF_TIMES.soir_19_h_30')};
 const WOTD_AT=['08:00','10:00','12:00','18:00'];
 const NF = () => ({ on:false, times:['08:00','19:30'], wotd:true, wotdAt:'10:00', ...(settings.notif||{}) });
 const wotdOn = () => NF().wotd!==false;
@@ -1311,24 +1329,24 @@ function wotdFill(){
 const wordLine = f => (f.art ? f.art+(/'$/.test(f.art)?'':' ') : '')+f.de;
 // le mot du jour ajouté aujourd'hui (bouton de l'écran ou de la notification) fait foi : le serveur et l'appareil
 // peuvent avoir tiré des mots différents, ou une ancienne version avoir remplacé l'entrée du jour
-function wotdTakenToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.batchLabel==='Mot du jour' && c.created>=sod).sort((a,b)=>a.created-b.created)[0]||null; }
+function wotdTakenToday(){ const sod=startOfDay(Date.now()); return deck().filter(c=>c.batchLabel===T('wotdTakenToday.mot_du_jour') && c.created>=sod).sort((a,b)=>a.created-b.created)[0]||null; }
 function wotdRaw(){ const t=wotdTakenToday(); if(t) return {de:t.de, art:t.art||'', pl:t.pl||'', fr:t.fr, ...(t.pos?{pos:t.pos}:{}), lvl:t.lvl||''};
   const w=settings.wotd; if(!w || w.lang!==LANG) return null; return (w.days||{})[dayKey(Date.now())]||null; }
 const wotdAdded = f => deck().some(c=>keyOf(c)===keyOf({...f,lang:LANG}));
 function wotdToday(){ const f=wotdRaw(); return f && !wotdAdded(f) ? f : null; }
 function wotdHTML(){
   if(!wotdOn()) return ''; const f=wotdRaw(); if(!f) return '';
-  if(wotdAdded(f)) return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span>${f.lvl?`<span class="pill lvl">${esc(f.lvl)}</span>`:''}</div>
+  if(wotdAdded(f)) return `<div class="wotd"><div class="wt-head">${T('wotdHTML.mot_du_jour',[f.lvl?`<span class="pill lvl">${esc(f.lvl)}</span>`:''])}</div>
     <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
-    <div class="wt-fr">✓ Ajouté à ton apprentissage. Prochain mot demain.</div></div>`;
-  return `<div class="wotd"><div class="wt-head"><span>Mot du jour</span><span class="pill lvl">${esc(f.lvl)}</span></div>
+    <div class="wt-fr">${T('wotdHTML.ajoute_a_ton_apprentissage_prochain')}</div></div>`;
+  return `<div class="wotd"><div class="wt-head">${T('wotdHTML.mot_du_jour_2',[esc(f.lvl)])}</div>
     <div class="wt-word">${esc(wordLine(f))}</div><div class="wt-fr">${esc(f.fr)}</div>
-    <div class="row"><button class="btn" data-wotdadd>Ajouter à l'apprentissage</button></div></div>`;
+    <div class="row"><button class="btn" data-wotdadd>${T('wotdHTML.ajouter_a_l_apprentissage')}</button></div></div>`;
 }
 // ajoute un mot (mot du jour, depuis l'appli ou une notification) ; il passe avant les autres nouveaux mots
 async function addWord(f, lang){
   const l=lang||LANG; if([...cards.values()].some(c=>keyOf(c)===keyOf({...f,lang:l}))) return false;
-  const c={...newCard(f,''), lang:l, lvl:f.lvl, src:'lists', batchLabel:'Mot du jour', sorted:1, prio:1};
+  const c={...newCard(f,''), lang:l, lvl:f.lvl, src:'lists', batchLabel:T('wotdTakenToday.mot_du_jour'), sorted:1, prio:1};
   await put(c); return true;
 }
 // boîte de réception des notifications (écrite par le service worker)
@@ -1341,56 +1359,56 @@ async function takeInbox(){
   if(inboxBusy || mode==='loading') return; inboxBusy=true;
   try{ const items=await idbInbox('take'); let n=0, last='';
     for(const it of items){ if(it && it.f && await addWord(it.f, it.lang)){ n++; last=wordLine(it.f); } }
-    if(n){ refresh(); toast(n===1?`« ${last} » ajouté : il arrive dans ta prochaine session`:`${n} mots du jour ajoutés`); }
+    if(n){ refresh(); toast(n===1?`${T('items.ajoute_il_arrive_dans_ta',[last])}`:`${T('items.mots_du_jour_ajoutes',[n])}`); }
   } finally { inboxBusy=false; }
 }
 if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('message', e=>{ if(e.data && e.data.type==='inbox') takeInbox(); });
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible'){ takeInbox(); if(tab==='review' && !session) renderReview(); } });
 // abonnement : la synchro est obligatoire (le serveur doit savoir quand t'écrire)
-const pushOK = () => 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+const pushOK = () => 'serviceWorker' in navigator && 'PushManager' in window && T('pushOK.notification') in window;
 const b64u = s => { const p='='.repeat((4-s.length%4)%4), b=atob((s+p).replace(/-/g,'+').replace(/_/g,'/')); return Uint8Array.from(b, ch=>ch.charCodeAt(0)); };
 let notifMsg='';
-const swReady = () => Promise.race([navigator.serviceWorker.ready, new Promise((_,no)=>setTimeout(()=>no(new Error('service worker absent')),4000))]);
+const swReady = () => Promise.race([navigator.serviceWorker.ready, new Promise((_,no)=>setTimeout(()=>no(new Error(T('swReady.service_worker_absent'))),4000))]);
 async function pushSub(){ try{ const reg=await swReady(); return await reg.pushManager.getSubscription(); }catch(e){ return null; } }
 async function notifEnable(){
   notifMsg='';
-  if(!pushOK()){ notifMsg=/iPhone|iPad/.test(navigator.userAgent)?"Sur iPhone, ajoute d'abord l'appli à l'écran d'accueil (Partager → Sur l'écran d'accueil), puis ouvre-la depuis l'icône.":"Ce navigateur ne gère pas les notifications."; return; }
-  if(!SY.tok){ notifMsg='Connecte-toi d’abord à la synchronisation (onglet Guide) : le serveur en a besoin pour savoir quand t’écrire.'; return; }
-  const p=await Notification.requestPermission(); if(p!=='granted'){ notifMsg='Notifications refusées. Autorise-les dans les réglages du téléphone (Applis → Memolex → Notifications).'; return; }
+  if(!pushOK()){ notifMsg=/iPhone|iPad/.test(navigator.userAgent)?T('notifEnable.sur_iphone_ajoute_d_abord'):T('notifEnable.ce_navigateur_ne_gere_pas'); return; }
+  if(!SY.tok){ notifMsg=T('notifEnable.connecte_toi_d_abord_a'); return; }
+  const p=await Notification.requestPermission(); if(p!=='granted'){ notifMsg=T('notifEnable.notifications_refusees_autorise_les_dans'); return; }
   try{ const reg=await swReady();
     const sub=await reg.pushManager.getSubscription() || await reg.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:b64u(VAPID_PUB)});
     await sbReq('/rest/v1/memolex_push?on_conflict=endpoint',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:{endpoint:sub.endpoint, sub:sub.toJSON()}},true);
-    settings.notif={...NF(), on:true}; wotdFill(); await saveSettings(); notifMsg='Notifications activées sur cet appareil.';
-  }catch(e){ notifMsg = e && (e.code===404 || /memolex_push/.test(e.message||'')) ? 'Le serveur des notifications n’est pas encore installé (étape Supabase).' : 'Activation impossible : '+((e&&e.message)||'erreur'); }
+    settings.notif={...NF(), on:true}; wotdFill(); await saveSettings(); notifMsg=T('notifEnable.notifications_activees_sur_cet_appareil');
+  }catch(e){ notifMsg = e && (e.code===404 || /memolex_push/.test(e.message||'')) ? T('notifEnable.le_serveur_des_notifications_n') : T('notifEnable.activation_impossible')+((e&&e.message)||'erreur'); }
 }
 async function notifDisable(){
   const sub=await pushSub();
   if(sub){ try{ await sbReq('/rest/v1/memolex_push?endpoint=eq.'+encodeURIComponent(sub.endpoint),{method:'DELETE'},true); }catch(e){} try{ await sub.unsubscribe(); }catch(e){} }
-  settings.notif={...NF(), on:false}; await saveSettings(); notifMsg='Notifications coupées sur cet appareil.';
+  settings.notif={...NF(), on:false}; await saveSettings(); notifMsg=T('notifDisable.notifications_coupees_sur_cet_appareil');
 }
 async function notifTest(){
-  notifMsg='Envoi…'; renderStats();
-  try{ const r=await sbReq('/functions/v1/memolex-push',{method:'POST',body:{test:true}},true); notifMsg = r && r.sent ? 'Envoyé : la notification arrive dans quelques secondes.' : 'Aucun appareil abonné : active d’abord les notifications.'; }
-  catch(e){ notifMsg='Test impossible : '+(e.code===404?'la fonction memolex-push n’est pas encore déployée.':(e.message||'erreur')); }
+  notifMsg=T('notifTest.envoi'); renderStats();
+  try{ const r=await sbReq('/functions/v1/memolex-push',{method:'POST',body:{test:true}},true); notifMsg = r && r.sent ? T('notifTest.envoye_la_notification_arrive_dans') : T('notifTest.aucun_appareil_abonne_active_d'); }
+  catch(e){ notifMsg=T('notifTest.test_impossible')+(e.code===404?T('notifTest.la_fonction_memolex_push_n'):(e.message||'erreur')); }
 }
 function notifHTML(){
   const n=NF(); const seg=(key,vals,cur,fmt)=>`<div class="seg" role="group">${vals.map(v=>`<button type="button" data-nfset="${key}" data-v="${v}" aria-pressed="${cur===v}">${fmt?fmt(v):v}</button>`).join('')}</div>`;
-  return `<section class="panel" id="notifSet"><h2>Rappels et mot du jour</h2>
-    <div class="srow"><span>Sur cet appareil</span><span class="nf-state" id="nfState">…</span></div>
+  return `<section class="panel" id="notifSet"><h2>${T('notifHTML.rappels_et_mot_du_jour')}</h2>
+    <div class="srow">${T('notifHTML.sur_cet_appareil')}</div>
     <div class="row" id="nfBtns"></div>
     ${notifMsg?`<p class="hint nf-msg">${esc(notifMsg)}</p>`:''}
     <div class="srow col"><span>Rappels</span><div class="row">${Object.entries(NOTIF_TIMES).map(([t,l])=>`<button type="button" class="chip" data-nftime="${t}" aria-pressed="${n.times.includes(t)}">${l}</button>`).join('')}</div></div>
-    <p class="hint">Un rappel n'arrive que si tu n'as pas encore fait ton minimum du jour (${ST().dayMin} cartes). Dès que c'est fait, les rappels suivants de la journée sautent.</p>
-    <div class="srow"><span>Mot du jour</span>${seg('wotd',['on','off'],n.wotd!==false?'on':'off',v=>v==='on'?'Activé':'Coupé')}</div>
-    ${n.wotd!==false?`<div class="srow"><span>Heure du mot du jour</span>${seg('wotdAt',WOTD_AT,n.wotdAt,v=>v.replace(':00',' h'))}</div>`:''}
-    <p class="hint">Un mot de A1 à C2 que tu n'as pas encore, avec sa traduction. Le bouton « Ajouter » de la notification le met dans tes mots ; il passe avant les autres nouveaux mots. Il s'affiche aussi sur l'écran Réviser.</p>
+    <p class="hint">${T('notifHTML.un_rappel_n_arrive_que',[ST().dayMin])}</p>
+    <div class="srow">${T('wotdHTML.mot_du_jour',[seg('wotd',['on','off'],n.wotd!==false?'on':'off',v=>v==='on'?T('notifHTML.active'):T('notifHTML.coupe'))])}</div>
+    ${n.wotd!==false?`<div class="srow">${T('notifHTML.heure_du_mot_du_jour',[seg('wotdAt',WOTD_AT,n.wotdAt,v=>v.replace(':00',' h'))])}</div>`:''}
+    <p class="hint">${T('notifHTML.un_mot_de_a1_a')}</p>
   </section>`;
 }
 async function notifState(){
   const el=document.getElementById('nfState'), btns=document.getElementById('nfBtns'); if(!el) return;
-  const sub=pushOK()?await pushSub():null, perm='Notification' in window?Notification.permission:'default';
-  el.textContent = !pushOK() ? 'non disponible' : sub && perm==='granted' ? 'activées' : perm==='denied' ? 'bloquées' : 'désactivées';
-  btns.innerHTML = sub && perm==='granted' ? '<button class="btn" data-nftest>Envoyer un test</button><button class="btn ghost" data-nfoff>Couper</button>' : '<button class="btn" data-nfon>Activer les notifications</button>';
+  const sub=pushOK()?await pushSub():null, perm=T('pushOK.notification') in window?Notification.permission:'default';
+  el.textContent = !pushOK() ? T('notifState.non_disponible') : sub && perm==='granted' ? T('notifState.activees') : perm==='denied' ? T('notifState.bloquees') : T('notifState.desactivees');
+  btns.innerHTML = sub && perm==='granted' ? `<button class="btn" data-nftest>${T('notifState.envoyer_un_test')}</button><button class="btn ghost" data-nfoff>${T('notifState.couper')}</button>` : `<button class="btn" data-nfon>${T('notifState.activer_les_notifications')}</button>`;
 }
 /* ---------- render ---------- */
 function refresh(){
@@ -1416,7 +1434,7 @@ function refresh(){
 const CASE_OF = l => LG(l).cases || null;
 function prepLine(c){
   const K=CASE_OF(langOf(c)), n=!c.art && K && posOf(c)==='prep' && K.wechselNotes[c.de]; if(!n) return '';
-  return `<div class="prepnote"><p><b>Datif</b> si l'on reste au même endroit (question <i>wo?</i>) : <span lang="${langOf(c)}">${esc(n[0])}</span>.</p><p><b>Accusatif</b> si l'on va vers ce lieu (question <i>wohin?</i>) : <span lang="${langOf(c)}">${esc(n[1])}</span>.</p>${n[2]?`<p>Sens figuré, ${esc(n[2])}.</p>`:''}</div>`;
+  return `<div class="prepnote"><p>${T('prepLine.datif_si_l_on_reste',[langOf(c),esc(n[0])])}</p><p>${T('prepLine.accusatif_si_l_on_va',[langOf(c),esc(n[1])])}</p>${n[2]?`<p>${T('prepLine.sens_figure',[esc(n[2])])}</p>`:''}</div>`;
 }
 function prepCase(de, c){
   const K=CASE_OF(c ? langOf(c) : LANG); if(!K) return '';
@@ -1425,7 +1443,7 @@ function prepCase(de, c){
   const m=de.match(/\s(\S+)$/); if(!m || !/^(sich\s|[a-zäöüß])/.test(de)) return '';
   return K.verbFixed[m[1]] || '';
 }
-const GENRE = {m:'masculin', f:'féminin', n:'neutre'};
+const GENRE = {m:T('GENRE.masculin'), f:T('GENRE.feminin'), n:T('GENRE.neutre')};
 /* deviner le cas d'une préposition, comme l'article d'un nom : on coche un ou plusieurs cas */
 // cas proposés au quiz, dans l'ordre de la langue (description de la langue, cases.names)
 const CASES_OF = l => (CASE_OF(l)||{}).names || [];
@@ -1444,13 +1462,13 @@ function caseVerdict(c, guess){
   const g=guess.slice(2).split('+').filter(Boolean), L=k=>CASES_OF(langOf(c)).find(x=>x[0]===k)[1].toLowerCase();
   const ok=t.need.every(k=>g.includes(k)) && g.every(k=>t.need.includes(k)||t.extra.includes(k));
   const famUsed=g.some(k=>t.extra.includes(k)&&!t.need.includes(k));
-  if(ok) return `<div class="verdict ok">${t.need.length>1?'Bons cas':'Bon cas'}${famUsed?` (le ${t.extra.map(L).join(', ')} est familier)`:''}</div>`;
-  return `<div class="verdict bad">Pas ${g.map(L).join(' + ')} : ${t.need.length>1?'il fallait '+t.need.map(L).join(' et '):'il fallait '+(t.need[0]==='Akk'?'l’':'le ')+L(t.need[0])}</div>`;
+  if(ok) return `<div class="verdict ok">${t.need.length>1?T('famUsed.bons_cas'):T('famUsed.bon_cas')}${famUsed?` ${T('famUsed.le_est_familier',[t.extra.map(L).join(', ')])}`:''}</div>`;
+  return `<div class="verdict bad">${T('famUsed.pas',[g.map(L).join(' + '),t.need.length>1?T('famUsed.il_fallait')+t.need.map(L).join(' et '):T('famUsed.il_fallait')+(t.need[0]==='Akk'?'l’':'le ')+L(t.need[0])])}</div>`;
 }
 // réponse donnée au quiz article / cas : fausse ? (sans réponse donnée : jamais fausse)
 function guessWrong(c, guess){
   if(!guess) return false;
-  if(guess.startsWith('K:')) return !!caseTarget(c) && !caseVerdict(c, guess).includes('verdict ok');
+  if(guess.startsWith('K:')) return !!caseTarget(c) && !caseVerdict(c, guess).includes(T('guessWrong.verdict_ok'));
   return guess!==c.art;
 }
 // pluriel écrit en entier avec son article (italien : « gli amici », « le città » : invariable)
@@ -1459,7 +1477,7 @@ function gramLineFull(c){
   const g=GENRE[genderOf(c)]||'';
   if(artPlural(langOf(c), c.art)) return `<div class="plural">${esc(g?g+' pluriel':'pluriel')}</div>`;
   const pl=(c.pl||'').trim();
-  const p = !pl ? (c.lvl?'pas de pluriel':'') : pl.replace(/^\S+\s+/,'')===c.de ? `pluriel invariable : ${pl}` : `pluriel : ${pl}`;
+  const p = !pl ? (c.lvl?T('gramLineFull.pas_de_pluriel'):'') : pl.replace(/^\S+\s+/,'')===c.de ? `${T('gramLineFull.pluriel_invariable',[pl])}` : `pluriel : ${pl}`;
   return `<div class="plural">${esc(g?g+' singulier':'')}${g&&p?' · ':''}${esc(p)}</div>`;
 }
 function gramLine(c){
@@ -1468,8 +1486,8 @@ function gramLine(c){
   const g=GENRE[genderOf(c)]+' singulier', pa=LG(langOf(c)).pluralArticle;
   const pl=(c.pl||'').trim();
   let p;
-  if(!pl) p = c.lvl ? 'pas de pluriel' : '';
-  else { const f=pluralOf(c.de,pl); p = f ? (f===c.de ? `pluriel identique : ${pa} ${f}` : `pluriel : ${pa} ${f}`) : `pluriel : ${pl}`; }
+  if(!pl) p = c.lvl ? T('gramLineFull.pas_de_pluriel') : '';
+  else { const f=pluralOf(c.de,pl); p = f ? (f===c.de ? `${T('gramLine.pluriel_identique',[pa,f])}` : `pluriel : ${pa} ${f}`) : `pluriel : ${pl}`; }
   return `<div class="plural">${esc(g)}${p?` · ${esc(p)}`:''}</div>`;
 }
 function deWord(c){
@@ -1524,13 +1542,13 @@ function sameFr(items){
 function dupItemsHTML(list, attr){
   return list.map(r=>`<div class="dupitem"><span class="de">${deWord(r.f)}</span>
     <label>${U_().name}<input ${attr}="${r.i}" value="${esc(r.f.fr)}" autocomplete="off"></label>
-    <small>Même traduction que : ${r.others.slice(0,4).map(x=>deWord(x)).join(', ')}</small></div>`).join('');
+    ${T('dupItemsHTML.meme_traduction_que',[r.others.slice(0,4).map(x=>deWord(x)).join(', ')])}</div>`).join('');
 }
-const DUP_TIP = `Précise la nuance entre parenthèses, par exemple <b>alliance (politique)</b> : elle s'affiche au recto, en petit, et dit quel mot est attendu.`;
+const DUP_TIP = `${T('DUP_TIP.precise_la_nuance_entre_parentheses')}`;
 function cueFor(c, sibs){
   const w=c.de; let k=1;
   while(k<w.length && sibs.some(x=>x.de.length===w.length && x.de.slice(0,k).toLowerCase()===w.slice(0,k).toLowerCase())) k++;
-  return `<div class="fnote cue">${sibs.length+1} mots possibles · indice : <b>${esc(w.slice(0,k))}…</b> (${w.length} lettres)</div>`;
+  return `<div class="fnote cue">${T('cueFor.mots_possibles_indice_lettres',[sibs.length+1,esc(w.slice(0,k)),w.length])}</div>`;
 }
 function frFront(c){ const f=splitFr(c.fr, c.de); return `<div class="word">${f.html}</div>${f.sense.length?`<div class="fnote">(${esc(f.sense.join(' · '))})</div>`:''}`; }
 function frNotesBack(c){ const f=splitFr(c.fr, c.de); return f.gram.length?`<div class="fnote gram">${esc(f.gram.join(' · '))}</div>`:''; }
@@ -1539,7 +1557,7 @@ function posOf(c){ return c.pos || (langOf(c)===LANG ? LISTPOS.get(dkey(c)) : ''
 function posTag(c){ const l=POS_LABEL[posOf(c)], v=c.lvl||(c.est?EST_LABEL[c.est]:''); const t=[l,v].filter(Boolean).join(' · '); return t?`<div class="postag">${esc(t)}</div>`:''; }
 function cardTone(c){
   if(!revealed) return '';
-  if(artGuess && artGuess.startsWith('K:')) return caseVerdict(c, artGuess).includes('verdict ok') ? ' v-ok' : ' v-bad';
+  if(artGuess && artGuess.startsWith('K:')) return caseVerdict(c, artGuess).includes(T('guessWrong.verdict_ok')) ? ' v-ok' : ' v-bad';
   if(artGuess) return artGuess===c.art ? ' v-ok' : ' v-bad';
   const k=gcls(c); return k ? ' k-'+k.slice(2) : '';
 }
@@ -1555,22 +1573,22 @@ function cardFaces(c){
   const showCasePick = !revealed && !!caseTarget(c);
   const sibs = siblingsOf(c);
   const front = frToDe
-    ? `<div class="prompt-label">En ${L_().adj} ?</div>${posTag(c)}${frFront(c)}${sibs.length?cueFor(c,sibs):''}`
-    : `<div class="prompt-label">En français ?</div>${posTag(c)}<div class="wordline"><div class="word">${showCasePick?esc(c.de):deWord(c)}</div>${sayBtn(sayText(c),langOf(c),'Écouter le mot')}</div>${c.art?gramLine(c):''}`;
+    ? `<div class="prompt-label">${T('front.en',[L_().adj])}</div>${posTag(c)}${frFront(c)}${sibs.length?cueFor(c,sibs):''}`
+    : `<div class="prompt-label">${T('front.en_francais')}</div>${posTag(c)}<div class="wordline"><div class="word">${showCasePick?esc(c.de):deWord(c)}</div>${sayBtn(sayText(c),langOf(c),T('front.ecouter_le_mot'))}</div>${c.art?gramLine(c):''}`;
   let back='';
   if(revealed){
-    const verdict = artGuess && artGuess.startsWith('K:') ? caseVerdict(c, artGuess) : artGuess ? (artGuess===c.art?`<div class="verdict ok">Bon article</div>`:`<div class="verdict bad">Pas « ${artGuess} » mais « ${c.art} »</div>`) : '';
+    const verdict = artGuess && artGuess.startsWith('K:') ? caseVerdict(c, artGuess) : artGuess ? (artGuess===c.art?`<div class="verdict ok">${T('verdict.bon_article')}</div>`:`<div class="verdict bad">${T('verdict.pas_mais',[artGuess,c.art])}</div>`) : '';
     back = `<div class="answer">${verdict}${frToDe
-      ? `<div class="wordline"><div class="word">${deWord(c)}</div>${sayBtn(sayText(c),langOf(c),'Écouter le mot')}</div>${gramLine(c)}${frNotesBack(c)}`
-      : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">Même traduction : ${sibs.slice(0,4).map(x=>deWord(x)).join(', ')}</div>`:''}${exampleHTML(c)}${flagHTML(c)}</div>`;
+      ? `<div class="wordline"><div class="word">${deWord(c)}</div>${sayBtn(sayText(c),langOf(c),T('front.ecouter_le_mot'))}</div>${gramLine(c)}${frNotesBack(c)}`
+      : `<div class="word">${esc(c.fr)}</div>${prepLine(c)}`}${sibs.length?`<div class="fnote gram">${T('verdict.meme_traduction',[sibs.slice(0,4).map(x=>deWord(x)).join(', ')])}</div>`:''}${exampleHTML(c)}${flagHTML(c)}</div>`;
   }
   const reveal = showCasePick
-    ? `<div class="casepick" role="group" aria-label="Cas de la préposition"><div class="prompt-label">Quel cas ? (un ou plusieurs)</div><div class="artpick">${CASES_OF(langOf(c)).map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
-       <button class="btn" data-casego ${caseSel.size?'':'disabled'}>Valider</button><button class="btn ghost" data-reveal>Afficher sans choisir</button></div>`
+    ? `<div class="casepick" role="group" aria-label="${T('reveal.cas_de_la_preposition')}"><div class="prompt-label">${T('reveal.quel_cas_un_ou_plusieurs')}</div><div class="artpick">${CASES_OF(langOf(c)).map(([k,l])=>`<button class="b-case" data-case="${k}" aria-pressed="${caseSel.has(k)}">${l}</button>`).join('')}</div>
+       <button class="btn" data-casego ${caseSel.size?'':'disabled'}>${T('reveal.valider')}</button><button class="btn ghost" data-reveal>${T('reveal.afficher_sans_choisir')}</button></div>`
     : showArtPick
     ? `<div class="artpick">${artButtons(c)}</div>
-       <button class="btn ghost" data-reveal>Afficher sans choisir</button>`
-    : `<button class="btn" data-reveal>Afficher la réponse</button>`;
+       <button class="btn ghost" data-reveal>${T('reveal.afficher_sans_choisir')}</button>`
+    : `<button class="btn" data-reveal>${T('reveal.afficher_la_reponse')}</button>`;
   return {front, back, reveal, showArtPick:showArtPick||showCasePick};
 }
 // tailles proposées selon le nombre de cartes prêtes : 20/40/60 tant qu'il y a assez de cartes,
@@ -1582,42 +1600,42 @@ function sizeChoices(ready){
 function effSize(ready){ const t=SIZES.includes(settings.sessSize)?settings.sessSize:20; return Math.max(1, Math.min(t, ready)); }
 function resumeHTML(){ const s=savedSess(); if(!s) return '';
   const left=new Set(s.ids).size, pos=s.done||0, tot=s.total||pos+left;
-  return `<div class="card empty resume"><h2>${s.practice?'Entraînement interrompu':'Session interrompue'}</h2>
-    <p>Tu en étais à <b>${Math.min(pos+1,tot)}/${tot}</b> · ${left} carte${left>1?'s':''} restante${left>1?'s':''}. Tes réponses déjà données sont enregistrées.</p>
-    <div class="more"><button class="btn" data-resume>Reprendre où j'en étais</button><button class="btn ghost" data-dropresume>Abandonner cette session</button></div></div>`; }
+  return `<div class="card empty resume"><h2>${s.practice?T('left.entrainement_interrompu'):T('left.session_interrompue')}</h2>
+    <p>${T('left.tu_en_etais_a_carte',[Math.min(pos+1,tot),tot,left,left>1?'s':'',left>1?'s':''])}</p>
+    <div class="more"><button class="btn" data-resume>${T('left.reprendre_ou_j_en_etais')}</button><button class="btn ghost" data-dropresume>${T('left.abandonner_cette_session')}</button></div></div>`; }
 function sessionChooser(){
   const plan=todayPlan(); const due=plan.learn.length+plan.rev.length; const ready=due+plan.fresh.length;
   const size=effSize(ready);
   const next=deck().filter(c=>!isNew(c)).sort((a,b)=>a.due-b.due)[0];
   if(next && !isDue(next)) scheduleWake(next.due);
-  const tri = plan.pending.some(c=>!c.sorted) ? `<button class="btn ghost" data-triage>Trier mes nouveaux mots<small>${plan.pending.filter(c=>!c.sorted).length} à passer en revue : écarte ceux que tu connais déjà</small></button>` : '';
+  const tri = plan.pending.some(c=>!c.sorted) ? `<button class="btn ghost" data-triage>${T('next.trier_mes_nouveaux_mots_a',[plan.pending.filter(c=>!c.sorted).length])}</button>` : '';
   if(!ready){
     const when=next?whenText(next.due):'';
-    return `<div class="card empty"><h2>Rien à réviser pour l'instant</h2>
-      <p>Tous tes mots sont à jour.${when?` Prochaine révision : ${esc(when)}.`:''}</p>
-      <p class="hint">Pourquoi attendre : un mot revu juste avant d'être oublié se fixe bien mieux qu'un mot répété tout de suite. C'est pour ça qu'un mot nouveau revient 15 min, puis 3 h après.</p>
-      <div class="more"><button class="btn" data-go="add">Ajouter des mots</button>${deck().some(c=>!isNew(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre, tes réponses ne sont pas enregistrées</small></button>`:''}</div></div>`;
+    return `<div class="card empty"><h2>${T('when.rien_a_reviser_pour_l')}</h2>
+      <p>${T('when.tous_tes_mots_sont_a',[when?` ${T('when.prochaine_revision',[esc(when)])}`:''])}</p>
+      <p class="hint">${T('when.pourquoi_attendre_un_mot_revu')}</p>
+      <div class="more"><button class="btn" data-go="add">${T('when.ajouter_des_mots')}</button>${deck().some(c=>!isNew(c))?`<button class="btn ghost" data-practice>${T('when.reviser_quand_meme_entrainement_libre')}</button>`:''}</div></div>`;
   }
   // ce que contiendra la session choisie : d'abord ce qui est dû, puis des nouveaux mots pour compléter
   const m=composeSession(size); const total=m.ids.length;
-  const parts=[m.nRev?`${m.nRev} révision${m.nRev>1?'s':''}`:'', m.nLearn?`${m.nLearn} en apprentissage`:'', m.nFresh?`${m.nFresh} nouveau${m.nFresh>1?'x':''}`:''].filter(Boolean).join(' + ');
-  return `<div class="card empty session-pick"><h2>Nouvelle session</h2>
-      <p>${due?`${due} mot${due>1?'s':''} à revoir`:'Aucun mot à revoir'} · ${plan.fresh.length?`${plan.fresh.length} nouveau${plan.fresh.length>1?'x':''} possible${plan.fresh.length>1?'s':''} aujourd'hui`:plan.pending.length?`nouveaux mots : quota du jour atteint (${newPerDay()})`:'aucun nouveau en attente'}</p>
-      <div class="sizes" role="group" aria-label="Taille de la session">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?'pas assez de mots':`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
-      ${total<size && plan.learn.length>m.nLearn ? `<p class="hint">Session raccourcie à ${total} cartes : ${plan.learn.length-m.nLearn} mots en apprentissage attendent, mais il n'y a pas assez de révisions faciles pour les entourer. Refais une petite session dans 15 à 30 minutes.</p>`:''}
-      <div class="more"><button class="btn" data-start>Commencer<small>${total} carte${total>1?'s':''} : ${parts}</small></button>${tri}${deck().some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>Réviser quand même<small>entraînement libre sur tes mots déjà vus, réponses non enregistrées</small></button>`:''}</div>
-      <p class="hint">Au plus ${newPerDay()} nouveaux mots par jour (réglable dans Stats → Réglages). Dans une session, les mots difficiles (en apprentissage ou nouveaux) ne dépassent pas ${Math.round(HARD_SHARE*100)} % des cartes et sont mêlés à des révisions plus faciles, tant qu'il y en a. Fais-en autant que tu veux : un mot nouveau revient environ 15 minutes puis 3 heures après sa découverte, donc plusieurs sessions espacées dans la journée retiennent mieux qu'un seul long bloc.</p></div>`;
+  const parts=[m.nRev?`${T('parts.revision',[m.nRev,m.nRev>1?'s':''])}`:'', m.nLearn?`${T('parts.en_apprentissage',[m.nLearn])}`:'', m.nFresh?`${m.nFresh} nouveau${m.nFresh>1?'x':''}`:''].filter(Boolean).join(' + ');
+  return `<div class="card empty session-pick"><h2>${T('parts.nouvelle_session')}</h2>
+      <p>${due?`${T('parts.mot_a_revoir',[due,due>1?'s':''])}`:T('parts.aucun_mot_a_revoir')} · ${plan.fresh.length?`${T('parts.nouveau_possible_aujourd_hui',[plan.fresh.length,plan.fresh.length>1?'x':'',plan.fresh.length>1?'s':''])}`:plan.pending.length?`${T('parts.nouveaux_mots_quota_du_jour',[newPerDay()])}`:T('parts.aucun_nouveau_en_attente')}</p>
+      <div class="sizes" role="group" aria-label="${T('parts.taille_de_la_session')}">${sizeChoices(ready).map(o=>`<button type="button" class="size" data-size="${o.tier}" aria-pressed="${!o.off&&size===o.val}"${o.off?' disabled':''}><b>${o.val}</b><small>${o.off?T('parts.pas_assez_de_mots'):`≈ ${minutesFor(o.val)} min`}</small></button>`).join('')}</div>
+      ${total<size && plan.learn.length>m.nLearn ? `<p class="hint">${T('parts.session_raccourcie_a_cartes_mots',[total,plan.learn.length-m.nLearn])}</p>`:''}
+      <div class="more"><button class="btn" data-start>${T('parts.commencer_carte',[total,total>1?'s':'',parts])}</button>${tri}${deck().some(c=>!isNew(c)&&!isDue(c))?`<button class="btn ghost" data-practice>${T('parts.reviser_quand_meme_entrainement_libre')}</button>`:''}</div>
+      <p class="hint">${T('parts.au_plus_nouveaux_mots_par',[newPerDay(),Math.round(HARD_SHARE*100)])}</p></div>`;
 }
 function renderTriage(v){
   triage.ids=triage.ids.filter(id=>cards.has(id) && isNew(cards.get(id)));
   const c=cards.get(triage.ids[0]);
-  if(!c){ v.innerHTML=`<div class="card empty"><h2>Tri terminé</h2><p>${triage.known} mot${triage.known>1?'s':''} écarté${triage.known>1?'s':''} : ${triage.known>1?'ils reviendront':'il reviendra'} dans un mois pour vérifier. Les autres t'attendent dans tes sessions.</p>
-    <button class="btn" data-endtriage>Retour aux sessions</button></div>`; return; }
+  if(!c){ v.innerHTML=`<div class="card empty"><h2>${T('renderTriage.tri_termine')}</h2><p>${T('renderTriage.mot_ecarte_dans_un_mois',[triage.known,triage.known>1?'s':'',triage.known>1?'s':'',triage.known>1?T('renderTriage.ils_reviendront'):T('renderTriage.il_reviendra')])}</p>
+    <button class="btn" data-endtriage>${T('renderTriage.retour_aux_sessions')}</button></div>`; return; }
   v.innerHTML=`<div style="display:flex;flex-direction:column;gap:14px">
-    <div class="practice-bar"><span><b>Tri des nouveaux mots</b> · ${triage.ids.length} restant${triage.ids.length>1?'s':''}</span><button class="link" data-endtriage>Terminer</button></div>
-    <div class="card" id="card"><div class="wordline"><div class="word">${deWord(c)}</div>${sayBtn(sayText(c),langOf(c),'Écouter le mot')}</div>${gramLine(c)}<div class="answer"><div class="word" style="font-size:1.3rem">${esc(c.fr)}</div></div></div>
-    <div class="grades two-col"><button class="g4" data-tknow>Je connais déjà<small>revient dans un mois</small></button>
-      <button data-tlearn>À apprendre<small>garde le mot</small></button></div></div>`;
+    <div class="practice-bar">${T('renderTriage.tri_des_nouveaux_mots_restant',[triage.ids.length,triage.ids.length>1?'s':''])}<button class="link" data-endtriage>${T('renderTriage.terminer')}</button></div>
+    <div class="card" id="card"><div class="wordline"><div class="word">${deWord(c)}</div>${sayBtn(sayText(c),langOf(c),T('front.ecouter_le_mot'))}</div>${gramLine(c)}<div class="answer"><div class="word" style="font-size:1.3rem">${esc(c.fr)}</div></div></div>
+    <div class="grades two-col"><button class="g4" data-tknow>${T('renderTriage.je_connais_deja_revient_dans')}</button>
+      <button data-tlearn>${T('renderTriage.a_apprendre_garde_le_mot')}</button></div></div>`;
   applyCardAnim(); autoSay(c, true, 't:'+c.id);
 }
 // toutes les cartes restantes sont des « Encore » : on annonce le renforcement, une seule fois par session
@@ -1626,7 +1644,7 @@ function maybeReinf(){
   if(!session || session.reinf || session.view!=null || revealed || !inReinf()) return;
   session.reinf=true; const n=new Set(session.ids).size;
   const o=document.createElement('div'); o.className='reinf'; o.setAttribute('role','status');
-  o.innerHTML=`<div class="reinf-box"><b>Renforcement</b><span>${n} mot${n>1?'s':''} à consolider</span><small>Chaque mot revient au plus ${ENC_MAX} fois. Au-delà, il attend ta prochaine session.</small></div>`;
+  o.innerHTML=`<div class="reinf-box">${T('maybeReinf.renforcement_mot_a_consolider_chaque',[n,n>1?'s':'',ENC_MAX])}</div>`;
   document.body.appendChild(o); sfx('reinf');
   const close=()=>{ if(!o.isConnected) return; o.classList.add('out'); setTimeout(()=>o.remove(), calm()?0:250); };
   o.addEventListener('click', close); setTimeout(close, 2600);
@@ -1635,15 +1653,15 @@ function renderReview(){ _renderReview(); saveSess(); }
 function _renderReview(){
   if(!revealed && renderReview._cid!==(session&&session.ids&&session.ids[0])){ caseSel=new Set(); renderReview._cid=session&&session.ids&&session.ids[0]; }
   const v=$('#view');
-  if(mode==='loading'){ v.innerHTML='<div class="card"><p class="prompt-label">Chargement de tes mots…</p></div>'; return; }
-  const dirBar=`<div class="dir"><span>Sens de révision</span><div class="seg" role="group" aria-label="Sens">
+  if(mode==='loading'){ v.innerHTML=`<div class="card"><p class="prompt-label">${T('_renderReview.chargement_de_tes_mots')}</p></div>`; return; }
+  const dirBar=`<div class="dir">${T('dirBar.sens_de_revision')}<div class="seg" role="group" aria-label="${T('dirBar.sens')}">
     <button data-dir="fr-de" aria-pressed="${dir==='fr-de'}">${U_().code} → ${L_().code}</button>
     <button data-dir="de-fr" aria-pressed="${dir==='de-fr'}">${L_().code} → ${U_().code}</button></div></div>`;
   if(!deck().length){
-    v.innerHTML=`<div class="card empty"><h2>Ton vocabulaire ${L_().of.replace(/^de l'/,"d'")} commence ici</h2>
-      <p>Choisis une liste selon ton niveau, ou ajoute tes propres mots avec le dictionnaire.</p>
+    v.innerHTML=`<div class="card empty"><h2>${T('dirBar.ton_vocabulaire_commence_ici',[L_().of.replace(/^de l'/,"d'")])}</h2>
+      <p>${T('dirBar.choisis_une_liste_selon_ton')}</p>
       ${levelsHTML()}
-      <button class="btn ghost" data-go="add">Ajouter mes propres mots</button></div></div>`;
+      <button class="btn ghost" data-go="add">${T('dirBar.ajouter_mes_propres_mots')}</button></div></div>`;
     return;
   }
   if(triage){ renderTriage(v); return; }
@@ -1652,8 +1670,8 @@ function _renderReview(){
   if(past){ revealed=true; artGuess=past.art; }
   const c = past ? past.before : session && cards.get(session.ids[0]);
   if(!c){
-    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>Entraînement terminé</h2><p>${session.done} mot${session.done>1?'s':''} revu${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup. Rien n'a été enregistré : ton calendrier de révision ne change pas.</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:'Session terminée'}</h2><p>${session.done} réponse${session.done>1?'s':''}, dont ${session.ok} juste${session.ok>1?'s':''} du premier coup.</p>${session.parked?`<p class="hint">${session.parked} mot${session.parked>1?'s':''} encore difficile${session.parked>1?'s':''} après ${ENC_MAX} essais : ${session.parked>1?'ils reviennent':'il revient'} dans 15 minutes. C'est normal, l'espacement fera le travail.</p>`:''}</div>` : '';
-    const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?'Entraînement arrêté':'Session arrêtée'}</h2><p>${stopped.practice ? 'Entraînement libre : rien n’a été enregistré, ton calendrier de révision ne change pas.' : stopped.answers ? `Tes ${stopped.answers} réponse${stopped.answers>1?'s sont enregistrées':' est enregistrée'} : chaque note est sauvegardée dès que tu la donnes.` : 'Aucune réponse donnée, rien n’a changé.'}</p></div>` : '';
+    const done = session && session.practice ? `<div class="card empty" style="margin-bottom:12px"><h2>${T('done.entrainement_termine')}</h2><p>${T('done.mot_revu_dont_juste_du',[session.done,session.done>1?'s':'',session.done>1?'s':'',session.ok,session.ok>1?'s':''])}</p></div>` : session ? `<div class="card empty" style="margin-bottom:12px"><h2>${session.ok===session.done&&session.done?L_().bravo:T('done.session_terminee')}</h2><p>${T('done.reponse_dont_juste_du_premier',[session.done,session.done>1?'s':'',session.ok,session.ok>1?'s':''])}</p>${session.parked?`<p class="hint">${T('done.mot_encore_difficile_apres_essais',[session.parked,session.parked>1?'s':'',session.parked>1?'s':'',ENC_MAX,session.parked>1?T('done.ils_reviennent'):T('done.il_revient')])}</p>`:''}</div>` : '';
+    const stop = !session && stopped ? `<div class="card empty" style="margin-bottom:12px"><h2>${stopped.practice?T('stop.entrainement_arrete'):T('stop.session_arretee')}</h2><p>${stopped.practice ? T('stop.entrainement_libre_rien_n_a') : stopped.answers ? `${T('stop.tes_reponse_chaque_note_est',[stopped.answers,stopped.answers>1?T('stop.s_sont_enregistrees'):T('stop.est_enregistree')])}` : T('stop.aucune_reponse_donnee_rien_n')}</p></div>` : '';
     if(done) finished=done;
     if(session) clearSess(); stopped=null; session=null;
     v.innerHTML=dirBar+`<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">${done||(stop?'':finished)}${stop}${resumeHTML()}${streakHTML(true)}${wotdHTML()}${sessionChooser()}</div>`;
@@ -1664,13 +1682,13 @@ function _renderReview(){
   const wrongGuess = revealed && guessWrong(c, artGuess);
   const controls = revealed
     ? `<div class="grades">
-        ${[1,2,3,4].map(g=>{ const off = wrongGuess && g>=3; return `<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}"${off?' disabled':''}>${GRADE_LABEL[g]}<small>${off?(artGuess.startsWith('K:')?'cas faux':'article faux'):past&&past.grade===g?'ta réponse':session.practice?'&nbsp;':preview(c,g)}</small></button>`; }).join('')}</div>`
+        ${[1,2,3,4].map(g=>{ const off = wrongGuess && g>=3; return `<button class="g${g}${past&&past.grade===g?' chosen':''}" data-grade="${g}" aria-pressed="${!!past&&past.grade===g}"${off?' disabled':''}>${GRADE_LABEL[g]}<small>${off?(artGuess.startsWith('K:')?T('controls.cas_faux'):T('controls.article_faux')):past&&past.grade===g?T('controls.ta_reponse'):session.practice?'&nbsp;':preview(c,g)}</small></button>`; }).join('')}</div>`
     : reveal;
   v.innerHTML = dirBar + `<div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
-    <div class="practice-bar"><span>${!past && session.reinf && inReinf() ? `<b>Renforcement</b> · ${new Set(session.ids).size} à consolider` : `<b>${past?'Carte déjà vue':session.practice?'Entraînement libre':'Session'}</b>${session.practice&&!past?' (non enregistré)':''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}`}</span><button class="link" data-endsession title="Tes réponses sont déjà enregistrées">Arrêter</button></div>
+    <div class="practice-bar"><span>${!past && session.reinf && inReinf() ? `${T('controls.renforcement_a_consolider',[new Set(session.ids).size])}` : `<b>${past?T('controls.carte_deja_vue'):session.practice?T('controls.entrainement_libre'):T('controls.session')}</b>${session.practice&&!past?T('controls.non_enregistre'):''} · ${Math.min(past?(past.pos||1):session.done+1,session.total)}/${session.total}`}</span><button class="link" data-endsession title="${T('controls.tes_reponses_sont_deja_enregistrees')}">${T('controls.arreter')}</button></div>
     <div class="smeter" aria-hidden="true"><i style="width:${Math.min(100,100*(past?(past.pos||1)-1:session.done)/session.total)}%"></i><b style="left:${Math.min(100,100*session.done/session.total)}%"></b></div>
-    <div class="cardnav">${canBack?`<button class="navbtn prev" data-back aria-label="Carte précédente" title="Carte précédente">‹</button>`:''}<div class="card${past?' past':''}${cardTone(c)}" id="card">${front}${back}</div>${past?`<button class="navbtn next" data-fwd aria-label="Carte suivante" title="Carte suivante">›</button>`:''}</div>${controls}
-    <p class="hint" style="text-align:center">${past?(past.grade==='known'?'Tu avais répondu « Je connais déjà ». Choisis une note pour changer, ou avance avec ›.':'Choisis une autre note pour changer ta réponse, ou avance avec ›.'):(isNew(c)?'Nouveau mot':isLearning(c)?`En apprentissage · passage ${Math.min(STEPS,(c.ls||0)+1)}/${STEPS}`:'Révision')+(showArtPick?(c.art?' · choisis l’article':' · choisis le cas'):'')}${!session.practice&&isNew(c)&&revealed&&!wrongGuess&&!(past&&past.grade==='known')?' · <button class="link" data-known>Je connais déjà</button>':''}</p></div>`;
+    <div class="cardnav">${canBack?`<button class="navbtn prev" data-back aria-label="${T('controls.carte_precedente')}" title="${T('controls.carte_precedente')}">‹</button>`:''}<div class="card${past?' past':''}${cardTone(c)}" id="card">${front}${back}</div>${past?`<button class="navbtn next" data-fwd aria-label="${T('controls.carte_suivante')}" title="${T('controls.carte_suivante')}">›</button>`:''}</div>${controls}
+    <p class="hint" style="text-align:center">${past?(past.grade==='known'?T('controls.tu_avais_repondu_je_connais'):T('controls.choisis_une_autre_note_pour')):(isNew(c)?T('controls.nouveau_mot'):isLearning(c)?`${T('controls.en_apprentissage_passage',[Math.min(STEPS,(c.ls||0)+1),STEPS])}`:T('controls.revision'))+(showArtPick?(c.art?T('controls.choisis_l_article'):T('controls.choisis_le_cas')):'')}${!session.practice&&isNew(c)&&revealed&&!wrongGuess&&!(past&&past.grade==='known')?` · <button class="link" data-known>${T('GRADE_LABEL.je_connais_deja')}</button>`:''}</p></div>`;
   applyCardAnim(); maybeReinf();
   // lecture automatique : le mot appris dès qu'il est visible (recto en LANG → FR, verso en FR → LANG)
   autoSay(c, dir==='fr-de' ? revealed : true, (past?'p'+session.view:'s'+session.done)+':'+c.id+':'+dir);
@@ -1680,20 +1698,20 @@ function batchGroups(){
   const groups=[]; let g=null;
   for(const c of all){
     const key=c.batch||'';
-    if(key){ let k=groups.find(x=>x.key===key); if(!k){ k={key,label:c.batchLabel||'Import',ids:[],created:c.created}; groups.push(k);} k.ids.push(c.id); g=null; continue; }
+    if(key){ let k=groups.find(x=>x.key===key); if(!k){ k={key,label:c.batchLabel||T('groups.import'),ids:[],created:c.created}; groups.push(k);} k.ids.push(c.id); g=null; continue; }
     if(!g || c.created-g.last>5000){ g={key:'t'+c.created,src:c.src,lvls:new Set(),ids:[],created:c.created,last:c.created}; groups.push(g); }
     g.ids.push(c.id); g.last=c.created; if(c.lvl) g.lvls.add(c.lvl);
-    const one=g.lvls.size===1?[...g.lvls][0]:''; g.label=g.src&&LESSONS[g.src]?LESSONS[g.src].title+(one?' · '+one:''):one?'Liste '+one:'Ajout';
+    const one=g.lvls.size===1?[...g.lvls][0]:''; g.label=g.src&&LESSONS[g.src]?LESSONS[g.src].title+(one?' · '+one:''):one?T('groups.liste')+one:T('groups.ajout');
   }
   return groups.filter(x=>x.ids.length>=3).sort((a,b)=>b.created-a.created).slice(0,8);
 }
 function batchesHTML(){
   const gs=batchGroups(); if(!gs.length) return '';
-  return `<details class="panel batches"><summary><b>Retirer un ajout groupé</b><span class="hint">${gs.length} ajout${gs.length>1?'s':''} récent${gs.length>1?'s':''}</span></summary>
-    <p class="hint">Seuls les mots jamais révisés sont retirés. Ceux que tu as déjà commencés gardent leur progression.</p>
+  return `<details class="panel batches"><summary>${T('batchesHTML.retirer_un_ajout_groupe_ajout',[gs.length,gs.length>1?'s':'',gs.length>1?'s':''])}</summary>
+    <p class="hint">${T('batchesHTML.seuls_les_mots_jamais_revises')}</p>
     ${gs.map(x=>{ const un=x.ids.filter(id=>isNew(cards.get(id))).length;
       return `<div class="batch"><div><b>${esc(x.label)}</b><small>${new Date(x.created).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})} · ${x.ids.length} mots</small></div>
-      <button class="btn ghost small" data-rmbatch="${x.key}" ${un?'':'disabled'}>${un?`Retirer ${un}`:'Tout commencé'}</button></div>`; }).join('')}</details>`;
+      <button class="btn ghost small" data-rmbatch="${x.key}" ${un?'':'disabled'}>${un?`${T('batchesHTML.retirer',[un])}`:T('batchesHTML.tout_commence')}</button></div>`; }).join('')}</details>`;
 }
 function renderList(){
   const v=$('#view');
@@ -1702,28 +1720,28 @@ function renderList(){
   const all=every.filter(c=>filterMatch(c)&&(!q||(artWord(c)+' '+c.fr).toLowerCase().includes(q))).sort(SORTS[listSort]||SORTS.new);
   const inSrc=every.filter(c=>!srcFilter||srcOf(c)===srcFilter), inLvl=every.filter(c=>!lvlFilter||lvlOf(c)===lvlFilter);
   const lvlOpts=['A1','A2','B1','B2','C1','C2','~A','~B','~C','none'].filter(L=>every.some(c=>lvlOf(c)===L));
-  const lvlName = L => L==='none' ? 'Sans niveau' : L[0]==='~' ? EST_LABEL[L[1]]+' (estimé)' : L;
+  const lvlName = L => L==='none' ? T('lvlName.sans_niveau') : L[0]==='~' ? EST_LABEL[L[1]]+' (estimé)' : L;
   const srcOpts=[...Object.keys(LESSONS),'lists','starter','manual','dict'].filter(k=>every.some(c=>srcOf(c)===k));
   const chip=(axis,k,label,n,on)=>`<button class="chip" data-axis="${axis}" data-val="${k}" aria-pressed="${on}">${esc(label)} <span class="cnt">${n}</span></button>`;
   const chips=`<div class="filters">
-    ${lvlOpts.length?`<div class="frow"><span class="flabel">Niveau</span><div class="row">${chip('lvl','','Tous',inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
-    <div class="frow"><span class="flabel">Statut</span><div class="row">${chip('stat','','Tous',every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
-    <div class="frow"><span class="flabel">Trier</span><div class="row">${[['new','Récents'],['de',L_().name+' A→Z'],['fr',U_().name+' A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
-    ${srcOpts.length>1?`<div class="frow"><span class="flabel">Source</span><div class="row">${chip('src','','Toutes',inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
+    ${lvlOpts.length?`<div class="frow">${T('chips.niveau')}<div class="row">${chip('lvl','',T('chips.tous'),inSrc.length,!lvlFilter)}${lvlOpts.map(L=>chip('lvl',L,lvlName(L),inSrc.filter(c=>lvlOf(c)===L).length,lvlFilter===L)).join('')}</div></div>`:''}
+    <div class="frow">${T('chips.statut')}<div class="row">${chip('stat','',T('chips.tous'),every.filter(c=>(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,!statFilter)}${['new','learn','rev','known'].map(k=>chip('stat',k,STATUS_LABEL[k],every.filter(c=>STATUS(c)===k&&(!lvlFilter||lvlOf(c)===lvlFilter)&&(!srcFilter||srcOf(c)===srcFilter)).length,statFilter===k)).join('')}</div></div>
+    <div class="frow">${T('chips.trier')}<div class="row">${[['new',T('chips.recents')],['de',L_().name+' A→Z'],['fr',U_().name+' A→Z']].map(([k,l])=>`<button class="chip" data-sort="${k}" aria-pressed="${listSort===k}">${l}</button>`).join('')}</div></div>
+    ${srcOpts.length>1?`<div class="frow">${T('chips.source')}<div class="row">${chip('src','',T('chips.toutes'),inLvl.length,!srcFilter)}${srcOpts.map(k=>chip('src',k,srcLabel(k),inLvl.filter(c=>srcOf(c)===k).length,srcFilter===k)).join('')}</div></div>`:''}
   </div>
-  <div class="legend" aria-label="Code couleur">${L_().legend}</div>`;
+  <div class="legend" aria-label="${T('chips.code_couleur')}">${L_().legend}</div>`;
   const rows=all.map(c=>{
-    const st=STATUS(c); const when = st==='rev' ? (isDue(c)?'À revoir':'dans '+Math.max(1,Math.ceil((c.due-Date.now())/DAY))+' j') : '';
-    const status = `<select class="stsel st-${st}" data-setstat="${c.id}" aria-label="Statut de ${esc(c.de)}">${['new','learn','rev','known'].map(k=>`<option value="${k}" ${k===st?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}</select>${when?`<small class="when">${when}</small>`:''}`;
+    const st=STATUS(c); const when = st==='rev' ? (isDue(c)?T('when.a_revoir'):'dans '+Math.max(1,Math.ceil((c.due-Date.now())/DAY))+' j') : '';
+    const status = `<select class="stsel st-${st}" data-setstat="${c.id}" aria-label="${T('status.statut_de',[esc(c.de)])}">${['new','learn','rev','known'].map(k=>`<option value="${k}" ${k===st?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}</select>${when?`<small class="when">${when}</small>`:''}`;
     return `<div class="item"><div class="de">${deWord(c)}${c.pl?` <span class="plural">· ${esc(c.pl)}</span>`:''}</div><div class="fr">${esc(c.fr)} <span class="src">· ${esc(srcLabel(srcOf(c)))}</span></div>
-      <div class="meta"><span class="row" style="gap:4px;justify-content:flex-end">${c.lvl?`<span class="pill lvl">${c.lvl}</span>`:c.est?`<span class="pill lvl est" title="Niveau estimé d'après la fréquence d'usage">${EST_LABEL[c.est]}</span>`:''}${status}</span><button class="link danger" data-del="${c.id}">Supprimer</button></div></div>`;
+      <div class="meta"><span class="row" style="gap:4px;justify-content:flex-end">${c.lvl?`<span class="pill lvl">${c.lvl}</span>`:c.est?`<span class="pill lvl est" title="${T('status.niveau_estime_d_apres_la')}">${EST_LABEL[c.est]}</span>`:''}${status}</span><button class="link danger" data-del="${c.id}">${T('status.supprimer')}</button></div></div>`;
   }).join('');
   v.innerHTML=`<div style="display:flex;flex-direction:column;gap:12px">
     ${batchesHTML()}
-    <input class="search" id="search" type="search" placeholder="Chercher un mot…" value="${esc(listQuery)}" aria-label="Chercher">
+    <input class="search" id="search" type="search" placeholder="${T('status.chercher_un_mot')}" value="${esc(listQuery)}" aria-label="${T('status.chercher')}">
     ${chips}
-    ${(lvlFilter||srcFilter)&&all.some(isNew)?`<button class="link danger" style="align-self:flex-start" data-rmfilter>Retirer les ${all.filter(isNew).length} mots non révisés de ce filtre</button>`:''}
-    ${all.length?`<div class="list">${rows}</div>`:`<p class="hint">${every.length?'Aucun mot ne correspond.':'Aucun mot pour l’instant.'}</p>`}</div>`;
+    ${(lvlFilter||srcFilter)&&all.some(isNew)?`<button class="link danger" style="align-self:flex-start" data-rmfilter>${T('status.retirer_les_mots_non_revises',[all.filter(isNew).length])}</button>`:''}
+    ${all.length?`<div class="list">${rows}</div>`:`<p class="hint">${every.length?T('status.aucun_mot_ne_correspond'):T('status.aucun_mot_pour_l_instant')}</p>`}</div>`;
 }
 function lessonItems(id){ return LESSONS[id].text.split('\n').map(l=>{ const i=l.indexOf('|'); const f=parseLine(l.slice(i+1)); return f?{...f,lvl:l.slice(0,i)}:null; }).filter(Boolean); }
 // clé d'un mot dans les fichiers de sa langue (« derhund », « l'amico ») ; clé d'identité : la même, préfixée par la langue sauf pour l'allemand
@@ -1736,42 +1754,42 @@ function lessonsHTML(){
     const items=lessonItems(id); const by={};
     items.forEach(f=>{ by[f.lvl]=by[f.lvl]||{n:0,got:0}; by[f.lvl].n++; if(have.has(keyOf(f))) by[f.lvl].got++; });
     const got=items.filter(f=>have.has(keyOf(f))).length;
-    return `<div class="lesson"><div class="lesson-head"><b>${esc(o.title)}</b><small>${got}/${items.length} mots ajoutés</small></div>
+    return `<div class="lesson"><div class="lesson-head">${T('items.mots_ajoutes',[esc(o.title),got,items.length])}</div>
       <div class="row">${Object.keys(by).sort().map(L=>`<button class="chip" data-lesson="${id}" data-lvl="${L}" ${by[L].got===by[L].n?'disabled':''}>${L} · ${by[L].n}</button>`).join('')}
-      <button class="btn small" data-lesson="${id}" data-lvl="" ${got===items.length?'disabled':''}>Tout ajouter</button></div></div>`;
+      <button class="btn small" data-lesson="${id}" data-lvl="" ${got===items.length?'disabled':''}>${T('items.tout_ajouter')}</button></div></div>`;
   }).join('');
 }
 function levelsHTML(){
   if(listState!=='ready'){ loadLists();
-    return `<div class="levels-wrap" data-levels><p class="hint">${listState==='error'?`Les listes n'ont pas pu se charger. <button type="button" class="link" data-lretry>Réessayer</button>`:'Chargement des listes…'}</p></div>`; }
+    return `<div class="levels-wrap" data-levels><p class="hint">${listState==='error'?`${T('levelsHTML.les_listes_n_ont_pas')} <button type="button" class="link" data-lretry>${T('levelsHTML.reessayer')}</button>`:T('levelsHTML.chargement_des_listes')}</p></div>`; }
   const have=new Set(deck().map(keyOf));
   const stat=L=>{ const items=LISTDATA[L]||[]; return {items, got:items.filter(f=>have.has(keyOf(f))).length}; };
   const grid=`<div class="levels">${Object.entries(LEVELS).map(([L,label])=>{ const {items,got}=stat(L); const done=got===items.length;
-    return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?'Tout ajouté':got?`${got.toLocaleString(LOC())} / ${items.length.toLocaleString(LOC())} mots`:`${items.length.toLocaleString(LOC())} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
+    return `<button type="button" class="level" data-level="${L}" aria-expanded="${openLvl===L}" ${importing?'disabled':''}><b>${L}</b><span>${label}</span><small>${done?T('done.tout_ajoute'):got?`${got.toLocaleString(LOC())} / ${items.length.toLocaleString(LOC())} mots`:`${items.length.toLocaleString(LOC())} mots`}</small><span class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></span></button>`; }).join('')}</div>`;
   let packs='';
   if(openLvl && LISTDATA[openLvl]){
     const items=LISTDATA[openLvl]; const {got}=stat(openLvl); const nxt=nextBatch(openLvl); const busy=importing;
     const first=nxt.length?items.indexOf(nxt[0])+1:0, last=nxt.length?items.indexOf(nxt[nxt.length-1])+1:0;
     let action;
-    if(!levelLeft(openLvl)) action=`<p class="hint"><b>Tout le niveau ${openLvl} est dans tes mots.</b></p>`;
+    if(!levelLeft(openLvl)) action=`<p class="hint">${T('first.tout_le_niveau_est_dans',[openLvl])}</p>`;
     else if(!nxt.length) action=capHTML();
-    else if(confirmLvl===openLvl){ action=`<div class="confirm"><p>Ajouter <b>${nxt.length} mots ${openLvl}</b> (n° ${first} à ${last} par fréquence) ?</p>
-        <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':'Oui, ajouter'}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>Annuler</button></div></div>`; }
-    else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?'Ajout en cours…':`Ajouter ${nxt.length} mots`}</button>`;
-    packs=`<div class="packs"><div class="packs-head"><b>${openLvl} · ${LEVELS[openLvl]}</b><small>${got.toLocaleString(LOC())} / ${items.length.toLocaleString(LOC())} mots ajoutés</small></div>
+    else if(confirmLvl===openLvl){ action=`<div class="confirm"><p>${T('first.ajouter_mots_n_a_par',[nxt.length,openLvl,first,last])}</p>
+        <div class="row"><button type="button" class="btn" data-addconfirm="${openLvl}" ${busy?'disabled':''}>${busy?T('first.ajout_en_cours'):T('first.oui_ajouter')}</button><button type="button" class="btn ghost" data-addcancel ${busy?'disabled':''}>${T('first.annuler')}</button></div></div>`; }
+    else action=`<button type="button" class="btn" data-addnext="${openLvl}" ${busy?'disabled':''}>${busy?T('first.ajout_en_cours'):`${T('first.ajouter_mots',[nxt.length])}`}</button>`;
+    packs=`<div class="packs"><div class="packs-head">${T('first.mots_ajoutes',[openLvl,LEVELS[openLvl],got.toLocaleString(LOC()),items.length.toLocaleString(LOC())])}</div>
       <div class="meter" aria-hidden="true"><i style="width:${100*got/items.length}%"></i></div>
       ${action}
-      <p class="hint">Les mots s'ajoutent par 50 au plus, du plus fréquent au moins fréquent, et jamais au-delà de ${NEW_CAP} mots en cours d'apprentissage.</p></div>`;
+      <p class="hint">${T('first.les_mots_s_ajoutent_par',[NEW_CAP])}</p></div>`;
   }
   return `<div class="levels-wrap" data-levels>${grid}${packs}</div>`;
 }
 /* ---------- choix de la langue apprise ---------- */
 function renderLangPick(){
   const n=k=>[...cards.values()].filter(c=>langOf(c)===k).length;
-  $('#view').innerHTML=`<div class="card empty"><h2>Quelle langue veux-tu apprendre ?</h2>
-    <p>Depuis le français. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.</p>
-    <div class="langs" role="group" aria-label="Langue apprise">${Object.entries(LANGS).map(([k,o])=>`<button type="button" class="level" data-lang="${k}" aria-pressed="${LANG===k}"><b>${o.code}</b><span>${o.name}</span><small>${n(k)?n(k).toLocaleString(LOC())+' mot'+(n(k)>1?'s':''):'8 000 mots, A1 à C2'}</small></button>`).join('')}</div>
-    ${LANG?`<button class="btn ghost" data-langcancel>Garder ${esc(L_().the)}</button>`:''}</div>`;
+  $('#view').innerHTML=`<div class="card empty"><h2>${T('renderLangPick.quelle_langue_veux_tu_apprendre')}</h2>
+    <p>${T('renderLangPick.depuis_le_francais_chaque_langue')}</p>
+    <div class="langs" role="group" aria-label="${T('renderLangPick.langue_apprise')}">${Object.entries(LANGS).map(([k,o])=>`<button type="button" class="level" data-lang="${k}" aria-pressed="${LANG===k}"><b>${o.code}</b><span>${o.name}</span><small>${n(k)?n(k).toLocaleString(LOC())+' mot'+(n(k)>1?'s':''):T('renderLangPick.8_000_mots_a1_a')}</small></button>`).join('')}</div>
+    ${LANG?`<button class="btn ghost" data-langcancel>${T('renderLangPick.garder',[esc(L_().the)])}</button>`:''}</div>`;
 }
 function setLang(k){
   const changed = k!==LANG; LANG=k; langPicking=false;
@@ -1784,7 +1802,7 @@ function setLang(k){
   }
   tab='review'; document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-current', b.dataset.tab==='review'?'page':'false'));
   $('#view').innerHTML=''; refresh(); loadLists(); loadExamples();
-  if(changed) toast(`${L_().name} : ${deck().length ? deck().length.toLocaleString(LOC())+' mots' : 'choisis un niveau pour commencer'}`);
+  if(changed) toast(`${L_().name} : ${deck().length ? deck().length.toLocaleString(LOC())+' mots' : T('changed.choisis_un_niveau_pour_commencer')}`);
 }
 function renderGuide(){
   $('#view').innerHTML=`<article class="guide" id="guide">
@@ -1928,33 +1946,33 @@ function renderGuide(){
 }
 function renderAdd(){
   $('#view').innerHTML=`<div style="display:flex;flex-direction:column;gap:16px">
-  <section class="panel"><h3>Listes par niveau</h3>
-    <p class="hint">Les 8 000 mots les plus fréquents ${L_().of}, répartis de A1 à C2. Choisis un niveau, puis ajoute ses mots 50 par 50. Les mots déjà présents ne sont pas dupliqués.</p>
+  <section class="panel"><h3>${T('srcLabel.listes_par_niveau')}</h3>
+    <p class="hint">${T('renderAdd.les_8_000_mots_les',[L_().of])}</p>
     ${levelsHTML()}</section>
-  <section class="panel dict" id="dictPanel"><div class="dict-head"><h3>Dictionnaire</h3><small id="dStatus"></small></div>
-    <input id="dq" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${L_().sampleQ}" aria-label="Chercher un mot en ${L_().adj} ou en français">
+  <section class="panel dict" id="dictPanel"><div class="dict-head"><h3>${T('srcLabel.dictionnaire')}</h3><small id="dStatus"></small></div>
+    <input id="dq" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${L_().sampleQ}" aria-label="${T('renderAdd.chercher_un_mot_en_ou',[L_().adj])}">
     ${umlautBar(L_().chars,'dq')}
     <div id="dRes" class="dres" aria-live="polite"></div>
     <div id="dSense" class="dsense" hidden></div></section>
-  <form id="addForm"><h3>Un mot</h3>
-    <p class="hint">Choisis un mot dans le dictionnaire ci-dessus pour remplir les champs, puis ajuste si besoin.</p>
-    <div class="two"><label for="fArt">Article<select id="fArt"><option value="">—</option>${L_().artOptions.map(([v,t])=>v===null?`<option>${t}</option>`:`<option value="${v}">${t}</option>`).join('')}</select></label>
+  <form id="addForm"><h3>${T('renderAdd.un_mot')}</h3>
+    <p class="hint">${T('renderAdd.choisis_un_mot_dans_le')}</p>
+    <div class="two"><label for="fArt">${T('renderAdd.article')}<select id="fArt"><option value="">—</option>${L_().artOptions.map(([v,t])=>v===null?`<option>${t}</option>`:`<option value="${v}">${t}</option>`).join('')}</select></label>
     <label for="fDe">${L_().name}<input id="fDe" required autocomplete="off" autocapitalize="off" placeholder="${L_().sample}"></label></div>
     ${umlautBar(L_().charsUp,'fDe')}
-    <label for="fLvl">Niveau (facultatif)<select id="fLvl"><option value="">Sans niveau</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
+    <label for="fLvl">${T('renderAdd.niveau_facultatif')}<select id="fLvl"><option value="">${T('lvlName.sans_niveau')}</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
     <p class="hint" id="fEst" aria-live="polite"></p>
-    <label for="fPl">Pluriel (facultatif)<input id="fPl" autocomplete="off" placeholder="${L_().samplePl}"></label>
+    <label for="fPl">${T('renderAdd.pluriel_facultatif')}<input id="fPl" autocomplete="off" placeholder="${L_().samplePl}"></label>
     <p class="hint plprev" id="fPlPrev" aria-live="polite"></p>
-    <label for="fFr">${U_().name}<input id="fFr" required autocomplete="off" placeholder="le papillon"></label>
+    <label for="fFr">${U_().name}<input id="fFr" required autocomplete="off" placeholder="${T('renderAdd.le_papillon')}"></label>
     <div id="fDup" class="dupbox" hidden aria-live="polite"></div>
-    <label for="fEx">Exemple (facultatif)<input id="fEx" autocomplete="off" placeholder="${L_().sampleEx}"></label>
-    <button class="btn" type="submit">Ajouter le mot</button></form>
-  <form id="bulkForm"><h3>Coller une liste</h3>
-    <p class="hint">Une ligne par mot : <code>${L_().bulkFmt}</code>. L'article et le pluriel sont reconnus automatiquement. Tu peux ajouter un exemple après un second <code>;</code>.</p>
+    <label for="fEx">${T('renderAdd.exemple_facultatif')}<input id="fEx" autocomplete="off" placeholder="${L_().sampleEx}"></label>
+    <button class="btn" type="submit">${T('renderAdd.ajouter_le_mot')}</button></form>
+  <form id="bulkForm"><h3>${T('renderAdd.coller_une_liste')}</h3>
+    <p class="hint">${T('renderAdd.une_ligne_par_mot_l',[L_().bulkFmt])}</p>
     ${umlautBar(L_().charsUp,'fBulk')}
-    <label for="fBulk">Liste<textarea id="fBulk" placeholder="${L_().bulkEx}"></textarea></label>
+    <label for="fBulk">${T('renderAdd.liste')}<textarea id="fBulk" placeholder="${L_().bulkEx}"></textarea></label>
     <div id="bulkDup" class="dupbox" hidden aria-live="polite"></div>
-    <button class="btn" type="submit">Importer</button></form></div>`;
+    <button class="btn" type="submit">${T('renderAdd.importer')}</button></form></div>`;
   loadDict(); dictStatus();
 }
 
@@ -1964,7 +1982,7 @@ const fold = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/
 // article d'une entrée du dictionnaire : donné par l'entrée (italien : élision), ou déduit du genre (allemand)
 const entArt = e => LG(LANG).dictArticle==='explicit' ? (e.a||'') : ((LG(LANG).articles.find(x=>!x.pl && !x.elided && x.g===e.g)||{}).a||'');
 const entCls = e => GCOLOR[e.g] ? 'g-'+GCOLOR[e.g] : '';
-const POS_LABEL = {n:'nom', v:'verbe', adj:'adjectif', adv:'adverbe', 'adj,adv':'adjectif / adverbe', 'adj,prep':'adjectif / préposition', prep:'préposition', postp:'postposition', pron:'pronom', conj:'conjonction', num:'nombre', int:'interjection', parti:'particule', abr:'abréviation', loc:'expression'};
+const POS_LABEL = {n:T('POS_LABEL.nom'), v:T('POS_LABEL.verbe'), adj:T('POS_LABEL.adjectif'), adv:T('POS_LABEL.adverbe'), 'adj,adv':T('POS_LABEL.adjectif_adverbe'), 'adj,prep':T('POS_LABEL.adjectif_preposition'), prep:T('POS_LABEL.preposition'), postp:T('POS_LABEL.postposition'), pron:T('POS_LABEL.pronom'), conj:T('POS_LABEL.conjonction'), num:T('POS_LABEL.nombre'), int:T('POS_LABEL.interjection'), parti:T('POS_LABEL.particule'), abr:T('POS_LABEL.abreviation'), loc:T('POS_LABEL.expression')};
 function loadDict(){
   if(dictState==='loading' || dictState==='ready' || !LANG) return;
   dictState='loading'; dictStatus(); const lang=LANG;
@@ -1978,8 +1996,8 @@ function loadDict(){
 }
 function dictStatus(){
   const el=$('#dStatus'); if(!el) return;
-  el.textContent = dictState==='ready' ? `${DICT.length.toLocaleString(LOC())} mots · hors ligne` : dictState==='error' ? 'Indisponible' : 'Chargement…';
-  if(dictState==='error') $('#dRes') && ($('#dRes').innerHTML=`<p class="hint">Le dictionnaire n'a pas pu se charger. <button type="button" class="link" data-dretry>Réessayer</button></p>`);
+  el.textContent = dictState==='ready' ? `${T('dictStatus.mots_hors_ligne',[DICT.length.toLocaleString(LOC())])}` : dictState==='error' ? 'Indisponible' : T('dictStatus.chargement');
+  if(dictState==='error') $('#dRes') && ($('#dRes').innerHTML=`<p class="hint">${T('dictStatus.le_dictionnaire_n_a_pas')} <button type="button" class="link" data-dretry>${T('levelsHTML.reessayer')}</button></p>`);
 }
 const posRank = p => p==='n'||p==='v'||p==='adj' ? 0 : 1;
 function dictSearch(){
@@ -2007,16 +2025,16 @@ function dictSearch(){
   const seen=new Set(); dictHits=[];
   const take=(list,n,from)=>{ for(const [,e,si] of list){ if(dictHits.length>=n) break; if(seen.has(e)) continue; seen.add(e); dictHits.push({e,from,si:si||0}); } };
   take(de, exactDe?6:4, 'de'); take(fr, 8, 'fr'); take(de, 8, 'de');
-  if(!dictHits.length){ box.innerHTML=`<p class="hint">Aucun résultat pour « ${esc(raw)} ».</p>`; return; }
+  if(!dictHits.length){ box.innerHTML=`<p class="hint">${T('take.aucun_resultat_pour',[esc(raw)])}</p>`; return; }
   const have=new Set(deck().map(dkey));
   let lastFrom='';
   box.innerHTML=dictHits.map(({e,from,si},i)=>{
     const art=entArt(e); const known=have.has((art+e.w).toLowerCase());
-    const head = from!==lastFrom ? (from==='de' ? `<div class="dgroup">Mots ${L_().adjs}</div>` : `<div class="dgroup">Mots ${L_().adjs} qui se traduisent par « ${esc(raw)} »</div><p class="hint dnote">Ce sont des synonymes ou des sens voisins.${LANG==='de'?` La définition en allemand, en italique, t'aide à choisir le bon.`:''}</p>`) : ''; lastFrom=from;
+    const head = from!==lastFrom ? (from==='de' ? `<div class="dgroup">${T('head.mots',[L_().adjs])}</div>` : `<div class="dgroup">${T('head.mots_qui_se_traduisent_par',[L_().adjs,esc(raw)])}</div><p class="hint dnote">${T('head.ce_sont_des_synonymes_ou',[LANG==='de'?` ${T('head.la_definition_en_allemand_en')}`:''])}</p>`) : ''; lastFrom=from;
     return `${head}<button type="button" class="dhit" data-dpick="${i}">
       <span class="dw">${art?`<span class="art ${entCls(e)}">${esc(art)}</span>${/['’]$/.test(art)?'':' '}`:''}<b>${esc(e.w)}</b>${e.pl?`<span class="plural">, ${esc(e.pl)}</span>`:''}</span>
       <span class="dfr">${esc(e.s[si][0])}</span>${e.s[si][1]?`<span class="ddef" lang="${LANG}">${esc(e.s[si][1])}</span>`:''}
-      <span class="dmeta">${POS_LABEL[e.p]?`<small>${POS_LABEL[e.p]}</small>`:''}<small class="dest">${EST_LABEL[estOf(e.z)]}</small>${known?'<span class="pill known">déjà dans tes mots</span>':''}</span></button>`;
+      <span class="dmeta">${POS_LABEL[e.p]?`<small>${POS_LABEL[e.p]}</small>`:''}<small class="dest">${EST_LABEL[estOf(e.z)]}</small>${known?`<span class="pill known">${T('dictSearch.deja_dans_tes_mots')}</span>`:''}</span></button>`;
   }).join('');
 }
 let autoDef='', dictPicked='', dictEst='', dictPos='';
@@ -2026,10 +2044,10 @@ function plPreview(){
   let de=($('#fDe')?.value||'').trim(); const m=splitArt(de); if(m) de=m.de;
   const pl=($('#fPl')?.value||'').trim();
   if(!de || !pl){ el.textContent=''; return; }
-  if(L_().plural!=='suffix'){ el.innerHTML=`Pluriel : <b>${esc(pl)}</b>`; return; }
-  if(/^pl\.?$/i.test(pl)){ el.textContent="Mot qui n'existe qu'au pluriel"; return; }
+  if(L_().plural!=='suffix'){ el.innerHTML=`${T('plPreview.pluriel',[esc(pl)])}`; return; }
+  if(/^pl\.?$/i.test(pl)){ el.textContent=T('plPreview.mot_qui_n_existe_qu'); return; }
   const f=pluralOf(de,pl);
-  el.innerHTML = f ? `Pluriel : <b>${L_().pluralArticle} ${esc(f)}</b>${f===de?' (identique au singulier)':''}` : '';
+  el.innerHTML = f ? `${T('plPreview.pluriel_2',[L_().pluralArticle,esc(f),f===de?T('plPreview.identique_au_singulier'):''])}` : '';
 }
 // mot tapé à la main : complète article et pluriel s'ils sont vides
 function dictAutofill(){
@@ -2039,7 +2057,7 @@ function dictAutofill(){
   const done=[];
   if(!$('#fArt').value && !m){ $('#fArt').value=artVal(entArt(e), e.g); done.push('article'); }
   if(!$('#fPl').value.trim() && e.pl){ $('#fPl').value=e.pl; done.push('pluriel'); }
-  if(done.length){ plPreview(); toast(done.join(' et ')+' complétés par le dictionnaire'); }
+  if(done.length){ plPreview(); toast(done.join(' et ')+T('done.completes_par_le_dictionnaire')); }
 }
 function deckEntry(w, art){ if(!LISTDATA) return null; const k=((art||'')+w).toLowerCase();
   for(const L of Object.keys(LISTDATA)){ const f=LISTDATA[L].find(x=>dkey(x)===k); if(f) return {f, L}; } return null; }
@@ -2047,17 +2065,17 @@ function deckEntry(w, art){ if(!LISTDATA) return null; const k=((art||'')+w).toL
 const artVal = (art, g) => L_().storeGender ? (art ? art+'|'+(g || (artGender(LANG,art)==='m'?'m':'f')) : '') : (art||'');
 function dictPick(i){
   const h=dictHits[i]; if(!h) return; const e=h.e, si=h.si||0;
-  $('#fArt').value=artVal(entArt(e), e.g); $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`Niveau estimé : <b>${EST_LABEL[dictEst]}</b>, d'après la fréquence d'usage du mot. Laisse « Sans niveau » pour garder l'estimation, ou choisis un niveau précis.`; $('#fPl').value=e.pl||'';
+  $('#fArt').value=artVal(entArt(e), e.g); $('#fDe').value=e.w; dictPicked=e.w; dictPos=e.p||''; dictEst=estOf(e.z); const fe=$('#fEst'); if(fe) fe.innerHTML=`${T('dictPick.niveau_estime_d_apres_la',[EST_LABEL[dictEst]])}`; $('#fPl').value=e.pl||'';
   $('#fFr').value=e.s[si][0].split(',')[0].trim();
   const dk=deckEntry(e.w, entArt(e)); dictDeck=dk;
   if(dk){ $('#fFr').value=dk.f.fr; if(dk.f.pl) $('#fPl').value=dk.f.pl; $('#fLvl').value=dk.L;
-    if(fe) fe.innerHTML=`Ce mot est dans la liste <b>${dk.L}</b> de Memolex : traduction relue, expression « À retenir » et phrases d'exemple incluses.`; }
+    if(fe) fe.innerHTML=`${T('dictPick.ce_mot_est_dans_la',[dk.L])}`; }
   plPreview();
   $('#dRes').innerHTML=''; dictHits=[];
   const sb=$('#dSense'); sb.hidden=false;
-  sb.innerHTML=`<div class="dgroup">« ${esc(e.w)} » ${e.s.length>1?'a plusieurs sens : touche celui de ton cours':': son sens'}</div>
-    ${e.s.some(x=>x[1])?`<p class="hint dnote">En italique, la <b>définition</b> du mot en ${L_().adj} (ce n'est pas une phrase d'exemple). Elle est copiée dans le champ « Exemple » : garde-la, ou remplace-la par ta propre phrase.</p>`:''}`+e.s.map((s,j)=>`<button type="button" class="dsn" data-dsense="${j}" aria-pressed="${j===si}">
-      <span>${esc(s[0])}</span>${s[1]?`<small lang="${LANG}"><b>Définition :</b> ${esc(s[1])}</small>`:''}</button>`).join('');
+  sb.innerHTML=`<div class="dgroup">« ${esc(e.w)} » ${e.s.length>1?T('dictPick.a_plusieurs_sens_touche_celui'):T('dictPick.son_sens')}</div>
+    ${e.s.some(x=>x[1])?`<p class="hint dnote">${T('dictPick.en_italique_la_definition_du',[L_().adj])}</p>`:''}`+e.s.map((s,j)=>`<button type="button" class="dsn" data-dsense="${j}" aria-pressed="${j===si}">
+      <span>${esc(s[0])}</span>${s[1]?`<small lang="${LANG}"><b>${T('dictPick.definition')}</b> ${esc(s[1])}</small>`:''}</button>`).join('');
   fillDef(e.s[si][1]);
   sb.dataset.word=e.w; sb._entry=e;
   sb.scrollIntoView({behavior:'smooth', block:'nearest'});
@@ -2094,7 +2112,7 @@ document.addEventListener('click', e=>{ const b=e.target.closest('button'); if(!
 document.addEventListener('keydown', e=>{ if(e.key!=='Enter' || e.isComposing) return; const el=e.target; if(el.tagName!=='INPUT' || !el.form) return; e.preventDefault(); fireSubmit(el.form); }, true);
 /* ---------- lettres allemandes ---------- */
 function umlautBar(chars, target){
-  return `<div class="umlauts" role="group" aria-label="${L_().charsLabel}">${chars.map(ch=>`<button type="button" class="uml" data-ins="${ch}" data-target="${target}" aria-label="Insérer ${ch}">${ch}</button>`).join('')}</div>`;
+  return `<div class="umlauts" role="group" aria-label="${L_().charsLabel}">${chars.map(ch=>`<button type="button" class="uml" data-ins="${ch}" data-target="${target}" aria-label="${T('umlautBar.inserer',[ch])}">${ch}</button>`).join('')}</div>`;
 }
 let lastField=null;
 document.addEventListener('focusin', e=>{ const el=e.target; if(el.matches && el.matches('input:not([type=search]),textarea')) lastField=el; });
@@ -2125,7 +2143,7 @@ document.addEventListener('click', async e=>{
   if('casego' in t.dataset){ if(!caseSel.size) return; artGuess='K:'+CASES_OF(LANG).map(x=>x[0]).filter(k=>caseSel.has(k)).join('+'); caseSel=new Set(); revealed=true; cardAnim='flip'; sfx('flip'); { const cc=session&&(session.view!=null?session.hist[session.view]?.before:cards.get(session.ids[0])); if(cc) sfx(guessWrong(cc,artGuess)?'wrong':'right'); } renderReview(); return; }
   if('reveal' in t.dataset){ revealed=true; cardAnim='flip'; sfx('flip'); renderReview(); return; }
   if(t.dataset.size){ settings.sessSize=+t.dataset.size; saveSettings(); renderReview(); return; }
-  if('wotdadd' in t.dataset){ const f=wotdToday(); if(!f) return; t.disabled=true; if(await addWord(f)){ toast(`« ${wordLine(f)} » ajouté : il arrive dans ta prochaine session`); } refresh(); return; }
+  if('wotdadd' in t.dataset){ const f=wotdToday(); if(!f) return; t.disabled=true; if(await addWord(f)){ toast(`${T('items.ajoute_il_arrive_dans_ta',[wordLine(f)])}`); } refresh(); return; }
   if('nfon' in t.dataset){ t.disabled=true; await notifEnable(); renderStats(); return; }
   if('nfoff' in t.dataset){ t.disabled=true; await notifDisable(); renderStats(); return; }
   if('nftest' in t.dataset){ t.disabled=true; await notifTest(); renderStats(); return; }
@@ -2153,7 +2171,7 @@ document.addEventListener('click', async e=>{
     sfx('good');
     if(session.view!=null){ flyOut('r','v-ok'); cardAnim='from-r'; const i=session.view; const fin=changeAnswer(i,'known'); session.view=i+1<session.hist.length?i+1:null; if(session.view==null){ liveRestore(); } if(fin && !session.practice) await put(fin); refresh(); return; }
     // on cache la réponse AVANT d'enregistrer : sinon la carte suivante s'affiche un instant déjà retournée
-    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); await put(n); refresh(); toast(`« ${artWord(c)} » écarté : revient dans un mois`); return; }
+    const c=cards.get(session.ids[0]); if(!c) return; flyOut('r','v-ok'); cardAnim='in'; const n=recordAnswer(c,'known'); session.live=null; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); await put(n); refresh(); toast(`${T('curK.ecarte_revient_dans_un_mois',[artWord(c)])}`); return; }
   if('triage' in t.dataset){ if(tab!=='review'){ document.querySelector('nav.tabs [data-tab="review"]').click(); }
     triage={ids:todayPlan().pending.filter(c=>!c.sorted).map(c=>c.id), known:0}; renderReview(); return; }
   if('endtriage' in t.dataset){ triage=null; refresh(); return; }
@@ -2171,25 +2189,25 @@ document.addEventListener('click', async e=>{
     const prac=session.practice; revealed=false; artGuess=null; if(!session.ids.length) sfx('done'); renderReview(); if(!prac){ await put(n); refresh(); } return;
   }
   if(t.dataset.del){
-    if(t.dataset.confirm){ await remove(t.dataset.del); renderList(); refresh(); toast('Mot supprimé'); }
-    else { t.dataset.confirm='1'; t.textContent='Confirmer ?'; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent='Supprimer'; } },3000); }
+    if(t.dataset.confirm){ await remove(t.dataset.del); renderList(); refresh(); toast(T('prac.mot_supprime')); }
+    else { t.dataset.confirm='1'; t.textContent=T('prac.confirmer'); setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=T('status.supprimer'); } },3000); }
     return;
   }
   if(t.dataset.lesson && importing) return;
   if(t.dataset.lesson){ importing=true; t.disabled=true; try{ const id=t.dataset.lesson, L=t.dataset.lvl; const ex=new Set(deck().map(keyOf));
     const b=newBatch(LESSONS[id].title+(L?' · '+L:'')); const list=lessonItems(id).filter(f=>(!L||f.lvl===L)&&!ex.has(keyOf(f))).map(f=>({...newCard(f,b.id),batchLabel:b.label,lvl:f.lvl,src:id}));
-    if(!list.length){ toast('Déjà dans tes mots'); return; }
-    const room=newRoom(); if(!room){ toast(`Déjà ${pendingNew()} mots en cours d'apprentissage (limite ${NEW_CAP}) : trie ou consolide d'abord`); return; }
+    if(!list.length){ toast(T('list.deja_dans_tes_mots')); return; }
+    const room=newRoom(); if(!room){ toast(`${T('room.deja_mots_en_cours_d',[pendingNew(),NEW_CAP])}`); return; }
     const cut=list.length>room; if(cut) list.length=room;
-    await putMany(list); if(cut){ refresh(); renderAdd(); toast(`${room} mots ajoutés (limite de ${NEW_CAP} mots en cours). Le reste viendra plus tard.`); return; } refresh(); renderAdd(); toast(`${list.length} mots de la ${LESSONS[id].title.toLowerCase()} ajoutés`); } finally { importing=false; } return; }
+    await putMany(list); if(cut){ refresh(); renderAdd(); toast(`${T('room.mots_ajoutes_limite_de_mots',[room,NEW_CAP])}`); return; } refresh(); renderAdd(); toast(`${T('room.mots_de_la_ajoutes',[list.length,LESSONS[id].title.toLowerCase()])}`); } finally { importing=false; } return; }
   if(t.dataset.rmbatch || 'rmfilter' in t.dataset){
     let ids;
     if(t.dataset.rmbatch){ const g=batchGroups().find(x=>x.key===t.dataset.rmbatch); ids=g?g.ids:[]; }
     else ids=deck().filter(filterMatch).map(c=>c.id);
     ids=ids.filter(id=>cards.get(id)&&isNew(cards.get(id)));
     if(!ids.length) return;
-    if(!t.dataset.confirm){ t.dataset.confirm='1'; t.dataset.orig=t.textContent; t.textContent=`Confirmer (${ids.length})`; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=t.dataset.orig; } },3500); return; }
-    await removeMany(ids); refresh(); toast(`${ids.length} mots retirés`); return;
+    if(!t.dataset.confirm){ t.dataset.confirm='1'; t.dataset.orig=t.textContent; t.textContent=`${T('room.confirmer',[ids.length])}`; setTimeout(()=>{ if(t.isConnected){ delete t.dataset.confirm; t.textContent=t.dataset.orig; } },3500); return; }
+    await removeMany(ids); refresh(); toast(`${T('gone.mots_retires',[ids.length])}`); return;
   }
   if(t.dataset.sort){ listSort=t.dataset.sort; try{ localStorage.setItem('mx-sort',listSort); }catch(e){} renderList(); return; }
   if(t.dataset.axis){ if(t.dataset.axis==='lvl') lvlFilter=t.dataset.val; else if(t.dataset.axis==='stat') statFilter=t.dataset.val; else srcFilter=t.dataset.val; renderList(); return; }
@@ -2202,10 +2220,10 @@ document.addEventListener('click', async e=>{
     // les nuances saisies sont lues avant que la confirmation ne soit redessinée
     const edits=new Map([...document.querySelectorAll('[data-packfr]')].map(i=>[+i.dataset.packfr, i.value.trim()]));
     importing=true; rerenderLevels();
-    try{ const nxt=nextBatch(L); if(!nxt.length){ toast(levelLeft(L)?`Déjà ${pendingNew()} mots en cours d'apprentissage (limite ${NEW_CAP}) : trie ou consolide d'abord`:'Tout le niveau est déjà dans tes mots'); return; }
+    try{ const nxt=nextBatch(L); if(!nxt.length){ toast(levelLeft(L)?`${T('room.deja_mots_en_cours_d',[pendingNew(),NEW_CAP])}`:T('edits.tout_le_niveau_est_deja')); return; }
       const items=LISTDATA[L]; const b=newBatch(`${L} · mots ${items.indexOf(nxt[0])+1}–${items.indexOf(nxt[nxt.length-1])+1}`);
       const list=nxt.map((f,i)=>{ const fr=edits.get(i); const own=fr && fr!==f.fr; return {...newCard(own?{...f,fr}:f,b.id),batchLabel:b.label,lvl:L,src:'lists',...(own?{frOwn:true}:{})}; });
-      await putMany(list); toast(`${list.length} mots ${L} ajoutés`);
+      await putMany(list); toast(`${T('list.mots_ajoutes',[list.length,L])}`);
     } finally { importing=false; confirmLvl=''; refresh(); rerenderLevels(); } return; }
 });
 document.addEventListener('submit', async e=>{
@@ -2217,13 +2235,13 @@ document.addEventListener('submit', async e=>{
     if(L_().storeGender && art && !g){ const de0=DICT_BY.get(word); if(de0 && de0.g) g=de0.g; }
     const fd=$('#fDup'), fi=$('#fFr');
     if(fi.dataset.ok!==fr){ const d=sameFr([{de:word, art, fr}]); if(d.length){ fi.dataset.ok=fr;
-      fd.innerHTML=`<p><b>« ${esc(fr)} » est déjà la traduction de ${d[0].others.slice(0,4).map(x=>deWord(x)).join(', ')}.</b> ${DUP_TIP}</p><p class="hint">Pour ajouter quand même, appuie à nouveau sur « Ajouter le mot ».</p>`;
+      fd.innerHTML=`<p>${T('list.est_deja_la_traduction_de',[esc(fr),d[0].others.slice(0,4).map(x=>deWord(x)).join(', '),DUP_TIP])}</p><p class="hint">${T('list.pour_ajouter_quand_meme_appuie')}</p>`;
       fd.hidden=false; fi.focus(); return; } }
     delete fi.dataset.ok; fd.hidden=true; fd.innerHTML='';
     const lv=$('#fLvl').value; const fromDict = dictPicked && dictPicked===word; await put({...newCard({de:word, art, ...(g?{g}:{}), pl:$('#fPl').value.trim(), fr, ex:($('#fEx').value.trim()===autoDef?'':$('#fEx').value.trim())}), ...(autoDef && $('#fEx').value.trim()===autoDef?{def:autoDef}:{}), ...(lv?{lvl:lv}:{}), src: fromDict?'dict':'manual', ...(fromDict && !lv ? {est:dictEst} : {}), ...(fromDict && dictPos ? {pos:dictPos} : {})}); const fe=$('#fEst'); if(fe) fe.textContent=''; const pp=$('#fPlPrev'); if(pp) pp.textContent=''; dictPicked=''; dictDeck=null;
     ['fDe','fPl','fFr','fEx'].forEach(id=>$('#'+id).value=''); $('#fLvl').value=''; $('#fArt').value=''; $('#fDe').focus();
     autoDef=''; const dq=$('#dq'), sb=$('#dSense'); if(dq) dq.value=''; if(sb){ sb.hidden=true; sb.innerHTML=''; }
-    refresh(); toast(`« ${artWord({art, de:word})} » ajouté`);
+    refresh(); toast(`${T('fromDict.ajoute',[artWord({art, de:word})])}`);
   }
   if(e.target.id==='bulkForm'){ if(importing) return; importing=true; try{
     const box=$('#bulkDup');
@@ -2233,14 +2251,14 @@ document.addEventListener('submit', async e=>{
     const lines=$('#fBulk').value.split('\n').map(l=>l.trim()).filter(Boolean);
     const parsed=lines.map(parseLine); const ok=parsed.filter(Boolean);
     if(dictState==='ready') ok.forEach(f=>{ const e=DICT_BY.get(f.de); if(!e) return; if(!f.art) f.art=entArt(e); if(L_().storeGender && !f.g && e.g) f.g=e.g; if(!f.pl && e.pl) f.pl=e.pl; }); const bad=parsed.length-ok.length;
-    if(!ok.length){ toast('Aucune ligne reconnue. Format : der Hund ; le chien'); return; }
+    if(!ok.length){ toast(T('parsed.aucune_ligne_reconnue_format_der')); return; }
     const existing=new Set(deck().map(dkey));
-    const room=newRoom(); if(!room){ toast(`Déjà ${pendingNew()} mots en cours d'apprentissage (limite ${NEW_CAP}) : un mot à la fois reste possible`); return; }
-    const bb=newBatch('Liste collée'); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).slice(0,room).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
-    if(ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).length>room) toast(`Limite : ${room} mots seulement seront importés (${NEW_CAP} mots en cours au plus)`);
+    const room=newRoom(); if(!room){ toast(`${T('room.deja_mots_en_cours_d_2',[pendingNew(),NEW_CAP])}`); return; }
+    const bb=newBatch(T('srcOf.liste_collee')); const fresh=ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).slice(0,room).map(f=>({...newCard(f,bb.id),batchLabel:bb.label}));
+    if(ok.filter(f=>!existing.has((f.art+f.de).toLowerCase())).length>room) toast(`${T('fresh.limite_mots_seulement_seront_importes',[room,NEW_CAP])}`);
     const dups=sameFr(fresh);
     if(dups.length){ bulkPending={fresh, ok:ok.length, bad};
-      box.innerHTML=`<p><b>${dups.length} mot${dups.length>1?'s ont':' a'} la même traduction qu'un autre mot.</b> ${DUP_TIP}</p>${dupItemsHTML(dups,'data-bulkfr')}<p class="hint">Appuie à nouveau sur « Importer » pour ajouter la liste, avec ou sans nuances.</p>`;
+      box.innerHTML=`<p>${T('dups.mot_la_meme_traduction_qu',[dups.length,dups.length>1?'s ont':' a',DUP_TIP])}</p>${dupItemsHTML(dups,'data-bulkfr')}<p class="hint">${T('dups.appuie_a_nouveau_sur_importer')}</p>`;
       box.hidden=false; box.querySelector('input')?.focus(); return; }
     await finishBulk(fresh, ok.length, bad);
   } finally { importing=false; } }
@@ -2249,7 +2267,7 @@ let bulkPending=null;
 async function finishBulk(fresh, nOk, bad){
     await putMany(fresh); $('#fBulk').value=''; refresh();
     const ok={length:nOk};
-    toast(`${fresh.length} mot${fresh.length>1?'s':''} importé${fresh.length>1?'s':''}${ok.length-fresh.length?` · ${ok.length-fresh.length} déjà présent${ok.length-fresh.length>1?'s':''}`:''}${bad?` · ${bad} ligne${bad>1?'s':''} ignorée${bad>1?'s':''}`:''}`);
+    toast(`${T('finishBulk.mot_importe',[fresh.length,fresh.length>1?'s':'',fresh.length>1?'s':'',ok.length-fresh.length?` ${T('finishBulk.deja_present',[ok.length-fresh.length,ok.length-fresh.length>1?'s':''])}`:'',bad?` ${T('finishBulk.ligne_ignoree',[bad,bad>1?'s':'',bad>1?'s':''])}`:''])}`);
 }
 document.addEventListener('toggle', e=>{ if(e.target.id==='credDetails' && e.target.open){ const b=$('#credList'); if(b && !b.childElementCount) loadCredits(b); } }, true);
 document.addEventListener('change', async e=>{
@@ -2267,7 +2285,7 @@ document.addEventListener('input', e=>{ if(e.target.id==='search'){ listQuery=e.
    Chaque mot est une ligne ; les réglages une ligne « _settings ». La copie du téléphone reste la référence :
    à chaque modification, la carte reçoit une heure (mt). Quand deux appareils ont changé le même mot,
    la version la plus récente gagne. Un mot supprimé ici laisse une trace (tomb) jusqu'à ce que le serveur l'ait reçue. */
-const APP_VER="1.8.8";
+const APP_VER="1.8.9";
 { const e=document.getElementById('appVer'); if(e) e.textContent='version '+APP_VER; }
 const SB_URL="https://rbgxotiadewxlyvvrdhp.supabase.co", SB_KEY="sb_publishable_ikHUtYnxyFpCnIobNeRx6Q_5wH6duiZ", SB_TABLE="memolex", SYNC_KEY="mx-sync";
 let SY=(()=>{ try{ return JSON.parse(localStorage.getItem(SYNC_KEY))||{}; }catch(e){ return {}; } })();
@@ -2277,27 +2295,27 @@ const syPut=()=>{ try{ localStorage.setItem(SYNC_KEY, JSON.stringify(SY)); }catc
 class SyErr extends Error{ constructor(m,code){ super(m); this.code=code; } }
 async function sbReq(path,o={},auth){
   const h=Object.assign({apikey:SB_KEY,'Content-Type':'application/json'},o.headers||{});
-  if(auth){ if(!SY.tok) throw new SyErr('Non connecté','auth'); if(Date.now()>(SY.exp||0)-60e3) await sbRefresh(); h.Authorization='Bearer '+SY.tok; }
-  let r; try{ r=await fetch(SB_URL+path,{method:o.method||'GET',headers:h,body:o.body?JSON.stringify(o.body):undefined}); }catch(e){ throw new SyErr('Hors ligne','net'); }
+  if(auth){ if(!SY.tok) throw new SyErr(T('sbReq.non_connecte'),'auth'); if(Date.now()>(SY.exp||0)-60e3) await sbRefresh(); h.Authorization='Bearer '+SY.tok; }
+  let r; try{ r=await fetch(SB_URL+path,{method:o.method||'GET',headers:h,body:o.body?JSON.stringify(o.body):undefined}); }catch(e){ throw new SyErr(T('sbReq.hors_ligne'),'net'); }
   if(r.status===401 && auth && !o.retried){ await sbRefresh(); return sbReq(path,Object.assign({retried:true},o),auth); }
-  if(!r.ok){ let m=''; try{ const j=await r.json(); m=j.msg||j.message||j.error_description||j.error||''; }catch(e){} throw new SyErr(m||('Erreur '+r.status), r.status); }
+  if(!r.ok){ let m=''; try{ const j=await r.json(); m=j.msg||j.message||j.error_description||j.error||''; }catch(e){} throw new SyErr(m||(T('sbReq.erreur')+r.status), r.status); }
   const t=await r.text(); return t?JSON.parse(t):null;
 }
 function sbSession(j){ SY.tok=j.access_token; SY.ref=j.refresh_token; SY.exp=Date.now()+(j.expires_in||3600)*1000; if(j.user){ SY.uid=j.user.id; SY.email=j.user.email||SY.email; } syPut(); }
-async function sbRefresh(){ if(!SY.ref) throw new SyErr('Session expirée','auth'); let j;
+async function sbRefresh(){ if(!SY.ref) throw new SyErr(T('sbRefresh.session_expiree'),'auth'); let j;
   try{ j=await sbReq('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:SY.ref}},false); }
-  catch(e){ if(e.code==='net') throw e; syOutLocal(); throw new SyErr('Session expirée : reconnecte-toi','auth'); }
+  catch(e){ if(e.code==='net') throw e; syOutLocal(); throw new SyErr(T('sbRefresh.session_expiree_reconnecte_toi'),'auth'); }
   sbSession(j); }
 function syOutLocal(){ SY={dirty:{},tomb:{}}; syPut(); syUi(); }
 
 /* --- signaler une carte : file locale, envoi à Supabase (table memolex_report) --- */
-const REPORT_REASONS=[['trad','Traduction incorrecte'],['exemple','Phrase d’exemple douteuse'],['chunk','Expression « À retenir » fausse'],['gram','Article, pluriel, nature ou cas faux'],['offensif','Contenu choquant ou offensant'],['autre','Autre']];
+const REPORT_REASONS=[['trad',T('REPORT_REASONS.traduction_incorrecte')],['exemple',T('REPORT_REASONS.phrase_d_exemple_douteuse')],['chunk',T('REPORT_REASONS.expression_a_retenir_fausse')],['gram',T('REPORT_REASONS.article_pluriel_nature_ou_cas')],['offensif',T('REPORT_REASONS.contenu_choquant_ou_offensant')],['autre',T('REPORT_REASONS.autre')]];
 const RQ_KEY='mx-reports', RDONE_KEY='mx-reported';
 const rqGet=k=>{ try{ return JSON.parse(localStorage.getItem(k))||(k===RQ_KEY?[]:{}); }catch(e){ return k===RQ_KEY?[]:{}; } };
 const rqSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} };
 function reportedKey(c){ return langOf(c)+'|'+dkey(c); }
 function flagHTML(c){ const done=rqGet(RDONE_KEY)[reportedKey(c)];
-  return `<div class="flagrow">${done?`<button class="flagbtn" disabled>⚑ Signalé, merci</button>`:`<button class="flagbtn" data-flag aria-label="Signaler une erreur sur cette carte">⚑ Signaler une erreur</button>`}</div>`; }
+  return `<div class="flagrow">${done?`<button class="flagbtn" disabled>${T('done.signale_merci')}</button>`:`<button class="flagbtn" data-flag aria-label="${T('done.signaler_une_erreur_sur_cette')}">${T('done.signaler_une_erreur')}</button>`}</div>`; }
 function reportSnapshot(c){
   const k=dkey(c), ch=CHDATA&&CHDATA[k], ex=(EXDATA&&EXDATA[k])||[];
   return { key:k, de:c.de, art:c.art||'', pl:c.pl||'', fr:c.fr, pos:posOf(c)||'', lvl:c.lvl||'', src:c.src||'own', frOwn:!!c.frOwn,
@@ -2307,11 +2325,11 @@ let reportCard=null;
 function openReport(c){
   reportCard=c; document.querySelector('.rsheet')?.remove();
   const o=document.createElement('div'); o.className='rsheet'; o.setAttribute('role','dialog'); o.setAttribute('aria-modal','true'); o.setAttribute('aria-labelledby','rTitle');
-  o.innerHTML=`<div class="rbox"><h2 id="rTitle">Signaler une erreur</h2><p class="rword">${deWord(c)} · ${esc(c.fr)}</p>
+  o.innerHTML=`<div class="rbox"><h2 id="rTitle">${T('openReport.signaler_une_erreur')}</h2><p class="rword">${deWord(c)} · ${esc(c.fr)}</p>
     <div class="rreasons" role="radiogroup">${REPORT_REASONS.map(([v,l])=>`<label><input type="radio" name="rreason" value="${v}"> ${esc(l)}</label>`).join('')}</div>
-    <textarea id="rComment" maxlength="1000" placeholder="Précise si tu veux (facultatif, sauf pour « Autre ») : la bonne traduction, ce qui ne va pas…"></textarea>
-    <div class="ract"><button class="btn ghost" data-rcancel>Annuler</button><button class="btn" data-rsend disabled>Envoyer</button></div>
-    <p class="hint" style="margin:0">Le signalement contient la carte telle qu'elle est affichée et ton commentaire. Il nous sert à corriger les listes pour tout le monde.</p></div>`;
+    <textarea id="rComment" maxlength="1000" placeholder="${T('openReport.precise_si_tu_veux_facultatif')}"></textarea>
+    <div class="ract"><button class="btn ghost" data-rcancel>${T('first.annuler')}</button><button class="btn" data-rsend disabled>${T('openReport.envoyer')}</button></div>
+    <p class="hint" style="margin:0">${T('openReport.le_signalement_contient_la_carte')}</p></div>`;
   document.body.appendChild(o);
   const upd=()=>{ const r=o.querySelector('input[name=rreason]:checked'); const t=o.querySelector('#rComment').value.trim(); o.querySelector('[data-rsend]').disabled=!r||(r.value==='autre'&&!t); };
   o.addEventListener('change',upd); o.addEventListener('input',upd);
@@ -2324,7 +2342,7 @@ function sendReport(){
   const comment=o.querySelector('#rComment').value.trim().slice(0,1000);
   const q=rqGet(RQ_KEY); q.push({ lang:langOf(c), reason:r.value, comment, card:reportSnapshot(c), app_ver:APP_VER, client_id:clientId(), at:new Date().toISOString() }); rqSet(RQ_KEY,q.slice(-50));
   const d=rqGet(RDONE_KEY); d[reportedKey(c)]=Date.now(); rqSet(RDONE_KEY,d);
-  closeReport(); toast('Merci ! Signalement enregistré.'); renderReview(); flushReports();
+  closeReport(); toast(T('comment.merci_signalement_enregistre')); renderReview(); flushReports();
 }
 function clientId(){ let id; try{ id=localStorage.getItem('mx-cid'); if(!id){ id=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()); localStorage.setItem('mx-cid',id); } }catch(e){ id='?'; } return id; }
 let REP_FLUSHING=false;
@@ -2335,7 +2353,7 @@ async function flushReports(){
       const h={apikey:SB_KEY,'Content-Type':'application/json',Prefer:'return=minimal'};
       if(SY.tok && Date.now()<(SY.exp||0)-60e3) h.Authorization='Bearer '+SY.tok;
       let r; try{ r=await fetch(SB_URL+'/rest/v1/memolex_report',{method:'POST',headers:h,body:JSON.stringify({lang:it.lang,reason:it.reason,comment:it.comment,card:it.card,app_ver:it.app_ver,client_id:it.client_id})}); }catch(e){ break; }
-      if(r.ok || (r.status>=400 && r.status<500 && r.status!==401 && r.status!==429)){ if(!r.ok) console.warn('signalement refusé', r.status); rqSet(RQ_KEY, rqGet(RQ_KEY).slice(1)); continue; }
+      if(r.ok || (r.status>=400 && r.status<500 && r.status!==401 && r.status!==429)){ if(!r.ok) console.warn(T('flushReports.signalement_refuse'), r.status); rqSet(RQ_KEY, rqGet(RQ_KEY).slice(1)); continue; }
       break;
     }
   } finally { REP_FLUSHING=false; }
@@ -2411,10 +2429,10 @@ async function syncNow(quiet){
     if(got){ saveLocal(); synced=false; await syncFromSources(); refresh(); }
     const sent=await syPush();
     SY.last=Date.now(); SY.err=''; syPut();
-    syUi(quiet?null:`Synchronisé${got||sent?` · ${sent} envoyé${sent>1?'s':''}, ${got} reçu${got>1?'s':''}`:''}`);
+    syUi(quiet?null:`${T('sent.synchronise',[got||sent?` ${T('sent.envoye_recu',[sent,sent>1?'s':'',got,got>1?'s':''])}`:''])}`);
     return true;
   }catch(e){
-    SY.err = e.code==='net' ? 'Hors ligne : la synchro reprendra au retour du réseau' : e.code==='auth' ? 'Session expirée : reconnecte-toi' : (e.message||'La synchro a échoué'); syPut();
+    SY.err = e.code==='net' ? T('sent.hors_ligne_la_synchro_reprendra') : e.code==='auth' ? T('sbRefresh.session_expiree_reconnecte_toi') : (e.message||T('sent.la_synchro_a_echoue')); syPut();
     syUi(quiet?null:SY.err); return false;
   }finally{
     SYNCING=false; syUi();
@@ -2427,39 +2445,39 @@ const sbSendLink=email=>sbReq('/auth/v1/otp?redirect_to='+encodeURIComponent(loc
 async function authHash(){
   const h=location.hash; if(!/access_token=|error_code=/.test(h)) return;
   const q=new URLSearchParams(h.slice(1)); try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
-  if(q.get('error_code')||q.get('error')){ toast(q.get('error_code')==='otp_expired'?'Ce lien a expiré ou a déjà servi : demande un nouveau lien.':'La connexion a échoué : demande un nouveau lien.'); return; }
+  if(q.get('error_code')||q.get('error')){ toast(q.get('error_code')==='otp_expired'?T('authHash.ce_lien_a_expire_ou'):T('authHash.la_connexion_a_echoue_demande')); return; }
   const old=SY; SY={dirty:{},tomb:{},tok:q.get('access_token'),ref:q.get('refresh_token'),exp:Date.now()+(+q.get('expires_in')||3600)*1000};
   try{ const u=await sbReq('/auth/v1/user',{},true);
     if(old.uid===u.id) SY=Object.assign(old,{tok:SY.tok,ref:SY.ref,exp:SY.exp}); else SY.uid=u.id;
-    SY.email=u.email; syPut(); toast('Connecté : '+u.email); syncNow(false);
-  }catch(e){ SY=old; syPut(); toast(e.code==='net'?'Hors ligne : rouvre le lien une fois connecté':'La connexion a échoué : demande un nouveau lien'); }
+    SY.email=u.email; syPut(); toast(T('authHash.connecte')+u.email); syncNow(false);
+  }catch(e){ SY=old; syPut(); toast(e.code==='net'?T('authHash.hors_ligne_rouvre_le_lien'):T('authHash.la_connexion_a_echoue_demande_2')); }
   syUi();
 }
 
 /* --- interface : l'état en haut, le panneau du compte dans le Guide --- */
-function syWhen(t){ const m=Math.round((Date.now()-t)/60000); return m<1?'à l’instant':m<60?`il y a ${m} min`:new Date(t).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
+function syWhen(t){ const m=Math.round((Date.now()-t)/60000); return m<1?T('syWhen.a_l_instant'):m<60?`${T('syWhen.il_y_a_min',[m])}`:new Date(t).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}); }
 function syUi(msg){
   const top=$('#sync');
   if(top){ const pend=Object.keys(SY.dirty).length;
-    top.textContent = !SY.tok ? 'Sur cet appareil · synchroniser…' : SYNCING ? 'Synchronisation…' : SY.err ? SY.err : pend ? `${pend} changement${pend>1?'s':''} à envoyer` : SY.last ? 'Synchronisé '+syWhen(SY.last) : 'Synchronisation prête';
+    top.textContent = !SY.tok ? T('pend.sur_cet_appareil_synchroniser') : SYNCING ? 'Synchronisation…' : SY.err ? SY.err : pend ? `${T('pend.changement_a_envoyer',[pend,pend>1?'s':''])}` : SY.last ? T('pend.synchronise')+syWhen(SY.last) : T('pend.synchronisation_prete');
     top.dataset.state = !SY.tok ? 'off' : SYNCING ? 'busy' : SY.err ? 'err' : pend ? 'pend' : 'ok'; }
   const box=$('#acct'); if(!box) return;
   if(msg!=null) box.dataset.msg=msg;
   box.innerHTML = SY.tok
-    ? `<p>Connecté : <b>${esc(SY.email||'')}</b></p><p class="hint">${SY.err?esc(SY.err):SY.last?'Dernière synchro '+syWhen(SY.last):'Pas encore synchronisé'}</p>
-       <div class="row"><button type="button" class="btn" data-sygo ${SYNCING?'disabled':''}>${SYNCING?'Synchronisation…':'Synchroniser maintenant'}</button><button type="button" class="btn ghost" data-syout>Se déconnecter</button></div>
-       <p class="hint">Tes mots, ta progression et tes réglages vont sur tous les appareils connectés avec cette adresse. La synchro se fait seule après chaque réponse et à l'ouverture de l'appli.</p>`
-    : `<p class="hint">Connecte-toi pour retrouver tes mots et ta progression sur ton téléphone et ton ordinateur. Pas de mot de passe : tu reçois un lien par e-mail, à ouvrir sur l'appareil à connecter.</p>
-       <label for="syEmail">Adresse e-mail<input type="email" id="syEmail" autocomplete="email" placeholder="toi@exemple.fr"></label>
-       <button type="button" class="btn" data-sylink>M'envoyer le lien de connexion</button>`;
+    ? `<p>${T('pend.connecte',[esc(SY.email||'')])}</p><p class="hint">${SY.err?esc(SY.err):SY.last?T('pend.derniere_synchro')+syWhen(SY.last):T('pend.pas_encore_synchronise')}</p>
+       <div class="row"><button type="button" class="btn" data-sygo ${SYNCING?'disabled':''}>${SYNCING?'Synchronisation…':T('pend.synchroniser_maintenant')}</button><button type="button" class="btn ghost" data-syout>${T('pend.se_deconnecter')}</button></div>
+       <p class="hint">${T('pend.tes_mots_ta_progression_et')}</p>`
+    : `<p class="hint">${T('pend.connecte_toi_pour_retrouver_tes')}</p>
+       <label for="syEmail">${T('pend.adresse_e_mail')}<input type="email" id="syEmail" autocomplete="email" placeholder="toi@exemple.fr"></label>
+       <button type="button" class="btn" data-sylink>${T('pend.m_envoyer_le_lien_de')}</button>`;
   if(box.dataset.msg) box.insertAdjacentHTML('beforeend',`<p class="hint" aria-live="polite"><b>${esc(box.dataset.msg)}</b></p>`);
 }
 document.addEventListener('click', async e=>{
   const b=e.target.closest('button'); if(!b) return;
-  if('sylink' in b.dataset){ const em=($('#syEmail')?.value||'').trim(); if(!/^\S+@\S+\.\S+$/.test(em)){ toast('Saisis une adresse e-mail valide'); return; }
-    b.disabled=true; try{ await sbSendLink(em); syUi(`Lien envoyé à ${em}. Ouvre l'e-mail sur cet appareil et touche le lien.`); }catch(err){ syUi(err.code==='net'?'Hors ligne : réessaie une fois connecté':(err.message||"Le lien n'a pas pu être envoyé")); } b.disabled=false; return; }
+  if('sylink' in b.dataset){ const em=($('#syEmail')?.value||'').trim(); if(!/^\S+@\S+\.\S+$/.test(em)){ toast(T('pend.saisis_une_adresse_e_mail')); return; }
+    b.disabled=true; try{ await sbSendLink(em); syUi(`${T('pend.lien_envoye_a_ouvre_l',[em])}`); }catch(err){ syUi(err.code==='net'?T('pend.hors_ligne_reessaie_une_fois'):(err.message||T('pend.le_lien_n_a_pas'))); } b.disabled=false; return; }
   if('sygo' in b.dataset){ syncNow(false); return; }
-  if('syout' in b.dataset){ try{ await sbReq('/auth/v1/logout',{method:'POST'},true); }catch(err){} syOutLocal(); syUi('Déconnecté. Tes mots restent sur cet appareil.'); return; }
+  if('syout' in b.dataset){ try{ await sbReq('/auth/v1/logout',{method:'POST'},true); }catch(err){} syOutLocal(); syUi(T('pend.deconnecte_tes_mots_restent_sur')); return; }
 });
 addEventListener('online',()=>{ if(SY.tok) syncNow(true); });
 document.addEventListener('visibilitychange',()=>{ if(!SY.tok) return; if(document.visibilityState==='hidden'){ if(Object.keys(SY.dirty).length) syncNow(true); } else if(Date.now()-(SY.last||0)>20e3) syncNow(true); });

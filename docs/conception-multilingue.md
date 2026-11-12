@@ -151,6 +151,15 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Test de non-régression étendu (tri par la traduction et par le mot, clés de comparaison, doublons à l'ajout) : 1.8.7 → 1.8.8, **0 différence**.
 - Restent à adapter pour une autre langue d'utilisateur : les contrôles Python (`tools/*.py`, écrits pour le français : articles, registre, racines Snowball, spaCy fr).
 
+### 5.2 (faite, 12/11/2026, version 1.8.9)
+- **`i18n/<langue>.json`** : textes de l'interface, clé → message. `i18n/fr.json` : 416 clés (hors guide). `i18n/contexte.tsv` : extrait du code autour de chaque clé, pour les traducteurs.
+- Dans l'appli : `T('clé')` ou `T('clé', [valeurs])` (remplace `{0}`, `{1}`… dans l'ordre). Langue de l'interface = `mx-ul` ; une clé absente d'une langue retombe sur le français. Le cadre fixe de la page (en-tête, compteurs, onglets) porte des attributs `data-t` / `data-ta`, remplis au démarrage ; la page reçoit `lang` et `dir` de la langue de l'utilisateur. `build_app.py` injecte toutes les langues de `i18n/` (bloc `I18N_DATA`).
+- Messages = **phrases entières** avec leurs balises de mise en forme (`<b>`, `<i>`, `<span>`…) et des emplacements `{n}` pour les valeurs insérées ; découpage aux seules balises de bloc. Les noms de clés indiquent la fonction où le texte apparaît.
+- Extraction : `tools/i18n_extract.py` (analyse lexicale du JavaScript ; une fois). Exclus volontairement : identifiants techniques (`POST`, `Content-Type`, chemins, `mx-…`, classes CSS), clés d'objet et étiquettes `case`, guide (5.3). 7 cas mixtes faits à la main.
+- **Preuve d'équivalence** (`tools/i18n_proof.py`) : pour chaque texte remplacé, le navigateur évalue le code d'origine ; `T()` renvoie exactement la même chaîne (0 erreur sur 426 occurrences) — l'appli française est donc identique sur **tous** les écrans, y compris ceux que le test d'écrans ne rend pas. Test d'écrans : 1.8.8 → 1.8.9, **0 différence**. Essai avec une langue fictive : textes traduits remplacés, le reste retombe sur le français, données inchangées.
+- **Pluriels** : ~40 pluriels « à la française » (`mot${n>1?'s':''}`) sont pour l'instant des valeurs insérées (`{1}` vaut « s » ou rien). À convertir en vrais pluriels au moment des traductions (5.4) : l'italien et l'espagnol ne forment pas leur pluriel avec « s ».
+- Restent en français, hors de l'appli : textes des notifications envoyées par le serveur (`supabase/functions`), `sw.js`.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).

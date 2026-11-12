@@ -49,6 +49,14 @@ def main():
         if not m:
             raise SystemExit(f'balises {name} absentes de index.html')
         new = new[:m.start()] + block(name, collect(fname, req)) + new[m.end():]
+    # textes de l'interface : i18n/<langue>.json
+    m = re.search(re.escape(begin('I18N_DATA')) + r'.*?' + re.escape(end('I18N_DATA')), new, re.S)
+    if m:
+        tr = {os.path.basename(p)[:-5]: json.load(open(p, encoding='utf-8'))
+              for p in sorted(glob.glob(os.path.join(ROOT, 'i18n', '*.json')))}
+        if 'fr' not in tr or any(v is None for v in tr['fr'].values()):
+            raise SystemExit('i18n/fr.json absent ou incomplet (valeurs nulles : lancer tools/i18n_proof.py --write)')
+        new = new[:m.start()] + block('I18N', tr).replace(begin('I18N'), begin('I18N_DATA')).replace(end('I18N'), end('I18N_DATA')) + new[m.end():]
     if '--check' in sys.argv:
         ok = new == src
         print('index.html à jour' if ok else 'index.html PAS à jour : lancer tools/build_app.py')
