@@ -1,0 +1,43 @@
+key	sentence	reason	new_sentence
+während	Arbeite weiter, während ich fort bin.	conjonction « pendant que », la carte est la préposition	
+der Teil	Teilen macht Freude.	verbe teilen « partager », pas le nom der Teil	
+zurück	Wann werde ich dieses zurück bekommen?	allemand fautif (« zurück bekommen » → zurückbekommen ; « dieses » isolé)	
+lang	Warum kann Tom nicht länger bleiben?	comparatif de lange « longtemps », pas lang « long »	
+denken	Tom denkt über etwas nach.	verbe à particule nachdenken « réfléchir »	
+das Schreiben	Sie hat Talent zum Schreiben.	infinitif nominalisé « l'écriture », pas « le courrier »	
+selber	Wir gehören alle zum selben Team.	selbe « même » (derselbe), pas selber « soi-même »	
+sprechen	Tom spricht Personennamen oft falsch aus.	verbe à particule aussprechen « prononcer »	
+englisch	Alessia kann nicht Englisch sprechen.	nom das Englisch (la langue), la carte est l'adjectif	
+herum	Ich wanderte herum für einige Zeit.	particule de herumwandern, ordre des mots non idiomatique	
+hängen	Ich hänge nichts auf.	verbe à particule aufhängen « accrocher »	
+fordern	Der Kongress forderte weitere Informationen an.	verbe à particule anfordern « demander »	
+die Fraktion	Sie war Mitglied in der Roten Armee Fraktion.	nom d'un groupe terroriste, pas le groupe parlementaire (sujet lourd)	
+die Hinsicht	Er ist jeder Hinsicht ein Politiker.	allemand fautif (« in jeder Hinsicht », préposition manquante)	
+französisch	Dieser Satz ergibt im Französischen keinen Sinn.	nom das Französische (la langue), la carte est l'adjectif	
+sauer	Sei nicht sauer!	traduction fausse (« aigre » au lieu de « fâché »)	
+irgend	Irgend etwas muß geändert werden.	ancienne orthographe (irgendetwas, muss) ; irgend n'y est pas autonome	
+klären	Tom mochte diese Angelegenheit klären.	allemand fautif (« mochte » au lieu de « möchte »)	
+das Abkommen	Jetzt komm mal nicht vom Thema ab!	verbe à particule abkommen, pas le nom das Abkommen	
+strecken	Ich streckte die Beine aus.	verbe à particule ausstrecken	
+packen	Tom packt zusammen.	verbe à particule zusammenpacken	
+verstecken	Spielen wir Verstecken!	nom das Verstecken « cache-cache », la carte est le verbe	
+russisch	Opa hat Russisch in Sibirien gelernt.	nom das Russisch (la langue), la carte est l'adjectif	
+der Laut	Tom spielt Laute.	die Laute « le luth », autre mot que der Laut	
+der Marsch	Die Marsch liegt hinter dem Deich.	die Marsch « le marais », autre mot que der Marsch	
+der Versand	Ich arbeite bei einem Versand.	traduction incompréhensible (« un expéditionnaire »)	
+die Dissertation	Ich habe endlich meine Dissertation abgeschlossen.	traduction par un faux ami (« dissertation » ≠ thèse de doctorat)	
+die Tageszeitung	Laut Tageszeitung gab in der Stadt einen Brand.	allemand fautif (« es » manquant) et traduction fausse (« d'aujourd'hui »)	
+nachvollziehen	Seine Affaire ist nicht nachzuvollziehen.	traduction vulgaire (« imbitable ») pour une phrase neutre	
+das Regal	Die Flasche Wein ist auf dem Regal gelegen.	allemand non standard (« ist … gelegen »)	
+das Gerücht	Verbreitet kein Gerücht!	traduction fausse (« bruit » au lieu de « rumeur »)	
+türkisch	Ist Türkisch so schwer zu lernen?	nom das Türkisch (la langue), la carte est l'adjectif	
+schlank	Bei jungen Mädchen besteht ein starker Wunsch nach einer schlanken Figur.	traduction infidèle et généralisation sur les femmes	
+eindringen	Sein Schwanz drang in meine nasse Fotze ein.	contenu sexuel explicite (exclu par la procédure)	
+endlos	Ich habe schon die Hälfte geschafft, von einem Weg der endlos ist.	allemand non idiomatique (ordre des mots, virgule manquante)	
+mau	Der Rücklauf war für die Partei äußerst mau.	traduction fausse (Rücklauf ≠ « recul »)	
+das Telefonat	Während dem Telefonat klingelte sein Bruder an der Tür.	datif familier après während (standard : des Telefonats)	
+unweigerlich	Das ist eine schrecklich, unweigerlich todbringende Krankheit.	allemand fautif (« schrecklich, unweigerlich »)	
+dringen	Sein Schwanz drang in meine nasse Fotze ein.	contenu sexuel explicite (exclu par la procédure)	
+*	Die Natur muß geschützt werden.	ancienne orthographe (muß → muss)	Die Natur muss geschützt werden.
+*	Irgendwas muß unbedingt geändert werden.	ancienne orthographe (muß → muss)	Irgendwas muss unbedingt geändert werden.
+*	Man muß nicht jede Mücke erschlagen.	ancienne orthographe (muß → muss)	Man muss nicht jede Mücke erschlagen.

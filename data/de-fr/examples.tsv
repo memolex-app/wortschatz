@@ -148,7 +148,6 @@ die Befürchtung@1	Il n'y a pas de raison à cette crainte.	~
 der Buchhändler@1	Le libraire lit beaucoup de livres.	~
 der Sonntagabend@1	J'ai passé la soirée du dimanche à apprendre les mots nouveaux de la leçon pour lundi.	~
 die Todesursache@1	La cause de la mort semble être une blessure par balle.	~
-unweigerlich@1	C'est une maladie terrible, inéluctablement mortelle.	~
 die Korrespondenz@1	Tom doit trier la correspondance du service.	~
 die Nächstenliebe@1	La charité commence par sa propre maison.	~
 die Stadtbibliothek@1	Marie travaille à la bibliothèque municipale.	~
@@ -473,7 +472,6 @@ die Schmiede@1	À force de forger, on devient forgeron.	~
 die Dämmerung@1	J'aime le crépuscule.	~
 der Sarkasmus@1	Il ne comprend pas les sarcasmes.	~
 der Schuldner@1	Les débiteurs sont des gens qui n'arrivent pas à rembourser l'argent qu'ils doivent à quelqu'un.	~
-das Telefonat@1	Pendant la communication téléphonique, son frère a sonné à la porte.	~
 ungünstig@1	Ça n'aurait pu venir à pire moment.	~
 horizontal@1	Le tango est l'expression verticale d'un désir horizontal.	~
 die Quarantäne@1	As-tu déjà été en quarantaine ?	~
@@ -903,7 +901,6 @@ kommentieren@1	Quelqu'un pourrait-il mettre un commentaire sur cette phrase ?	
 die Pille@1	N'oubliez pas de prendre vos pilules !	~
 die Frisur@1	Franchement, je n'aime pas ta coiffure.	~
 gelehrt@1	Le plus érudit, le plus pervers.	~
-schlank@1	L'attrait des femmes pour la minceur est puissant.	~
 der Schütze@1	Ici, tireur, tu peux démontrer ton art pour de bon !	~
 der Blutdruck@1	J'aimerais vérifier votre pression artérielle.	~
 das Hindernis@1	En contournant cet obstacle, vous retrouverez votre chemin.	~
@@ -1167,7 +1164,6 @@ die Tiefe@1	La profondeur est importante.	~
 die Zustimmung@1	Tom a agi avec mon consentement.	consentement
 die Zustimmung@2	Le silence vaut approbation.	approbation
 der Liter@1	Tom boit au moins trois litres d'eau par jour.	~
-die Hinsicht@1	Il est en tout point un politicien.	point de vue
 die Hinsicht@2	À cet égard, je n'ai rien à dire.	égard
 der Hahn@1	Ce coq est magnifique.	~
 der Knochen@1	Aucun os n'a été cassé.	~
@@ -1316,7 +1312,6 @@ das Rathaus@1	Sa femme travaille à l'hôtel communal.	hôtel de ville
 das Rathaus@2	Tom est à la mairie.	mairie
 jederzeit@1	Un accident peut se produire à tout moment.	~
 die Armut@1	Certains Algériens vivent encore dans une extrême pauvreté.	~
-strecken@1	J'ai étendu les jambes.	~
 die Kugel@1	Pour avoir les quilles, il faut les boules.	~
 der Maler@1	Il est peintre.	~
 opfern@1	C'est au Diable que l'on sacrifie le plus souvent.	~
@@ -1578,7 +1573,6 @@ lächerlich@1	Tom a l'air ridicule.	~
 der Opa@1	Papi, comment as-tu rencontré mami ?	~
 die Kopie@1	Faites cinq copies de ce document, s'il vous plaît.	~
 der Honig@1	Le miel est doux.	~
-türkisch@1	Le turc est-il si difficile à apprendre ?	~
 verärgert@1	Tom semblait fâché.	~
 der Rotwein@1	Le vin rouge convient bien à la viande.	~
 unterbrechen@1	C'est impoli d'interrompre quelqu'un qui parle.	~
@@ -1799,7 +1793,6 @@ der Job@1	Il a accepté le job.
 der Job@2	Tom apprécie beaucoup son nouveau boulot.	boulot
 die Reihe@1	Il regroupa les filles en trois rangées.	rangée
 die Reihe@2	Tom était à la fin de la file.	file
-herum@1	J'ai erré pendant un certain temps.	~
 unglaublich@1	Cette histoire est trop incroyable pour être vraie.	~
 wach@1	Daniel est encore éveillé.	~
 das Volk@1	Marie était adorée par le peuple.	~
@@ -2188,8 +2181,6 @@ halten@1	Tenir cette fenêtre fermée !	tenir
 halten@2	Ce lait peut se garder deux jours.	garder
 die Liebe@1	L'amour peut beaucoup, l'argent peut tout.	~
 drei@1	Combien font sept fois trois ?	~
-französisch@1	Cette phrase n'a aucun sens en français.	~
-lang@1	Pourquoi Tom ne peut-il pas rester plus longtemps ?	~
 stehen@1	Reste debout, s'il te plaît !	être debout
 stehen@2	Ce mot ne se trouve pas dans la liste.	se trouver
 die Mutter@1	Sa mère était à la maison.	~
@@ -2263,7 +2254,6 @@ selbst@1	Tom vendrait même sa mère.
 warum@1	Pourquoi tout le monde est-il si triste ?	
 lassen@1	Tom ne laissera pas Mary gagner.	
 besser@1	Plus grand ne veut pas toujours dire meilleur.	
-während@1	Continue à travailler pendant que je ne suis pas là.	
 tun@1	On ne peut pas faire ce que l'on veut.	
 klar@1	Tom avait des problèmes à penser clairement.	
 geben@1	La maîtrise de soi donne de la tenue.	
@@ -2665,9 +2655,7 @@ billig@1	Ce produit est bon marché.
 decken@1	Je couvrais ma voiture.	
 heftig@1	Marie a répondu avec virulence.	
 hübsch@1	Elle est jolie avec cette robe.	
-irgend@1	Quelque chose doit être changé.	
 klagen@1	Je n'ai jamais entendu Tom se plaindre.	
-klären@1	Tom voudrait élucider cette affaire.	
 räumen@1	Nous devons vider l'appartement d'ici vendredi.	
 der Wandel@1	Cinq ans sans changement n'est pas une alternative.	
 die Behörde@1	Tu dois remettre le formulaire à l'administration.	
@@ -2722,7 +2710,6 @@ der Gesang@1	Le chant de l'oiseau est agréable.
 höchst@1	La situation est extrêmement explosive.	
 der Käufer@1	Son travail consiste à négocier avec des acheteurs étrangers.	
 mieten@1	Louer une voiture était l'alternative la plus avantageuse.	
-packen@1	Tom fait ses valises.	
 der Schick@1	Elle s'habille avec beaucoup de chic.	
 schick@1	Ces vestes sont en cuir. Elles sont très chic.	
 die Allianz@1	Les deux entreprises ont conclu une alliance.	
@@ -2837,7 +2824,6 @@ geradezu@1	C'est vraiment ridicule.
 der Kandidat@1	Les deux candidats sont au coude à coude.	
 lebendig@1	Les deux frères sont toujours vivants.	
 das Resultat@1	Il a obtenu de très bons résultats.	
-russisch@1	Grand-père a appris le russe en Sibérie.	
 schieben@1	Thomas poussa de toutes ses forces.	
 der Stadtrat@1	Le conseil municipal a décidé la construction du pont.	
 umsetzen@1	C'est une idée excellente mais difficile à mettre en œuvre.	
@@ -4249,7 +4235,6 @@ wegen@2	Marie est empêchée pour des raisons de santé.	en raison de
 bereits@1	Ce problème a déjà été constaté en 1999.	
 bereits@2	Dès demain il fera plus chaud.	
 der Teil@1	Ce roman se compose de trois parties.	
-der Teil@2	Partager, c'est sympa.	
 genau@1	Cette phrase contient exactement six mots.	
 genau@2	Il est précisément trois heures, maintenant.	
 jeder@1	Chaque chose a son temps.	
@@ -4263,7 +4248,6 @@ welche@2	Quelle langue parle-t-on en Afghanistan ?	quelle
 welche@3	Lequel veux-tu ?	
 zurück@1	Bob sera de retour à 6 heures.	de retour
 zurück@2	Un pas en avant, deux pas en arrière.	en arrière
-zurück@3	Quand ceci me sera-t-il retourné ?	
 richtig@1	Les deux réponses sont correctes.	correct
 richtig@2	Toutes les réponses sont justes.	juste
 richtig@3	C'est tout à fait exact.	
@@ -4353,7 +4337,6 @@ die Sache@2	Où sont les affaires de Tom ?	affaire
 der Vater@1	Où se trouve actuellement son père ?	
 der Vater@2	Papa roule vers son travail.	
 denken@1	Qui ne pense pas de même ?	
-denken@2	Tom réfléchit à quelque chose.	
 fahren@1	Bruno roule lentement.	
 fahren@2	Tom ne veut pas conduire.	conduire
 kosten@1	Ce journal ne coûte rien.	
@@ -4377,7 +4360,6 @@ ziemlich@1	Cette maison est assez petite.	assez
 ziemlich@2	Tom a l'air plutôt malade.	plutôt
 irgendwie@1	Le moteur est cassé de quelque manière.	
 irgendwie@2	C'est, en quelque sorte, important.	
-das Schreiben@1	Elle possède le talent de l'écriture.	
 schließlich@1	Enfin Tom est parti.	
 schließlich@2	Tom a finalement abandonné.	finalement
 die Höhe@1	Cette montagne fait 3 000 mètres d'altitude.	
@@ -4394,7 +4376,6 @@ führen@1	Des désaccords peuvent mener à une meilleure compréhension.
 kaufen@1	Où peut-on acheter des livres ?	
 kennen@1	La faim ne connaît pas de lois.	
 rechts@1	Un peu plus à droite, comme ceci !	
-selber@1	Nous appartenons tous à la même équipe.	
 die Meinung@1	Voici son opinion.	opinion
 die Meinung@2	Son avis n'a pas d'importance.	avis
 die Sprache@1	Ce n'est pas pour ce genre de langage que le láadan a été créé, Tom.	langage
@@ -4407,7 +4388,6 @@ schlecht@1	Cet appartement est en mauvais état.	mauvais
 schlecht@2	Ne dis pas du mal des autres.	mal
 sprechen@1	Parler anglais n'est pas facile.	
 sprechen@2	On ne doit pas dire du mal de quelqu'un dans son dos.	
-sprechen@3	Tom prononce souvent mal le nom des gens.	
 übrigens@1	Au fait, d'où es-tu ?	
 gleichzeitig@1	Si nous étions seulement pourvus de dix yeux ! Nous pourrions lire cinq livres simultanément !	
 gleichzeitig@2	Toutes en même temps, les lumières s'éteignirent.	
@@ -4520,7 +4500,6 @@ der Vertrag@3	Le traité a rendu le Texas indépendant.	traité
 das Zeichen@1	Tous les signes ne mentent pas.	
 das Zeichen@2	Ce symbole signifie que la réponse est juste.	
 zuletzt@1	Manon fut la dernière à rire.	
-englisch@1	Alessia ne peut pas parler anglais.	
 erwarten@1	Tom sait à quoi s'attendre.	attendre
 erwarten@2	Comme nous l'espérions, le temps a changé pour devenir beau.	
 offenbar@1	C'est évidemment une erreur.	
@@ -4722,7 +4701,6 @@ formen@1	Ils formèrent un cercle.
 die Gegend@1	Tom habite-t-il dans cette région ?	région
 die Gegend@2	Il n'est pas permis de se garer dans ce coin.	coin
 hervor@1	Sors de dessous la table !	
-hängen@1	Je n'accroche rien.	
 kaputt@1	Qui a cassé cette fenêtre ?	cassé
 kaputt@2	Ce pantalon est fichu.	fichu
 nachts@1	Le magasin est aussi ouvert la nuit.	
@@ -4745,7 +4723,6 @@ bislang@1	Mon père n'a jamais été à l'étranger jusqu'à présent.
 ergeben@1	Cinq et trois donnent huit.	
 erleben@1	Celui qui sait attendre assez longtemps connaîtra toujours une bonne fin.	
 fordern@1	Il exigeait beaucoup d'argent.	exiger
-fordern@2	Le Congrès demanda davantage d'information.	
 der Manager@1	Tom a été un très bon manager.	
 die Pflicht@1	Tom estimait avoir rempli son devoir.	
 die Prüfung@1	Le contrôle était facile.	
@@ -4953,7 +4930,6 @@ die Aussicht@1	Cette pièce est dotée d'une belle vue.
 die Autobahn@1	Naturellement, toutes les autoroutes étaient bouchées dimanche.	
 bedenken@1	Celui qui réfléchit trop produit peu.	
 beziehen@1	À quoi correspondent ces montants ?	
-die Fraktion@1	C'était un membre de la Fraction Armée Rouge.	
 der Gebrauch@1	C'est pour mon usage personnel.	usage
 der Gebrauch@2	Tout ceci est destiné à mon utilisation personnelle.	
 die Handlung@1	Ses actions contredisaient toujours ses paroles.	
@@ -5011,7 +4987,6 @@ die Leere@1	Il regarda dans le vide.
 rasch@1	Elle apprend vite.	
 rasch@2	Son ouvrage devint rapidement un livre à succès.	
 sauer@1	Cette orange est acide.	acide
-sauer@2	Ne sois pas aigre !	
 der Stock@1	Je cherche un bâton.	bâton
 der Stock@2	Tom ne pouvait pas marcher sans canne.	
 der Stuhl@1	Ces chaises sont faites de bois.	
@@ -5046,7 +5021,6 @@ der Ehemann@2	Tom est mon époux.
 passend@1	Ce mot était-il approprié dans cette situation ?	approprié
 passend@2	On ne peut comprendre cette phrase que dans un contexte adapté.	
 die Sekunde@1	Une minute se compose de soixante secondes.	
-das Abkommen@1	Ne t'écarte donc pas du sujet !	
 anzeigen@1	Je vais porter plainte contre vous !	
 aufgeben@1	On ne doit jamais abandonner avant la fin.	
 erlangen@1	J'ai finalement obtenu le permis de conduire.	
@@ -5187,7 +5161,6 @@ die Behauptung@1	Une assertion n'est pas une preuve.
 beurteilen@1	Il ne faut pas juger Tom sur son apparence.	
 gebrauchen@1	Est-ce que cette machine est encore utilisable ?	
 der Gegenstand@1	Cet objet est utile.	
-verstecken@1	Jouons à cache-cache !	
 das Wohnzimmer@1	Nos visiteurs sont assis dans le salon.	
 das Wohnzimmer@2	Qui est dans la salle de séjour ?	
 das Wohnzimmer@3	J'étais assis dans la salle de séjour.	
@@ -5373,7 +5346,6 @@ fremd@1	Le malheur étranger n'instruit pas.
 der Haken@1	Tom suspendait sa veste à un crochet.	
 der Kater@1	Le matou s'appelle Tom.	
 die Lampe@1	La lampe ne s'allume pas.	
-der Laut@1	Tom joue du luth.	
 mutig@1	Tom est courageux.	
 sanft@1	L'avion s'est posé en douceur.	
 die Sorte@1	Il y a différentes sortes de café.	
@@ -5392,7 +5364,6 @@ kotzen@1	Je vais gerber.
 küssen@1	Tom n'avait jamais embrassé quelqu'un auparavant.	
 lauten@1	Quelle est l'adresse de Tom ?	
 locken@1	Tout ce qui est sucré m'attire.	
-der Marsch@1	Le marais se trouve derrière la digue.	
 parken@1	On ne peut pas se garer dans cette rue.	garer
 parken@2	Ma voiture est stationnée dans le coin.	stationner
 riesig@1	L'Algérie est énorme.	énorme
@@ -5408,7 +5379,6 @@ klappen@1	Rien n'a marché comme prévu.
 die Pension@1	Je cherche une pension.	
 stillen@1	Un morceau de pain n'était pas suffisant pour apaiser sa faim.	
 der Umstand@1	En aucune circonstance nous ne pouvons accepter les chèques.	
-der Versand@1	Je travaille pour un expéditionnaire.	
 der Anfänger@1	Ce texte est conçu pour les débutants.	débutant
 der Anfänger@2	Tom est débutant, mais il apprend vite.	apprenti
 begraben@1	Tom sera enterré lundi.	
@@ -5466,11 +5436,9 @@ die Beleidigung@2	Quelle injure !
 die Flüssigkeit@1	Ce liquide transparent contient du poison.	
 die Haltestelle@1	Combien d'arrêts encore ?	
 keinesfalls@1	Tom est en aucun cas bête. Il est seulement paresseux.	
-die Dissertation@1	J'en ai enfin fini avec ma dissertation.	
 die Formulierung@1	Quelqu'un a-t-il une meilleure formulation ?	
 die Gewerkschaft@1	Les ouvriers fondèrent un syndicat.	
 der Sonnenschein@1	Nous n'avons pas eu beaucoup de soleil cet été.	
-die Tageszeitung@1	Selon le journal d'aujourd'hui, il y a eu un incendie en ville.	
 die Wiederholung@1	La répétition est mère de la sagesse.	
 gewährleisten@1	Ce n'est pas garanti.	
 gleichermaßen@1	Ce livre est à la fois intéressant et instructif.	
@@ -5480,7 +5448,6 @@ verabschieden@1	Je suis allé à l'aéroport pour lui dire au revoir.
 widersprechen@1	J'ai contredit le professeur.	
 üblicherweise@1	Le poisson s'accompagne habituellement de vin blanc.	
 üblicherweise@2	Tom ne mangeait habituellement pas aussi bien.	
-nachvollziehen@1	C'est imbitable son affaire !	
 arg@1	J'ai eu bigrement peur dans l'avion.	
 der Esel@1	Les ânes sont gris.	
 der Herd@1	Nous avons acheté un nouveau fourneau assez cher.	
@@ -5493,7 +5460,6 @@ die Mütze@1	Où est votre bonnet ?	bonnet
 die Mütze@2	J'ai payé dix dollars pour cette casquette.	casquette
 das Regal@1	Le livre est en haut à gauche sur l'étagère.	
 das Regal@2	Il n'y a aucun livre dans le rayon.	
-das Regal@3	La bouteille de vin est couchée sur le rayonnage.	
 der Trost@1	C'est une maigre consolation.	
 der Abfall@1	Les sous-produits de l'abattage sont-ils des déchets ou de la matière première ?	
 der Abfall@2	Attention ! Ce déchet est radioactif.	
@@ -5520,7 +5486,6 @@ der Dialekt@1	Toute langue possède des dialectes.
 der Drachen@1	Faire voler un cerf-volant peut être dangereux.	
 erobern@1	Avec de l'or, on peut conquérir n'importe quelle forteresse.	
 das Gerücht@1	Il n'est pas bon de répandre de fausses rumeurs.	
-das Gerücht@2	Ne faites pas de bruit !	
 grillen@1	Je grille du poisson.	
 harmlos@1	Tom est inoffensif.	
 die Klassik@1	Elle préfère écouter du classique.	
@@ -5766,7 +5731,6 @@ beschaffen@1	Comment vous êtes-vous procuré cet argent ?
 betreffend@1	Je m'adressai à Tom pour le questionner au sujet de son nouveau livre.	
 durchgehen@1	Révisons la leçon 5.	
 der Einbrecher@1	Il poursuivait le cambrioleur.	
-eindringen@1	Sa queue a pénétré ma chatte mouillée.	
 fortsetzen@1	Marie a continué le travail.	continuer
 fortsetzen@2	L'ennemi poursuivit son attaque toute la nuit.	poursuivre
 das Griechisch@1	Émilie veut apprendre le grec.	
@@ -5977,7 +5941,6 @@ dulden@1	Les dissidents ne sont pas tolérés ici.
 eifrig@1	Vous êtes tous diligents.	
 das Eiweiß@1	J'aime le blanc de l'œuf.	
 die Elster@1	Il est aussi voleur qu'une pie.	
-endlos@1	J'ai déjà accompli la moitié d'un chemin qui est infini.	
 hetzen@1	Tu n'aurais pas dû te presser ; tu es arrivé trop tôt.	
 münden@1	La rivière se déverse dans le lac.	
 der Penner@1	J'ai vu un clochard à la gare.	
@@ -6133,7 +6096,6 @@ die Weihnachtszeit@1	Pendant la période de Noël, aux Philippines, on déguste 
 der Abteilungsleiter@1	En l'absence du chef de rayon, Monsieur Brun surveille le magasin.	
 das Außenministerium@1	Mon père travaille au ministère des affaires étrangères.	
 der Waffenstillstand@1	Ce n'est pas une paix, c'est un armistice de vingt ans.	
-mau@1	Ce recul fut extrêmement morose pour le parti.	
 zäh@1	Tom est coriace.	
 öde@1	Tous ces films sont ennuyeux.	
 der Etat@1	Le budget de cet État s'élevait l'année dernière à plusieurs milliards d'euros.	
@@ -6178,7 +6140,6 @@ anregen@1	Je suggérai que nous devrions mettre doucement fin à la réunion.
 der Atemzug@1	Elle prit une profonde inspiration.	
 der Bettler@1	Le mendiant tire fierté de ne pas être un voleur.	
 das Defizit@1	Une manière répandue de financer un déficit est de proposer des obligations.	
-dringen@1	Sa queue a pénétré ma chatte mouillée.	
 das Einhorn@1	Veux-tu te rendre au travail à dos de licorne ? Moi oui.	
 der Einlass@1	Pas d'accès pendant la représentation.	
 das Fünftel@1	Les quatre cinquièmes des Français étaient parfaitement analphabètes vers 1685.	

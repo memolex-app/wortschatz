@@ -15,7 +15,7 @@ FOR_USER = {'fr': ['check_dups', 'chunks_check', 'register']}
 FOR_USER_FULL = {'fr': ['ex_gloss']}
 # contrôles propres à la langue apprise
 FOR_LANG = {'it': ['plural_check'], 'de': ['prep_case']}
-FOR_LANG_FULL = {'it': ['ex_pos']}
+FOR_LANG_FULL = {'it': ['ex_pos'], 'de': ['ex_form_de']}
 # contrôles propres à la paire (catalogue)
 FOR_PAIR = {'it-fr': ['faux_amis'], 'de-fr': ['faux_amis']}
 

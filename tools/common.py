@@ -53,8 +53,11 @@ def fr_senses(fr):
     return out
 
 
-def ignored(tool, w, sentence, base=os.path.dirname(os.path.abspath(__file__))):
-    """Faux positifs déjà vérifiés à la main : lignes « mot|phrase italienne » de ignore_<outil>.txt."""
-    p = os.path.join(base, f'ignore_{tool}.txt')
-    if not os.path.exists(p): return False
-    return f'{w}|{sentence}' in {l.rstrip('\n') for l in open(p, encoding='utf-8')}
+_IGN = {}
+def ignored(tool, w, sentence, base=HERE):
+    """Faux positifs déjà vérifiés à la main : lignes « mot|phrase » de ignore_<outil>_<paire>.txt
+    (texte après « # » ignoré : justification)."""
+    if tool not in _IGN:
+        p = os.path.join(base, f'ignore_{tool}_{PAIR}.txt')
+        _IGN[tool] = {l.split(' #')[0].rstrip('\n').rstrip() for l in open(p, encoding='utf-8')} if os.path.exists(p) else set()
+    return f'{w}|{sentence}' in _IGN[tool]

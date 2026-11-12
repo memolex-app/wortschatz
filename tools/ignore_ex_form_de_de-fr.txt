@@ -1,0 +1,44 @@
+# Phrases signalées par ex_form_de et gardées après relecture (12/11/2026) : traduction libre mais juste,
+# ou autre sens réel du même mot (règle d'octobre 2026). Format : mot|phrase.
+ablaufen|Deine Zeit läuft ab.
+allzu|Maria sorgt nicht allzu gut für ihre Kinder.
+anbieten|Tom bot Mary seinen Arm an.
+andauernd|Dieser Computer ist einfach Schrott. Andauernd geht er kaputt.
+angeben|Der Artikel gibt die Quelle nicht an.
+ansehen|Tom sieht seinen kleinen Bruder an.
+anstatt|Handle, anstatt zu reden.
+aua|Aua, das tut weh!
+auffallen|Er fällt gerne auf.
+aufheben|Ich hob eine Münze auf.
+aufkommen|Diese politischen Ideen kamen in Indien auf.
+aufladen|Meine Batterie lädt sich nicht auf.
+auslaufen|Der Vertrag läuft in Kürze aus.
+aussehen|Tom sieht müde aus.
+bisschen|Ein bisschen lauter, bitte.
+danke|Alles ist in Ordnung, danke.
+dastehen|Nach der Krise stand ich ohne Geld da.
+einberufen|Der Geschäftsführer berief eine dringende Belegschaftsversammlung ein.
+einbringen|Dieser Film brachte zweihundert Millionen Dollar ein.
+einfallen|Mir fällt sein Name gerade nicht ein.
+einsehen|Maria sieht es überhaupt nicht ein.
+heilig|Das Heilige Römische Reich deutscher Nation hörte im Jahre 1806 auf zu existieren.
+hinaus|Die Kinder laufen hinaus in den Schnee.
+irgendwelche|Haben Sie irgendwelche französischen Zeitungen?
+lauter|Das sind lauter Lügen.
+mehr|Dieses Wort wird nicht mehr verwendet.
+na|Na, sieh mal!
+nicht|Ist etwas nicht in Ordnung?
+nicht|Nicht alle mögen dieses Buch.
+oh|Oh, wie schön!
+selbe|Wir wohnen im selben Haus.
+vereinigt|Diese Stadt ist in den Vereinigten Staaten.
+voran|Der Junge von nebenan ist Kopf voran vom Baum gefallen.
+vorlesen|Sie las das Gedicht laut vor.
+weder|Diese Geschichte hat weder Hand noch Fuß.
+willen|Um Gottes willen!
+winters|Winters heizen wir mit Holz.
+worüber|Ich verstehe nicht, worüber alle lachen.
+zugehen|Sie gingen auf die Brücke zu.
+zukommen|Ein Polizist kam auf mich zu.
+zusehen|Wer sieht zu?
+zweit|Das Spiel kann man zu zweit spielen.

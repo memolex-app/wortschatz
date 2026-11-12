@@ -1,0 +1,766 @@
+# Phrases signalées par ex_gloss et gardées après relecture (12/11/2026) : traduction libre mais juste,
+# ou autre sens réel du même mot (règle d'octobre 2026). Format : mot|phrase.
+Abendessen|Wer kommt zum Abendessen?
+Abfall|Schaue nach dem ganzen Abfall in diesem Haus!
+Abitur|Opa, wo hast du dein Abitur gemacht?
+Ablauf|Störe nicht den natürlichen Ablauf!
+Abschluss|Nach dem Abschluss fand er sofort Arbeit.
+Abstand|Die Busse fahren in Abständen von zwanzig Minuten.
+Abteilungsleiter|Während der Abwesenheit des Abteilungsleiters passt Herr Brown auf das Geschäft auf.
+Abteilung|In welcher Abteilung arbeiten Sie?
+Anfang|Am Anfang schien alles ganz einfach zu sein.
+Anfänger|Tom ist Anfänger, aber er lernt schnell.
+Angst|Tom ist mit großer Angst zum ersten Mal geflogen.
+Annäherung|Es gibt eine Annäherung zwischen den beiden Ländern.
+Anspruch|Ich habe einen Anspruch.
+Antrag|Wir bekommen viele Anträge.
+Arbeitskraft|Arbeitskräfte werden mit offenen Armen empfangen.
+Arbeitskreis|Wenn du nicht mehr weiter weißt, gründe einen Arbeitskreis.
+Arbeitslose|Vor einem Jahr wurden acht Prozent Arbeitslose registriert.
+Arbeitsplatz|Ihre Arbeitnehmer leben am Arbeitsplatz.
+Art|Welche Arten von Büchern liest Tom?
+Arzt|Sie gehen zum Arzt.
+Atemzug|Sie nahm einen tiefen Atemzug.
+Aufbruch|Nach dem Essen war allgemeiner Aufbruch.
+Aufteilung|Die Aufteilung der Kosten ist fair.
+Ausschau|Er hält Ausschau nach einem Ort zum Leben.
+Ausschuss|Der Ausschuss berät über das Gesetz.
+Ausweis|Sein Ausweis war getürkt.
+Auto|Diese Autos sind gut.
+Auto|Ein Auto hat vier Räder.
+Baseball|Er mag weder Baseball noch Fußball.
+Basketball|Sie spielte Basketball.
+Baumarkt|Der Baumarkt war um 2 Uhr noch zu.
+Behauptung|Eine Behauptung ist kein Beweis.
+Beleidigung|Was für eine Beleidigung!
+Bereich|Dieser Bereich war ruhig.
+Berg|Wie hoch ist dieser Berg?
+Biergarten|Gestern Abend war Tom allein im Biergarten.
+Blog|Ich habe dieses Rezept auf ihrem Blog gefunden.
+Blutdruck|Ich würde gerne Ihren Blutdruck messen.
+Brand|Das Auto von Tom ist in Brand geraten.
+Bude|Es ist heiß in der Bude.
+Burg|Diese Burg wurde in alten Zeiten erbaut.
+Busfahrer|Tom ist Busfahrer.
+Bürgerkrieg|Der Amerikanische Bürgerkrieg dauerte vier Jahre.
+Bürgermeister|Er kennt den Bürgermeister.
+Cent|Ein Dollar ist gleich hundert Cent.
+Dunkelheit|Fast alle kleinen Kinder haben Angst vor der Dunkelheit.
+Ehefrau|Seine Ehefrau ist Französin.
+Ehemann|Tom ist mein Ehemann.
+Ehepaar|Das Ehepaar bot sein Haus zum Verkauf an.
+Ehrgeiz|Tom hat keinen Ehrgeiz.
+Einigkeit|Einigkeit macht stark.
+Einkaufszentrum|Einkaufszentren sind bei Jugendlichen beliebt.
+Einlass|Kein Einlass während der Vorstellung.
+Einwilligung|Tom brauchte die Einwilligung seiner Eltern.
+Entspannung|Ich höre zur Entspannung oft beruhigende Musik.
+Entwurf|Seine Entwürfe sind äußerst originell.
+Erforschung|Er hat einen großen Beitrag zur Erforschung von Krebs geleistet.
+Espresso|Ich habe heute Morgen im Kaffeeladen einen sehr heißen doppelten Espresso getrunken.
+Explosion|Ich hörte die Explosion.
+Fachkraft|Fachkräfte von morgen werden nicht geboren – sie werden ausgebildet.
+Feierabend|Wann hast du Feierabend?
+Feiertag|Ist morgen Feiertag?
+Fernsehsender|Welcher Fernsehsender zeigt das Spiel?
+Finsternis|Hast du Angst vor der Finsternis?
+Fläche|Frankreich hat eine größere Fläche als Deutschland.
+Frechheit|Ich kann seine Frechheit nicht ertragen.
+Freie|Es ist ein schöner Tag, um im Freien zu essen.
+Freundin|Tom spricht seine Freundin an.
+Freund|Warum hast du keinen festen Freund?
+Furcht|Seine Augen ließen seine Furcht erkennen.
+Fähigkeit|Jeder nach seinen Fähigkeiten, jedem nach seinen Bedürfnissen.
+Gatte|Sie hat ihren Gatten für einen anderen Mann verlassen.
+Gebrauch|All das ist für meinen persönlichen Gebrauch.
+Gebühr|Wie hoch ist die monatliche Gebühr?
+Gegenwart|Vermeiden Sie dieses Thema in seiner Gegenwart.
+Geheimdienst|Ich bin Mitarbeiter eines Geheimdienstes.
+Gemüt|Maria hat ein zartes Gemüt.
+Genehmigung|Es ist nicht erlaubt, ohne Genehmigung im Theater zu fotografieren.
+Genesung|Ich wünsche jedem Kranken baldige Genesung.
+Gerät|Wer hat dieses Gerät erfunden?
+Geschenk|Hier ist ein Geschenk zu deinem Geburtstag.
+Geschrei|Gewaltiges Geschrei erhebt sich.
+Gesicht|Sie konnte ihm nicht ins Gesicht sehen.
+Gleichberechtigung|Tom glaubt an die Gleichberechtigung zwischen Frau und Mann.
+Glück|Jeder ist seines Glückes Schmied.
+Grund|Jetzt kennst du den Grund.
+Haltung|Der Wachsoldat nahm Haltung an.
+Handy|Keine Handys am Tisch!
+Hauptgrund|Die Ehe ist der Hauptgrund für Scheidungen.
+Heimatland|Sein Heimatland ist Deutschland.
+Heimat|Diese Region ist meine Heimat.
+Heimat|Frankreich ist meine zweite Heimat.
+Heim|Tom baute sein eigenes Heim.
+Herd|Wir haben einen neuen, ziemlich teuren Herd gekauft.
+Hintern|Mein Hintern tut weh.
+Hinweis|Bitte diesen Hinweis nicht beachten.
+Hochschule|Sie studiert an einer Hochschule für Musik.
+Höflichkeit|Pünktlichkeit ist die Höflichkeit der Könige.
+Hörbuch|Hörst du oft Hörbücher?
+Intro|Das Intro des Liedes ist lang.
+Jagd|Einige große Vögel machen Jagd auf kleine Vögel und Tiere.
+Job|Er nahm den Job an.
+Kanne|Die Kanne leckt.
+Keil|Er schlägt einen Keil in das Holz.
+Kilogramm|Dieses Buch wiegt ein Kilogramm.
+Kinderbetreuung|Nach der Kinderbetreuung ist seine Frau völlig erschöpft.
+Kind|Dieses Kind glaubt nicht an Geister.
+Kino|Tom ging mit Maria ins Kino.
+Klage|Es gibt keinen Grund zur Klage.
+Klang|Alles hat seinen Klang.
+Klassik|Sie hört am liebsten Klassik.
+Kleinkind|Ich war 1989, als die Mauer fiel, noch ein Kleinkind.
+Kuchen|Wollen Sie noch ein Stück Kuchen?
+Kunststoff|Das Glas ist aus transparentem Kunststoff gemacht.
+Labor|Er arbeitet in jenem Labor.
+Landstraße|Häuser reihten sich an der Landstraße.
+Laptop|Wem gehört dieser Laptop?
+Lebensgefahr|Viele Wildtiere schweben in Lebensgefahr.
+Lebensmittel|In Frankreich landen zu viele Lebensmittel auf dem Müll.
+Lebensmittel|In Frankreich werden nur Lebensmittel verkauft, die perfekt aussehen.
+Lebensstil|Unser Lebensstil hängt größtenteils vom Geld ab.
+Lehrerin|Einige sind Lehrerinnen.
+Lehrer|Das ist keine Art, mit seinem Lehrer zu sprechen!
+Lehrplan|Es ist mir ein Rätsel, wie dieser Autor auf den Lehrplan geraten konnte.
+Leid|Freud ohne Leid gibt es nicht.
+Lokführer|Der Lokführer hat die Lokomotive vor der Abfahrt überprüft.
+Lot|Die Wand ist nicht im Lot.
+Lärm|Der Lärm hatte seinen Höhepunkt erreicht.
+Lücke|Du hast eine große Lücke hinterlassen.
+Marktführer|Die Firma ist Marktführer in Europa.
+Marktplatz|Wo ist der Marktplatz?
+Material|Dieses Produkt besteht aus wiederverwertbaren Materialien.
+Mediziner|Mediziner sind ganz allgemein nicht dazu geeignet, Kinder zu erziehen.
+Mikrofon|Aus irgendeinem Grund hat das Mikrofon gerade nicht funktioniert.
+Mikrowelle|Die Küchenwaage ist neben der Mikrowelle.
+Mitarbeit|Vielen Dank im Voraus für Ihre Mitarbeit.
+Moor|Im Moor wachsen seltene Pflanzen.
+Moos|Ohne Moos nichts los.
+Märchen|Sie mag Märchen.
+Mühe|Er hat die Stelle ohne jede Mühe gefunden.
+Nachricht|Diese Nachricht hat große Wellen geschlagen.
+Nahrungsmittel|Nahrungsmittel aus regionalem Anbau werden auf Märkten verkauft.
+Neid|Neid bringt Leid.
+Ohnmacht|Sie fiel wegen der schlechten Luft in Ohnmacht.
+Oma|Er wohnt bei seiner Oma.
+Packung|Eine Packung Nudeln, bitte.
+Parkhaus|Im Parkhaus wurden wir gebeten, im Schritttempo zu fahren.
+Pension|Ich suche eine Pension.
+Phrase|Dieser Satz stinkt schon meilenweit nach einer Phrase.
+Polizist|Polizisten lieben Schmalzkringel.
+Präsent|Als Präsent gab es eine Flasche Wein.
+Publikum|Das Publikum war tief ergriffen.
+Pulver|Der Schnee ist wie Pulver.
+Rathaus|Seine Frau arbeitet im Rathaus.
+Rat|Sie brauchen nur seinem Rat zu folgen.
+Regal|Es sind keine Bücher im Regal.
+Regelung|Es gibt eine neue Regelung für Homeoffice.
+Register|Das Buch hat ein Register am Ende.
+Reich|Dein Reich komme!
+Rock|Tom mag Rock.
+Schach|John mag Schach.
+Schauspiel|Das Schauspiel dauert drei Stunden.
+Schiff|Wir müssen zurück zum Schiff.
+Schlacht|Ich habe in vielen Schlachten gekämpft.
+Schritt|Tom hörte Schritte hinter der Tür.
+Selbstvertrauen|Tom hat viel Selbstvertrauen.
+Silvester|Wir werden Silvester in Polen feiern.
+Spender|Ich bin Spender.
+Spezialist|Dieser Verlag ist Spezialist für Kinderbücher.
+Sportler|Ich bin ein schlechter Sportler.
+Sportverein|Ich möchte in einen Sportverein eintreten.
+Steckdose|Zieh die Gabel aus der Steckdose.
+Steuer|Der Preis enthält keine Steuern.
+Stock|Tom konnte nur mit Stock gehen.
+Stoff|Dieser Stoff fühlt sich an wie Samt.
+Stollen|Zu Weihnachten essen wir Stollen.
+Streit|Der Streit geht weiter!
+Stuhl|Mein Vater repariert kaputte Stühle.
+Sturm|Wie lange wird der Sturm noch dauern?
+Tagebuch|Tom führt Tagebuch.
+Tierheim|Dein Hund befindet sich im Tierheim.
+Tonne|Jedes Jahr werden ungefähr tausend Tonnen Mehl exportiert.
+Topf|Bob füllte den Topf mit Wasser.
+Tour|Morgen geht Tom auf Tour.
+Tram|Die Stadt hat sich entschieden, die Tram abzuschaffen.
+Trick|Das ist ein alter Trick.
+Tuch|Sie trägt ein Tuch um den Hals.
+Typ|Sie ist mein Typ.
+Ufer|Er unternahm verzweifelte Versuche, ans Ufer zu gelangen.
+Umfang|Welchen Umfang hat dieser Baum?
+Unsinn|Sage keinen Unsinn!
+Unternehmen|Sein Vater leitet einige Unternehmen.
+Urkunde|Diese Urkunde ist unverständlich.
+Vater|Vater fährt zur Arbeit.
+Veganer|Ich bin Veganer.
+Verkehrsmittel|Die sind völlig auf die öffentlichen Verkehrsmittel angewiesen.
+Verpflegung|Die Verpflegung im Hotel ist inklusive.
+Vertrag|Vertrag ist Vertrag.
+Volleyball|Ich mag Volleyball genauso gerne wie Basketball.
+Volleyball|Ich spiele viel Volleyball.
+Vollidiot|Er ist wirklich ein Vollidiot.
+Vorführung|Genieße die Vorführung.
+Vorsatz|Mein Vorsatz für das neue Jahr: mehr Sport.
+Vorschrift|Hör auf, mir Vorschriften zu machen!
+Vorschrift|Wer macht die Vorschriften?
+Vorstellungsgespräch|Das Vorstellungsgespräch ist gut verlaufen.
+Wald|Geht nicht zu weit in den Wald!
+Wartezeit|Diese Wartezeit ist viel zu lang.
+Wecker|Der Wecker geht zehn Minuten vor.
+Wein|Tom baut Wein an.
+Wertung|In der Wertung liegt sie auf Platz zwei.
+Wettbewerb|Wettbewerb ist an sich weder gut noch schlecht.
+Witz|Diesen Witz habe ich nicht verstanden.
+Wohnung|Diese Wohnung ist größer als alle anderen in diesem Gebäude.
+Wohnzimmer|Ich saß im Wohnzimmer.
+Wohnzimmer|Wer ist im Wohnzimmer?
+Zeichen|Dieses Zeichen bedeutet, dass die Antwort gut ist.
+Zeugnis|Ich bin gekommen, um Zeugnis abzulegen.
+Ziel|Sein wichtigstes Ziel im Leben war reich zu werden.
+Zivil|Der Polizist war in Zivil.
+Zusammenhang|Ich habe nichts zu sagen im Zusammenhang mit diesem Problem.
+Zusammenstellung|Das ist eine schöne Zusammenstellung alter Lieder.
+abgeben|Sogar einfache Pusteblumen können ein schönes Foto abgeben.
+ablaufen|Deine Zeit läuft ab.
+ablehnen|Sie lehnte seine Einladung ab.
+ablehnen|Toms Bewerbung für die Universität wurde abgelehnt.
+abnehmen|Wie hat Tom so viel abgenommen?
+abrupt|Ich wurde von der Nachricht seines abrupten Ablebens überrascht.
+abschalten|Schalten wir den Fernseher ab.
+abspielen|Glück spielt sich in Sekunden ab.
+abwarten|Man rät mir abzuwarten.
+abweichen|Seine Auffassung von Erziehung weicht von meiner gewaltig ab.
+allemal|Das schaffen wir allemal.
+allerdings|Man sollte jetzt allerdings auch keinen Blödsinn machen.
+allzu|Maria sorgt nicht allzu gut für ihre Kinder.
+also|Also, lauf schneller!
+anfangen|Die Prüfungen fangen nächste Woche an.
+angehen|Die Lampe geht nicht an.
+anhören|Erst einmal sollte ich beide Seiten anhören.
+anmelden|Sie hat mich beim Arzt angemeldet.
+anrichten|Der Schaden war angerichtet.
+anschauen|Tom kann nicht aufhören, Maria anzuschauen.
+anschaulich|Es ist schwierig, vier Dimensionen anschaulich zu machen.
+anschließen|Ist die Radioantenne schon angeschlossen worden?
+ansonsten|Ansonsten braucht man nichts mehr zu tun.
+ansprechen|Wie soll man eine Kassiererin ansprechen?
+anstrengend|Die neuen Aufgaben sind anstrengend.
+anständig|Es gibt genug Gründe, ihn für anständig zu halten.
+asozial|Ich bin vielleicht asozial, aber das heißt nicht, dass ich nicht mit Leuten rede.
+auch|Auch die Zukunft war früher besser.
+auch|Kann man darin auch etwas zu essen kaufen?
+auffallen|Es ist allen aufgefallen.
+aufhören|Praktisch da aufhören, wo alles anfängt.
+aufklären|Es klärt sich bald auf.
+aufkommen|Diese politischen Ideen kamen in Indien auf.
+auflösen|Zucker löst sich in heißem Kaffee auf.
+aufpassen|Du passt nicht auf!
+aufrichtig|Aufrichtig zu sein, kann ich versprechen, unparteiisch zu sein aber nicht.
+aufrichtig|Tom ist zu höflich, um aufrichtig zu sein.
+auftauchen|Er tauchte eine Stunde später auf.
+augenscheinlich|Das war augenscheinlich ein Scherz.
+auseinander|Carol und Will sind anscheinend auseinander.
+ausfallen|Der Strom ist ausgefallen.
+ausführen|Führt Deutschland Getreide aus?
+ausgeprägt|Maria hat eine ausgeprägte Tierliebe.
+ausgerechnet|Warum stehen die ausgerechnet hier?
+auskommen|Wir können ohne Wasser nicht auskommen.
+ausreden|Lass Tom ausreden!
+ausrichten|Dieser Aufzug ist für zehn Personen ausgerichtet.
+aussagen|Was sagen diese Statistiken aus?
+aussehen|Diese Häuser sehen alle gleich aus.
+aussehen|Tom sieht müde aus.
+aussetzen|Toms Freiheitsstrafe wurde zur Bewährung ausgesetzt.
+aussterben|Dieser Vogel ist jetzt in Gefahr auszusterben.
+auszahlen|Es gibt Fälle, in denen Ehrlichkeit sich nicht auszahlt.
+ausziehen|Man muss seine Schuhe am Eingang ausziehen.
+außerdem|Was wisst ihr außerdem?
+bang|Mir wurde bang.
+basteln|Thomas kann prima Papierflugzeuge basteln.
+bauen|Es brauchte sechsundvierzig Jahre, um diesen Tempel zu bauen.
+beachten|Maria scheint niemand zu beachten.
+beanspruchen|Es beansprucht viel Zeit.
+beantragen|Tom beantragte Asyl.
+bearbeiten|Klicken Sie um zu bearbeiten!
+bedenklich|Die Lage ist bedenklich.
+beeinträchtigen|Der Streik beeinträchtigte die nationale Wirtschaft.
+beenden|Es fiel ihm schwer, seine Arbeit zu beenden.
+befassen|Das Rechnen befasst sich mit Zahlen.
+befragen|Ich befrage ihn oft zu kontroversen sprachlichen Problemen.
+befreien|Wir haben sein Haus von Mäusen befreit.
+beginnen|Das Treffen hat noch nicht begonnen.
+beheben|Wir arbeiten daran, diesen Fehler zu beheben.
+beibehalten|Russland versucht weiterhin seinen ursprünglichen Einfluss in dem eigenen Hinterhof beizubehalten.
+beinhalten|Dieser Betrag beinhaltet die Steuer.
+bekanntlich|Kommunikation besteht bekanntlich nicht allein aus der Sprache.
+belasten|Rauchen belastet unsere Gesundheit.
+beleidigen|Ich beleidige sie nicht.
+benötigen|Diese Arbeitsstelle benötigt keinen Abschluss.
+beobachten|Vögel zu beobachten ist ein schöner Zeitvertreib.
+beobachten|Wir werden das genau beobachten.
+bereits|Morgen wird es bereits wärmer.
+bergab|Mit dem Handel geht es bergab.
+berufen|Jeder ist berufen, etwas in der Welt zur Vollendung zu bringen.
+berücksichtigen|Ich werde nicht berücksichtigt.
+besondere|Besondere Behauptungen erfordern besondere Beweise.
+besorgen|Besorgen Sie mir etwas zu essen.
+bestehen|Es besteht keine Hoffnung auf Erfolg.
+bestens|Alles ist bestens.
+bestrafen|Er wurde für Trunkenheit am Steuer bestraft.
+betrachten|Wir betrachten sein schönes Bild.
+betragen|Die Rechnung betrug über 25 Dollar.
+betreiben|Betreibt Sport im Freien.
+betroffen|Dieser Satz hat mich betroffen gemacht.
+betrunken|Man darf nicht betrunken Fahrrad fahren.
+betrunken|Tom war einfach betrunken.
+beugen|Ich beugte die Beine.
+bewegen|Bitte bewegen Sie diesen Stein von hier nach dort.
+bewegt|Ungarn hat eine bewegte Geschichte.
+bewerten|Die Antwort wurde als falsch bewertet.
+bewältigen|Diese Aufgabe wird Tom nicht bewältigen.
+bezeichnen|Tom bezeichnete Mary als Feigling.
+beziehen|Worauf beziehen sich diese Beträge?
+bezweifeln|Es ist zu bezweifeln, ob diese Methode funktionieren wird.
+binden|Ich habe Bücher gebunden.
+bislang|Mein Vater ist bislang noch nie im Ausland gewesen.
+blank|Er ist blank.
+bohren|Ich bohre einen Brunnen.
+brauchen|Um auf diese Schule zu gehen, braucht man viel Geld.
+bringen|Sternschnuppen bringen Glück.
+brüllen|Der Panther brüllt.
+buchstäblich|Es ist buchstäblich wahr.
+bürgerlich|Die Französische Revolution war eine bürgerliche Revolte.
+daheim|Ist deine Mutter daheim?
+dahin|Alles ist dahin.
+darstellen|Diese Arbeit stellt für mich keine große Herausforderung dar.
+darum|Kümmere dich gleich darum!
+dastehen|Nach der Krise stand ich ohne Geld da.
+dauernd|Dieser Kerl geht seine Eltern dauernd um Geld an.
+davon|Sage bitte niemandem etwas davon!
+davor|Davor habe ich keine Angst.
+demnächst|Der Vertrag läuft demnächst aus.
+demnächst|Meine Schwester heiratet demnächst.
+denkbar|Je nach Kontext ist beides denkbar.
+deswegen|Deswegen spricht man weniger von dieser Geschichte.
+detailliert|Er hat es detailliert erklärt.
+dick|Diese Hefte sind gleich dick.
+dreifach|Jerusalem gilt in dreifacher Hinsicht als heilige Stadt.
+dreist|Es war ziemlich dreist von dir, so dem Chef gegenüber aufzutreten.
+dringend|Maria braucht dringend Ruhe.
+drum|Das Leben geht schnell vorbei, drum lebe langsam!
+drängen|Der Laden war dicht gedrängt mit jungen Leuten.
+durchaus|Du hast durchaus keinen Grund, beleidigt zu sein.
+durchbrechen|Die Kugel durchbrach die Trennwand.
+durcheinander|Alles in deinem Zimmer ist durcheinander!
+durchgehen|Gehen wir noch mal Lektion 5 durch!
+dämlich|Es ist dämlich zu glauben, dass Rauchen wenig mit Krebs zu tun hat.
+dürfen|Darf ich an Bord kommen?
+ebenfalls|Dieses ist schön und jenes ebenfalls.
+ebenso|Er schrieb drei Bücher in ebenso vielen Jahren.
+echt|Diese Perlen sind nicht künstlich, sondern echt.
+effektiv|Ballaststoffe sind effektiv zum Abnehmen.
+ehrenamtlich|Wir machen das ehrenamtlich.
+eifrig|Sie sind alle eifrig.
+eigentlich|Tom hat eigentlich wirklich kein Problem gehabt.
+eilig|Maria hatte es eilig, nach Hause zu kommen.
+einberufen|Der Geschäftsführer berief eine dringende Belegschaftsversammlung ein.
+eindeutig|Es besitzt keine eindeutige Syntax.
+einfallen|Mir fällt sein Name gerade nicht ein.
+einfügen|Sein Bericht war aus einem anderen kopiert und eingefügt.
+eingeben|Kann ich die Nummer direkt eingeben?
+einhalten|Sie müssen das Gesetz einhalten.
+einhalten|Tom muss sein Versprechen einhalten.
+einigermaßen|Man kann ihr einigermaßen glauben.
+einkaufen|Wir kaufen ein.
+einlegen|Sie legen Fisch in Dosen ein.
+einordnen|Es gelingt mir nicht, seinen Akzent einzuordnen.
+einsam|Sind Sie einsam?
+einsehen|Maria sieht es überhaupt nicht ein.
+einstecken|Er kann einiges einstecken.
+einsteigen|Steigt nach hinten ein.
+einwandfrei|Mein Rechner läuft jetzt einwandfrei.
+emotional|Tom ist emotional.
+empfinden|Sie fängt an, Verzweiflung zu empfinden.
+entfernt|Wie weit leben Sie von hier entfernt?
+entführen|Tom wurde entführt.
+entlassen|Tom wurde 2013 entlassen.
+entsprechend|Benimm dich deinem Alter entsprechend.
+entwerfen|Ich entwerfe gerade einen Plan.
+erbringen|Er erbrachte beim Leichtathletikwettbewerb hervorragende Leistungen.
+erbärmlich|Das ist erbärmlich!
+erfassen|Sie wäre beinahe von einem Auto erfasst worden.
+erfolgen|Die Reise erfolgt ohne Begleitung.
+erfreut|Sie waren nicht erfreut.
+erhalten|Ich habe keine Antwort erhalten.
+erheben|Sie hätten sich erheben sollen.
+erholen|In diesem Dorf kann man sich erholen.
+erkennbar|Wegen des dichten Nebels wurde die Straße schwer erkennbar.
+erleben|Wer lange genug warten kann, erlebt immer ein gutes Ende.
+ernähren|Karl ernährt sich sehr schlecht.
+erstellen|Warum muss es ständig neu erstellt werden?
+erstens|Erstens nicht schaden.
+ertragen|Ich konnte den Schmerz kaum ertragen.
+erwarten|Wie erwartet, wurde das Wetter schön.
+erweisen|Seine Worte haben sich als richtig erwiesen.
+extra|Dauerwelle kostet extra.
+fahren|Bruno fährt langsam.
+faktisch|Es ist faktisch unmöglich, alle zu kontrollieren.
+fallen|Versuche, nicht zu fallen.
+falsch|Ihre Antwort ist falsch.
+fangen|Ein Adler fängt keine Fliegen.
+fassen|Tom konnte seine Gefühle nicht in Worte fassen.
+fehlerhaft|Das sind fehlerhafte Informationen.
+fernsehen|Tom will zu Hause bleiben, um fernzusehen.
+fesseln|Seit fast drei Monaten ist er ans Bett gefesselt.
+festlegen|Man sollte festlegen, was man danach tun sollte.
+feststellen|Der Arzt stellte seinen Tod fest.
+fix|Das ging fix!
+fleißig|Ich lerne fleißig Deutsch, um in Deutschland zu studieren.
+fleißig|Tom studiert fleißig.
+flöten|Der Vogel flötet im Baum.
+fragwürdig|Ich habe fragwürdige Dinge getan.
+frech|Freche Kinder bekommen keine Bonbons!
+freundlich|Wahrheit kann man auch freundlich sagen.
+frühestens|Tom kommt frühestens in einer Woche wieder.
+fördern|Demokratie fördert die Freiheit.
+ganz|Früher war alles ganz anders.
+gebrochen|Er spricht gebrochen Französisch.
+gedenken|Wie lange gedenkst du zu bleiben?
+geehrt|Hören Sie, sehr geehrte Herren!
+gefährden|Rauchen gefährdet die Gesundheit.
+gefährlich|Die Welt ist gefährlich.
+gehörig|Ich habe ihn jetzt aber gehörig zurechtgewiesen.
+gelassen|Er war äußerst gelassen.
+geliebt|Freiheit, geliebte Freiheit, kämpfe mit deinen Verteidigern!
+genauso|Er ist genauso wie sein Großvater.
+genau|Es ist jetzt genau drei Uhr.
+genießen|Echten Kaffee genießt man ohne Zucker.
+genug|Tom war nicht stark genug.
+genügend|Haben die Kinder genügend zu essen?
+geraten|Das Problem ist außer Kontrolle geraten.
+gering|Seine Familie muss von seinem geringen Einkommen leben.
+gerne|Verliert ihr gerne?
+gesamt|Die gesamte Stadt war ohne Strom.
+gespalten|Er hat eine gespaltene Persönlichkeit.
+gestatten|Rauchen ist hier nicht gestattet.
+gewaltsam|Die Tür wurde gewaltsam geöffnet.
+gewohnt|John ist viel früher als gewohnt aufgestanden.
+gewähren|Eine Brücke gewährt einen Zugang zur Insel.
+gewöhnlich|Für gewöhnlich wird dieses Wort nicht benutzt.
+gewünscht|Raschen Zugang zu gewünschter Information erhält man im Internet.
+gießen|Der Regen gießt in Strömen.
+giftig|Diese Schlange ist nicht giftig.
+gleichermaßen|Dieses Buch ist gleichermaßen interessant und lehrreich.
+gleichmäßig|Leider hat der liebe Gott den Verstand nicht gleichmäßig verteilt.
+gleichsam|Gleichsam wie Gold im Feuer, so wird treues Wohlwollen in Gefahren erkennbar.
+gleichzeitig|Hätte man doch nur zehn Augen! Dann könnte man gleichzeitig fünf Bücher lesen!
+gleich|Alle Jungen sind gleich alt.
+gleich|Vor dem Gesetz sind alle gleich.
+glänzend|Selbst eine adlige Dame könnte an Feiertagen diesen glänzenden Schmuck tragen.
+grob|Er hat grobe Umgangsformen.
+grundsätzlich|Ich gehe grundsätzlich nicht vor Mitternacht schlafen.
+gönnen|Wir sollten uns noch etwas Wein gönnen.
+haften|Die Reifen haften sehr gut.
+halt|Ich habe halt keine Lust.
+heftig|Maria antwortete heftig.
+heizen|Ich verbrachte den Winter, ohne zu heizen.
+herrlich|Du duftest herrlich.
+herrlich|Es war herrliches Wetter.
+herrschen|Auf dieser Straße herrscht nachts kein Verkehr.
+herstellen|Werden in Algerien Schuhe hergestellt?
+herunter|Tom! Komm herunter, das Frühstück ist fertig!
+hervor|Komm unter dem Tisch hervor!
+her|Wie lang ist das her?
+hetzen|Du hättest nicht hetzen müssen, du bist zu früh gekommen.
+heulen|Mary hat nicht geheult.
+hierfür|Wie viel wollen Sie hierfür haben?
+hinein|Zu einem Ohr hinein, zum anderen hinaus.
+hingegen|Zu lieben ist leicht, geliebt zu werden hingegen schwer.
+hintereinander|Jawoll! Ich habe zwei Mal hintereinander gewonnen!
+hocken|Tom hockt vor dem Fernseher.
+hässlich|Tom ist hässlich.
+höchstwahrscheinlich|Du hast höchstwahrscheinlich recht.
+hüllen|Das war in Flammen gehüllt.
+immerhin|Immerhin spricht sie wieder mit mir.
+irgendwie|Das ist irgendwie wichtig.
+irgendwie|Der Motor ist irgendwie kaputt.
+jammern|Tom jammert immer, nicht wahr?
+jederzeit|Ein Unfall kann jederzeit passieren.
+jeher|So ist es schon seit jeher.
+jeweils|Die Kinder bekamen jeweils fünf Äpfel.
+kaum|Er liest kaum Zeitungen.
+kaum|Ich habe kaum noch Geld übrig.
+keineswegs|Er ist keineswegs faul.
+kindisch|Sei nicht kindisch, Tom.
+klammern|Ich habe mich an seine Hand geklammert.
+klasse|Das ist klasse!
+klopfen|Mein Herz fing an zu klopfen.
+knacken|Ich kann diesen Code nicht knacken.
+komisch|Diese Situation ist komisch.
+kommentieren|Könnte bitte jemand diesen Satz kommentieren?
+kopieren|Sie kopiert Sätze.
+krachen|Das Auto krachte gegen einen Baum.
+krass|Diese Demonstration ist krass.
+laufend|Gestern Abend bin ich bei laufendem Fernseher eingeschlafen.
+lauschen|Tom lauschte der Ankündigung.
+lauten|Wie lautet Toms Adresse?
+lau|Die laue Morgenluft war erfüllt von dem wohligen Duft des Waldes.
+lediglich|Ich will lediglich eure Freundin sein.
+lehren|Not lehrt beten.
+letztendlich|Ich wurde letztendlich freigelassen.
+letztlich|Letztlich kann man sagen, dass es kein Problem gibt.
+lieber|Lieber spät als nie.
+liebevoll|Du bist genauso liebevoll wie deine Mutter.
+lieb|Alles Gute zum Geburtstag, lieber Freund!
+los|Wir müssen in fünf Minuten los.
+längst|Du solltest längst zu Hause sein!
+lästig|Tauben sind sehr lästige Vögel in Städten.
+manuell|Manuell gefertigte Güter sind heutzutage recht teuer.
+massenhaft|Das massenhafte Schlachten gesunder Kühe ist eine Schande.
+mehrfach|Über dieses Thema habe ich schon mehrfach gesprochen.
+mehrmals|Sie hatten mehrmals Gelegenheit, auf Englisch zu sprechen.
+meinerseits|Das Vergnügen ist ganz meinerseits.
+meistens|Meistens kamen wir jedoch mit leeren Händen zurück.
+melden|Guten Tag, wen darf ich melden?
+mies|Das ist ein ganz mieser Ort hier.
+misstrauisch|Tom sah Maria misstrauisch an.
+mitspielen|Ich spiele bei eurem Spiel nicht mit.
+mittlerweile|Sie sollte mittlerweile angekommen sein.
+momentan|Was läuft momentan im Kino?
+monatelang|Er machte monatelang fast nichts.
+munter|Ihr seht alle munter aus.
+musikalisch|Sie haben einen musikalischen Sohn.
+mäßig|Diese Erzeugnisse sind von mäßiger Qualität.
+mögen|Alle mögen dieses Buch nicht.
+möglichst|Wir wollen möglichst früh wieder nach Hause.
+münden|Der Fluss mündet in den See.
+nachdenklich|Tom strich sich nachdenklich über das Kinn.
+nachgehen|Meine Uhr geht fünf Minuten nach.
+nahezu|Nahezu alle Japaner haben schwarzes Haar.
+narren|Sie hat ihn genarrt.
+nebenbei|Nebenbei, wie viel Uhr haben wir jetzt?
+neigen|Der Turm neigte sich leicht nach links.
+nervig|Das lange Warten am Flughafen war nervig.
+neulich|Ich habe ihn erst neulich in Kyōto getroffen.
+nicht|Ist etwas nicht in Ordnung?
+nicht|Nicht alle mögen dieses Buch.
+nochmals|Nein, nein, nein und nochmals nein!
+noch|Tom ist noch am Leben.
+nötigen|Ich nötige sie nicht.
+nützen|Reden nützt immer.
+offenbar|Das ist offenbar ein Fehler.
+ordentlich|Der Motor funktioniert ordentlich.
+passend|Diesen Satz kann man nur in einem passenden Kontext verstehen.
+passen|Seine Kleidung passte nicht zu seinem Alter.
+pinkeln|Ich muss ganz dringend pinkeln.
+planmäßig|Die Einweihungsfeier lief planmäßig ab.
+prügeln|Ich habe mich geprügelt.
+quasi|Wir sind quasi eine Familie.
+rasch|Sie lernt rasch.
+rauben|Ihr wurde der ganze Schmuck geraubt.
+recherchieren|Die Journalistin recherchiert für einen Artikel.
+registrieren|Vor einem Jahr wurden acht Prozent Arbeitslose registriert.
+reibungslos|Alles verlief reibungslos.
+respektlos|Sie war mir gegenüber nie respektlos.
+richten|Wer wird in diesem Fall richten?
+richtig|Das ist völlig richtig.
+riesig|Australien ist riesig, nicht wahr?
+runter|Komm da runter!
+rühren|In der Dunkelheit rührte sich etwas.
+sammeln|Wir müssen Informationen sammeln.
+sanft|Das Flugzeug ist sanft gelandet.
+saufen|Lass uns saufen!
+schaden|Etwas Regen hat noch nie jemandem geschadet.
+scheu|Rehe sind sehr scheu.
+schimpfen|Ständig schimpft er auf die Regierung.
+schlachten|Ich schlachte ein Huhn.
+schlau|Das ist sehr schlau.
+schlau|Du scheinst ziemlich schlau zu sein.
+schleifen|Ich werde die Messer nicht schleifen.
+schließlich|Schließlich ist Tom gegangen.
+schlucken|Kleine Unternehmen werden oft von großen Gesellschaften geschluckt.
+schlüpfen|Das Küken schlüpft.
+schmecken|Dieser Kuchen schmeckt nach Käse.
+schmutzig|Deine Hose ist schmutzig.
+schnellstmöglich|Bitte rufe mich schnellstmöglich zurück!
+schrittweise|Er ging schrittweise vor.
+schuld|Niemand ist daran schuld.
+schwierig|Englisch ist schwierig, nicht wahr?
+schädlich|Rauchen ist schädlich für die Gesundheit.
+sehenswert|Dieser Film ist sehenswert.
+selbstbewusst|Tom war selbstbewusst.
+seltsam|Seine Geschichte klingt seltsam.
+shoppen|Wo könnte ich shoppen?
+sitzen|Tom blieb sitzen.
+soeben|Der Zug ist soeben angekommen.
+so|Alles war so schön.
+spinnen|Spinnen spinnen gerne Netze.
+sprechen|Man soll nicht hinter jemandes Rücken schlecht sprechen.
+spät|Der Frühling ist dieses Jahr spät dran.
+spät|Ich bin sehr spät zu Bett gegangen.
+spülen|Du hast vergessen, die Toilette zu spülen.
+spürbar|Es ist spürbar kälter geworden.
+stammen|Woher stammt diese Idee?
+starren|Es ist unhöflich zu starren.
+stattdessen|Könnten wir nicht stattdessen kuscheln?
+stehen|Bleibe bitte stehen!
+stillen|Ein Stück Brot reichte nicht, seinen Hunger zu stillen.
+stimmen|Stimmt diese Antwort?
+strafbar|In einer Diktatur kann Lachen eine strafbare Handlung sein.
+strahlen|Sie strahlt vor Glück.
+strömen|Es brennt noch auf meinen Lippen das heilige Feuer, das von den deinigen strömte.
+stundenlang|Wir warteten stundenlang.
+stürmen|Tom stürmte herein.
+sympathisch|Diese Floristin ist sympathisch.
+tagsüber|Seine Tante kümmert sich tagsüber um seinen Hund.
+tagsüber|Tagsüber passt Großmutter auf die Kinder auf.
+tapfer|Es ist leicht, aus sicherer Entfernung tapfer zu sein.
+teilhaben|Ich bin stolz, an diesem Projekt teilzuhaben.
+toben|Die kleinen Kinder toben im Schwimmbad herum.
+trauen|Tom hatte keinen Grund, Marie nicht zu trauen.
+treiben|Tom hat morgens ein bis zwei Stunden Zeit, um Sport zu treiben.
+tropfen|Der Wasserhahn tropft.
+trotzdem|Trotzdem ist es wahr.
+turnen|Hast du wieder angefangen, regelmäßig zu turnen?
+täglich|Man bezahlt sie nicht monatlich, sondern täglich.
+tätig|Warum wollen Sie hier tätig sein?
+umfassen|Theorien umfassen auch abstrakte Ideen.
+umgehend|Die Antwort kommt umgehend.
+umstellen|Am Sonntag wird die Zeit umgestellt.
+unentschieden|Das Spiel steht unentschieden.
+unerlässlich|Geduld ist für einen Lehrer unerlässlich.
+ungeeignet|Tom ist für den Posten ungeeignet.
+ungefähr|Sagt mir bitte, wie viel das ungefähr wert ist.
+ungern|Ich esse morgens ungern Knoblauch.
+ungewiss|Gewiss ist der Tod, ungewiss die Stunde.
+ungleich|Das ist ein ungleicher Kampf.
+ungünstig|Zu einem ungünstigeren Zeitpunkt hätte ich nicht kommen können.
+unmittelbar|Dieser Mann ist mein unmittelbarer Chef.
+unnötig|Das ist alles unnötig.
+unrecht|Ehrlich gesagt hätte ich lieber unrecht.
+unten|Da unten ist nichts.
+unterbringen|Das Haus kann zwei Familien unterbringen.
+unterdrücken|Der Diktator unterdrückte das Volk.
+untereinander|Tom und Maria sprechen untereinander Englisch.
+unterhalten|Wir unterhalten gute Beziehungen.
+unterhaltsam|Wir fanden seine Geschichte sehr unterhaltsam.
+unterlassen|Ich unterlasse es nie, meiner Mutter einmal monatlich zu schreiben.
+unternehmen|Im Urlaub haben wir viel zusammen unternommen.
+unterstreichen|Dieser Rahmen unterstreicht den Wert des Gemäldes.
+ununterbrochen|Jemand schießt ununterbrochen.
+unverschämt|Es ist unverschämt, über Andere zu lachen.
+unverzüglich|Das Rote Kreuz bringt Katastrophenopfern unverzüglich Hilfe.
+unwohl|Ich fühle mich unwohl in Gegenwart dieser Personen.
+ursprünglich|Dieses Gedicht ist ursprünglich auf Französisch geschrieben worden.
+veranlassen|Was hat Tom dazu veranlasst?
+veranstalten|Die Stadt veranstaltet die Messe.
+verarbeiten|Milch wird zu Butter verarbeitet.
+verarschen|Versuch nicht, mich zu verarschen!
+verbieten|Rauchen ist hier verboten.
+verbinden|Sie hat meinen verletzten Finger verbunden.
+verbindlich|Das war nie eine verbindliche Regel.
+verbuchen|Ich habe einen Erfolg für mich verbucht.
+verdammt|Mach diese verdammte Tür zu!
+verderben|Dieses Essen riecht verdorben.
+verdrängen|Ich habe versucht, die Erinnerung an seine Tränen zu verdrängen.
+vereinigt|Diese Stadt ist in den Vereinigten Staaten.
+verfahren|Wie kann ich in diesem Fall verfahren?
+vergraben|Ich weiß nicht mehr, wo ich das Geld vergraben habe.
+vergrößern|Dieses Mikroskop vergrößert Objekte hundertfach.
+verhalten|Hör auf, dich so dumm zu verhalten!
+verkehrt|Er hat seine Socken verkehrt herum an.
+verklagen|Ich verklage sie nicht.
+verkürzen|Ich wähle absichtlich die kleinsten Kartoffeln aus. Das verkürzt die Kochzeit.
+verlieben|Dieses junge Pärchen ist verliebt.
+verlinken|Ich verlinke sie nicht miteinander.
+vermehren|Mäuse vermehren sich schnell.
+vermutlich|Vermutlich hatte Tom recht.
+vermögen|Maria vermag nichts allein.
+vernichten|Ich habe alle Beweise vernichtet.
+verschaffen|Das sollte uns etwas Zeit verschaffen.
+verschlafen|Ich habe verschlafen, weil ich lange aufgeblieben bin.
+verschwenden|Ich möchte wissen, wie viel Geld Thomas verschwendet hat.
+versetzen|Glaube versetzt Berge.
+vertragen|Ich vertrage keine Milch.
+vertreiben|Wir würden dieses Produkt gerne in Japan vertreiben.
+verwirrt|Tom ist völlig verwirrt.
+vielerorts|Der Schnee verursachte vielerorts Unfälle in Frankreich.
+vielfach|Ihre Schönheit brachte sie vielfach in Gefahr.
+vielseitig|Die Möglichkeiten sind vielseitig.
+vorab|Du hättest vorab anrufen sollen.
+voran|Der Junge von nebenan ist Kopf voran vom Baum gefallen.
+voraussichtlich|Er wird voraussichtlich Vaterfreuden erleben.
+vorbei|In zwei Tagen ist alles vorbei.
+vorerst|Wir brauchen seine Hilfe vorerst nicht.
+vorgehen|Hier geht etwas Seltsames vor.
+vorlegen|Dieser Gesetzentwurf wurde dem Senat zu seinem Einverständnis vorgelegt.
+vorliegen|Das Urteil liegt vor.
+vorläufig|Unsere Nachbarn ziehen vorläufig nach München um.
+vorübergehend|Das ist eine vorübergehende Laune.
+vorüber|Gott sei Dank, das Gewitter ist vorüber.
+völlig|Da liegst du völlig falsch!
+wachsen|Die Bevölkerung dieser Stadt wächst.
+wahren|Maria wollte ihr Gesicht wahren.
+warnen|Hast du Tom wirklich gewarnt?
+wegwerfen|Am liebsten würde ich alles wegwerfen.
+weh|Das wird jetzt etwas weh tun.
+weitaus|Maria ist weitaus jünger als Tom.
+weitergeben|Er hat sein gesamtes Wissen an seinen Sohn weitergegeben.
+weiterhin|Picasso malte weiterhin Bilder, bis er 91 Jahre alt war.
+weiter|Rede nicht weiter!
+weitgehend|Das öffentliche Leben ist in Frankreich weitgehend heruntergefahren.
+weit|Das liegt noch in weiter Ferne.
+werben|Wie sollte man im Netz werben?
+wertlos|Dieser Mangel macht das Buch jedoch nicht wertlos.
+wert|Seine Meinung ist nichts wert.
+weswegen|Weswegen sollte man sich an dich erinnern?
+widerlich|Sie ist eine widerliche Person.
+wiedergeben|Sie haben mir den Glauben an die Menschheit wiedergegeben.
+wieder|O nein! Nicht schon wieder!
+wie|Wie spricht man mit Frauen?
+wirken|Göttliche Intelligenz wirkt in allem.
+witzig|Das ist nicht witzig!
+wochenlang|Ich habe euch wochenlang nicht gesehen.
+wodurch|Wodurch entsteht Fußpilz?
+womöglich|Womöglich regnet es morgen.
+worauf|Worauf bist du stolz?
+wunderschön|Es war wunderschön.
+zahlen|Sie müssen im Voraus zahlen.
+zart|Diese Blume hier hat einen zarten Duft.
+zehnte|In der Schweiz erhält nur etwa jeder zehnte Student ein Stipendium.
+zeichnen|Er zeichnet gerade Linien.
+zeitweilig|Heute früh war es zeitweilig sonnig.
+zeitweise|Es hat zeitweise geregnet.
+zeugen|Haben Sie Söhne und Töchter gezeugt?
+zivil|Für ein Mittagessen zahlt man in diesem Restaurant noch sehr zivile Preise.
+zugehen|Sie gingen auf die Brücke zu.
+zugrunde|Die Menschheit wird zugrunde gehen.
+zukommen|Ein Polizist kam auf mich zu.
+zulassen|Er wurde zur Universität zugelassen.
+zulegen|Ich habe an Gewicht zugelegt.
+zusagen|Seine Scherze sagen nicht allen zu.
+zusammenarbeiten|Lass uns zusammenarbeiten.
+zusammenhängen|Aber wie hängt das alles mit Tatoeba zusammen?
+zustande|In seinen ersten 100 Tagen hat der Präsident nicht viel zustande gebracht.
+zuständig|Wer ist für diese Frage zuständig?
+zusätzlich|Zusätzlich zum Regen gab es auch starken Wind.
+zügig|Ich sehe, das geht zügig voran!
+ängstlich|Er ist zu ängstlich, um es zu versuchen.
+ärgerlich|Es ist wirklich sehr ärgerlich.
+überdenken|Das Problem müssen wir von Grund auf überdenken.
+überfallen|Das Königreich wurde vom Feind überfallen.
+übergehen|Er ging zur nächsten Frage über.
+überholen|Mein Fahrrad müsste mal überholt werden.
+übernehmen|Tom kann diese Verantwortung nicht übernehmen.
+überprüfen|Dieser Satz muss überprüft werden.
+überraschen|Ich war überrascht.
+überregional|In dieser überregionalen Zeitung erscheint an jedem Wochenende ein Gastkommentar.
+übersehen|Fehler wie diese werden leicht übersehen.
+überstehen|Diese Brücke wird es nicht lange überstehen.
+übertragen|Ihre Hochzeit wurde im Fernsehen übertragen.
+überzeugen|Nichts konnte ihn überzeugen.
+üblicherweise|Fisch wird üblicherweise von Weißwein begleitet.
+üblicherweise|So gut aß Tom üblicherweise nicht.
+üblich|Wie üblich kam sie zu spät.
