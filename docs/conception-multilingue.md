@@ -173,6 +173,17 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Incident évité : la première conversion des pluriels a corrompu un message imbriqué ; détecté avant publication (code invalide), recommencé à partir de la sauvegarde avec un traitement en passes.
 - Test d'écrans : seule différence avec la 1.8.9, « la pazienza » (voulue).
 
+### 5.4, deuxième partie (faite, 12/11/2026, version 1.9.2)
+- **Paires publiées** : `build_app.py` injecte la liste des `lists-<L>-<U>.json` présents (bloc `PAIRS`). Le choix de la langue apprise ne propose que les langues qui ont une paire avec la langue de l'utilisateur ; le choix **« Ta langue »** n'apparaît que s'il existe des paires pour plusieurs langues d'utilisateur (aujourd'hui : français seulement, donc invisible). Changer de langue d'utilisateur recharge l'appli (interface et données) ; la langue apprise est oubliée si la paire n'existe pas.
+- `data/<U>/utilisateur.json` reçoit `selfFrom` (« le français » : « Depuis le français… »).
+- **`tools/i18n_check.py`** : chaque traduction garde les mêmes emplacements `{n}`, les mêmes pluriels (avec une forme `other`), les mêmes balises et entités que le français ; clés inconnues refusées ; taux de traduction affiché. `build_app.py` refuse un fichier fautif.
+- Correction : « 1 mots » après un changement de langue → pluriel.
+- Essai de bout en bout avec une fausse paire allemand → anglais (retirée ensuite, appli identique) : choix « Ta langue » affiché, interface en anglais pour les textes traduits et en français pour les autres, données `lists-de-en.json`, italien masqué faute de paire.
+
+### Reste de 5.4 : les traductions
+- Recommandation : traduire l'interface d'une langue **au moment où sa première paire est prête** (étape 8 pour l'anglais) : les textes peuvent encore changer d'ici là, et une interface traduite sans données ne sert à personne. Volume par langue : ~565 messages (dont le guide et les libellés `lang.*`, `guide.<L>.*` pour chaque langue apprise disponible dans cette langue).
+- À faire aussi pour une nouvelle langue d'utilisateur : `data/<U>/utilisateur.json` (articles, notes grammaticales, locale, `selfFrom`) ; contrôles Python (`tools/*.py`) adaptés à cette langue ; textes des notifications serveur (`supabase/functions`) et de `sw.js`.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
@@ -192,7 +203,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 2 | Contrôles sur le format source, par paire (`tools/check.py`) | ✅ sorties identiques sur `data/` et sur les JSON (de-fr, it-fr, contrôles rapides et complets) |
 | 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ✅ 100 % (de-fr 5 821, it-fr 4 435) ; crédits générés : toutes les paires et tous les auteurs déjà présents dans les anciens crédits, les phrases retirées n'y figurent plus |
 | 4 | Grammaire par langue sortie de l'appli (`langue.json`) | ✅ test de non-régression : 0 différence (de, it) |
-| 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | appli en français inchangée ; textes extraits |
+| 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | ✅ 5.1 à 5.4 (mécanisme) : appli française inchangée (sauf corrections voulues), textes extraits et prouvés ; traductions au moment de chaque paire |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | chaque mot à plusieurs sens relu ; build de-fr toujours identique en contenu |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
 | 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | idem |

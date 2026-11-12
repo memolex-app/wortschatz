@@ -272,7 +272,6 @@
  "first.mots_ajoutes": "<b>{0} · {1}</b><small>{2} / {3} mots ajoutés</small>",
  "first.les_mots_s_ajoutent_par": "Les mots s'ajoutent par 50 au plus, du plus fréquent au moins fréquent, et jamais au-delà de {0} mots en cours d'apprentissage.",
  "renderLangPick.quelle_langue_veux_tu_apprendre": "Quelle langue veux-tu apprendre ?",
- "renderLangPick.depuis_le_francais_chaque_langue": "Depuis le français. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.",
  "renderLangPick.langue_apprise": "Langue apprise",
  "renderLangPick.8_000_mots_a1_a": "8 000 mots, A1 à C2",
  "renderLangPick.garder": "Garder {0}",
@@ -563,5 +562,7 @@
  "lang.it.art.l'|f": "l' (fém.)",
  "lang.it.art.i|m": "i (pluriel)",
  "lang.it.art.gli|m": "gli (pluriel)",
- "lang.it.art.le|f": "le (pluriel)"
+ "lang.it.art.le|f": "le (pluriel)",
+ "renderLangPick.depuis_ta_langue": "Depuis {0}. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.",
+ "renderLangPick.ta_langue": "Ta langue"
 }

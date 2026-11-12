@@ -17,7 +17,7 @@ from mxdata import ROOT, DATA
 
 # (fichier de description, nom du bloc, champs obligatoires)
 BLOCKS = [('langue.json', 'LANG_DATA', ['order', 'code', 'articles', 'plural', 'tts', 'chars', 'charsUp']),
-          ('utilisateur.json', 'USER_DATA', ['order', 'code', 'name', 'locale', 'dir', 'articles', 'elided', 'gramNoteWords'])]
+          ('utilisateur.json', 'USER_DATA', ['order', 'code', 'name', 'selfFrom', 'locale', 'dir', 'articles', 'elided', 'gramNoteWords'])]
 begin = lambda n: f'/* {n}:BEGIN (généré par tools/build_app.py, ne pas éditer) */'
 end = lambda n: f'/* {n}:END */'
 
@@ -49,6 +49,11 @@ def main():
         if not m:
             raise SystemExit(f'balises {name} absentes de index.html')
         new = new[:m.start()] + block(name, collect(fname, req)) + new[m.end():]
+    # paires publiées : lists-<L>-<U>.json présents
+    m = re.search(re.escape(begin('PAIRS')) + r'.*?' + re.escape(end('PAIRS')), new, re.S)
+    if m:
+        pairs = sorted([os.path.basename(p)[6:-5].split('-') for p in glob.glob(os.path.join(ROOT, 'lists-*-*.json'))])
+        new = new[:m.start()] + f"{begin('PAIRS')}\nconst PAIRS = {json.dumps(pairs)};\n{end('PAIRS')}" + new[m.end():]
     # textes de l'interface : i18n/<langue>.json
     m = re.search(re.escape(begin('I18N_DATA')) + r'.*?' + re.escape(end('I18N_DATA')), new, re.S)
     if m:
@@ -56,6 +61,13 @@ def main():
               for p in sorted(glob.glob(os.path.join(ROOT, 'i18n', '*.json')))}
         if 'fr' not in tr or any(v is None for v in tr['fr'].values()):
             raise SystemExit('i18n/fr.json absent ou incomplet (valeurs nulles : lancer tools/i18n_proof.py --write)')
+        # traductions : mêmes emplacements, pluriels et balises que le français (tools/i18n_check.py)
+        from i18n_check import check
+        for l, d in tr.items():
+            if l != 'fr':
+                errs, _ = check(l, tr['fr'], d)
+                if errs:
+                    raise SystemExit(f'i18n/{l}.json : {len(errs)} erreurs, ex. {errs[:3]} (voir tools/i18n_check.py)')
         # chaque langue apprise a ses libellés en français (nom, adjectifs…) et ses passages du guide
         for l in collect(*BLOCKS[0][::2]):
             miss = [f for f in ('name', 'adj', 'adjf', 'adjs', 'the', 'of', 'charsLabel', 'sampleQ', 'bulkEx', 'bulkFmt', 'legend')
