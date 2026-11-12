@@ -115,7 +115,13 @@ Phrases de Memolex qui ont une traduction **directe** sur Tatoeba (sans passer p
 | italien → espagnol | 7 % | 7 % |
 | italien → allemand | 11 % | 12 % |
 
-**Conséquence** : les phrases ont été choisies pour leur traduction française. Pour une nouvelle paire, il faut **choisir de nouvelles phrases** parmi celles du même mot qui ont une traduction directe dans la langue de l'utilisateur (le format le permet : une langue apprise peut avoir plusieurs phrases par carte, chaque paire ne publie que celles qu'elle traduit). La sélection (règles du § 2 de la procédure) devra être refaite par paire, avec les mêmes contrôles. Jamais de traduction indirecte (phrase allemande → traduction française → traduction espagnole) : c'est un pivot.
+**Conséquence et choix retenu (12/11/2026, question d'Andrea : « ces exemples ne sont pas traduisibles ? »)** : on garde les mêmes phrases dans toutes les paires (elles ont été relues et corrigées ; changer de phrases obligerait à refaire ce travail par paire). Pour chaque nouvelle paire :
+1. traduction Tatoeba **directe** quand elle existe (humaine, souvent native) ;
+2. sinon, traduction rédigée pour Memolex **à partir de la phrase de la langue apprise**, jamais à partir d'une autre traduction (pas de pivot), marquée `mx` au niveau de la paire ;
+3. mêmes contrôles (`ex_gloss` dans la langue de l'utilisateur) et même seuil (échantillon relu ≥ 95 % juste). Relecteur : Andrea pour l'italien ; à trouver pour l'espagnol.
+Licence : CC BY 2.0 FR autorise la traduction avec attribution ; crédit « phrase : auteur Tatoeba · traduction : Memolex ».
+Adaptation technique à faire : origine de la traduction au niveau de la paire (`data/<L>-<U>/examples.tsv`), crédits en conséquence.
+Volume pour l'allemand : ~2 200 traductions à rédiger vers l'anglais, ~4 400 vers l'espagnol, ~5 300 vers l'italien.
 
 ## Limites connues (à traiter dans les étapes suivantes)
 
