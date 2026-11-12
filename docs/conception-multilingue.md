@@ -204,6 +204,7 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - **Interface anglaise** `i18n/en.json` : 575 messages, 0 erreur (`i18n_check`). Textes français restés en dur et désormais traduisibles : crédits (chargement, anonyme, erreur), « N mots » des lots et des niveaux, nom d'un lot de niveau, « N exemples ».
 - **Corrigé dans de-fr** : *stimmen* s'affichait « c'est vrai) » au recto (le « = » dans la parenthèse). Nouvelle traduction libre « être exact ; Das stimmt. = c'est vrai » (recto « être exact ; c'est vrai », expression au verso).
 - Non-régression (référence 1.9.2) : seules différences = *stimmen* (voulu) et l'état des notifications de l'écran Stats (chargement asynchrone, aléatoire). 0 erreur JavaScript.
+- **1.9.4 (retour d'Andrea : français mêlé à l'anglais au verso)** : les textes des cas, écrits en français dans `data/de/langue.json` (« Dat. ou Akk. », « temps (im Mai) : toujours datif »), passent par l'interface (`caseText.*`, 19 messages ; la logique du quiz lit toujours le texte d'origine) ; « singulier », « pluriel : », « N cartes » (réglage du minimum) et le bandeau « DÉJÀ VUE » étaient restés en dur. Balayage de contrôle : tous les mots A1, tous les écrans et une session complète en anglais, sans texte français restant. Français inchangé (non-régression).
 - Reste : relecture par échantillon (Andrea), puis A2 à C2 par niveau ; *Wie spricht man mit Frauen?* porte l'étiquette « comme » en de-fr (devrait être « comment »).
 
 ## Limites connues (à traiter dans les étapes suivantes)
