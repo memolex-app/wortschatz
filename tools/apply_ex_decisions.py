@@ -11,7 +11,7 @@ Réappliquer un fichier déjà appliqué est sans effet.
 Usage : python3 tools/apply_ex_decisions.py de data/de/decisions/2026-11-12-phrases.tsv [--dry]
 """
 import glob, json, os, sys
-from mxdata import DATA, read_tsv, write_tsv
+from mxdata import DATA, read_tsv, write_rows
 
 
 def rehighlight(old, new, hl):
@@ -45,11 +45,10 @@ def apply(L, path, dry=False):
     already = want - found
     keep = [e for e in src if e['id'] not in drop]
     if not dry:
-        write_tsv(f'{d}/examples.tsv', ['id', 'key', 'sentence', 'highlight', 'origin'],
-                  [[e['id'], e['key'], e['sentence'], e['highlight'], e['origin']] for e in keep])
+        write_rows(f'{d}/examples.tsv', keep, ['id', 'key', 'sentence', 'highlight', 'origin'])
         for p in glob.glob(os.path.join(DATA, f'{L}-*', 'examples.tsv')):
             tr = [t for t in read_tsv(p) if t['id'] not in drop]
-            write_tsv(p, ['id', 'translation', 'sense_label'], [[t['id'], t['translation'], t['sense_label']] for t in tr])
+            write_rows(p, tr, ['id', 'translation', 'sense_label'])
     print(f'{len(drop)} phrases retirées, {len(already)} déjà absentes' + (' (essai, rien écrit)' if dry else ''))
     left = {e['key'] for e in keep}
     gone = sorted({k for k, _ in found} - left)

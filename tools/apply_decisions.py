@@ -17,7 +17,7 @@ réappliqué sans effet.
 Usage : python3 tools/apply_decisions.py de fr data/de-fr/decisions/2026-11-11-ambig-1.tsv [--dry]
 """
 import os, re, sys
-from mxdata import DATA, NONE, read_tsv, write_tsv, split_senses, join_senses
+from mxdata import DATA, NONE, read_tsv, write_tsv, write_rows, split_senses, join_senses
 
 ART = re.compile(r"^(?:(?:le|la|les|un|une|des|se)\s+|l'|s')", re.I)
 
@@ -85,8 +85,7 @@ def apply(L, U, path, dry=False):
         write_tsv(f'{d}/senses.tsv', ['sense', 'key'], new_senses)
         write_tsv(f'{p}/glosses.tsv', ['sense', 'gloss'], [[sid, glosses[sid]] for sid, _ in new_senses])
         write_tsv(f'{p}/cards.tsv', ['key', 'translation'], [[c['key'], c['translation']] for c in cards])
-        write_tsv(f'{p}/examples.tsv', ['id', 'translation', 'sense_label'],
-                  [[t['id'], t['translation'], t['sense_label']] for t in ex_tr])
+        write_rows(f'{p}/examples.tsv', ex_tr, ['id', 'translation', 'sense_label'])
     for k, o, n in changed:
         print(f'{k} : {o}  →  {n}')
     print(f'{len(changed)} cartes modifiées, {unlabelled} phrases sans étiquette de sens'

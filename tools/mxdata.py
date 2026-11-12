@@ -76,6 +76,12 @@ def read_tsv(path):
         return [dict(zip(head, row)) for row in r]
 
 
+def write_rows(path, rows, base):
+    """Réécrit un TSV de dictionnaires en gardant toutes ses colonnes (base d'abord, puis les colonnes en plus)."""
+    head = list(base) + [k for r in rows[:1] for k in r if k not in base]
+    write_tsv(path, head, [[r.get(k, '') for k in head] for r in rows])
+
+
 def dump(obj):
     """Écriture des JSON publiés : compacte, sans retour à la ligne final (format historique)."""
     return json.dumps(obj, ensure_ascii=False, separators=(',', ':'))

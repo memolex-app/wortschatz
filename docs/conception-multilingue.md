@@ -1,6 +1,6 @@
 # Memolex multilingue : conception
 
-État : **étapes 1 et 2 faites** (11/11/2026). Ce document est la référence ; il est mis à jour à chaque étape.
+État : **étapes 1, 2 et 3 faites** (12/11/2026) ; dette qualité de l'allemand soldée (versions 1.8.2 à 1.8.5). Ce document est la référence ; il est mis à jour à chaque étape.
 
 ## Objectif
 
@@ -95,11 +95,33 @@ Ces contrôles n'avaient jamais tourné sur les données allemandes publiées. R
 - *versus* : cas non trouvé dans une source fiable, laissé hors de la table des cas (seule alerte restante).
 - Règle validée par Andrea (11/11/2026) : pour de vrais synonymes, le mot de base peut porter « (courant) » quand ses synonymes plus rares sont tous marqués (soutenu, familier…) ; ce n'est pas l'étiquette vide « terme courant » retirée en octobre.
 
+## Étape 3 : numéros Tatoeba et crédits (faite, 12/11/2026, version 1.8.6)
+
+- `tools/tatoeba_link.py L U <exports>` : ajoute `tatoeba` (numéro) et `author` à `data/<L>/examples.tsv` (phrase) et `data/<L>-<U>/examples.tsv` (traduction). Choix entre doublons Tatoeba : paire citée dans les anciens crédits, puis paire liée sur Tatoeba, puis numéro le plus ancien. Exports : https://downloads.tatoeba.org/exports/per_language/ (`<l3>_sentences_detailed.tsv`, `<l3>-<u3>_links.tsv`), téléchargés hors du dépôt.
+- Exception : `data/<L>/tatoeba_manual.tsv` (phrase gardée dans une version différente de Tatoeba : *Sie hört Podcasts, um …* ; Tatoeba a depuis écrit « hört Podcasts zu », moins correct).
+- 3 traductions fautives corrigées d'après la version actuelle de Tatoeba (*Elle dors* → *dort*, *réagit* → *réagi*, accord) : `data/de-fr/decisions/2026-11-12-traductions-phrases.tsv`.
+- `build.py` génère désormais `credits-L-U.json` (une ligne par paire publiée, triée par numéro de phrase). de-fr : 6 129 → 5 728 paires, 569 → 550 contributeurs ; it-fr : 4 320 → 4 307. Aucune paire ni aucun auteur nouveau : seules disparaissent les phrases qui ne sont plus publiées.
+- Les outils de décisions conservent désormais toutes les colonnes des fichiers (`write_rows`).
+
+### Couverture Tatoeba pour les futures langues d'utilisateur (12/11/2026)
+Phrases de Memolex qui ont une traduction **directe** sur Tatoeba (sans passer par une autre langue) :
+
+| Langue apprise → langue de l'utilisateur | Phrases traduites | Cartes qui gardent au moins une phrase |
+|---|---|---|
+| allemand → anglais | 61 % | 64 % |
+| allemand → espagnol | 23 % | 25 % |
+| allemand → italien | 7 % | 8 % |
+| italien → anglais | 52 % | 52 % |
+| italien → espagnol | 7 % | 7 % |
+| italien → allemand | 11 % | 12 % |
+
+**Conséquence** : les phrases ont été choisies pour leur traduction française. Pour une nouvelle paire, il faut **choisir de nouvelles phrases** parmi celles du même mot qui ont une traduction directe dans la langue de l'utilisateur (le format le permet : une langue apprise peut avoir plusieurs phrases par carte, chaque paire ne publie que celles qu'elle traduit). La sélection (règles du § 2 de la procédure) devra être refaite par paire, avec les mêmes contrôles. Jamais de traduction indirecte (phrase allemande → traduction française → traduction espagnole) : c'est un pivot.
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
-2. **Phrases sans numéro Tatoeba.** Les identifiants sont provisoires (`clé@n`). Pour proposer la même phrase aux anglophones ou aux hispanophones, il faut retrouver le numéro Tatoeba de chaque phrase (export Tatoeba accessible depuis l'atelier) et récupérer ses traductions dans les autres langues. Les crédits seront alors générés automatiquement, au lieu de l'actuel `credits-*.json` figé.
-3. **Non migrés** : le dictionnaire (`dict-de-fr.json`, 46 029 mots, importé d'une source externe) et les crédits. Ils restent tels quels pour l'instant.
+2. ~~Phrases sans numéro Tatoeba~~ : réglé à l'étape 3 (les identifiants internes `clé@n` restent, le numéro Tatoeba est une colonne).
+3. **Non migré** : le dictionnaire (`dict-de-fr.json`, 46 029 mots, importé d'une source externe). Il reste tel quel pour l'instant.
 4. **Grammaire écrite dans l'appli** : `LANGS`, `ART_RE`, `PREP_CASE`, couleurs de genre, tout cela est dans `index.html` et pensé pour de/it. À déplacer dans un fichier de description par langue (`data/<L>/langue.json` : genres, articles, élision, cas, ce qu'on fait deviner).
 5. **Interface entièrement en français** : tous les textes de l'appli sont écrits en dur. À extraire dans des fichiers de traduction de l'interface.
 6. **Langue de l'utilisateur fixée au français** dans l'appli (`dataFile = k-LANG-fr.json`, article français, comparaisons « le / la / l' »).
@@ -112,7 +134,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 |---|---|---|
 | 1 | Format source + build à l'identique | ✅ 6/6 fichiers identiques |
 | 2 | Contrôles sur le format source, par paire (`tools/check.py`) | ✅ sorties identiques sur `data/` et sur les JSON (de-fr, it-fr, contrôles rapides et complets) |
-| 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ≥ 99 % des phrases Tatoeba retrouvées ; crédits identiques ou plus complets |
+| 3 | Numéros Tatoeba retrouvés pour chaque phrase, crédits générés | ✅ 100 % (de-fr 5 821, it-fr 4 435) ; crédits générés : toutes les paires et tous les auteurs déjà présents dans les anciens crédits, les phrases retirées n'y figurent plus |
 | 4 | Grammaire par langue sortie de l'appli (`langue.json`) | appli de/it inchangée à l'usage (tests Playwright) |
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | appli en français inchangée ; textes extraits |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | chaque mot à plusieurs sens relu ; build de-fr toujours identique en contenu |

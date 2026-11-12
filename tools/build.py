@@ -1,7 +1,7 @@
 """Génère les fichiers lus par l'appli à partir du format source data/.
 
 Usage :
-  python3 tools/build.py de fr            -> lists-de-fr.json, chunks-de-fr.json, examples-de-fr.json
+  python3 tools/build.py de fr            -> lists-, chunks-, examples-, credits-de-fr.json
   python3 tools/build.py de fr --check    -> compare au fichier publié sans rien écrire (0 différence attendue)
 """
 import json, os, sys, hashlib
@@ -51,7 +51,25 @@ def build(L, U):
             e.append('mx')
         examples.setdefault(app[r['key']], []).append(e)
 
-    return {'lists': lists, 'chunks': chunks, 'examples': examples}
+    # crédits Tatoeba (CC BY 2.0 FR) : une ligne par paire phrase / traduction publiée, triée par numéro de phrase
+    tr_by_id = ex_tr
+    pairs = set()
+    for r in read_tsv(f'{d}/examples.tsv'):
+        t = tr_by_id.get(r['id'])
+        if t and r['origin'] != 'mx' and r.get('tatoeba') and t.get('tatoeba'):
+            pairs.add((int(r['tatoeba']), r.get('author', ''), int(t['tatoeba']), t.get('author', '')))
+    users, idx, c = [], {}, []
+    for li, la, ui, ua in sorted(pairs):
+        for a in (la, ua):
+            if a not in idx:
+                idx[a] = len(users); users.append(a)
+        c.append([li, idx[la], ui, idx[ua]])
+    credits = {'u': users, 'c': c}
+
+    out = {'lists': lists, 'chunks': chunks, 'examples': examples}
+    if c:                                           # paire sans numéros Tatoeba : crédits publiés laissés tels quels
+        out['credits'] = credits
+    return out
 
 
 def main():
