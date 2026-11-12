@@ -1,0 +1,40 @@
+{
+ "order": 2,
+ "code": "EN",
+ "name": "English",
+ "locale": "en-GB",
+ "dir": "ltr",
+ "articles": [
+  {
+   "a": "the",
+   "kind": "def"
+  },
+  {
+   "a": "a",
+   "kind": "indef"
+  },
+  {
+   "a": "an",
+   "kind": "indef"
+  },
+  {
+   "a": "some",
+   "kind": "part"
+  }
+ ],
+ "elided": [],
+ "gramNoteWords": [
+  "singular",
+  "plural",
+  "collective",
+  "dative",
+  "accusative",
+  "genitive",
+  "nominative",
+  "\\bacc",
+  "\\bdat",
+  "\\+",
+  "="
+ ],
+ "selfFrom": "English"
+}

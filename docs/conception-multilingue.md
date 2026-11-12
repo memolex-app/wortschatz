@@ -193,6 +193,19 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Outil : `tools/apply_sense_merges.py` (fichier `data/de/decisions/2026-11-12-sens.tsv` : clé · groupes « 1+2 », « 1+2|3 » · motif ; idempotent). `apply_decisions.py` garde le regroupement quand une correction conserve le nombre de traductions (sinon : avertissement) et refuse un fichier qui n'a pas le format des décisions sur les cartes.
 - Corrigé au passage : le fichier des 3 traductions de phrases (`phrases-2026-11-12-traductions.tsv`, renommé) aurait été pris pour des traductions de cartes si l'on rejouait toutes les décisions ; `prep_case.py` lit désormais la table des cas dans `data/de/langue.json` (oubli de l'étape 4).
 
+## Étape 8 : allemand depuis l'anglais, essai A1 (en cours, 12/11/2026, version 1.9.3)
+
+- **Paire en essai** : `data/<L>-<U>/pair.json` = `{"status": "essai"}`. `build.py` publie alors seulement les cartes dont tous les sens sont traduits (ou qui ont une traduction libre), avec leurs chunks et leurs phrases ; une paire sans ce statut doit être complète (sinon erreur, comme avant). `build_app.py` ajoute « essai » en 3e élément de `PAIRS` ; l'appli cache ces paires (`PAIRS_ON`) sauf après une ouverture avec **`?essai=1`** (mémorisé, `mx-essai` ; `?essai=0` le retire). Un niveau sans mots affiche « Bientôt » et ne s'ouvre pas.
+- **Crédits** : phrase allemande de Tatoeba traduite par Memolex (pas de traduction anglaise directe sur Tatoeba) = ligne `[n° allemand, auteur, 0, « Memolex »]` ; l'appli affiche « traduction Memolex ». Crédits de-fr et it-fr identiques à l'octet.
+- **de-en A1** : 600 mots, 683 sens, 890 traductions anglaises (`glosses.tsv`), 600 chunks, 769 phrases (464 traductions Tatoeba directes, choisies et relues une à une ; 305 traductions Memolex), 89 étiquettes de sens (sur les cartes à plusieurs sens seulement : traduction anglaise du sens étiqueté en français). Traductions libres : *los*, *setzen*, *stimmen*.
+- Conventions anglaises : verbes avec « to » (*to live* / *life*), noms sans article, nuance entre parenthèses ; pas de « = » dans une parenthèse (l'appli lit « allemand = traduction » comme une expression : cf. *stimmen* ci-dessous).
+- **Dictionnaire provisoire** `dict-de-en.json` (`tools/dict_from_lists.py de en`) : les mots déjà traduits des listes, genre/pluriel/fréquence repris de `dict-de-fr.json`. Le grand dictionnaire allemand-français n'a pas d'équivalent anglais.
+- `data/en/utilisateur.json` (articles the/a/an/some, pas d'élision : l'expression de l'appli gère maintenant une liste vide) ; `check_dups` et `chunks_check` lisent les articles de la langue de l'utilisateur (`common.user_art_re`) et tournent pour l'anglais.
+- **Interface anglaise** `i18n/en.json` : 575 messages, 0 erreur (`i18n_check`). Textes français restés en dur et désormais traduisibles : crédits (chargement, anonyme, erreur), « N mots » des lots et des niveaux, nom d'un lot de niveau, « N exemples ».
+- **Corrigé dans de-fr** : *stimmen* s'affichait « c'est vrai) » au recto (le « = » dans la parenthèse). Nouvelle traduction libre « être exact ; Das stimmt. = c'est vrai » (recto « être exact ; c'est vrai », expression au verso).
+- Non-régression (référence 1.9.2) : seules différences = *stimmen* (voulu) et l'état des notifications de l'écran Stats (chargement asynchrone, aléatoire). 0 erreur JavaScript.
+- Reste : relecture par échantillon (Andrea), puis A2 à C2 par niveau ; *Wie spricht man mit Frauen?* porte l'étiquette « comme » en de-fr (devrait être « comment »).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. ~~Sens initialisés depuis le français~~ (réglé à l'étape 6 pour l'allemand ; à faire pour l'italien avant sa première paire non française). Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).
@@ -215,7 +228,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | ✅ 5.1 à 5.4 (mécanisme) : appli française inchangée (sauf corrections voulues), textes extraits et prouvés ; traductions au moment de chaque paire |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | ✅ 2 222 mots relus ; build de-fr identique à l'octet |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
-| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | idem |
+| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | A1 en essai (1.9.3) ; puis A2 à C2 ; même seuil |
 | … | Une paire à la fois | idem |
 
 ## Règles de qualité (rappel)

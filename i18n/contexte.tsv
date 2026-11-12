@@ -503,3 +503,12 @@ renderGuide.a_revoir_les_mots_a	<b>À revoir</b> : les mots à revoir maintenant
 renderGuide.mots_tout_ton_vocabulaire_ajoute	<b>Mots</b> : tout ton vocabulaire ajouté, vu ou pas encore.	ots à revoir maintenant (en apprentissage et révisions du jour).</li>       <li><b>Mots</b> : tout ton vocabulaire ajouté, vu ou pas encore.</li>       <li><b>La barre sous les com
 renderGuide.la_barre_sous_les_compteurs	<b>La barre sous les compteurs</b> détaille où en sont tes mots : <b>À découvrir</b> (ajoutés, jamais vus), <b>En apprentissage</b> (passages de session en session), <b>En révision</b> (programmés en jours), <b>Acquis</b> (intervalle de plus de 3 semaines). Touche une catégorie pour voir ses mots.	<li><b>Mots</b> : tout ton vocabulaire ajouté, vu ou pas encore.</li>       <li><b>La barre sous les compteurs</b> détaille où en sont tes mots : <b>À découvrir</b> (ajoutés, jamais vus), <b>En apprentissage</b> (passages de session en session), <b>En révision</b> (programmés en jours), <b>Acquis</b> (intervalle de plus de 3 semaines). Touche une catégorie pour voir ses mots.</li>       <li><b>Acquis</b> : les mots
 renderGuide.acquis_les_mots_dont_l	<b>Acquis</b> : les mots dont l'intervalle dépasse 3 semaines. C'est le vrai indicateur de progrès.	de plus de 3 semaines). Touche une catégorie pour voir ses mots.</li>       <li><b>Acquis</b> : les mots dont l'intervalle dépasse 3 semaines. C'est le vrai indicateur de progrès.</li>     </ul></section>   </article>`;
+loadCredits.chargement	Chargement…	Guide > crédits des phrases : pendant le chargement de la liste
+loadCredits.anonyme	anonyme	Guide > crédits : contributeur Tatoeba sans nom
+loadCredits.erreur	La liste n'a pas pu se charger.	Guide > crédits : échec du chargement
+loadCredits.traduction_memolex	traduction Memolex	Guide > crédits : à la place du numéro Tatoeba quand la traduction a été faite par Memolex
+batchesHTML.n_mots	{0} {1:one=mot|other=mots}	Mots > lots ajoutés : nombre de mots du lot ({0} nombre formaté, {1} nombre pour le pluriel)
+levelsHTML.n_sur_n_mots	{0} / {1} {2:one=mot|other=mots}	Ajouter > niveau : mots déjà ajoutés / total ({2} nombre pour le pluriel)
+levelsHTML.bientot	Bientôt	Ajouter > niveau pas encore disponible dans cette langue (traduction en cours)
+newBatch.niveau_mots	{0} · mots {1}–{2}	Nom d'un lot ajouté depuis un niveau : niveau · mots n°{1} à {2} de la liste
+exampleHTML.n_exemples	{0} {0:one=exemple|other=exemples}	Verso d'une carte : bouton qui déplie les phrases d'exemple

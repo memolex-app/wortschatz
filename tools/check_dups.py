@@ -10,7 +10,8 @@ from common import load, shown, strip_note, PAIR
 def ignored_keys():
     p = os.path.join(os.path.dirname(os.path.abspath(__file__)), f'ignore_check_dups_{PAIR}.txt')
     return {l.split('#')[0].strip() for l in open(p, encoding='utf-8')} - {''} if os.path.exists(p) else set()
-ART = re.compile(r"^(?:(?:le|la|les|un|une|des)\s+|l')", re.I)
+from common import user_art_re
+ART = user_art_re()          # articles de la langue de l'utilisateur (français : le, la, les, un, une, des, l')
 def norm_full(s):
     return [ART.sub('', p.strip()).lower() for p in re.split(r'[;,](?![^(]*\))', s) if p.strip()]
 def key_nat(c): return c['nat']

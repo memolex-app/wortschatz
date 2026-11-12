@@ -53,6 +53,9 @@ def main():
     m = re.search(re.escape(begin('PAIRS')) + r'.*?' + re.escape(end('PAIRS')), new, re.S)
     if m:
         pairs = sorted([os.path.basename(p)[6:-5].split('-') for p in glob.glob(os.path.join(ROOT, 'lists-*-*.json'))])
+        # paire en essai (data/<L>-<U>/pair.json) : 3e élément « essai », cachée dans l'appli sauf adresse ?essai=1
+        from build import pair_status
+        pairs = [pr + [pair_status(*pr)] if pair_status(*pr) else pr for pr in pairs]
         new = new[:m.start()] + f"{begin('PAIRS')}\nconst PAIRS = {json.dumps(pairs)};\n{end('PAIRS')}" + new[m.end():]
     # textes de l'interface : i18n/<langue>.json
     m = re.search(re.escape(begin('I18N_DATA')) + r'.*?' + re.escape(end('I18N_DATA')), new, re.S)

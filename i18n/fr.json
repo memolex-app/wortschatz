@@ -564,5 +564,14 @@
  "lang.it.art.gli|m": "gli (pluriel)",
  "lang.it.art.le|f": "le (pluriel)",
  "renderLangPick.depuis_ta_langue": "Depuis {0}. Chaque langue a ses propres mots, sa progression et ses compteurs. Pour changer plus tard, touche le nom de la langue, en haut de l'écran.",
- "renderLangPick.ta_langue": "Ta langue"
+ "renderLangPick.ta_langue": "Ta langue",
+ "loadCredits.chargement": "Chargement…",
+ "loadCredits.anonyme": "anonyme",
+ "loadCredits.erreur": "La liste n'a pas pu se charger.",
+ "loadCredits.traduction_memolex": "traduction Memolex",
+ "batchesHTML.n_mots": "{0} {1:one=mot|other=mots}",
+ "levelsHTML.n_sur_n_mots": "{0} / {1} {2:one=mot|other=mots}",
+ "levelsHTML.bientot": "Bientôt",
+ "newBatch.niveau_mots": "{0} · mots {1}–{2}",
+ "exampleHTML.n_exemples": "{0} {0:one=exemple|other=exemples}"
 }

@@ -40,6 +40,15 @@ def shown(c):
     a = c['art']
     return (a + c['w']) if a.endswith("'") else ((a + ' ' + c['w']) if a else c['w'])
 
+def user_art_re(pair=None):
+    """Articles de la langue de l'utilisateur en tête d'une traduction (data/<U>/utilisateur.json) : « le », « l' », « the »…"""
+    U = (pair or PAIR).split('-')[1]
+    d = json.load(open(os.path.join(HERE, '..', 'data', U, 'utilisateur.json'), encoding='utf-8'))
+    arts = '|'.join(re.escape(a['a']) for a in d['articles'])
+    eli = '|'.join(re.escape(e) for e in d.get('elided', []))
+    return re.compile(rf"^(?:(?:{arts})\s+" + (rf"|(?:{eli})'" if eli else '') + ')', re.I)
+
+
 def strip_note(s):
     return re.sub(r'\s*\([^)]*\)', '', s).strip()
 
