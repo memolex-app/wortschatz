@@ -193,7 +193,7 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Outil : `tools/apply_sense_merges.py` (fichier `data/de/decisions/2026-11-12-sens.tsv` : clé · groupes « 1+2 », « 1+2|3 » · motif ; idempotent). `apply_decisions.py` garde le regroupement quand une correction conserve le nombre de traductions (sinon : avertissement) et refuse un fichier qui n'a pas le format des décisions sur les cartes.
 - Corrigé au passage : le fichier des 3 traductions de phrases (`phrases-2026-11-12-traductions.tsv`, renommé) aurait été pris pour des traductions de cartes si l'on rejouait toutes les décisions ; `prep_case.py` lit désormais la table des cas dans `data/de/langue.json` (oubli de l'étape 4).
 
-## Étape 8 : allemand depuis l'anglais, essai A1 (en cours, 12/11/2026, version 1.9.3)
+## Étape 8 : allemand depuis l'anglais (paire complète en essai, 12/11/2026, versions 1.9.3 à 1.9.9)
 
 - **Paire en essai** : `data/<L>-<U>/pair.json` = `{"status": "essai"}`. `build.py` publie alors seulement les cartes dont tous les sens sont traduits (ou qui ont une traduction libre), avec leurs chunks et leurs phrases ; une paire sans ce statut doit être complète (sinon erreur, comme avant). `build_app.py` ajoute « essai » en 3e élément de `PAIRS` ; l'appli cache ces paires (`PAIRS_ON`) sauf après une ouverture avec **`?essai=1`** (mémorisé, `mx-essai` ; `?essai=0` le retire). Un niveau sans mots affiche « Bientôt » et ne s'ouvre pas.
 - **Crédits** : phrase allemande de Tatoeba traduite par Memolex (pas de traduction anglaise directe sur Tatoeba) = ligne `[n° allemand, auteur, 0, « Memolex »]` ; l'appli affiche « traduction Memolex ». Crédits de-fr et it-fr identiques à l'octet.
@@ -205,7 +205,10 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - **Corrigé dans de-fr** : *stimmen* s'affichait « c'est vrai) » au recto (le « = » dans la parenthèse). Nouvelle traduction libre « être exact ; Das stimmt. = c'est vrai » (recto « être exact ; c'est vrai », expression au verso).
 - Non-régression (référence 1.9.2) : seules différences = *stimmen* (voulu) et l'état des notifications de l'écran Stats (chargement asynchrone, aléatoire). 0 erreur JavaScript.
 - **1.9.4 (retour d'Andrea : français mêlé à l'anglais au verso)** : les textes des cas, écrits en français dans `data/de/langue.json` (« Dat. ou Akk. », « temps (im Mai) : toujours datif »), passent par l'interface (`caseText.*`, 19 messages ; la logique du quiz lit toujours le texte d'origine) ; « singulier », « pluriel : », « N cartes » (réglage du minimum) et le bandeau « DÉJÀ VUE » étaient restés en dur. Balayage de contrôle : tous les mots A1, tous les écrans et une session complète en anglais, sans texte français restant. Français inchangé (non-régression).
-- Reste : relecture par échantillon (Andrea), puis A2 à C2 par niveau ; *Wie spricht man mit Frauen?* porte l'étiquette « comme » en de-fr (devrait être « comment »).
+- **A2 à C2 (1.9.5 à 1.9.9)**, un niveau par version, même méthode : sens et chunks traduits par lots (`glosses`/`chunks`), phrases (traduction Tatoeba directe quand elle existe, sinon traduction Memolex faite depuis l'allemand, jamais depuis le français), étiquettes de sens relues sur les cartes à plusieurs sens, puis contrôles. Ambiguïtés levées à chaque niveau en ajoutant une nuance à la carte sans nuance (« (common) » sur le mot de base, « (man) »/« (woman) » pour les paires masculin/féminin, nuance de sens sinon) : A2 14, B1 80, B2 112, C1 144, C2 132.
+- **Paire complète** : 7 777 mots, 8 436 sens, 7 777 chunks, toutes les phrases des listes ; `dict-de-en.json` = 7 777 mots. Contrôles : doublons 0, ambiguës 0, chunks 0 ; `prep_case` signale *versus* (déjà signalé en de-fr, préposition absente de la table des cas : à décider). Non-régression française : seule différence *stimmen* (voulu) + état aléatoire des notifications.
+- Corrigé en de-fr : *Wie spricht man mit Frauen?* étiqueté « comment » (au lieu de « comme »).
+- Reste : relecture par échantillon (Andrea) avant de lever le statut d'essai ; textes des notifications serveur et de `sw.js` encore en français.
 
 ## Limites connues (à traiter dans les étapes suivantes)
 
@@ -229,7 +232,7 @@ Chaque étape a son critère de sortie. Rien n'est publié tant qu'il n'est pas 
 | 5 | Appli : langue de l'utilisateur variable (`L-U`), interface traduisible | ✅ 5.1 à 5.4 (mécanisme) : appli française inchangée (sauf corrections voulues), textes extraits et prouvés ; traductions au moment de chaque paire |
 | 6 | Relecture des sens allemands (fusion des faux doubles) | ✅ 2 222 mots relus ; build de-fr identique à l'octet |
 | 7 | Première nouvelle paire : français → anglais ou espagnol (nouvelle liste) | échantillon de 300 cartes ≥ 95 % juste ; contrôles à 0 |
-| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | A1 en essai (1.9.3) ; puis A2 à C2 ; même seuil |
+| 8 | Première nouvelle langue d'utilisateur : anglais → allemand (traduction des sens) | A1 à C2 traduits, en essai (1.9.9) ; reste l'échantillon ≥ 95 % juste |
 | … | Une paire à la fois | idem |
 
 ## Règles de qualité (rappel)
