@@ -1,11 +1,5 @@
 {
  "code": "DE",
- "name": "Allemand",
- "adj": "allemand",
- "adjf": "allemande",
- "adjs": "allemands",
- "the": "l'allemand",
- "of": "de l'allemand",
  "bravo": "Perfekt!",
  "chars": [
   "ä",
@@ -22,13 +16,9 @@
   "Ö",
   "Ü"
  ],
- "charsLabel": "Lettres allemandes",
  "sample": "Schmetterling",
  "sampleEx": "Ein Schmetterling sitzt auf der Blume.",
  "samplePl": "-e, ¨-er, -n…",
- "sampleQ": "Hund, gehen… ou en français : papillon",
- "bulkEx": "die Rechnung, -en ; la facture&#10;bestellen ; commander&#10;das Mittel, - ; le moyen",
- "bulkFmt": "der Hund, -e ; le chien",
  "order": 1,
  "tts": {
   "tag": "de-DE",
@@ -80,22 +70,7 @@
    "das"
   ]
  ],
- "legend": "<span><i class=\"dot d-der\"></i>der · masculin</span><span><i class=\"dot d-die\"></i>die · féminin</span><span><i class=\"dot d-das\"></i>das · neutre</span><span><i class=\"dot d-none\"></i>sans article</span>",
  "cases": {
-  "names": [
-   [
-    "Akk",
-    "Accusatif"
-   ],
-   [
-    "Dat",
-    "Datif"
-   ],
-   [
-    "Gen",
-    "Génitif"
-   ]
-  ],
   "prep": {
    "mit": "Dat.",
    "von": "Dat.",
@@ -265,7 +240,12 @@
    "reagieren auf": "Akk.",
    "hoffen auf": "Akk.",
    "sich vorbereiten auf": "Akk."
-  }
+  },
+  "codes": [
+   "Akk",
+   "Dat",
+   "Gen"
+  ]
  },
  "dictDefinitions": true
 }

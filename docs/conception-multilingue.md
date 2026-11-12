@@ -166,6 +166,13 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - `dictDefinitions` (description de la langue) : le dictionnaire contient des définitions dans la langue apprise (allemand : oui ; italien : non).
 - Seule différence voulue avec la 1.8.9 : le guide italien donnait l'exemple allemand « die Geduld » pour la lecture du nom avec son article ; il donne maintenant « la pazienza ». Preuve : 95/95 ; test d'écrans : cette seule différence.
 
+### 5.4, première partie (faite, 12/11/2026, version 1.9.1)
+- **Pluriels** : `{0:one=mot|other=mots}` dans un message choisit la forme selon le nombre `{0}` et les règles de la langue (`Intl.PluralRules` : one, two, few, many, other). 40 pluriels « à la française » convertis (`tools/js/plural_convert.mjs`, analyse du code avec acorn, en plusieurs passes pour les messages imbriqués). Preuve (`tools/js/plural_proof.mjs`) : 23 messages × toutes les combinaisons de 0, 1, 2, 3, 7, 21, 100, 1 000 000 = 352 cas, 0 différence.
+- **Quiz des cas** : noms des cas (`case.Akk`…) et verdicts complets par cas (« il fallait l’accusatif ») dans `i18n/` ; la description de l'allemand ne garde que les codes (`cases.codes`).
+- **Libellés des langues apprises** (nom, adjectifs, légende, formats d'exemple, libellés du menu « Article ») : `i18n/<langue>.json`, clés `lang.<langue apprise>.<champ>` ; `LUI(l)` les fusionne avec la description. `langue.json` ne contient plus que de la grammaire et des exemples dans la langue apprise. `build_app.py` refuse une langue apprise sans ses libellés français. Les noms de langue des notes grammaticales sont tirés des adjectifs.
+- Incident évité : la première conversion des pluriels a corrompu un message imbriqué ; détecté avant publication (code invalide), recommencé à partir de la sauvegarde avec un traitement en passes.
+- Test d'écrans : seule différence avec la 1.8.9, « la pazienza » (voulue).
+
 ## Limites connues (à traiter dans les étapes suivantes)
 
 1. **Sens initialisés depuis le français.** Un sens = une traduction française de la carte. Parfois ce sont vraiment deux sens (*Erleichterung* : le soulagement / l'allègement), parfois deux traductions du même sens (*sicher* : sûr / certain ; *in* : dans / en). Avant d'ajouter l'anglais, il faut relire les 2 239 mots allemands à plusieurs sens et fusionner les faux doubles (le sens fusionné garde ses deux traductions françaises).

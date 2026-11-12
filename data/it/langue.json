@@ -1,11 +1,5 @@
 {
  "code": "IT",
- "name": "Italien",
- "adj": "italien",
- "adjf": "italienne",
- "adjs": "italiens",
- "the": "l'italien",
- "of": "de l'italien",
  "bravo": "Perfetto!",
  "chars": [
   "à",
@@ -24,13 +18,9 @@
   "ù",
   "È"
  ],
- "charsLabel": "Lettres accentuées",
  "sample": "farfalla",
  "sampleEx": "Una farfalla si posa sul fiore.",
  "samplePl": "le farfalle, gli amici…",
- "sampleQ": "cane, andare… ou en français : papillon",
- "bulkEx": "la fattura, le fatture ; la facture&#10;ordinare ; commander&#10;l'amico, gli amici ; l'ami",
- "bulkFmt": "il cane, i cani ; le chien",
  "order": 2,
  "tts": {
   "tag": "it-IT",
@@ -85,7 +75,7 @@
   ],
   [
    "l'|m",
-   "l' (masc.)"
+   "l'"
   ],
   [
    "la|f",
@@ -93,21 +83,20 @@
   ],
   [
    "l'|f",
-   "l' (fém.)"
+   "l'"
   ],
   [
    "i|m",
-   "i (pluriel)"
+   "i"
   ],
   [
    "gli|m",
-   "gli (pluriel)"
+   "gli"
   ],
   [
    "le|f",
-   "le (pluriel)"
+   "le"
   ]
  ],
- "legend": "<span><i class=\"dot d-der\"></i>masculin · il, lo, l'</span><span><i class=\"dot d-die\"></i>féminin · la, l'</span><span><i class=\"dot d-none\"></i>sans article</span>",
  "dictDefinitions": false
 }

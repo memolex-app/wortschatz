@@ -16,7 +16,7 @@ import glob, json, os, re, sys
 from mxdata import ROOT, DATA
 
 # (fichier de description, nom du bloc, champs obligatoires)
-BLOCKS = [('langue.json', 'LANG_DATA', ['order', 'code', 'name', 'adj', 'articles', 'plural', 'tts', 'chars', 'charsUp']),
+BLOCKS = [('langue.json', 'LANG_DATA', ['order', 'code', 'articles', 'plural', 'tts', 'chars', 'charsUp']),
           ('utilisateur.json', 'USER_DATA', ['order', 'code', 'name', 'locale', 'dir', 'articles', 'elided', 'gramNoteWords'])]
 begin = lambda n: f'/* {n}:BEGIN (généré par tools/build_app.py, ne pas éditer) */'
 end = lambda n: f'/* {n}:END */'
@@ -56,6 +56,12 @@ def main():
               for p in sorted(glob.glob(os.path.join(ROOT, 'i18n', '*.json')))}
         if 'fr' not in tr or any(v is None for v in tr['fr'].values()):
             raise SystemExit('i18n/fr.json absent ou incomplet (valeurs nulles : lancer tools/i18n_proof.py --write)')
+        # chaque langue apprise a ses libellés en français (nom, adjectifs…) et ses passages du guide
+        for l in collect(*BLOCKS[0][::2]):
+            miss = [f for f in ('name', 'adj', 'adjf', 'adjs', 'the', 'of', 'charsLabel', 'sampleQ', 'bulkEx', 'bulkFmt', 'legend')
+                    if f'lang.{l}.{f}' not in tr['fr']]
+            if miss:
+                raise SystemExit(f'i18n/fr.json : libellés manquants pour la langue apprise « {l} » : {miss}')
         new = new[:m.start()] + block('I18N', tr).replace(begin('I18N'), begin('I18N_DATA')).replace(end('I18N'), end('I18N_DATA')) + new[m.end():]
     if '--check' in sys.argv:
         ok = new == src
