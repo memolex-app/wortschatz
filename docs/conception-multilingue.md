@@ -121,6 +121,8 @@ Phrases de Memolex qui ont une traduction **directe** sur Tatoeba (sans passer p
 3. mêmes contrôles (`ex_gloss` dans la langue de l'utilisateur) et même seuil (échantillon relu ≥ 95 % juste). Relecteur : Andrea pour l'italien ; à trouver pour l'espagnol.
 Licence : CC BY 2.0 FR autorise la traduction avec attribution ; crédit « phrase : auteur Tatoeba · traduction : Memolex ».
 Adaptation technique à faire : origine de la traduction au niveau de la paire (`data/<L>-<U>/examples.tsv`), crédits en conséquence.
+**Chunks** (rappel d'Andrea, 12/11/2026) : ils ont été rédigés pour Memolex, ils n'ont pas de source extérieure. Le chunk de la langue apprise (`data/<L>/chunks.tsv`) est le même pour toutes les paires ; chaque paire reçoit sa traduction rédigée depuis ce chunk (`data/<L>-<U>/chunks.tsv`), avec les règles du § 2 bis de la procédure (traduction naturelle, registre conservé).
+**Relecture** (décision d'Andrea, 12/11/2026) : on rédige d'abord ; les corrections se font **après, par échantillon**, avec les contrôles automatiques à chaque étape.
 Volume pour l'allemand : ~2 200 traductions à rédiger vers l'anglais, ~4 400 vers l'espagnol, ~5 300 vers l'italien.
 
 ## Limites connues (à traiter dans les étapes suivantes)
