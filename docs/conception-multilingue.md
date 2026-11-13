@@ -222,6 +222,7 @@ Découpage : 5.1 langue de l'utilisateur variable ; 5.2 textes courts de l'inter
 - Dictionnaire provisoire `dict-de-it.json` (`tools/dict_from_lists.py de it`) : 7 777 mots. Interface `i18n/it.json`, notifications (`TXT.it`, `SWT.it`) déjà en italien.
 - Contrôle final par échantillon (Claude, à la demande d'Andrea) : 70 cartes et 25 phrases tirées au hasard, justes. Balayage de l'appli en italien (tous les mots, recto et verso) : 0 erreur JavaScript.
 - **Paire ouverte à tous : version 2.1.6** (`pair.json` retiré).
+- **versus réglé : version 2.1.7** (décision d'Andrea) : ajouté à la table des cas comme « nom sans article, sans cas : Theorie versus Praxis » (comme *voller*) ; affiché au verso, jamais proposé au quiz des cas. `prep_case` à 0 dans toutes les paires. Non-régression : seules différences = la carte *versus*.
 
 ## Limites connues (à traiter dans les étapes suivantes)
 

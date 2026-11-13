@@ -525,6 +525,7 @@ caseText.Gén. ; um … willen	Gén. ; um … willen	Cas régi par une préposit
 caseText.Gén. ou Dat.	Gén. ou Dat.	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
 caseText.Gén., placé après le nom	Gén., placé après le nom	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
 caseText.nom sans article : voller Wasser	nom sans article : voller Wasser	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
+caseText.nom sans article, sans cas : Theorie versus Praxis	nom sans article, sans cas : Theorie versus Praxis	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
 caseText.temps (im Mai) : toujours datif	temps (im Mai) : toujours datif	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
 caseText.date (am Montag) : toujours datif	date (am Montag) : toujours datif	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
 caseText.« auf Deutsch », « warten auf » : toujours accusatif	« auf Deutsch », « warten auf » : toujours accusatif	Cas régi par une préposition ou un verbe (data/de/langue.json), affiché au verso ; abréviations allemandes des cas (Akk., Dat., Gen.)
